@@ -76,6 +76,7 @@
    	<term abbr="EST" full="Enrollment over Secure Transport"></term>
    	<term abbr="KDF" full="Key Derivation Function"></term>
    	<term abbr="OCSP" full="Online Certificate Status Protocol"></term>
+   	<term abbr="RFC" full="Request for Comment"></term>
    </tech-terms>
 	
      
@@ -83,6 +84,8 @@
 <!-- 1.3 Compliant Targets of Evaluation	-->
 <!--			-->
     <sec:toes title="Compliant Targets of Evaluation">
+    	<comment>test</comment>
+    	
 		<h:p>The TOE in this FP is the portion of product that provides X.509 capabilities to other portions of the TSF, such as 
 			functions for subject authentication, 
 			trusted communications, validation of TOE software/firmware updates, or integrity verification as part of self-testing. 
@@ -253,6 +256,34 @@
 		</ext-comp-def>
 		
 		<f-component name="X.509 Certificate Validation" cc-id="fia_x509_ext.1">
+			<f-element id="fia-x509-ext-1e1">
+				<title>
+					The 					<selectables>
+						<selectable>TSF</selectable>
+						<selectable>TOE platform</selectable></selectables>
+					shall validate certificates in accordance with the following rules:
+					<h:ul>
+						<h:li>RFC 5280 certificate validation and certificate path validation supporting a minimum path length of 
+							<assignable>positive integer</assignable> 
+							shall be used.</h:li>
+						<h:li>The certification path shall terminate with a trusted CA certificate designated as a trust anchor.</h:li>
+						<h:li>All CA certificates in the certification path shall contain the basicConstraints extension with the CA flag set to TRUE.</h:li>
+						<h:li>The revocation status of the certificate shall be validated using <selectables linebreak="yes">
+							<selectable>The Online Certificate Status Protocol (OCSP) as specified in RFC 6960</selectable>
+							<selectable>Certificate Revocation Lists (CRL) as specified in RFC 5280 and refined by RFC 8603</selectable>
+							<selectable>An OCSP TLS Status Request Extension (OCSP stapling) as specified in RFC 6066</selectable>
+							<selectable>An OCSP TLS Multi-Certificate Status Request Extension (OCSP multi-stapling) as specified in RFC 6961</selectable>
+						</selectables> and with <selectables>
+							<selectable>no exceptions</selectable>
+							<selectable>exceptions defined in FIA_X509_EXT.5</selectable></selectables>	
+							<!-- CONTINUE ON WITH REST OF LIST -->
+						</h:li>
+
+						
+						
+					</h:ul>
+				</title>
+			</f-element>
 			
 			
 			<audit-event>
@@ -291,7 +322,44 @@
 		</f-component>
 		
 		<f-component name="Exceptions to X.509 Certificate Revocation Checking" cc-id="fia_x509_ext.5">
-			
+			<f-element id="fia-x509-ext-5e1">
+				<title>The 
+					<selectables>
+						<selectable>TSF</selectable>
+						<selectable>TOE platform</selectable></selectables>
+					shall provide alternate functionality to standard X.509 certificate revocation checking 
+					for the following exceptions: 
+					<selectables linebreak="yes">
+						<selectable>firmware checking of updates: 
+							invalidate automatic updates if the firmware certificate is compromised</selectable>
+						<selectable><assignable>other exceptions and corresponding functionality</assignable></selectable></selectables>.
+					</title>
+				<aactivity>
+					<TSS>
+						<h:p>
+							The evaluator shall ensure the TSS describes, for each exception, the alternate functionality the TOE implements to 
+							handle the lack of certificate revocation. The description must be consistent with the selection in the requirement.
+						</h:p>
+					</TSS>
+					<Guidance>
+						<h:p>
+							If revocation exceptions are configurable, 
+							the evaluator shall ensure the guidance documentation includes the exceptions that can be configured 
+							and the steps for doing this.
+						</h:p>
+					</Guidance>
+					<Tests>
+						<h:p>
+							For each exception, the evaluator shall configure the TSF as necessary to meet the exceptional condition described and exercise the 
+							function using a certificate chain without revocation information. 
+							The evaluator shall attempt to examine TSF logs or behavior as described in the TSS to confirm the alternative action 
+							described is performed. For example, in the case of firmware updates that invalidate automatic updates, 
+							the evaluator shall invoke an automatic update and observe that the update is not performed. 
+							In other cases, the TSS describes the alternative action.
+						</h:p>
+					</Tests>
+				</aactivity>
+			</f-element>
 			<audit-event/>
 		</f-component>
 	
