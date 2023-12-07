@@ -288,7 +288,7 @@
 								in RFC 6961</selectable>
 						</selectables> and with <selectables>
 							<selectable>no exceptions</selectable>
-							<selectable>exceptions defined in FIA_X509_EXT.5</selectable></selectables></h:li>
+							<selectable>exceptions defined in <xref to="fia_x509_ext.5"/></selectable></selectables></h:li>
 						<h:li>The TSF shall validate the extendedKeyUsage (EKU) field according to the following rules: 
 							<selectables linebreak="yes">
 							<selectable>Certificates used for trusted updates and executable code integrity verification shall have the
@@ -303,7 +303,7 @@
 										purpose (id-kp-cmcRA with OID 1.3.6.1.5.5.7.3.28)</selectable>
 							<selectable><assignable>other expected EKU values</assignable></selectable></selectables>
 						</h:li>
-							<h:li><selectables linebreak="yes">
+							<h:li><selectables>
 							<selectable>no other rules</selectable>
 							<selectable><assignable>additional certificate evaluation rules</assignable></selectable></selectables>
 						</h:li>
@@ -340,7 +340,7 @@
 					<Tests>
 						<h:p>
 							The tests described must be performed in conjunction with the other certificate services evaluation
-							activities, including the functions in FIA_X509_EXT.2.1. The tests for the extendedKeyUsage rules are
+							activities, including the functions in <xref to="fia-x509-ext-2e1"/>. The tests for the extendedKeyUsage rules are
 							performed in conjunction with the uses that require those rules. If the TSF supports chains of length four
 							or greater, the evaluator shall create a chain of at least four certificates: the node certificate to be
 							tested, two Intermediate CAs, and the root CA. If the TSF supports chains of length three, then only one
@@ -386,7 +386,7 @@
 								then the following tests shall be performed for each method:
 								<h:ul>
 									<h:li>
-										The evaluator shall test revocation of the node certificate
+										The evaluator shall test revocation of the node certificate.
 									</h:li>
 									<h:li>
 										The evaluator shall also test revocation of an intermediate CA certificate (i.e., the intermediate
@@ -415,8 +415,8 @@
 								</h:p>
 								
 								<h:p>
-									Note: The intent of this test is to ensure a TSF does not trust invalid revocation status information.
-									A TSF receiving invalid revocation status information from the only advertised certificate status
+									Note: The intent of this test is to ensure a TOE does not trust invalid revocation status information.
+									A TOE receiving invalid revocation status information from the only advertised certificate status
 									provider should treat the certificate whose status is being checked as invalid. This should generally
 									be treated differently from the case where the TSF is not able to establish a connection to check
 									revocation status information, but it is acceptable that the TSF ignore any invalid information and
@@ -428,24 +428,24 @@
 							<test>
 								<h:p>
 									The evaluator shall modify any byte in the first eight bytes of the certificate and demonstrate that
-									the certificate fails to validate. (The certificate will fail to parse correctly.)
+									the certificate fails to validate (i.e., the certificate will fail to parse correctly).
 								</h:p>
 							</test>
 							<test>
 								<h:p>
 									The evaluator shall modify any byte in the last byte of the certificate and demonstrate that the
-									certificate fails to validate. (The signature on the certificate will not validate.)	
+									certificate fails to validate (i.e., the signature on the certificate will not validate).	
 								</h:p>
 							</test>							
 							<test>
 								<h:p>
 									The evaluator shall modify any byte in the public key of the certificate and demonstrate that the
-									certificate fails to validate. (The signature on the certificate will not validate.)
+									certificate fails to validate (i.e., the signature on the certificate will not validate).
 								</h:p>
 							</test>
 							<test>
 								<h:p>
-									(Conditional on support for EC certificates). The evaluator shall establish a valid, trusted
+									(Conditional on support for EC certificates) The evaluator shall establish a valid, trusted
 									certificate chain consisting of an EC leaf certificate, an EC Intermediate CA certificate not
 									designated as a trust anchor, and an EC certificate designated as a trusted anchor, where the
 									elliptic curve parameters are specified as a named curve. The evaluator shall confirm that the TOE
@@ -454,7 +454,7 @@
 							</test>
 							<test>
 								<h:p>
-									(Conditional on support for EC certificates). The evaluator shall replace the intermediate
+									(Conditional on support for EC certificates) The evaluator shall replace the intermediate
 									certificate in the certificate chain for the previous test with a modified certificate, where the
 									modified intermediate CA has a public key information field where the EC parameters uses an explicit
 									format version of the Elliptic Curve parameters in the public key information field of the
@@ -465,7 +465,7 @@
 							</test>
 							<test>
 								<h:p>
-									(conditional on support for EC certificates): The evaluator shall establish a subordinate CA
+									(conditional on support for EC certificates) The evaluator shall establish a subordinate CA
 									certificate, where the elliptic curve parameters are specified as a named curve, that is signed by a
 									trusted EC root CA. The evaluator shall attempt to load the certificate into the trust store and
 									observe that it is accepted into the TOE's trust store. The evaluator shall then establish a
@@ -488,7 +488,7 @@
 		</f-component>
 		
 		<f-component name="X.509 Certificate Usage" cc-id="fia_x509_ext.2">
-			<f-element id="fia-x509-ext2e1">
+			<f-element id="fia-x509-ext-2e1">
 				<title>The
 					<selectables>
 						<selectable>TSF</selectable>
@@ -496,10 +496,18 @@
 					shall use X.509v3 certificates as defined by RFC 5280 to support authentication for 
 					<selectables linebreak="yes">
 						<selectable><assignable>trusted communications protocol</assignable></selectable>
-						<selectable>no protocols</selectable></selectables>.
+						<selectable>no protocols</selectable></selectables>
+					and <selectables>
+						<selectable>code signing for system software updates</selectable>
+						<selectable>code signing for software integrity testing</selectable>
+						<selectable>integrity verification for TSF protected data</selectable>
+						<selectable>Administrator authentication</selectable>
+						<selectable>user authentication</selectable>
+						<selectable><assignable>other uses</assignable></selectable>
+						<selectable>no additional uses</selectable></selectables>.
 				</title>
 			</f-element>
-			<f-element id="fia-x509-ext2e2">
+			<f-element id="fia-x509-ext-2e2">
 				<title>When the
 					<selectables>
 						<selectable>TSF</selectable>
@@ -508,7 +516,7 @@
 					<selectables>
 						<selectable>allow the Administrator to choose whether to accept the certificate in these cases</selectable>
 						<selectable>accept the certificate</selectable>
-						<selectable>not accept the certificate</selectable></selectables>
+						<selectable>not accept the certificate</selectable></selectables>.
 				</title>
 			<aactivity> 
 					<TSS>
@@ -544,7 +552,7 @@
 									The evaluator shall demonstrate that using a valid certificate that requires certificate validation
 									checking to be performed in at least some part by communicating with a non-TOE IT entity. The
 									evaluator shall then manipulate the environment so that the TOE is unable to verify the validity of
-									the certificate and observe that the action selected in FIA_X509_EXT.2.2 is performed. If the selected
+									the certificate and observe that the action selected in <xref to="fia-x509-ext-2e2"/> is performed. If the selected
 									action is administrator-configurable, then the evaluator shall follow the guidance documentation to
 									determine that all supported administrator-configurable options behave in their documented manner.
 								</h:p>
@@ -563,7 +571,7 @@
 								</h:p>
 								
 								<h:p>
-									The evaluator will ensure that the certificates are validated by the OS per FIA_X509_EXT.1.1 and then
+									The evaluator will ensure that the certificates are validated by the OS per <xref to="fia-x509-ext-1e1"/> and then
 									conduct the following two tests:
 								</h:p>
 							</test>
@@ -588,7 +596,7 @@
 		</f-component>
 		
 		<f-component name="X.509 Certificate Requests" cc-id="fia_x509_ext.3">
-			<f-element id="fia-x509-ext3e1">
+			<f-element id="fia-x509-ext-3e1">
 				<title>The
 					<selectables>
 						<selectable>TSF</selectable>
@@ -604,12 +612,12 @@
 						<selectable><assignable>other information</assignable></selectable></selectables>.
 				</title>
 			</f-element>
-			<f-element id="fia-x509-ext3e2">
+			<f-element id="fia-x509-ext-3e2">
 				<title>The
 					<selectables>
 						<selectable>TSF</selectable>
 						<selectable>TOE platform</selectable></selectables>
-					shall validate the chain of certificates from the Root CA upon receiving the CA Certificate Response
+					shall validate the chain of certificates from the Root CA upon receiving the CA Certificate Response.
 				</title>
 				<aactivity> 
 					<TSS>
@@ -695,8 +703,8 @@
 				</title>
 			</f-element>
 			<f-element id="fia-x509-ext-4e8">
-				<title>	The TSF shall validate the chain of certificates from the Root CA certificate in the Trust Anchor Database to
-					the EST Server CA certificate upon receiving a CA Certificates Response.				
+				<title>The TSF shall validate the chain of certificates from the Root CA certificate in the Trust Anchor Database to
+					the EST Server CA certificate upon receiving a CA Certificate Response.				
 				</title>
 				<aactivity>
 					<TSS>
