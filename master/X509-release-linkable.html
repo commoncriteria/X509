@@ -633,7 +633,7 @@ function showTarget(id){
     </span></a><a href="#optional-reqs-audit" style="text-indent:20px">A.1.1<span>
               Auditable Events for Strictly Optional  Requirements
            </span></a><a href="#-optional" style="text-indent:20px">A.1.2<span>Identification and Authentication (FIA)</span></a><a href="#objective-reqs" style="text-indent:10px">A.2<span>Objective  Requirements
-    </span></a><a href="#feat-based-reqs" style="text-indent:10px">A.3<span>Implementation-based  Requirements
+    </span></a><a href="#feat-based-reqs" style="text-indent:10px">A.3<span>Implementation-dependent  Requirements
     </span></a><a href="#sel-based-reqs" style="text-indent:0px">Appendix B - <span>Selection-based  Requirements
     </span></a><a href="#sel-based-reqs-audit" style="text-indent:10px">B.1<span>
               Auditable Events for Selection-based  Requirements
@@ -1076,36 +1076,34 @@ The following sections list Common Criteria and technology terms used in this do
 
 <h1 id="opt-app" class="indexable" data-level="A">Appendix A -  Optional Requirements</h1>
     As indicated in the introduction to this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Package, the baseline requirements (those that must be
-	  performed by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>) are contained in the body of this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Package<a id="period_137" href="#period_137">. </a>    This appendix contains three other types of optional requirements that may be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>, but are not required in order
-	  to conform to this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Package<a id="period_138" href="#period_138">. </a>    However, applied modules, packages and/or use cases may refine specific requirements as mandatory<a id="period_139" href="#period_139">. </a><br><br>
+	  performed by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>) are contained in the body of this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Package<a id="period_137" href="#period_137">. </a>    This appendix contains three other types of optional requirements:<br><br>
 
-   The first type (<a href="#optional-reqs" class="dynref">A.1 Strictly Optional  Requirements</a>) are strictly optional requirements that are independent of the
-	  <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implementing any function<a id="period_140" href="#period_140">. </a>   If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> fulfills any of these requirements or supports a certain functionality, the vendor is encouraged to include the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>
-	  in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>, but are not required in order to conform to this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Package<a id="period_141" href="#period_141">. </a><br><br>
+   The first type, defined in Appendix <a href="#optional-reqs" class="dynref">A.1 Strictly Optional  Requirements</a>, are strictly optional requirements<a id="period_138" href="#period_138">. </a>   If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> meets any of these requirements the vendor is encouraged to claim the associated <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>
+	  in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>, but doing so is not required in order to conform to this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Package<a id="period_139" href="#period_139">. </a><br><br>
 
-  The second type (<a href="#objective-reqs" class="dynref">A.2 Objective  Requirements</a>) are objective requirements that describe security functionality not yet 
-	  widely available in commercial technology<a id="period_142" href="#period_142">. </a>   The requirements are not currently mandated in the body of this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Package, but will be included in
-	  the baseline requirements in future versions of this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Package<a id="period_143" href="#period_143">. </a>Adoption by vendors is
-	  encouraged and expected as soon as possible<a id="period_144" href="#period_144">. </a><br><br>
+  The second type, defined in Appendix <a href="#objective-reqs" class="dynref">A.2 Objective  Requirements</a>, are objective requirements<a id="period_140" href="#period_140">. </a>These describe security functionality that is not yet 
+	  widely available in commercial technology<a id="period_141" href="#period_141">. </a>
+   Objective requirements are not currently mandated by this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Package, but will be mandated in
+	  the future<a id="period_142" href="#period_142">. </a>Adoption by vendors is encouraged, but claiming these <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> is not required in order to conform to this
+	  <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Package<a id="period_143" href="#period_143">. </a><br><br>
 
-  The third type (<a href="#feat-based-reqs" class="dynref">A.3 Implementation-based  Requirements</a>) 
-are dependent on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implementing a particular function<a id="period_145" href="#period_145">. </a>If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> fulfills any of these requirements, the vendor must either add the related <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> or disable the functionality for the
-	  evaluated configuration<a id="period_146" href="#period_146">. </a>
+  The third type, defined in Appendix <a href="#feat-based-reqs" class="dynref">A.3 Implementation-dependent  Requirements</a>, are Implementation-dependent requirements<a id="period_144" href="#period_144">. </a>	If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements the product features associated with the listed <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>, either the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> must be claimed
+	or the product features must be disabled in the evaluated ocnfiguration<a id="period_145" href="#period_145">. </a>
   <h2 id="optional-reqs" class="indexable" data-level="2">A.1 Strictly Optional  Requirements
     </h2><h3 id="optional-reqs-audit" class="indexable" data-level="3">A.1.1 
               Auditable Events for Strictly Optional  Requirements
            </h3>
-<p> The auditable events in the table below are included in a Security Target if both the associated requirement is included and the incorporating <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> supports audit event reporting through FAU_GEN.1 and any other criteria in the incorporating <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> are met<a id="period_147" href="#period_147">. </a></p>
-		   <table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="t-audit-optional" data-counter-type="ct-Table" id="t-audit-optional">Table <span class="counter">2</span></span>: Auditable Events for Strictly Optional Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FIA_X509_EXT.3"><td rowspan="2"><a href="#FIA_X509_EXT.3">FIA_X509_EXT.3</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_X509_EXT.3#"><td></td></tr><tr data-sortkey="FIA_X509_EXT.3.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FIA_X509_EXT.4"><td rowspan="4"><a href="#FIA_X509_EXT.4">FIA_X509_EXT.4</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_X509_EXT.4#"><td></td></tr><tr data-sortkey="FIA_X509_EXT.4.10"><td>Update of <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> trust anchor database<a id="period_148" href="#period_148">. </a></td><td>Subject name of added root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr><a id="period_149" href="#period_149">. </a></td></tr><tr data-sortkey="FIA_X509_EXT.4.8"><td>Generation of certificate enrollment request<a id="period_150" href="#period_150">. </a></td><td><ul><li>Issuer and subject name of <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> Server<a id="period_151" href="#period_151">. </a></li><li>Method of authentication<a id="period_152" href="#period_152">. </a></li><li>Issuer and subject name of certificate used to authenticate<a id="period_153" href="#period_153">. </a></li><li>Content of certificate request message<a id="period_154" href="#period_154">. </a></li></ul></td></tr><tr data-sortkey="FIA_X509_EXT.4.9"><td>Success or failure of enrollment<a id="period_155" href="#period_155">. </a></td><td>Issuer and subject name of added certificate or reason for failure<a id="period_156" href="#period_156">. </a></td></tr></table><h3 id="-optional" class="indexable" data-level="3">A.1.2 Identification and Authentication (FIA)</h3><div class="comp" id="FIA_X509_EXT.3"><h4>FIA_X509_EXT.3 X.509 Certificate Requests</h4>
+<p> The auditable events in the table below are included in a Security Target if both the associated requirement is included and the incorporating <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> supports audit event reporting through FAU_GEN.1 and any other criteria in the incorporating <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> are met<a id="period_146" href="#period_146">. </a></p>
+		   <table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="t-audit-optional" data-counter-type="ct-Table" id="t-audit-optional">Table <span class="counter">2</span></span>: Auditable Events for Strictly Optional Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FIA_X509_EXT.3"><td rowspan="2"><a href="#FIA_X509_EXT.3">FIA_X509_EXT.3</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_X509_EXT.3#"><td></td></tr><tr data-sortkey="FIA_X509_EXT.3.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FIA_X509_EXT.4"><td rowspan="4"><a href="#FIA_X509_EXT.4">FIA_X509_EXT.4</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_X509_EXT.4#"><td></td></tr><tr data-sortkey="FIA_X509_EXT.4.10"><td>Update of <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> trust anchor database<a id="period_147" href="#period_147">. </a></td><td>Subject name of added root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr><a id="period_148" href="#period_148">. </a></td></tr><tr data-sortkey="FIA_X509_EXT.4.8"><td>Generation of certificate enrollment request<a id="period_149" href="#period_149">. </a></td><td><ul><li>Issuer and subject name of <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> Server<a id="period_150" href="#period_150">. </a></li><li>Method of authentication<a id="period_151" href="#period_151">. </a></li><li>Issuer and subject name of certificate used to authenticate<a id="period_152" href="#period_152">. </a></li><li>Content of certificate request message<a id="period_153" href="#period_153">. </a></li></ul></td></tr><tr data-sortkey="FIA_X509_EXT.4.9"><td>Success or failure of enrollment<a id="period_154" href="#period_154">. </a></td><td>Issuer and subject name of added certificate or reason for failure<a id="period_155" href="#period_155">. </a></td></tr></table><h3 id="-optional" class="indexable" data-level="3">A.1.2 Identification and Authentication (FIA)</h3><div class="comp" id="FIA_X509_EXT.3"><h4>FIA_X509_EXT.3 X.509 Certificate Requests</h4>
 			<div class="element"><div class="reqid" id="FIA_X509_EXT.3.1"><a href="#FIA_X509_EXT.3.1" class="abbr">FIA_X509_EXT.3.1</a></div><div class="reqdesc">The
 					[<b>selection</b>: <span class="selectable-content" id="_s_33"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>,  <span class="selectable-content" id="_s_34"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span> ]
 					shall generate a Certificate Request as specified by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 2986 and be able to provide the following information in the
 					request: public key and 
 					[<b>selection</b>: <span class="selectable-content" id="_s_35">device-specific information</span>,  <span class="selectable-content" id="_s_36">Common Name</span>,  <span class="selectable-content" id="_s_37">Organization</span>,  <span class="selectable-content" id="_s_38">Organizational Unit</span>,  <span class="selectable-content" id="_s_39">Country</span>,  <span class="selectable-content" id="_s_40">[<b>assignment</b>: 
-     <span class="assignable-content">other information</span>]</span> ]<a id="period_157" href="#period_157">. </a>				</div></div>
+     <span class="assignable-content">other information</span>]</span> ]<a id="period_156" href="#period_156">. </a>				</div></div>
 			<div class="element"><div class="reqid" id="FIA_X509_EXT.3.2"><a href="#FIA_X509_EXT.3.2" class="abbr">FIA_X509_EXT.3.2</a></div><div class="reqdesc">The
 					[<b>selection</b>: <span class="selectable-content" id="_s_41"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>,  <span class="selectable-content" id="_s_42"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span> ]
-					shall validate the chain of certificates from the Root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> upon receiving the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Certificate Response<a id="period_158" href="#period_158">. </a>				</div></div>
+					shall validate the chain of certificates from the Root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> upon receiving the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Certificate Response<a id="period_157" href="#period_157">. </a>				</div></div>
 									
 			
 		<div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FIA_X509_EXT.3">FIA_X509_EXT.3</a></div> 
@@ -1115,49 +1113,49 @@ are dependent on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> i
 				<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">
 						<p>
 							If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author selects "device-specific information" or &#8220;other information,&#8221; the evaluator shall verify
-							that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> contains a description of the device-specific fields used in certificate requests<a id="period_159" href="#period_159">. </a>						</p>
+							that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> contains a description of the device-specific fields used in certificate requests<a id="period_158" href="#period_158">. </a>						</p>
 					</div><div class="eacategory">Guidance</div><div class="ea">
 						<p>
 							The evaluator shall check to ensure that the guidance documentation contains instructions on requesting
-							certificates from a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>, including generation of a Certificate Request<a id="period_160" href="#period_160">. </a>If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author selects "Common Name",
+							certificates from a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>, including generation of a Certificate Request<a id="period_159" href="#period_159">. </a>If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author selects "Common Name",
 							"Organization", "Organizational Unit", or "Country", the evaluator shall ensure that this guidance includes
-							instructions for establishing these fields before creating the Certificate Request<a id="period_161" href="#period_161">. </a>						</p>
+							instructions for establishing these fields before creating the Certificate Request<a id="period_160" href="#period_160">. </a>						</p>
 					</div><div class="eacategory">Tests</div><div class="ea">
 						<span class="testlist-"><ul>
 							<li class="test-"><a id="_t_15" class="defined" href="#_t_15">Test FIA_X509_EXT.3:1</a>:
       
 								<p>
-									The evaluator shall use the guidance documentation to cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to generate a Certificate Request<a id="period_162" href="#period_162">. </a>									The evaluator shall capture the generated message and ensure that it conforms to the format specified<a id="period_163" href="#period_163">. </a>									The evaluator shall confirm that the Certificate Request provides the public key and other required
-									information, including any necessary user-input information<a id="period_164" href="#period_164">. </a>								</p>
+									The evaluator shall use the guidance documentation to cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to generate a Certificate Request<a id="period_161" href="#period_161">. </a>									The evaluator shall capture the generated message and ensure that it conforms to the format specified<a id="period_162" href="#period_162">. </a>									The evaluator shall confirm that the Certificate Request provides the public key and other required
+									information, including any necessary user-input information<a id="period_163" href="#period_163">. </a>								</p>
 							</li>
 							<li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test FIA_X509_EXT.3:2</a>:
       
 								<p>
 									The evaluator shall demonstrate that validating a response message to a Certificate Request without a
-									valid certification path results in the function failing<a id="period_165" href="#period_165">. </a>The evaluator shall then load one or more
+									valid certification path results in the function failing<a id="period_164" href="#period_164">. </a>The evaluator shall then load one or more
 									certificates into the trust store used by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that are used as CAs to validate the certificate
-									response message and demonstrate that the function succeeds<a id="period_166" href="#period_166">. </a>								</p>
+									response message and demonstrate that the function succeeds<a id="period_165" href="#period_165">. </a>								</p>
 							</li>
 						</ul></span>
 					</div></div></div></div><div class="comp" id="FIA_X509_EXT.4"><h4>FIA_X509_EXT.4 X.509 Certificate Enrollment</h4>
 			<div class="element"><div class="reqid" id="FIA_X509_EXT.4.1"><a href="#FIA_X509_EXT.4.1" class="abbr">FIA_X509_EXT.4.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use the Enrollment over Secure Transport (<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>) protocol as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 to request
-					certificate enrollment using the simple enrollment method described in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.2<a id="period_167" href="#period_167">. </a>				</div></div>
+					certificate enrollment using the simple enrollment method described in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.2<a id="period_166" href="#period_166">. </a>				</div></div>
 			<div class="element"><div class="reqid" id="FIA_X509_EXT.4.2"><a href="#FIA_X509_EXT.4.2" class="abbr">FIA_X509_EXT.4.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of authenticating <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> requests using an existing certificate and corresponding private
-					key as specified by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 3.3.2<a id="period_168" href="#period_168">. </a>				</div></div>
+					key as specified by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 3.3.2<a id="period_167" href="#period_167">. </a>				</div></div>
 			<div class="element"><div class="reqid" id="FIA_X509_EXT.4.3"><a href="#FIA_X509_EXT.4.3" class="abbr">FIA_X509_EXT.4.3</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of authenticating <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> requests using <abbr class="dyn-abbr"><a href="#abbr_HTTP">HTTP</a></abbr> Basic Authentication with a username and
-					password as specified by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 3.2.3<a id="period_169" href="#period_169">. </a>				</div></div>
+					password as specified by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 3.2.3<a id="period_168" href="#period_168">. </a>				</div></div>
 			<div class="element"><div class="reqid" id="FIA_X509_EXT.4.4"><a href="#FIA_X509_EXT.4.4" class="abbr">FIA_X509_EXT.4.4</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server authentication using an Explicit Trust Anchor following the rules described in
-					<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030, section 3.6.1<a id="period_170" href="#period_170">. </a>				</div></div>
-			<div class="element"><div class="reqid" id="FIA_X509_EXT.4.5"><a href="#FIA_X509_EXT.4.5" class="abbr">FIA_X509_EXT.4.5</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of requesting server-provided private keys as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.4<a id="period_171" href="#period_171">. </a>				</div></div>
+					<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030, section 3.6.1<a id="period_169" href="#period_169">. </a>				</div></div>
+			<div class="element"><div class="reqid" id="FIA_X509_EXT.4.5"><a href="#FIA_X509_EXT.4.5" class="abbr">FIA_X509_EXT.4.5</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of requesting server-provided private keys as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.4<a id="period_170" href="#period_170">. </a>				</div></div>
 			<div class="element"><div class="reqid" id="FIA_X509_EXT.4.6"><a href="#FIA_X509_EXT.4.6" class="abbr">FIA_X509_EXT.4.6</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of updating its <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>-specific Trust Anchor Database using the "Root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Key Update" process
-					described in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.1.3<a id="period_172" href="#period_172">. </a>				
+					described in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.1.3<a id="period_171" href="#period_171">. </a>				
 				</div></div>
 			<div class="element"><div class="reqid" id="FIA_X509_EXT.4.7"><a href="#FIA_X509_EXT.4.7" class="abbr">FIA_X509_EXT.4.7</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a Certificate Request Message for <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 2986 and be able to provide the
 					following information in the request: public key and
 					[<b>selection</b>: <span class="selectable-content" id="_s_43">device-specific information</span>,  <span class="selectable-content" id="_s_44">Common Name</span>,  <span class="selectable-content" id="_s_45">Organization</span>,  <span class="selectable-content" id="_s_46">Organizational Unit</span>,  <span class="selectable-content" id="_s_47">Country</span>,  <span class="selectable-content" id="_s_48">[<b>assignment</b>: 
-     <span class="assignable-content">other information</span>]</span> ]<a id="period_173" href="#period_173">. </a>				</div></div>
+     <span class="assignable-content">other information</span>]</span> ]<a id="period_172" href="#period_172">. </a>				</div></div>
 			<div class="element"><div class="reqid" id="FIA_X509_EXT.4.8"><a href="#FIA_X509_EXT.4.8" class="abbr">FIA_X509_EXT.4.8</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate the chain of certificates from the Root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate in the Trust Anchor Database to
-					the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> Server <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate upon receiving a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Certificate Response<a id="period_174" href="#period_174">. </a>			
+					the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> Server <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate upon receiving a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Certificate Response<a id="period_173" href="#period_173">. </a>			
 				</div></div>
 			
 			
@@ -1170,72 +1168,72 @@ are dependent on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> i
 					
 				<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">
 						<p>
-							There are no <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> EAs for this component<a id="period_175" href="#period_175">. </a>						</p>
+							There are no <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> EAs for this component<a id="period_174" href="#period_174">. </a>						</p>
 					</div><div class="eacategory">Guidance</div><div class="ea">
 						<p>
 							The evaluator shall check to ensure that the operational guidance contains instructions on requesting
-							certificates from an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server, including generating a Certificate Request Message<a id="period_176" href="#period_176">. </a>						</p>
+							certificates from an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server, including generating a Certificate Request Message<a id="period_175" href="#period_175">. </a>						</p>
 					</div><div class="eacategory">Tests</div><div class="ea">
 						<span class="testlist-"><ul>
 							<li class="test-"><a id="_t_17" class="defined" href="#_t_17">Test FIA_X509_EXT.4:1</a>:
       
 						<p>
 							The evaluator shall use the operational guidance to cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request certificate enrollment from an
-							<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server using the simple enrollment method described in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.2<a id="period_177" href="#period_177">. </a>When doing this, the
+							<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server using the simple enrollment method described in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.2<a id="period_176" href="#period_176">. </a>When doing this, the
 							evaluator shall ensure that the certificate request to the server is authenticated using an existing
-							certificate and private key as described by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 3.3.2<a id="period_178" href="#period_178">. </a>The evaluator shall confirm that the
-							resulting certificate is successfully obtained and installed in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> key store<a id="period_179" href="#period_179">. </a>						</p>	
+							certificate and private key as described by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 3.3.2<a id="period_177" href="#period_177">. </a>The evaluator shall confirm that the
+							resulting certificate is successfully obtained and installed in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> key store<a id="period_178" href="#period_178">. </a>						</p>	
 							</li>
 							<li class="test-"><a id="_t_18" class="defined" href="#_t_18">Test FIA_X509_EXT.4:2</a>:
       
 								<p>
 									The evaluator shall use the operational guidance to cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request certificate enrollment
-									from an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server using the simple enrollment method described in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.2<a id="period_180" href="#period_180">. </a>When doing
+									from an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server using the simple enrollment method described in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.2<a id="period_179" href="#period_179">. </a>When doing
 									this, the evaluator shall ensure that the certificate request to the server is authenticated using a
-									username and password as described by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 3.2.3<a id="period_181" href="#period_181">. </a>The evaluator shall confirm that the
-									resulting certificate is successfully obtained and installed in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> key store<a id="period_182" href="#period_182">. </a>								</p>	
+									username and password as described by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 3.2.3<a id="period_180" href="#period_180">. </a>The evaluator shall confirm that the
+									resulting certificate is successfully obtained and installed in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> key store<a id="period_181" href="#period_181">. </a>								</p>	
 							</li>
 							<li class="test-"><a id="_t_19" class="defined" href="#_t_19">Test FIA_X509_EXT.4:3</a>:
       
 								<p>
 									The evaluator shall modify the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server to return a certificate containing a different public key
-									than the key included in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&#8217;s certificate request<a id="period_183" href="#period_183">. </a>The evaluator shall use the operational
-									guidance to cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request certificate enrollment from an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server<a id="period_184" href="#period_184">. </a>The evaluator shall
+									than the key included in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&#8217;s certificate request<a id="period_182" href="#period_182">. </a>The evaluator shall use the operational
+									guidance to cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request certificate enrollment from an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server<a id="period_183" href="#period_183">. </a>The evaluator shall
 									confirm that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not accept the resulting certificate since the public key in the issued
-									certificate does not match the public key in the certificate request<a id="period_185" href="#period_185">. </a>								</p>	
+									certificate does not match the public key in the certificate request<a id="period_184" href="#period_184">. </a>								</p>	
 							</li>
 							<li class="test-"><a id="_t_20" class="defined" href="#_t_20">Test FIA_X509_EXT.4:4</a>:
       
 								<p>
 									The evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server or use a man-in-the-middle tool to present a server
 									certificate to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that is present in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> general Trust Anchor Database but not its
-									<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>-specific Trust Anchor Database<a id="period_186" href="#period_186">. </a>The evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request certificate
-									enrollment from the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server<a id="period_187" href="#period_187">. </a>The evaluator shall verify that the request is not successful<a id="period_188" href="#period_188">. </a>								</p>	
+									<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>-specific Trust Anchor Database<a id="period_185" href="#period_185">. </a>The evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request certificate
+									enrollment from the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server<a id="period_186" href="#period_186">. </a>The evaluator shall verify that the request is not successful<a id="period_187" href="#period_187">. </a>								</p>	
 							</li>
 							<li class="test-"><a id="_t_21" class="defined" href="#_t_21">Test FIA_X509_EXT.4:5</a>:
       
 								<p>
 									The evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server or use a man-in-the-middle tool to present an invalid
-									certificate<a id="period_189" href="#period_189">. </a>The evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request certificate enrollment from the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server<a id="period_190" href="#period_190">. </a>									The evaluator shall verify that the request is not successful The evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>
+									certificate<a id="period_188" href="#period_188">. </a>The evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request certificate enrollment from the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server<a id="period_189" href="#period_189">. </a>									The evaluator shall verify that the request is not successful The evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>
 									server or use a man-in-the-middle tool to present a certificate that does not have the <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> purpose
-									and verify that requests to the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server fail<a id="period_191" href="#period_191">. </a>The tester shall repeat the test using a valid
+									and verify that requests to the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server fail<a id="period_190" href="#period_190">. </a>The tester shall repeat the test using a valid
 									certificate and a certificate that contains the <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> purpose and verify that the certificate
-									enrollment requests succeed<a id="period_192" href="#period_192">. </a>								</p>	
+									enrollment requests succeed<a id="period_191" href="#period_191">. </a>								</p>	
 							</li>
 							<li class="test-"><a id="_t_22" class="defined" href="#_t_22">Test FIA_X509_EXT.4:6</a>:
       
 								<p>
-									The evaluator shall use a packet sniffing tool between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server<a id="period_193" href="#period_193">. </a>The evaluator shall
-									turn on the sniffing tool and cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request certificate enrollment from an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server<a id="period_194" href="#period_194">. </a>									The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> protocol interaction occurs over a Transport Layer Security
-									(<abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>) protected connection<a id="period_195" href="#period_195">. </a>The evaluator is not expected to decrypt the connection but rather
-									observe that the packets conform to the <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> protocol format<a id="period_196" href="#period_196">. </a>								</p>	
+									The evaluator shall use a packet sniffing tool between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server<a id="period_192" href="#period_192">. </a>The evaluator shall
+									turn on the sniffing tool and cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request certificate enrollment from an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server<a id="period_193" href="#period_193">. </a>									The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> protocol interaction occurs over a Transport Layer Security
+									(<abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>) protected connection<a id="period_194" href="#period_194">. </a>The evaluator is not expected to decrypt the connection but rather
+									observe that the packets conform to the <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> protocol format<a id="period_195" href="#period_195">. </a>								</p>	
 							</li>
 							<li class="test-"><a id="_t_23" class="defined" href="#_t_23">Test FIA_X509_EXT.4:7</a>:
       
 								<p>
 									The evaluator shall use the operational guidance to cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request a server-provided
-									private key and certificate from an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server<a id="period_197" href="#period_197">. </a>The evaluator shall confirm that the resulting
-									private key and certificate are successfully obtained and installed in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> key store<a id="period_198" href="#period_198">. </a>
+									private key and certificate from an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server<a id="period_196" href="#period_196">. </a>The evaluator shall confirm that the resulting
+									private key and certificate are successfully obtained and installed in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> key store<a id="period_197" href="#period_197">. </a>
 								</p>	
 							</li>
 							<li class="test-"><a id="_t_24" class="defined" href="#_t_24">Test FIA_X509_EXT.4:8</a>:
@@ -1243,53 +1241,53 @@ are dependent on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> i
 								<p>
 									The evaluator shall modify the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server to, in response to a server-provided private key and
 									certificate request, return a private key that does not correspond with the public key in the
-									returned certificate<a id="period_199" href="#period_199">. </a>The evaluator shall use the operational guidance to cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request a
-									server-provided private key and certificate<a id="period_200" href="#period_200">. </a>The evaluator shall confirm that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not accept
-									the resulting private key and certificate since the private key and public key do not correspond<a id="period_201" href="#period_201">. </a>								</p>	
+									returned certificate<a id="period_198" href="#period_198">. </a>The evaluator shall use the operational guidance to cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request a
+									server-provided private key and certificate<a id="period_199" href="#period_199">. </a>The evaluator shall confirm that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not accept
+									the resulting private key and certificate since the private key and public key do not correspond<a id="period_200" href="#period_200">. </a>								</p>	
 							</li>
 							<li class="test-"><a id="_t_25" class="defined" href="#_t_25">Test FIA_X509_EXT.4:9</a>:
       
 								<p>
 									The evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server to provide a "Root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Key Update" as described in 
-									<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.1.3<a id="period_202" href="#period_202">. </a>The evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates from the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>
+									<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.1.3<a id="period_201" href="#period_201">. </a>The evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates from the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>
 									server and shall confirm that the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>-specific Trust Anchor Database is updated with the new trust
-									anchor<a id="period_203" href="#period_203">. </a>								</p>	
+									anchor<a id="period_202" href="#period_202">. </a>								</p>	
 							</li>
 							<li class="test-"><a id="_t_26" class="defined" href="#_t_26">Test FIA_X509_EXT.4:10</a>:
       
 								<p>
 									The evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server to provide a "Root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Key Update" as described in
-									<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.1.3 but shall modify part of the NewWithOld certificate&#8217;s generated signature<a id="period_204" href="#period_204">. </a>									The evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates from the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server and shall confirm
+									<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.1.3 but shall modify part of the NewWithOld certificate&#8217;s generated signature<a id="period_203" href="#period_203">. </a>									The evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates from the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server and shall confirm
 									that the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>-specific Trust Anchor Database is not updated with the new trust anchor since the
-									signature did not verify<a id="period_205" href="#period_205">. </a>								</p>	
+									signature did not verify<a id="period_204" href="#period_204">. </a>								</p>	
 							</li>
 							<li class="test-"><a id="_t_27" class="defined" href="#_t_27">Test FIA_X509_EXT.4:11</a>:
       
 								<p>
 									The evaluator shall use the operational guidance to cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to generate a certificate request
-									message<a id="period_206" href="#period_206">. </a>The evaluator shall capture the generated message and ensure that it conforms to the format
-									specified by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 2986<a id="period_207" href="#period_207">. </a>The evaluator shall confirm that the certificate request provides the public
-									key and other required information, including any necessary user-input information<a id="period_208" href="#period_208">. </a>								</p>	
+									message<a id="period_205" href="#period_205">. </a>The evaluator shall capture the generated message and ensure that it conforms to the format
+									specified by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 2986<a id="period_206" href="#period_206">. </a>The evaluator shall confirm that the certificate request provides the public
+									key and other required information, including any necessary user-input information<a id="period_207" href="#period_207">. </a>								</p>	
 							</li>
 						</ul></span>
 					</div></div></div></div><h2 id="objective-reqs" class="indexable" data-level="2">A.2 Objective  Requirements
     </h2><p>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Package does not define any 
-            Objective requirements<a id="period_209" href="#period_209">. </a></p><h2 id="feat-based-reqs" class="indexable" data-level="2">A.3 Implementation-based  Requirements
+            Objective requirements<a id="period_208" href="#period_208">. </a></p><h2 id="feat-based-reqs" class="indexable" data-level="2">A.3 Implementation-dependent  Requirements
     </h2><p>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Package does not define any 
-            Implementation-based requirements<a id="period_210" href="#period_210">. </a></p><h1 id="sel-based-reqs" class="indexable" data-level="A">Appendix B -  Selection-based  Requirements
+            Implementation-dependent requirements<a id="period_209" href="#period_209">. </a></p><h1 id="sel-based-reqs" class="indexable" data-level="A">Appendix B -  Selection-based  Requirements
     </h1><span class="description">
 	<p>As indicated in the introduction to this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Package,
         the baseline requirements
         (those that must be performed by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or its underlying platform)
-        are contained in the body of this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Package<a id="period_211" href="#period_211">. </a>        There are additional requirements based on selections in the body of 
+        are contained in the body of this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Package<a id="period_210" href="#period_210">. </a>        There are additional requirements based on selections in the body of 
         the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Package:
-        if certain selections are made, then additional requirements below must be included<a id="period_212" href="#period_212">. </a> 	</p>
+        if certain selections are made, then additional requirements below must be included<a id="period_211" href="#period_211">. </a> 	</p>
 		 </span><h2 id="sel-based-reqs-audit" class="indexable" data-level="2">B.1 
               Auditable Events for Selection-based  Requirements
            </h2>
-         <p>The auditable events in the table below are included in a Security Target if both the associated requirement is included and the incorporating <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> supports audit event reporting through FAU_GEN.1 and any other criteria in the incorporating <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> are met<a id="period_213" href="#period_213">. </a></p>
+         <p>The auditable events in the table below are included in a Security Target if both the associated requirement is included and the incorporating <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> supports audit event reporting through FAU_GEN.1 and any other criteria in the incorporating <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> are met<a id="period_212" href="#period_212">. </a></p>
          <table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="t-audit-sel-based" data-counter-type="ct-Table" id="t-audit-sel-based">Table <span class="counter">3</span></span>: Auditable Events for Selection-based Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FIA_X509_EXT.5"><td rowspan="2"><a href="#FIA_X509_EXT.5">FIA_X509_EXT.5</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_X509_EXT.5#"><td></td></tr><tr data-sortkey="FIA_X509_EXT.5.1"><td>No events specified</td><td>N/A</td></tr></table><h2 id="-sel-based" class="indexable" data-level="2">B.2 Identification and Authentication (FIA)</h2><div class="comp" id="FIA_X509_EXT.5"><h4>FIA_X509_EXT.5 Exceptions to X.509 Certificate Revocation Checking</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
-           <a href="#FIA_X509_EXT.1.1">FIA_X509_EXT.1.1</a><a id="period_214" href="#period_214">. </a>           </i></b></div>
+           <a href="#FIA_X509_EXT.1.1">FIA_X509_EXT.1.1</a><a id="period_213" href="#period_213">. </a>           </i></b></div>
 			
 			
 			<div class="element"><div class="reqid" id="FIA_X509_EXT.5.1"><a href="#FIA_X509_EXT.5.1" class="abbr">FIA_X509_EXT.5.1</a></div><div class="reqdesc">The 
@@ -1298,7 +1296,7 @@ are dependent on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> i
 					for the following exceptions: 
 					[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_51">firmware checking of updates: 
 							invalidate automatic updates if the firmware certificate is compromised</span></li><li style=""><span class="selectable-content" id="_s_52">[<b>assignment</b>: 
-     <span class="assignable-content">other exceptions and corresponding functionality</span>]</span></li></ul>]<a id="period_215" href="#period_215">. </a>					</div></div>
+     <span class="assignable-content">other exceptions and corresponding functionality</span>]</span></li></ul>]<a id="period_214" href="#period_214">. </a>					</div></div>
 			
 		<div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FIA_X509_EXT.5">FIA_X509_EXT.5</a></div>
 					
@@ -1307,22 +1305,22 @@ are dependent on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> i
 				<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">
 						<p>
 							The evaluator shall ensure the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes, for each exception, the alternate functionality the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements to 
-							handle the lack of certificate revocation<a id="period_216" href="#period_216">. </a>The description must be consistent with the selection in the requirement<a id="period_217" href="#period_217">. </a>						</p>
+							handle the lack of certificate revocation<a id="period_215" href="#period_215">. </a>The description must be consistent with the selection in the requirement<a id="period_216" href="#period_216">. </a>						</p>
 					</div><div class="eacategory">Guidance</div><div class="ea">
 						<p>
 							If revocation exceptions are configurable, 
 							the evaluator shall ensure the guidance documentation includes the exceptions that can be configured 
-							and the steps for doing this<a id="period_218" href="#period_218">. </a>						</p>
+							and the steps for doing this<a id="period_217" href="#period_217">. </a>						</p>
 					</div><div class="eacategory">Tests</div><div class="ea">
 						<p>
 							For each exception, the evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> as necessary to meet the exceptional condition described and exercise the 
-							function using a certificate chain without revocation information<a id="period_219" href="#period_219">. </a>
+							function using a certificate chain without revocation information<a id="period_218" href="#period_218">. </a>
 							The evaluator shall attempt to examine <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> logs or behavior as described in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to confirm the alternative action 
-							described is performed<a id="period_220" href="#period_220">. </a>For example, in the case of firmware updates that invalidate automatic updates, 
-							the evaluator shall invoke an automatic update and observe that the update is not performed<a id="period_221" href="#period_221">. </a>
-							In other cases, the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes the alternative action<a id="period_222" href="#period_222">. </a>						</p>
+							described is performed<a id="period_219" href="#period_219">. </a>For example, in the case of firmware updates that invalidate automatic updates, 
+							the evaluator shall invoke an automatic update and observe that the update is not performed<a id="period_220" href="#period_220">. </a>
+							In other cases, the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes the alternative action<a id="period_221" href="#period_221">. </a>						</p>
 					</div></div></div></div><h1 id="ext-comp-defs" class="indexable" data-level="A">Appendix C -  Extended Component Definitions</h1>
-	This appendix contains the definitions for all extended requirements specified in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Package<a id="period_223" href="#period_223">. </a>
+	This appendix contains the definitions for all extended requirements specified in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Package<a id="period_222" href="#period_222">. </a>
     <h2 id="ext-comp-defs-bg" class="indexable" data-level="2">C.1 Extended Components Table</h2>
 
 	All extended components specified in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Package are listed in this table:
@@ -1330,9 +1328,9 @@ are dependent on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> i
 <table class="sort_kids_"><caption data-sortkey="#0"><b><span class="ctr" data-myid="" data-counter-type="ct-Table" id="">Table <span class="counter">4</span></span>: Extended Component Definitions</b></caption><tr data-sortkey="#1"><th>Functional Class</th><th>Functional Components</th></tr><tr data-sortkey="Identification and Authentication (FIA)"><td>Identification and Authentication (FIA)</td><td>FIA_X509_EXT X.509 Certificate Handling<br></td></tr></table><h2 id="ext-comp-defs-bg" class="indexable" data-level="2">C.2 Extended Component Definitions</h2><span class="sort_kids_"><span data-sortkey="Identification and Authentication (FIA)"><h3 id="ext-comp-FIA" class="indexable" data-level="3">C.2.1 Identification and Authentication (FIA)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Package defines the following extended components as part of the
 	 FIA class originally defined by <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2:
 	<h3 id="ext-comp-FIA_X509_EXT" class="indexable" data-level="4">C.2.1.1 FIA_X509_EXT X.509 Certificate Handling</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>This family defines the behavior and use of X.509 certificates for functions to
-				be performed by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr><a id="period_224" href="#period_224">. </a>Components in this family require validation of certificates
+				be performed by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr><a id="period_223" href="#period_223">. </a>Components in this family require validation of certificates
 				according to a specified set of rules, use of certificates for authentication for protocols and
-				integrity verification, generation of certificate requests, certificate enrollment, and revocation checking behavior<a id="period_225" href="#period_225">. </a>				
+				integrity verification, generation of certificate requests, certificate enrollment, and revocation checking behavior<a id="period_224" href="#period_224">. </a>				
 			</div><h4>Component Leveling</h4><svg style="max-height: 10px;"><text x="4" fill="black" font-size="15" y="24">FIA_X509_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect></svg></div></span></span><h1 id="acronyms" class="indexable" data-level="A">Appendix D -  Acronyms</h1><table><tr class="header"><th>Acronym</th><th>Meaning</th></tr><tr><td><span class="term" id="abbr_Base-PP" data-plural="Base-PPs"><abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></span></td><td><span id="long_abbr_Base-PP">Base Protection Profile</span></td></tr>
 <tr><td><span class="term" id="abbr_CA"><abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr></span></td><td><span id="long_abbr_CA">Certification Authority</span></td></tr>
 <tr><td><span class="term" id="abbr_CC"><abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr></span></td><td><span id="long_abbr_CC">Common Criteria</span></td></tr>
@@ -1412,14 +1410,14 @@ are dependent on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> i
 			</span></td></tr><tr><td><span id="bibCEM">[<abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr>]</span></td><td><span class="description">
    			<a href="https://commoncriteriaportal.org/files/ccfiles/CEM2022R1.pdf">Common
    				Methodology for Information Technology Security - Evaluation Methodology</a>,
-   			CCMB-2022-11-006, <abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr>:2022, Revision 1, November 2022<a id="period_226" href="#period_226">. </a></span></td></tr><tr><td><span id="bibCC">[<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]</span></td><td><span class="description">Common Criteria for Information Technology Security Evaluation - <ul>
+   			CCMB-2022-11-006, <abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr>:2022, Revision 1, November 2022<a id="period_225" href="#period_225">. </a></span></td></tr><tr><td><span id="bibCC">[<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]</span></td><td><span class="description">Common Criteria for Information Technology Security Evaluation - <ul>
             <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R5.pdf">Part
                 1: Introduction and General Model</a>, CCMB-2017-04-001, Version 3.1 Revision 5,
-              April 2017<a id="period_227" href="#period_227">. </a></li>
+              April 2017<a id="period_226" href="#period_226">. </a></li>
             <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R5.pdf">Part
                 2: Security Functional Components</a>, CCMB-2017-04-002, Version 3.1 Revision 5,
-              April 2017<a id="period_228" href="#period_228">. </a></li>
+              April 2017<a id="period_227" href="#period_227">. </a></li>
             <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R5.pdf">Part
                 3: Security Assurance Components</a>, CCMB-2017-04-003, Version 3.1 Revision 5,
-              April 2017<a id="period_229" href="#period_229">. </a></li>
+              April 2017<a id="period_228" href="#period_228">. </a></li>
           </ul></span></td></tr></table></body></html>
