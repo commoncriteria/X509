@@ -962,7 +962,7 @@ The following sections list Common Criteria and technology terms used in this do
 									The evaluator shall modify any byte in the public key of the certificate and demonstrate that the
 									certificate fails to validate (i.e., the signature on the certificate will not validate)<a id="period_128" href="#period_128">. </a>								</p>
 							</li>
-							<li class="test-"><a id="fia-x509-ext-1e8" class="defined" href="#fia-x509-ext-1e8">Test FIA_X509_EXT.1:8</a>:
+							<li class="test-"><a id="ec-validation-test" class="defined" href="#ec-validation-test">Test FIA_X509_EXT.1:8</a>:
       
 								<p>
 									[Conditional on support for Elliptic Curve (<abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr>)] The evaluator shall establish a valid, trusted
@@ -975,12 +975,12 @@ The following sections list Common Criteria and technology terms used in this do
 							<li class="test-"><a id="_t_9" class="defined" href="#_t_9">Test FIA_X509_EXT.1:9</a>:
       
 								<p>
-									(Conditional on support for <abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr> certificates) The evaluator shall replace the intermediate
-									certificate in the certificate chain for the previous test with a modified certificate, where the
-									modified intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> has a public key information field where the <abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr> parameters use an explicit
-									format version of the <abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr> parameters in the public key information field of the
-									intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate from <a href="#fia-x509-ext-1e8" class="dynref">Test FIA_X509_EXT.1:8</a>, and the modified intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate is signed by
-									the trusted <abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr> Root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>,  but having no other changes<a id="period_131" href="#period_131">. </a>The evaluator shall confirm the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> treats the
+									(Conditional on support for <abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr> certificates) The evaluator shall replace the intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>
+									certificate in the certificate chain used in <a href="#ec-validation-test" class="dynref">Test FIA_X509_EXT.1:8</a> 
+									with a modified certificate that replaces
+									the <abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr> parameters in the public key information field with an explicit format version 
+									of the parameters, but is otherwise identical to the original certificate (including being signed by the 
+									trusted <abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr> Root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>)<a id="period_131" href="#period_131">. </a>The evaluator shall confirm the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> treats the
 									certificate as invalid<a id="period_132" href="#period_132">. </a>								</p>
 							</li>
 							<li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FIA_X509_EXT.1:10</a>:
