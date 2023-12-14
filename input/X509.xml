@@ -53,7 +53,7 @@
 		This <h:i>Functional Package (FP) for X.509</h:i> provides a collection of X.509 
       		Security Functional Requirements (SFRs) and 
 		Evaluation Activities (EAs) for the issuance, use, and validation of X.509 certificates. The intent 
-		of this package is to provide Protection Profile (PP), collaborative Protection Profile (cPP), and Protection Profile Module (PP-Module) authors 
+		of this FP is to provide Protection Profile (PP), collaborative Protection Profile (cPP), and Protection Profile Module (PP-Module) authors 
 		with a readily consumable collection of SFRs and EAs to be integrated into
 		their documents.  
         </h:p>
@@ -69,21 +69,30 @@
    	<term full="Connection">The SSH transport layer between a client and a server.  Within a connection there can
 			be multiple sessions. </term>
    	<term abbr="CA" full="Certification Authority"></term>
-   	<term abbr="CMC" full="">Certificate Management over CMS</term>
+   	<term abbr="cPP" full="collaborative Protection Profile"></term>
+   	<term abbr="CMC" full="Certificate Management over CMS"></term>
    	<term abbr="CMS" full="Cryptographic Message Syntax"></term>
    	<term abbr="CRL" full="Certificate Revocation List"></term>
    	<term abbr="CSR" full="Certificate Signing Request"></term>
    	<term abbr="EA" full="Evaluation Activity"></term>
-   	<term abbr="ECC" full="Elliptic Curve Cryptography"></term>
+   	<term abbr="EC" full="Elliptic Curve"></term>
    	<term abbr="EKU" full="extendedKeyUsage"></term>
    	<term abbr="EST" full="Enrollment over Secure Transport"></term>
+   	<term abbr="FP" full="Functional Package"></term>
    	<term abbr="HTTP" full="Hypertext Transfer Protocol"></term>
-   	<term abbr="KDF" full="Key Derivation Function"></term>
+   	<term abbr="HTTPS" full="Hypertext Transfer Protocol Secure"></term>
+   	<term abbr="ITU-T" full="International Telecommunication Union Telecommunication Standardization Sector"></term>
    	<term abbr="OCSP" full="Online Certificate Status Protocol"></term>
+   	<term abbr="OE" full="Operational Environment"></term>
    	<term abbr="OID" full="Object Identifiers"></term>
-   	<term abbr="OS" full="Operation System"></term>
-   	<term abbr="RA" full="Registrat Authority"></term>
+   	<term abbr="OS" full="Operating System"></term>
+   	<term abbr="PP" full="Protection Profile"></term>
+   	<term abbr="PP-Module" full="Protection Profile Module"></term>
+   	<term abbr="RA" full="Registration Authority"></term>
+   	<term abbr="RBG" full="Random Bit Generator"></term>
    	<term abbr="RFC" full="Request for Comment"></term>
+   	<term abbr="SFR" full="Security Functional Requirement"></term>
+   	<term abbr="ST" full="Security Target"></term>
    	<term abbr="TLS" full="Transport Layer Security"></term>
    	<term abbr="TOE" full="Target of Evaluation"></term>
    	<term abbr="TSF" full="TOE Security Functionality"></term>
@@ -95,56 +104,54 @@
 <!-- 1.3 Compliant Targets of Evaluation	-->
 <!--			-->
     <sec:toes title="Compliant Targets of Evaluation">
-    	<comment>test comment</comment>
-    	
-		<h:p>The TOE in this FP is the portion of product that provides X.509 capabilities to other portions of the TSF, such as 
+    	    	
+		<h:p>The Target of Evaluation (TOE) in this FP is the portion of a product that provides X.509 capabilities to other portions of the TOE Security Functionality (TSF), such as 
 			functions for subject authentication, 
-			trusted communications, validation of TOE software/firmware updates, or integrity verification as part of self-testing. 
-			At minimum, a conformant TOE will include the ability to validate X.509 certificates presented to it, including but not limited to:
+			trusted communications, validation of TOE software and firmware updates, or integrity verification as part of self-testing. 
+			At minimum, a conformant TOE will include the ability to validate X.509 certificates presented to it, including:
 			<h:ul>
-				<h:li>cryptographic validity of the digital signature</h:li>
-				<h:li>time-based validity</h:li>
-				<h:li>issuer-based validity</h:li>
-				<h:li>revocation status using a Certificate Revocation List (CRL) or the Online Certificate Status Protocol (OCSP)</h:li>
-				<h:li>validation that the certificate's extensions are consistent with its intended use</h:li>
+				<h:li>cryptographic validity of the digital signature.</h:li>
+				<h:li>time-based validity.</h:li>
+				<h:li>issuer-based validity.</h:li>
+				<h:li>revocation status using a Certificate Revocation List (CRL) or the Online Certificate Status Protocol (OCSP).</h:li>
+				<h:li>validation that the certificate's extensions are consistent with its intended use.</h:li>
 			</h:ul>A conformant TOE must also define its intended uses for X.509 certificates and how to proceed when a certificate with undetermined 
 			revocation status is presented to it.
 			</h:p><h:p>
-			This FP also defines mechanisms by which the TSF can generate a certificate signing request (CRL) for receiving a signed certificate from a 
-			certification authority (CA). This may be generated either as a file that is provided to a CA manually or done via an active network connection to the 
+			This FP also defines mechanisms by which the TSF can generate a Certificate Signing Request (CSR) for receiving a signed certificate from a 
+			Certification Authority (CA). This may be generated either as a file that is provided to a CA manually or done via an active network connection to the 
 			CA using Enrollment over Secure Transport (EST).
 			</h:p><h:p>
 			There may also be some situations where revocation checking is not performed. This FP defines an optional requirement for cases where exceptions
 			to the claimed revocation functionality exist.
 			</h:p><h:p>
-			Lastly, the X.509 functionality defined by this FP is part of a TOE but is not considered to be an entire TOE on its own. X.509 functionality
-			is implemented by a wide variety of technology products, some of which are standalone and some of which are dependent on a trusted platform
+			Lastly, the X.509 functionality defined by this FP is part of a TOE, but is not considered to be an entire TOE on its own. X.509 functionality
+			is implemented by a wide variety of technology products, some of which are standalone and some dependent on a trusted platform
 			(such as a software application on a general-purpose computer or mobile device). Auditable events have been defined for the SFRs in this FP for cases
 			where the TOE boundary includes an audit function specified by FAU_GEN.1. A TOE that conforms to this FP may also implement or rely on its operational
-			environment to implement appropriate management functionality for X.509 functionality that may include, but is not limited to:
+			environment to implement appropriate management functionality for X.509 functionality that may include:
 			<h:ul>
-				<h:li>Specifying root and intermediate CA certificates to be used as trust anchors.</h:li>
-				<h:li>Generating certificate requests and loading signed certificates for the TOE's own use into its trust store.</h:li>
-				<h:li>Specifying the revocation method that is used.</h:li>
-				<h:li>Configuring how the TOE behaves in the event that certificate revocation information is unavailable.</h:li>
+				<h:li>specifying root and intermediate CA certificates to be used as trust anchors.</h:li>
+				<h:li>generating certificate requests and loading signed certificates for the TOE's own use into its trust store.</h:li>
+				<h:li>specifying the revocation method that is used.</h:li>
+				<h:li>configuring how the TOE behaves in the event that certificate revocation information is unavailable.</h:li>
 			</h:ul>
-			Any conformant TOE must consider the extent to which X.509 functionality must be managed and ensure that appropriate management claims are made in 
-			the TOE's Security Target or that the TOE conforms to a PP that allows a trusted platform in its operational environment to implement them.
+			Any conformant TOE must consider the extent to which X.509 functionality must be managed, and ensure that appropriate management claims are made in 
+			the TOE's Security Target (ST) or that the TOE conforms to a PP that allows a trusted platform in its Operational Environment (OE) to implement them.
 			</h:p><h:p>
 			This FP describes the extended security functionality of X.509 in terms of <xref g="CC"/>. </h:p>
-		<h:p>The contents of this FP must be appropriately incorporated into a PP, cPP, or PP-Module. When this package 
-		is so incorporated, the ST must include selection-based requirements in accordance with the selections or assignments 
+		<h:p>The contents of this FP must be appropriately incorporated into a PP, cPP, or PP-Module. When this FP 
+		is incorporated as such, the ST must include selection-based requirements in accordance with the selections or assignments 
 		indicated in the incorporating document.
-		</h:p><h:p>The PP, cPP, or PP-Module that instantiates this Package must typically include the following components in order to satisfy 
-		dependencies of this Package. It is the responsibility of the PP, cPP, or PP-Module author who incorporates this FP to 
+		</h:p><h:p>The PP, cPP, or PP-Module that instantiates this FP must typically include the following components in order to satisfy 
+		dependencies of this FP. It is the responsibility of the PP, cPP, or PP-Module author who incorporates this FP to 
 		ensure that dependence on these components is satisfied, either by the TOE or by assumptions about its OE.
-		</h:p><h:p>An ST must identify the applicable version of the PP, cPP, or PP-Module, and of this
-		FP in its conformance claims.</h:p>
+		</h:p><h:p>An ST must identify in its conformance claims, the applicable version of the PP, cPP, or PP-Module, and of this
+		FP.</h:p>
 		<componentsneeded>
 			<componentneeded>
 				<componentid>FCS_CKM.1</componentid>
-				<notes>To support public/private key pair generation for creating an X.509 certificate signing request (CSR), 
-					the PP or PP-Module must
+				<notes>To support public and private key pair generation for creating an X.509 CSR, the PP or PP-Module must
 					include FCS_CKM.1 and specify the corresponding algorithms.</notes>
 			</componentneeded>
 			<componentneeded>
@@ -159,7 +166,7 @@
 			it is not _directly_ depended upon by this Package.-->
 			<componentneeded>
 				<componentid>FCS_RBG.1</componentid>
-				<notes>To support random bit generation needed for public/private key pair generation,
+				<notes>To support the Random Bit Generation (RBG) needed for public and private key pair generation,
 					the PP or PP-Module must include FCS_RBG.1 or an extended SFR that defines comparable functionality.</notes>
 			</componentneeded>
 			<componentneeded>
@@ -171,28 +178,28 @@
 			<componentneeded>
 				<componentid>FTP_PRO.1</componentid>
 				<notes>To support EST when claimed, the PP or PP-Module must include 
-					FTP_PRO.1 or equivalent extended SFRs. To define the HTTPS and TLS protocol implementation for these communications.
+					FTP_PRO.1 or equivalent extended SFRs to define the Hypertext Transfer Protocol Secure (HTTPS) and Transport Layer Security (TLS) protocol implementation for these communications.
 					Note that support for EST is not mandatory.
 				</notes>
 			</componentneeded>
 			<componentneeded>
 				<componentid>FTP_PRO.2</componentid>
 				<notes>To support EST when claimed, the PP or PP-Module must include 
-					FTP_PRO.2 or equivalent extended SFRs. To define the HTTPS and TLS protocol implementation for these communications.
+					FTP_PRO.2 or equivalent extended SFRs to define the HTTPS and TLS protocol implementation for these communications.
 					Note that support for EST is not mandatory.
 				</notes>
 			</componentneeded>
 			<componentneeded>
 				<componentid>FTP_PRO.3</componentid>
 				<notes>To support EST when claimed, the PP or PP-Module must include 
-					FTP_PRO.3 or equivalent extended SFRs. To define the HTTPS and TLS protocol implementation for these communications.
+					FTP_PRO.3 or equivalent extended SFRs to define the HTTPS and TLS protocol implementation for these communications.
 					Note that support for EST is not mandatory.
 				</notes>
 			</componentneeded>
 			<componentneeded>
 				<componentid>FTP_ITC.1</componentid>
 				<notes>To support EST when claimed, the PP or PP-Module must include FTP_ITC.1 to define a trusted channel
-					between the TOE and a trusted certification authority (CA).
+					between the TOE and a trusted CA.
 					Note that support for EST is not mandatory.
 				</notes>
 			</componentneeded>
@@ -209,14 +216,14 @@
 		<cclaim name="Conformance Statement">
 			<description>An ST must claim exact conformance to this FP.
 				<h:br/><h:br/>
-				The evaluation methods used for evaluating the TOE are a combination of the workunits defined in <xref to="bibCEM"/> as well as the
+				The evaluation methods used for evaluating the TOE are a combination of the workunits defined in <xref to="bibCEM"/>, as well as the
 				EAs for ensuring that individual SFRs have a sufficient level of supporting evidence in the ST and 
 				guidance documentation, and have been sufficiently tested by the laboratory as part of completing ATE_IND.1.
 			</description>
 		</cclaim>
 		<cclaim name="CC Conformance Claims">
 			<description>This FP is conformant to Part 2 (extended) of Common Criteria CC:2022, Revision 1. FPs
-			do not contain any SARs so no CC Part 3 claim is made.</description>
+			do not contain any SARs, so no CC Part 3 claim is made.</description>
 		</cclaim>
 		<cclaim name="PP Claim">
 			<description>This FP does not claim conformance to any PP.<h:br/><h:br/>
@@ -243,7 +250,7 @@
 	<!-- Audit table for mandatory requirements  -->
 	<sec:ss-audit-table title="Auditable Events for Mandatory SFRs">
 		<h:p>
-			The auditable events specified in this Package are included in a ST 
+			The auditable events specified in this FP are included in an ST 
 			if the incorporating PP, cPP, or PP-Module supports audit event reporting through FAU_GEN.1,
 			and if all other criteria in the incorporating PP or PP-Module are met.
 		</h:p>
@@ -271,7 +278,8 @@
 				<title>
 					The <selectables>
 						<selectable>TSF</selectable>
-						<selectable>TOE platform</selectable></selectables>
+						<selectable>TOE platform</selectable></selectables> <comment>TOE vs platform selection added globally, of course if the TOE doesn't have a 'platform' (e.g. NDcPP) the
+							PP author can just force the selection of "TSF".</comment>
 					shall validate certificates in accordance with the following rules:
 					<h:ul> 
 						<h:li>RFC 5280 certificate validation and certificate path validation supporting a minimum path length of 
@@ -279,44 +287,55 @@
 							shall be used.</h:li>
 						<h:li>The certification path shall terminate with a trusted CA certificate designated as a trust anchor.</h:li>
 						<h:li>All CA certificates in the certification path shall contain the basicConstraints extension with 
-							the CA flag set to TRUE.</h:li>
+							the CA flag set to TRUE.</h:li> <comment>This covers basically the same thing as FIA_X509_EXT.1.2 (The TSF shall only treat a certificate as a CA
+								certificate if the basicConstraints extension is present and the CA flag is set to TRUE) so there appears to
+								be no need to have a second element.</comment>
 						<h:li>The revocation status of the certificate shall be validated using <selectables linebreak="yes">
-							<selectable>The Online Certificate Status Protocol (OCSP) as specified in RFC 6960</selectable>
-							<selectable>Certificate Revocation Lists (CRL) as specified in RFC 5280 and refined by RFC 8603</selectable>
+							<selectable>The OCSP as specified in RFC 6960</selectable>
+							<selectable>CRLs as specified in RFC 5280 and refined by RFC 8603</selectable>
 							<selectable>An OCSP TLS Status Request Extension (OCSP stapling) as specified in RFC 6066</selectable>
 							<selectable>An OCSP TLS Multiple Certificate Status Request Extension (OCSP multi-stapling) as specified
 								in RFC 6961</selectable>
-						</selectables> and with <selectables>
+						</selectables> <comment>Added to accommodate exception checking for revocation (see TD0605).</comment>and with <selectables>
 							<selectable>no exceptions</selectable>
-							<selectable id="revocation-exceptions-exist">exceptions defined in <xref to="fia_x509_ext.5"/></selectable></selectables></h:li>
+							<selectable id="revocation-exceptions-exist">exceptions defined in <xref to="fia-x509-ext-5"/></selectable></selectables></h:li>
 						<h:li>The TSF shall validate the extendedKeyUsage (EKU) field according to the following rules: 
 							<selectables linebreak="yes">
 							<selectable>Certificates used for trusted updates and executable code integrity verification shall have the
-								Code Signing Purpose (id-kp 3 with OID 1.3.6.1.5.5.7.3.3)</selectable>
+								Code Signing Purpose (id-kp 3 with OID 1.3.6.1.5.5.7.3.3).</selectable>
 							<selectable>Client certificates presented for TLS shall have the Client Authentication purpose
-								(id-kp 2 with OID 1.3.6.1.5.5.7.3.2)</selectable>
+								(id-kp 2 with OID 1.3.6.1.5.5.7.3.2).</selectable>
 							<selectable>Server certificates presented for TLS shall have the Server Authentication purpose
-										(id-kp 1 with OID 1.3.6.1.5.5.7.3.1)</selectable>
+										(id-kp 1 with OID 1.3.6.1.5.5.7.3.1).</selectable>
 							<selectable>Delegated OCSP signer’s certificates presented for OCSP responses shall have the OCSP
-										Signing purpose (id-kp 9 with OID 1.3.6.1.5.5.7.3.9)</selectable>
-							<selectable>Server certificates presented for EST shall have the CMC Registration Authority (RA)
-										purpose (id-kp-cmcRA with OID 1.3.6.1.5.5.7.3.28)</selectable>
-							<selectable><assignable>other expected EKU values</assignable></selectable></selectables>
-						</h:li>
+										Signing purpose (id-kp 9 with OID 1.3.6.1.5.5.7.3.9).</selectable>
+							<selectable>Server certificates presented for EST shall have the Certificate Management over CMS (CMC) Registration Authority (RA)
+										purpose (id-kp-cmcRA with OID 1.3.6.1.5.5.7.3.28).</selectable>
+								<selectable><assignable>other expected EKU values</assignable></selectable></selectables></h:li> <comment>This would cover
+									S/MIME extensions as well as a catch-all/future proofing for anything else not currently listed.</comment>
+							<comment>General note about the open-ended assignments - they are here so that PPs that use this FP can
+								accommodate things that we haven't anticipated through refinements/completing the assignment. If a PP
+								adds stuff here, the PP can also update the EA with specific details needed for that permutation. So I
+								don't think that having an open-ended assignment here with no corresponding EA violates the spirit of
+								exact conformance. We just need to make it clear to PP authors that this is how it's intended to be used
+								(they can always fill out the assignment with 'no other' themselves and then there is no gap in the EAs).</comment>
 							<h:li><selectables>
 							<selectable>no other rules</selectable>
-							<selectable><assignable>additional certificate evaluation rules</assignable></selectable></selectables>
+								<selectable><assignable>additional certificate evaluation rules</assignable></selectable></selectables>
+								<comment>Catch-all added to the end just in case other rules are ever relevant (for example FDP_CER_EXT.1 in the CA PP
+									requires a CA to generate certs that use the certificate policy field but we don't have any rules for validating that
+									field's contents).</comment>
 						</h:li>
 								</h:ul>
 					</title>
 				<aactivity>
 					<TSS>
-						<h:p>The evaluator shall ensure the TSS describes where the check of validity of the certificates takes place
+						<h:p>The evaluator shall ensure the TOE Summary Specification (TSS) describes where the check of validity of the certificates takes place
 							(both in terms of circumstances as well as whether the TSF or the TOE platform is responsible for certificate
-							validation in each case) and that the TSS identifies the rules for certificate field checking. In any case
+							validation in each case) and that the TSS identifies the rules for certificate field checking. In cases
 							where a certificate is used in an authentication step or for validating the integrity of trusted updates,
 							it is expected that revocation checking will be performed. If X.509 certificates are used for power-on
-							self-tests, it is not necessary to verify certificate revocation status in this situation.
+							self-tests, it is not necessary to verify certificate revocation status.
 						</h:p>
 						
 						<h:p>The TSS shall describe when revocation checking is performed and on what certificates. If the revocation
@@ -328,7 +347,7 @@
 					<Guidance>
 						<h:p>
 							The evaluator shall ensure that the operational guidance describes where the check of validity of the
-							certificates takes place and any of the rules for extendedKeyUsage fields.
+							certificates takes place and any of the rules for EKU fields.
 						</h:p>
 						
 						<h:p>
@@ -338,14 +357,17 @@
 						</h:p>
 					</Guidance>
 					<Tests>
+						<comment>Synthesized from NDcPP (modified by TD0527) and App PP (modified by TD0669) - may need some additional
+							modification/tailoring for broader usage.</comment>
 						<h:p>
 							The tests described must be performed in conjunction with the other certificate services evaluation
-							activities, including the functions in <xref to="fia-x509-ext-2e1"/>. The tests for the extendedKeyUsage rules are
-							performed in conjunction with the uses that require those rules. If the TSF supports chains of length four
+							activities, <comment>Do we want to do it this way or should everything be self-contained to the SFR it's
+								referenced in?</comment>including the functions in <xref to="fia-x509-ext-2e1"/>. The tests for the EKU rules are
+							performed together with the uses that require those rules. If the TSF supports chains of length four
 							or greater, the evaluator shall create a chain of at least four certificates: the node certificate to be
-							tested, two Intermediate CAs, and the root CA. If the TSF supports chains of length three, then only one
+							tested, two intermediate CAs, and the Root CA. If the TSF supports chains of length three, then only one
 							intermediate CA shall be created. If the TSF supports a maximum chain of length two, then a chain with no
-							Intermediate CA shall be created.
+							intermediate CAs shall be created.
 						</h:p>
 						<testlist>
 							<test> 
@@ -364,7 +386,7 @@
 									Setting the basicConstraints field in an issuing certificate to have CA=False
 								</h:li>
 								<h:li>
-									Omitting the CA signing bit of the key usage field in an issuing certificate, and
+									Omitting the CA signing bit of the key usage field in an issuing certificate
 								</h:li>
 								<h:li>
 									Setting the path length field of a valid CA field to a value strictly less than the certificate path
@@ -382,20 +404,20 @@
 								</h:p>
 							</test>
 							<test>The evaluator shall test that the TOE can properly handle revoked certificates, conditional on
-								whether CRL, OCSP, OCSP Stapling or OCSP Multi-stapling is selected; if multiple methods are selected,
+								whether CRL, OCSP, OCSP stapling, or OCSP multi-stapling is selected; if multiple methods are selected,
 								then the following tests shall be performed for each method:
 								<h:ul>
 									<h:li>
 										The evaluator shall test revocation of the node certificate.
 									</h:li>
 									<h:li>
-										The evaluator shall also test revocation of an intermediate CA certificate (i.e., the intermediate
-										CA certificate should be revoked by the root CA), if intermediate CA certificates are supported.
+										If intermediate CA certificates are supported, the evaluator shall also test revocation of an intermediate CA certificate (i.e., the intermediate
+										CA certificate should be revoked by the Root CA).
 										If OCSP stapling per RFC 6066 is the only supported revocation method, this test is omitted.
 									</h:li>
 									<h:li>
 										The evaluator shall ensure that a valid certificate is used and that the validation function succeeds. The
-										evaluator then attempts the test with a certificate that has been revoked (for each method chosen in the selection)
+										evaluator shall then attempt the test with a certificate that has been revoked (for each method chosen in the selection)
 										to ensure when the certificate is no longer valid that the validation function fails.
 									</h:li>
 								</h:ul>
@@ -403,13 +425,13 @@
 							<test>
 								<h:p>
 									If any OCSP option is selected, the evaluator shall ensure the TSF has no other source of revocation
-									information available and configure the OCSP server or use a man-in-the-middle tool to present an
+									information available and configure the OCSP server, or use a man-in-the-middle tool to present an
 									OCSP response signed by a certificate that does not have the OCSP signing purpose and which is the
 									only source of revocation status information advertised by the CA issuing the certificate being
 									validated. The evaluator shall verify that validation of the OCSP response fails and that the TOE
 									treats the certificate being checked as invalid and rejects the connection. If CRL is selected, the
-									evaluator shall likewise configure the CA to be the only source of revocation status information,
-									and sign a CRL with a certificate that does not have the cRLsign key usage bit. The evaluator shall
+									evaluator shall also configure the CA to be the only source of revocation status information
+									and sign a CRL with a certificate that does not have the cRLSign key usage bit. The evaluator shall
 									verify that validation of the CRL fails and that the TOE treats the certificate being checked as
 									invalid and rejects the connection.
 								</h:p>
@@ -443,12 +465,12 @@
 									certificate fails to validate (i.e., the signature on the certificate will not validate).
 								</h:p>
 							</test>
-							<test>
+							<test id="fia-x509-ext-1e8">
 								<h:p>
-									(Conditional on support for EC certificates) The evaluator shall establish a valid, trusted
-									certificate chain consisting of an EC leaf certificate, an EC Intermediate CA certificate not
-									designated as a trust anchor, and an EC certificate designated as a trusted anchor, where the
-									elliptic curve parameters are specified as a named curve. The evaluator shall confirm that the TOE
+									[Conditional on support for Elliptic Curve (EC)] The evaluator shall establish a valid, trusted
+									certificate chain consisting of an EC leaf certificate, an EC intermediate CA certificate not
+									designated as a trust anchor, and an EC certificate designated as a trust anchor, where the
+									EC parameters are specified as a named curve. The evaluator shall confirm that the TOE
 									validates the certificate chain.	
 								</h:p>
 							</test>
@@ -456,22 +478,22 @@
 								<h:p>
 									(Conditional on support for EC certificates) The evaluator shall replace the intermediate
 									certificate in the certificate chain for the previous test with a modified certificate, where the
-									modified intermediate CA has a public key information field where the EC parameters uses an explicit
-									format version of the Elliptic Curve parameters in the public key information field of the
-									intermediate CA certificate from Test 8a, and the modified Intermediate CA certificate is signed by
-									the trusted EC root CA,  but having no other changes. The evaluator shall confirm the TOE treats the
+									modified intermediate CA has a public key information field where the EC parameters use an explicit
+									format version of the EC parameters in the public key information field of the
+									intermediate CA certificate from <xref to="fia-x509-ext-1e8"/>, and the modified intermediate CA certificate is signed by
+									the trusted EC Root CA,  but having no other changes. The evaluator shall confirm the TOE treats the
 									certificate as invalid.
 								</h:p>
 							</test>
 							<test>
 								<h:p>
-									(conditional on support for EC certificates) The evaluator shall establish a subordinate CA
-									certificate, where the elliptic curve parameters are specified as a named curve, that is signed by a
-									trusted EC root CA. The evaluator shall attempt to load the certificate into the trust store and
+									(Conditional on support for EC certificates) The evaluator shall establish a subordinate CA
+									certificate where the EC parameters are specified as a named curve that is signed by a
+									trusted EC Root CA. The evaluator shall attempt to load the certificate into the trust store and
 									observe that it is accepted into the TOE's trust store. The evaluator shall then establish a
-									subordinate CA certificate that uses an explicit format version of the elliptic curve parameters,
-									and that is signed by a trusted EC root CA. The evaluator shall attempt to load the certificate into
-									the trust store and observe that it is rejected, and not added to the TOE's trust store.
+									subordinate CA certificate that uses an explicit format version of the EC parameters
+									and that is signed by a trusted EC Root CA. The evaluator shall attempt to load the certificate into
+									the trust store and observe that it is rejected and not added to the TOE's trust store.
 								</h:p>
 							</test>
 						</testlist>
@@ -486,23 +508,28 @@
 				<audit-event-info>Reason for failure.</audit-event-info>
 			</audit-event>
 		</f-component>
-		
+				
 		<f-component name="X.509 Certificate Usage" cc-id="fia_x509_ext.2">
 			<f-element id="fia-x509-ext-2e1">
-				<title>The
+				<title><comment>Changed from "Authentication" to "Usage" since X.509 can also be used mainly in the
+					context of integrity.</comment>
+					The
 					<selectables>
 						<selectable>TSF</selectable>
 						<selectable>TOE platform</selectable></selectables>
 					shall use X.509v3 certificates as defined by RFC 5280 to support authentication for 
-					<selectables linebreak="yes">
+					<selectables>
 						<selectable><assignable>trusted communications protocol</assignable></selectable>
 						<selectable>no protocols</selectable></selectables>
-					and <selectables>
+					and <comment>Added selections based on other uses of X.509 in various PPs - making a distinction between
+						"administrators" (of the TSF) vs "users" (in the context of an organizational user the TSF is authenticating
+						but who may not use the TOE directly, e.g. when the TOE functions as an authentication server).</comment>
+					<selectables>
 						<selectable>code signing for system software updates</selectable>
 						<selectable>code signing for software integrity testing</selectable>
 						<selectable>integrity verification for TSF protected data</selectable>
 						<selectable>Administrator authentication</selectable>
-						<selectable>user authentication</selectable>
+						<selectable>User authentication</selectable>
 						<selectable><assignable>other uses</assignable></selectable>
 						<selectable>no additional uses</selectable></selectables>.
 				</title>
@@ -522,15 +549,21 @@
 					<TSS>
 						<h:p>
 							The evaluator shall check the TSS to ensure that it describes how the TOE chooses which certificates to use.
-						</h:p>
+						</h:p><comment>Guidance activities were removed from this.</comment>
 						
 						<h:p>
 							The evaluator shall examine the TSS to confirm that it describes the behavior of the TOE when a connection
-							cannot be established during the validity check of a certificate. The evaluator shall verify that any
+							cannot be established during the certificate's validity check.<comment>This used to say "used in
+								establishing a trusted channel" but it seems like there is no reason that it should be limited to that
+								since the same behavior will need to be described in non-trusted channel cases.</comment>. The evaluator shall verify that any
 							distinctions between trusted channels are described.
 						</h:p>
 					</TSS>
-					<Guidance>
+				<Guidance><comment>The first part of the paragraph from ND-SD is not very clear on its intent so I've removed it. The
+					text from TSS that referred to guidance has been moved down to here. 		
+					("The evaluator shall ensure that the guidance documentation describes the configuration required in the operating
+					environment so the TOE can use the certificates. The guidance documentation shall also include any required
+					configuration on the TOE to use the certificates").</comment>
 						<h:p>
 							The evaluator shall verify that the operational guidance determines the TOE chooses which certificates to use
 							for authentication.
@@ -544,17 +577,22 @@
 					</Guidance>
 					<Tests>
 						<h:p>
-							The evaluator shall perform the following test for each trusted channel:
+							The evaluator shall perform the following tests for each trusted channel: <comment>Trusted channel testing is
+								synthesized from NDcPP/App PP. User/admin authentication is taken from GPOS PP.								
+								Note that we also still need something for the other uses for X.509 authentication (e.g. code signing for
+								updates or integrity) - these were not explicitly covered through X.509 requirements in other PPs
+								(e.g. if code signing for updates is used, then it would be tested under FPT_TUD_EXT). They should probably
+								be all merged under X.509 so they aren't forked in different PPs.</comment>
 						</h:p>
 						<testlist>
 							<test>
 								<h:p>
-									The evaluator shall demonstrate that using a valid certificate that requires certificate validation
-									checking to be performed in at least some part by communicating with a non-TOE IT entity. The
+									The evaluator shall demonstrate that a valid certificate that requires certificate validation
+									checking to be performed in at least some part by communicating with a non-TOE IT entity is accepted. The
 									evaluator shall then manipulate the environment so that the TOE is unable to verify the validity of
 									the certificate and observe that the action selected in <xref to="fia-x509-ext-2e2"/> is performed. If the selected
-									action is administrator-configurable, then the evaluator shall follow the guidance documentation to
-									determine that all supported administrator-configurable options behave in their documented manner.
+									action is Administrator-configurable, then the evaluator shall follow the guidance documentation to
+									determine that all supported Administrator-configurable options behave in their documented manner.
 								</h:p>
 							</test>
 							<test>
@@ -565,14 +603,14 @@
 								</h:p>
 								
 								<h:p>
-									If the TSF uses X.509 certificates for Administrator or user authentication, the evaluator shall
-									generate an X.509v3 certificate for a user with the Client Authentication EKU field set. The
-									evaluator will provision the OS for authentication with the X.509v3 certificate.
+									If the TSF uses X.509 certificates for Administrator or User authentication, the evaluator shall
+									generate an X.509v3 certificate for a User with the Client Authentication EKU field set. The
+									evaluator will provision the Operating System (OS) for authentication with the X.509v3 certificate.
 								</h:p>
 								
 								<h:p>
-									The evaluator will ensure that the certificates are validated by the OS per <xref to="fia-x509-ext-1e1"/> and then
-									conduct the following two tests:
+									The evaluator shall ensure that the certificates are validated by the OS per <xref to="fia-x509-ext-1e1"/>, and then
+									conduct the following two tests.
 								</h:p>
 							</test>
 							<test>
@@ -601,7 +639,7 @@
 					<selectables>
 						<selectable>TSF</selectable>
 						<selectable>TOE platform</selectable></selectables>
-					shall generate a Certificate Request as specified by RFC 2986 and be able to provide the following information in the
+					shall generate a certificate request as specified by RFC 2986, and be able to provide the following information in the
 					request: public key and 
 					<selectables>
 						<selectable>device-specific information</selectable>
@@ -609,7 +647,9 @@
 						<selectable>Organization</selectable>
 						<selectable>Organizational Unit</selectable>
 						<selectable>Country</selectable>
-						<selectable><assignable>other information</assignable></selectable></selectables>.
+						<selectable><assignable>other information</assignable><comment>Assignment added as a catch-all/future proofing
+							for anything we may have missed - if this is redundant because "device-specific information" covers it then
+							remove and update the EA accordingly.</comment></selectable></selectables>.
 				</title>
 			</f-element>
 			<f-element id="fia-x509-ext-3e2">
@@ -617,7 +657,7 @@
 					<selectables>
 						<selectable>TSF</selectable>
 						<selectable>TOE platform</selectable></selectables>
-					shall validate the chain of certificates from the Root CA upon receiving the CA Certificate Response.
+					shall validate the chain of certificates from the Root CA upon receiving the CA certificate response.
 				</title>
 				<aactivity> 
 					<TSS>
@@ -629,26 +669,26 @@
 					<Guidance>
 						<h:p>
 							The evaluator shall check to ensure that the guidance documentation contains instructions on requesting
-							certificates from a CA, including generation of a Certificate Request. If the ST author selects "Common Name",
+							certificates from a CA, including generation of a certificate request. If the ST author selects "Common Name",
 							"Organization", "Organizational Unit", or "Country", the evaluator shall ensure that this guidance includes
-							instructions for establishing these fields before creating the Certificate Request.
+							instructions for establishing these fields before creating the certificate request.
 						</h:p>
 					</Guidance>
 					<Tests>
 						<testlist>
 							<test>
 								<h:p>
-									The evaluator shall use the guidance documentation to cause the TOE to generate a Certificate Request.
+									The evaluator shall use the guidance documentation to cause the TOE to generate a certificate request.
 									The evaluator shall capture the generated message and ensure that it conforms to the format specified.
-									The evaluator shall confirm that the Certificate Request provides the public key and other required
-									information, including any necessary user-input information.
+									The evaluator shall confirm that the certificate request provides the public key and other required
+									information, including any necessary User-input information.
 								</h:p>
 							</test>
 							<test>
 								<h:p>
-									The evaluator shall demonstrate that validating a response message to a Certificate Request without a
+									The evaluator shall demonstrate that validating a response message to a certificate request without a
 									valid certification path results in the function failing. The evaluator shall then load one or more
-									certificates into the trust store used by the TOE that are used as CAs to validate the certificate
+									certificates into the TOE's trust store that are used as CAs to validate the certificate
 									response message and demonstrate that the function succeeds.
 								</h:p>
 							</test>
@@ -662,18 +702,18 @@
 		
 		<f-component name="X.509 Certificate Enrollment" cc-id="fia_x509_ext.4" status="optional">
 			<f-element id="fia-x509-ext-4e1">
-				<title>The TSF shall use the Enrollment over Secure Transport (EST) protocol as specified in RFC 7030 to request
-					certificate enrollment using the simple enrollment method described in RFC 7030 Section 4.2.
+				<title>The TSF shall use the EST protocol as specified in RFC 7030 to request
+					certificate enrollment using the simple enrollment method described in RFC 7030, Section 4.2.
 				</title>
 			</f-element>
 			<f-element id="fia-x509-ext-4e2">
 				<title>The TSF shall be capable of authenticating EST requests using an existing certificate and corresponding private
-					key as specified by RFC 7030 Section 3.3.2.
+					key as specified by RFC 7030, Section 3.3.2.
 				</title>
 			</f-element>
 			<f-element id="fia-x509-ext-4e3">
-				<title>The TSF shall be capable of authenticating EST requests using HTTP Basic Authentication with a username and
-					password as specified by RFC 7030 Section 3.2.3.
+				<title>The TSF shall be capable of authenticating EST requests using Hypertext Transfer Protocol (HTTP) basic authentication with a username and
+					password as specified by RFC 7030, Section 3.2.3.
 				</title>
 			</f-element>
 			<f-element id="fia-x509-ext-4e4">
@@ -682,16 +722,16 @@
 				</title>
 			</f-element>
 			<f-element id="fia-x509-ext-4e5">
-				<title>The TSF shall be capable of requesting server-provided private keys as specified in RFC 7030 Section 4.4.
+				<title>The TSF shall be capable of requesting server-provided private keys as specified in RFC 7030, Section 4.4.
 				</title>
 			</f-element>
 			<f-element id="fia-x509-ext-4e6">
 				<title>The TSF shall be capable of updating its EST-specific Trust Anchor Database using the "Root CA Key Update" process
-					described in RFC 7030 Section 4.1.3.					
+					described in RFC 7030, Section 4.1.3.					
 				</title>
 			</f-element>
 			<f-element id="fia-x509-ext-4e7">
-				<title>The TSF shall generate a Certificate Request Message for EST as specified in RFC 2986 and be able to provide the
+				<title>The TSF shall generate a certificate request message for EST as specified in RFC 2986 and be able to provide the
 					following information in the request: public key and
 					<selectables>
 						<selectable>device-specific information</selectable>
@@ -699,15 +739,17 @@
 						<selectable>Organization</selectable>
 						<selectable>Organizational Unit</selectable>
 						<selectable>Country</selectable>
-						<selectable><assignable>other information</assignable></selectable></selectables>.
+						<selectable><assignable>other information</assignable><comment>Assignment added as a catch-all/future proofing
+							for anything we may have missed.</comment></selectable></selectables>.
 				</title>
 			</f-element>
 			<f-element id="fia-x509-ext-4e8">
 				<title>The TSF shall validate the chain of certificates from the Root CA certificate in the Trust Anchor Database to
-					the EST Server CA certificate upon receiving a CA Certificate Response.				
+					the EST Server CA certificate, upon receiving a CA certificate response.				
 				</title>
 				<aactivity>
 					<TSS>
+						<comment>This was taken from the MDF PP as-is, but surely there could be one.</comment>
 						<h:p>
 							There are no TSS EAs for this component.
 						</h:p>
@@ -715,7 +757,7 @@
 					<Guidance>
 						<h:p>
 							The evaluator shall check to ensure that the operational guidance contains instructions on requesting
-							certificates from an EST server, including generating a Certificate Request Message.
+							certificates from an EST server, including generating a certificate request message.
 						</h:p>
 					</Guidance>
 					<Tests>
@@ -723,18 +765,18 @@
 							<test>
 						<h:p>
 							The evaluator shall use the operational guidance to cause the TOE to request certificate enrollment from an
-							EST server using the simple enrollment method described in RFC 7030 Section 4.2. When doing this, the
+							EST server using the simple enrollment method described in RFC 7030, Section 4.2. When doing this, the
 							evaluator shall ensure that the certificate request to the server is authenticated using an existing
-							certificate and private key as described by RFC 7030 Section 3.3.2. The evaluator shall confirm that the
+							certificate and private key as described by RFC 7030, Section 3.3.2. The evaluator shall confirm that the
 							resulting certificate is successfully obtained and installed in the TOE key store.
 						</h:p>	
 							</test>
 							<test>
 								<h:p>
 									The evaluator shall use the operational guidance to cause the TOE to request certificate enrollment
-									from an EST server using the simple enrollment method described in RFC 7030 Section 4.2. When doing
+									from an EST server using the simple enrollment method described in RFC 7030, Section 4.2. When doing
 									this, the evaluator shall ensure that the certificate request to the server is authenticated using a
-									username and password as described by RFC 7030 Section 3.2.3. The evaluator shall confirm that the
+									username and password as described by RFC 7030, Section 3.2.3. The evaluator shall confirm that the
 									resulting certificate is successfully obtained and installed in the TOE key store.
 								</h:p>	
 							</test>
@@ -750,7 +792,7 @@
 							<test>
 								<h:p>
 									The evaluator shall configure the EST server or use a man-in-the-middle tool to present a server
-									certificate to the TOE that is present in the TOE general Trust Anchor Database but not its
+									certificate to the TOE that is present in the TOE general Trust Anchor Database, but not its
 									EST-specific Trust Anchor Database. The evaluator shall cause the TOE to request certificate
 									enrollment from the EST server. The evaluator shall verify that the request is not successful.
 								</h:p>	
@@ -759,7 +801,7 @@
 								<h:p>
 									The evaluator shall configure the EST server or use a man-in-the-middle tool to present an invalid
 									certificate. The evaluator shall cause the TOE to request certificate enrollment from the EST server.
-									The evaluator shall verify that the request is not successful The evaluator shall configure the EST
+									The evaluator shall verify that the request is not successful. The evaluator shall configure the EST
 									server or use a man-in-the-middle tool to present a certificate that does not have the CMC RA purpose
 									and verify that requests to the EST server fail. The tester shall repeat the test using a valid
 									certificate and a certificate that contains the CMC RA purpose and verify that the certificate
@@ -770,7 +812,7 @@
 								<h:p>
 									The evaluator shall use a packet sniffing tool between the TOE and an EST server. The evaluator shall
 									turn on the sniffing tool and cause the TOE to request certificate enrollment from an EST server.
-									The evaluator shall verify that the EST protocol interaction occurs over a Transport Layer Security
+									The evaluator shall verify that the EST protocol interaction occurs over a TLS
 									(TLS) protected connection. The evaluator is not expected to decrypt the connection but rather
 									observe that the packets conform to the TLS protocol format.
 								</h:p>	
@@ -794,16 +836,16 @@
 							<test>
 								<h:p>
 									The evaluator shall configure the EST server to provide a "Root CA Key Update" as described in 
-									RFC 7030 Section 4.1.3. The evaluator shall cause the TOE to request CA certificates from the EST
-									server and shall confirm that the EST-specific Trust Anchor Database is updated with the new trust
+									RFC 7030, Section 4.1.3. The evaluator shall cause the TOE to request CA certificates from the EST
+									server and confirm that the EST-specific Trust Anchor Database is updated with the new trust
 									anchor.
 								</h:p>	
 							</test>
 							<test>
 								<h:p>
 									The evaluator shall configure the EST server to provide a "Root CA Key Update" as described in
-									RFC 7030 Section 4.1.3 but shall modify part of the NewWithOld certificate’s generated signature.
-									The evaluator shall cause the TOE to request CA certificates from the EST server and shall confirm
+									RFC 7030, Section 4.1.3 but shall modify part of the NewWithOld certificate’s generated signature.
+									The evaluator shall cause the TOE to request CA certificates from the EST server and confirm
 									that the EST-specific Trust Anchor Database is not updated with the new trust anchor since the
 									signature did not verify.
 								</h:p>	
@@ -813,7 +855,7 @@
 									The evaluator shall use the operational guidance to cause the TOE to generate a certificate request
 									message. The evaluator shall capture the generated message and ensure that it conforms to the format
 									specified by RFC 2986. The evaluator shall confirm that the certificate request provides the public
-									key and other required information, including any necessary user-input information.
+									key and other required information, including any necessary User-input information.
 								</h:p>	
 							</test>
 						</testlist>
@@ -835,11 +877,11 @@
 			</audit-event>
 			<audit-event>
 				<audit-event-descr>Update of EST trust anchor database.</audit-event-descr>
-				<audit-event-info>Subject name of added root CA.</audit-event-info>
+				<audit-event-info>Subject name of added Root CA.</audit-event-info>
 			</audit-event>
 		</f-component>
 		
-		<f-component name="Exceptions to X.509 Certificate Revocation Checking" cc-id="fia_x509_ext.5" status="sel-based">
+		<f-component name="Exceptions to X.509 Certificate Revocation Checking" cc-id="fia_x509_ext.5" id="fia-x509-ext-5" status="sel-based">
 			<depends on-sel="revocation-exceptions-exist"/>
 			
 			<f-element id="fia-x509-ext-5e1">
@@ -917,132 +959,60 @@
 <!--                    -->
 	
    <bibliography>
-		<entry id="bibGPOS">
-			<tag>GPOSPP</tag>
-			<description>
-				<h:a href="https://www.niap-ccevs.org/Profile/Info.cfm?id=442">Protection Profile for General Purpose Operating Systems</h:a>
-			</description>
-		</entry>
-		<entry id="bibMDM">
-			<tag>MDMPP</tag>
-			<description>
-				<h:a href="https://www.niap-ccevs.org/Profile/Info.cfm?id=428">Protection Profile for Mobile Device Management</h:a>
-			</description>
-		</entry>
-		<entry id="bibAppPP">
-			<tag>AppPP</tag>
-			<description>
-				<h:a href="https://www.niap-ccevs.org/Profile/Info.cfm?id=429">Protection Profile for Application Software</h:a>
-			</description>
-		</entry>
-		<entry id="bibVirt">
-			<tag>VirtPP</tag>
-			<description>
-				<h:a href="https://www.niap-ccevs.org/Profile/Info.cfm?id=408">Protection Profile for Virtualization</h:a>
-			</description>
-		</entry>  
-   	<entry id="bibCEM">
+		<entry id="bibCEM">
    		<tag>CEM</tag>
    		<description>
    			<h:a href="https://commoncriteriaportal.org/files/ccfiles/CEM2022R1.pdf">Common
-   				Methodology for Information Technology Security - Evaluation Methodology</h:a>,
+   				Methodology for Information Technology Security Evaluation - Evaluation Methodology</h:a>,
    			CCMB-2022-11-006, CEM:2022, Revision 1, November 2022. </description>
    	</entry>
-		<entry id="bibOpenssh">
-			<tag>openssh-portable/ PROTOCOL</tag>
+		<entry id="bibRFC2986">
+			<tag>RFC 2986</tag>
 			<description>
-				<h:a href="https://cvsweb.openbsd.org/cgi-bin/cvsweb/src/usr.bin/ssh/PROTOCOL?rev=1.31">OpenSSH's deviations and extensions (1.6 transport: AES-GCM) </h:a>
+				<h:a href="https://datatracker.ietf.org/doc/html/rfc2986">PKCS #10: Certification Request Syntax Specification
+					Version 1.7</h:a>
 			</description>
 		</entry>   
-		<entry id="bibRFC4251">
-			<tag>RFC 4251</tag>
+		<entry id="bibRFC5280 ">
+			<tag>RFC 5280 </tag>
 			<description>
-				<h:a href="https://tools.ietf.org/html/rfc4251">The Secure Shell (SSH) Protocol Architecture </h:a>
+				<h:a href="https://datatracker.ietf.org/doc/html/rfc5280">Internet X.509 Public Key Infrastructure Certificate
+					and Certificate Revocation List (CRL) Profile</h:a>
 			</description>
 		</entry>   
-		<entry id="bibRFC4252 ">
-			<tag>RFC 4252 </tag>
+		<entry id="bibRFC6066">
+			<tag>RFC 6066</tag>
 			<description>
-				<h:a href="https://tools.ietf.org/html/rfc4252">The Secure Shell (SSH) Authentication Protocol</h:a>
+				<h:a href="https://datatracker.ietf.org/doc/html/rfc6066">Transport Layer Security (TLS) Extensions: Extension
+					Definitions</h:a>
 			</description>
 		</entry>   
-		<entry id="bibRFC4253">
-			<tag>RFC 4253</tag>
+		<entry id="bibRFC6960">
+			<tag>RFC 6960</tag>
 			<description>
-				<h:a href="https://tools.ietf.org/html/rfc4253">The Secure Shell (SSH) Transport Layer Protocol</h:a>
+				<h:a href="https://datatracker.ietf.org/doc/html/rfc6960">X.509 Internet Public Key Infrastructure Online Certificate
+					Status Protocol – OCSP </h:a>
 			</description>
 		</entry>   
-		<entry id="bibRFC4254">
-			<tag>RFC 4254</tag>
+		<entry id="bibRFC6961">
+			<tag>RFC 6961</tag>
 			<description>
-				<h:a href="https://tools.ietf.org/html/rfc4254">The Secure Shell (SSH) Connection Protocol</h:a>
+				<h:a href="https://datatracker.ietf.org/doc/html/rfc6961">The Transport Layer Security (TLS) Multiple Certificate Status
+					Request Extension</h:a>
 			</description>
 		</entry>   
-		<entry id="bibRFC4256">
-			<tag>RFC 4256</tag>
+		<entry id="bibRFC7030">
+			<tag>RFC 7030</tag>
 			<description>
-				<h:a href="https://www.ietf.org/rfc/rfc4256.txt">Generic Message Exchange Authentication for the Secure Shell Protocol (SSH)</h:a>
+				<h:a href="https://datatracker.ietf.org/doc/html/rfc7030">Enrollment over Secure Transport</h:a>
 			</description>
 		</entry>   
-		<entry id="bibRFC4344">
-			<tag>RFC 4344</tag>
+		<entry id="bibRFC8603">
+			<tag>RFC 8603</tag>
 			<description>
-				<h:a href="https://tools.ietf.org/html/rfc4344">The Secure Shell (SSH) Transport Layer Encryption Modes</h:a>
+				<h:a href="https://datatracker.ietf.org/doc/html/rfc8603">Commercial National Security Algorithm (CNSA) Suite Certificate
+					and Certificate Revocation List (CRL) Profile</h:a>
 			</description>
-		</entry>   
-		<entry id="bibRFC5647">
-			<tag>RFC 5647</tag>
-			<description>
-				<h:a href="https://tools.ietf.org/html/rfc5647">AES Galois Counter Mode for the Secure Shell Transport Layer Protocol</h:a>
-			</description>
-		</entry>   
-		<entry id="bibRFC5656">
-			<tag>RFC 5656</tag>
-			<description>
-				<h:a href="https://tools.ietf.org/html/rfc5656">Elliptic Curve Algorithm Integration in the Secure Shell Transport Layer</h:a>
-			</description>
-		</entry>   
-		<entry id="bibRFC6187">
-			<tag>RFC 6187</tag>
-			<description>
-				<h:a href="https://tools.ietf.org/html/rfc6187">X.509v3 Certificates for Secure Shell Authentication</h:a>
-			</description>
-		</entry>   
-		<entry id="bibRFC6668">
-			<tag>RFC 6668</tag>
-			<description>
-				<h:a href="https://tools.ietf.org/html/rfc6668">SHA-2 Data Integrity Verification for the Secure Shell (SSH) Transport Layer Protocol</h:a>
-			</description>
-		</entry>   
-		<entry id="bibRFC8268">
-			<tag>RFC 8268</tag>
-			<description>
-				<h:a href="https://tools.ietf.org/html/rfc8268">More Modular Exponentiation (MODP) Diffie-Hellman (DH) Key Exchange (KEX) Groups for Secure Shell (SSH)</h:a>
-			</description>
-		</entry>   
-		<entry id="bibRFC8308">
-			<tag>RFC 8308</tag>
-			<description>
-				<h:a href="https://www.ietf.org/rfc/rfc8308.txt">Extension Negotiation in the Secure Shell (SSH) Protocol</h:a>
-			</description>
-		</entry>   
-		<entry id="bibRFC8332">
-			<tag>RFC 8332</tag>
-			<description>
-				<h:a href="https://www.ietf.org/rfc/rfc8332.txt">Use of RSA Keys with SHA-256 and SHA-512 in the Secure Shell (SSH) Protocol</h:a>
-			</description>
-		</entry>   
-		<entry id="bibRFC8709">
-			<tag>RFC 8709</tag>
-			<description>
-				<h:a href="https://tools.ietf.org/html/rfc8709">Ed25519 and Ed448 public key algorithms for the Secure Shell (SSH) protocol </h:a>
-			</description>
-		</entry>   
-		<entry id="bibRFC8731">
-			<tag>RFC 8731</tag>
-			<description>
-				<h:a href="https://tools.ietf.org/html/rfc8731">Secure Shell (SSH) Key Exchange Method using Curve25519 and Curve448</h:a>
-			</description>
-		</entry>   
+		</entry>
     </bibliography>
 </Package>
