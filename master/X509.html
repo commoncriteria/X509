@@ -688,8 +688,11 @@ The following sections list Common Criteria and technology terms used in this do
    		part of a connection handshake.</td></tr>
 <tr><td><div id="Online_Certificate_Status_Protocol">Online Certificate Status Protocol (OCSP)</div></td><td>A method by which a CA has the ability to communicate that a certificate it issued
    		has been revoked and should no longer be trusted, originally secribed in RFC 6960.</td></tr>
-<tr><td><div id="extendedKeyUsage">extendedKeyUsage (EKU)</div></td><td>An otpional attribute of an X.509 certificate that designates the intended usage of the certificate,
+<tr><td><div id="basicConstraints">basicConstraints</div></td><td>A Boolean flag that is used to designate whether a certificate is a CA certificate. If this flag is present
+   	and set to TRUE on a certificate, that certificate also has a pathLen attribute.</td></tr>
+<tr><td><div id="extendedKeyUsage">extendedKeyUsage (EKU)</div></td><td>An optional attribute of an X.509 certificate that designates the intended usage of the certificate,
    	such as for server authentication, client authentication, or code signing.</td></tr>
+<tr><td><div id="pathLen">pathLen</div></td><td>An attribute of CA certificates that specifies the maximum length of a certificate chain that terminates with that certificate.</td></tr>
 </table></div>
 	
      

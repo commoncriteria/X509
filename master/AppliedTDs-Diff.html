@@ -209,8 +209,18 @@
                 </tr>
                 <tr>
                     <td>
+                        <div id="basicConstraints">basicConstraints</div>
+                    </td><td>A Boolean flag that is used to designate whether a certificate is a CA certificate. If this flag is present and set to TRUE on a certificate, that certificate also has a pathLen attribute.</td>
+                </tr>
+                <tr>
+                    <td>
                         <div id="extendedKeyUsage">extendedKeyUsage (EKU)</div>
-                    </td><td>An otpional attribute of an X.509 certificate that designates the intended usage of the certificate, such as for server authentication, client authentication, or code signing.</td>
+                    </td><td>An optional attribute of an X.509 certificate that designates the intended usage of the certificate, such as for server authentication, client authentication, or code signing.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="pathLen">pathLen</div>
+                    </td><td>An attribute of CA certificates that specifies the maximum length of a certificate chain that terminates with that certificate.</td>
                 </tr>
             </table>
         </div>
