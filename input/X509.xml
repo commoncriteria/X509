@@ -66,6 +66,8 @@
 <!--			-->
    <tech-terms>
    	<suppress>Extended Package, TSF Interface</suppress>
+   	<term full="basicConstraints">A Boolean flag that is used to designate whether a certificate is a CA certificate. If this flag is present
+   	and set to TRUE on a certificate, that certificate also has a pathLen attribute.</term>
    	<term abbr="CA" full="Certification Authority"></term>
    	<term abbr="cPP" full="collaborative Protection Profile"></term>
    	<term abbr="CMC" full="Certificate Management over CMS"></term>
@@ -75,7 +77,7 @@
    	<term abbr="CSR" full="Certificate Signing Request"></term>
    	<term abbr="EA" full="Evaluation Activity"></term>
    	<term abbr="EC" full="Elliptic Curve"></term>
-   	<term abbr="EKU" full="extendedKeyUsage">An otpional attribute of an X.509 certificate that designates the intended usage of the certificate,
+   	<term abbr="EKU" full="extendedKeyUsage">An optional attribute of an X.509 certificate that designates the intended usage of the certificate,
    	such as for server authentication, client authentication, or code signing.</term>
    	<term abbr="EST" full="Enrollment over Secure Transport"></term>
    	<term abbr="FP" full="Functional Package"></term>
@@ -91,6 +93,7 @@
    	<term abbr="OE" full="Operational Environment"></term>
    	<term abbr="OID" full="Object Identifiers"></term>
    	<term abbr="OS" full="Operating System"></term>
+   	<term full="pathLen">An attribute of CA certificates that specifies the maximum length of a certificate chain that terminates with that certificate.</term>
    	<term abbr="PP" full="Protection Profile"></term>
    	<term abbr="PP-Module" full="Protection Profile Module"></term>
    	<term abbr="RA" full="Registration Authority"></term>
