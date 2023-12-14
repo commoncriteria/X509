@@ -66,23 +66,28 @@
 <!--			-->
    <tech-terms>
    	<suppress>Extended Package, TSF Interface</suppress>
-   	<term full="Connection">The SSH transport layer between a client and a server.  Within a connection there can
-			be multiple sessions. </term>
    	<term abbr="CA" full="Certification Authority"></term>
    	<term abbr="cPP" full="collaborative Protection Profile"></term>
    	<term abbr="CMC" full="Certificate Management over CMS"></term>
    	<term abbr="CMS" full="Cryptographic Message Syntax"></term>
-   	<term abbr="CRL" full="Certificate Revocation List"></term>
+   	<term abbr="CRL" full="Certificate Revocation List">A method by which a CA has the ability to communicate that a certificate it issued
+   	has been revoked and should no longer be trusted, originally described in RFC 5280.</term>
    	<term abbr="CSR" full="Certificate Signing Request"></term>
    	<term abbr="EA" full="Evaluation Activity"></term>
    	<term abbr="EC" full="Elliptic Curve"></term>
-   	<term abbr="EKU" full="extendedKeyUsage"></term>
+   	<term abbr="EKU" full="extendedKeyUsage">An otpional attribute of an X.509 certificate that designates the intended usage of the certificate,
+   	such as for server authentication, client authentication, or code signing.</term>
    	<term abbr="EST" full="Enrollment over Secure Transport"></term>
    	<term abbr="FP" full="Functional Package"></term>
    	<term abbr="HTTP" full="Hypertext Transfer Protocol"></term>
    	<term abbr="HTTPS" full="Hypertext Transfer Protocol Secure"></term>
    	<term abbr="ITU-T" full="International Telecommunication Union Telecommunication Standardization Sector"></term>
-   	<term abbr="OCSP" full="Online Certificate Status Protocol"></term>
+   	<term abbr="OCSP" full="Online Certificate Status Protocol">A method by which a CA has the ability to communicate that a certificate it issued
+   		has been revoked and should no longer be trusted, originally secribed in RFC 6960.</term>
+   	<term full="OCSP Stapling">An expedited version of OCSP where the CA includes an assertion of a leaf certificate's validity as 
+   		part of a connection handshake.</term>
+   	<term full="OCSP Multi-Stapling">An expedited version of OCSP where the CA includes an assertion of a leaf certificate's validity, 
+   		as well as the validity of any intermediate CA certificates between the root and the leaf, as part of a connection handshake.</term>
    	<term abbr="OE" full="Operational Environment"></term>
    	<term abbr="OID" full="Object Identifiers"></term>
    	<term abbr="OS" full="Operating System"></term>
@@ -605,7 +610,7 @@
 								<h:p>
 									If the TSF uses X.509 certificates for Administrator or User authentication, the evaluator shall
 									generate an X.509v3 certificate for a User with the Client Authentication EKU field set. The
-									evaluator will provision the Operating System (OS) for authentication with the X.509v3 certificate.
+									evaluator shall provision the OS for authentication with the X.509v3 certificate.
 								</h:p>
 								
 								<h:p>
@@ -813,7 +818,7 @@
 									The evaluator shall use a packet sniffing tool between the TOE and an EST server. The evaluator shall
 									turn on the sniffing tool and cause the TOE to request certificate enrollment from an EST server.
 									The evaluator shall verify that the EST protocol interaction occurs over a TLS
-									(TLS) protected connection. The evaluator is not expected to decrypt the connection but rather
+									protected connection. The evaluator is not expected to decrypt the connection but rather
 									observe that the packets conform to the TLS protocol format.
 								</h:p>	
 							</test>
