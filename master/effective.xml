@@ -146,7 +146,7 @@
 		</h:p><h:p>The PP, cPP, or PP-Module that instantiates this FP must typically include the following components in order to satisfy 
 		dependencies of this FP. It is the responsibility of the PP, cPP, or PP-Module author who incorporates this FP to 
 		ensure that dependence on these components is satisfied, either by the TOE or by assumptions about its OE.
-		</h:p><h:p>An ST must identify in its conformance claims, the applicable version of the PP, cPP, or PP-Module, and of this
+		</h:p><h:p>An ST must identify in its conformance claims the applicable version of the PP, cPP, or PP-Module, and of this
 		FP.</h:p>
 		<componentsneeded>
 			<componentneeded>
@@ -291,7 +291,7 @@
 								certificate if the basicConstraints extension is present and the CA flag is set to TRUE) so there appears to
 								be no need to have a second element.</comment>
 						<h:li>The revocation status of the certificate shall be validated using <selectables linebreak="yes">
-							<selectable>The OCSP as specified in RFC 6960</selectable>
+							<selectable>OCSP as specified in RFC 6960</selectable>
 							<selectable>CRLs as specified in RFC 5280 and refined by RFC 8603</selectable>
 							<selectable>An OCSP TLS Status Request Extension (OCSP stapling) as specified in RFC 6066</selectable>
 							<selectable>An OCSP TLS Multiple Certificate Status Request Extension (OCSP multi-stapling) as specified
@@ -467,7 +467,7 @@
 							</test>
 							<test id="ec-validation-test">
 								<h:p>
-									[Conditional on support for Elliptic Curve (EC)] The evaluator shall establish a valid, trusted
+									[Conditional on support for Elliptic Curve (EC) certificates] The evaluator shall establish a valid, trusted
 									certificate chain consisting of an EC leaf certificate, an EC intermediate CA certificate not
 									designated as a trust anchor, and an EC certificate designated as a trust anchor, where the
 									EC parameters are specified as a named curve. The evaluator shall confirm that the TOE
@@ -565,7 +565,7 @@
 					environment so the TOE can use the certificates. The guidance documentation shall also include any required
 					configuration on the TOE to use the certificates").</comment>
 						<h:p>
-							The evaluator shall verify that the operational guidance determines the TOE chooses which certificates to use
+							The evaluator shall verify that the operational guidance determines how the TOE chooses which certificates to use
 							for authentication.
 						</h:p>
 						
