@@ -629,7 +629,7 @@ function showTarget(id){
 	            img[src="images/collapsed.png"] { display:none;}
 
           }
-    </style></head><body onLoad="init()"><div id="commmentbox-"><a href="#Comment-1-">Comment: Comment-1-</a><br/></div><h1 class="title" style="page-break-before:auto;">Functional Package for X.509</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
+    </style></head><body onLoad="init()"><div id="commmentbox-"><a href="#Comment-1-">Comment: Comment-1-</a><br/><a href="#Comment-2-">Comment: Comment-2-</a><br/><a href="#Comment-3-">Comment: Comment-3-</a><br/><a href="#Comment-4-">Comment: Comment-4-</a><br/><a href="#Comment-5-">Comment: Comment-5-</a><br/><a href="#Comment-6-">Comment: Comment-6-</a><br/><a href="#Comment-7-">Comment: Comment-7-</a><br/><a href="#Comment-8-">Comment: Comment-8-</a><br/><a href="#Comment-9-">Comment: Comment-9-</a><br/><a href="#Comment-10-">Comment: Comment-10-</a><br/><a href="#Comment-11-">Comment: Comment-11-</a><br/><a href="#Comment-12-">Comment: Comment-12-</a><br/><a href="#Comment-13-">Comment: Comment-13-</a><br/><a href="#Comment-14-">Comment: Comment-14-</a><br/><a href="#Comment-15-">Comment: Comment-15-</a><br/><a href="#Comment-16-">Comment: Comment-16-</a><br/><a href="#Comment-17-">Comment: Comment-17-</a><br/></div><h1 class="title" style="page-break-before:auto;">Functional Package for X.509</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
       Version: 1.0<br/>2023-12-14<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>1.0</td><td>2023-12-14</td><td>Initial draft.</td></tr>
 </table><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#toes" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#Conformance_Claims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Functional_Requirements" style="text-indent:0px">3<span>Security Functional Requirements</span></a><a href="#ss-audit-table" style="text-indent:10px">3.1<span>Auditable Events for Mandatory SFRs</span></a><a href="#fia" style="text-indent:10px">3.2<span>Identification and Authentication (FIA)</span></a><a href="#impl-reqs" style="text-indent:0px">Appendix A - <span>Implementation-dependent Requirements</span></a><a href="#ext-comp-defs" style="text-indent:0px">Appendix B - <span>Extended Component Definitions</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">B.1<span>Extended Components Table</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">B.2<span>Extended Component Definitions</span></a><a href="#ext-comp-FIA" style="text-indent:20px">B.2.1<span>Identification and Authentication (FIA)</span></a><a href="#ext-comp-FIA_X509_EXT" style="text-indent:30px">B.2.1.1<span>FIA_X509_EXT X.509 Certificate Handling</span></a><a href="#acronyms" style="text-indent:0px">Appendix C - <span>Acronyms</span></a><a href="#appendix-bibliography" style="text-indent:0px">Appendix D - <span>Bibliography</span></a></div><h1 class="indexable" data-level="1" id="Introduction">1 Introduction</h1>
 	
@@ -638,13 +638,13 @@ function showTarget(id){
 
   <h2 class="indexable" data-level="2" id="Overview">1.1 Overview</h2>
         <p>
-        	X.509 is an International Telecommunication Union Telecommunication Standardization Sector (ITU-T) standard for public key certificates.
+        	X.509 is an International Telecommunication Union Telecommunication Standardization Sector (<abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr>) standard for public key certificates.
         	Public key certificates are used as authentication mechanisms for trusted communications protocols and as integrity verification methods.
       	</p><p>
 		This <i>Functional Package (<abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>) for X.509</i> provides a collection of X.509 
       		Security Functional Requirements (<abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>) and 
 		Evaluation Activities (EAs) for the issuance, use, and validation of X.509 certificates. The intent 
-		of this package is to provide Protection Profile (<abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>), collaborative Protection Profile (<abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr>), and Protection Profile Module (<abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>) authors 
+		of this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> is to provide Protection Profile (<abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>), collaborative Protection Profile (<abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr>), and Protection Profile Module (<abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>) authors 
 		with a readily consumable collection of <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> and EAs to be integrated into
 		their documents.  
         </p>
@@ -680,8 +680,7 @@ The following sections list Common Criteria and technology terms used in this do
 <tr><td><div id="Target_of_Evaluation">Target of Evaluation (TOE)</div></td><td>The product under evaluation. </td></tr>
 <tr><td><div id="TOE_Security_Functionality">TOE Security Functionality (TSF)</div></td><td>The security functionality of the product under evaluation.</td></tr>
 <tr><td><div id="TOE_Summary_Specification">TOE Summary Specification (TSS)</div></td><td>A description of how a TOE satisfies the SFRs in an ST.</td></tr>
-</table><h3 id="tech-terms" class="indexable" data-level="3">1.2.2 Technical Terms</h3><table style="width: 100%"><tr><td><div id=""> (CMC)</div></td><td>Certificate Management over CMS</td></tr>
-<tr><td><div id="Connection">Connection</div></td><td>The SSH transport layer between a client and a server.  Within a connection there can
+</table><h3 id="tech-terms" class="indexable" data-level="3">1.2.2 Technical Terms</h3><table style="width: 100%"><tr><td><div id="Connection">Connection</div></td><td>The SSH transport layer between a client and a server.  Within a connection there can
 			be multiple sessions. </td></tr>
 </table></div>
 	
@@ -690,82 +689,80 @@ The following sections list Common Criteria and technology terms used in this do
 
 
     <h2 class="indexable" data-level="2" id="toes">1.3 Compliant Targets of Evaluation</h2>
-    	<span style="" class="comment " id="Comment-1-">test comment</span>
-    	
-		<p>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> is the portion of product that provides X.509 capabilities to other portions of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>, such as 
+    	    	
+		<p>The Target of Evaluation (<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>) in this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> is the portion of a product that provides X.509 capabilities to other portions of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Security Functionality (<abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>), such as 
 			functions for subject authentication, 
-			trusted communications, validation of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> software/firmware updates, or integrity verification as part of self-testing. 
-			At minimum, a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will include the ability to validate X.509 certificates presented to it, including but not limited to:
+			trusted communications, validation of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> software and firmware updates, or integrity verification as part of self-testing. 
+			At minimum, a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will include the ability to validate X.509 certificates presented to it, including:
 			<ul>
-				<li>cryptographic validity of the digital signature</li>
-				<li>time-based validity</li>
-				<li>issuer-based validity</li>
-				<li>revocation status using a Certificate Revocation List (<abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>) or the Online Certificate Status Protocol (<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr>)</li>
-				<li>validation that the certificate's extensions are consistent with its intended use</li>
+				<li>cryptographic validity of the digital signature.</li>
+				<li>time-based validity.</li>
+				<li>issuer-based validity.</li>
+				<li>revocation status using a Certificate Revocation List (<abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>) or the Online Certificate Status Protocol (<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr>).</li>
+				<li>validation that the certificate's extensions are consistent with its intended use.</li>
 			</ul>A conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must also define its intended uses for X.509 certificates and how to proceed when a certificate with undetermined 
 			revocation status is presented to it.
 			</p><p>
-			This <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> also defines mechanisms by which the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> can generate a certificate signing request (<abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>) for receiving a signed certificate from a 
-			certification authority (<abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>). This may be generated either as a file that is provided to a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> manually or done via an active network connection to the 
+			This <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> also defines mechanisms by which the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> can generate a Certificate Signing Request (<abbr class="dyn-abbr"><a href="#abbr_CSR">CSR</a></abbr>) for receiving a signed certificate from a 
+			Certification Authority (<abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>). This may be generated either as a file that is provided to a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> manually or done via an active network connection to the 
 			<abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> using Enrollment over Secure Transport (<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>).
 			</p><p>
 			There may also be some situations where revocation checking is not performed. This <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> defines an optional requirement for cases where exceptions
 			to the claimed revocation functionality exist.
 			</p><p>
-			Lastly, the X.509 functionality defined by this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> is part of a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> but is not considered to be an entire <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> on its own. X.509 functionality
-			is implemented by a wide variety of technology products, some of which are standalone and some of which are dependent on a trusted platform
+			Lastly, the X.509 functionality defined by this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> is part of a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, but is not considered to be an entire <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> on its own. X.509 functionality
+			is implemented by a wide variety of technology products, some of which are standalone and some dependent on a trusted platform
 			(such as a software application on a general-purpose computer or mobile device). Auditable events have been defined for the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> in this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> for cases
 			where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> boundary includes an audit function specified by FAU_GEN.1. A <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that conforms to this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> may also implement or rely on its operational
-			environment to implement appropriate management functionality for X.509 functionality that may include, but is not limited to:
+			environment to implement appropriate management functionality for X.509 functionality that may include:
 			<ul>
-				<li>Specifying root and intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates to be used as trust anchors.</li>
-				<li>Generating certificate requests and loading signed certificates for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s own use into its trust store.</li>
-				<li>Specifying the revocation method that is used.</li>
-				<li>Configuring how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> behaves in the event that certificate revocation information is unavailable.</li>
+				<li>specifying root and intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates to be used as trust anchors.</li>
+				<li>generating certificate requests and loading signed certificates for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s own use into its trust store.</li>
+				<li>specifying the revocation method that is used.</li>
+				<li>configuring how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> behaves in the event that certificate revocation information is unavailable.</li>
 			</ul>
-			Any conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must consider the extent to which X.509 functionality must be managed and ensure that appropriate management claims are made in 
-			the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s Security Target or that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to a <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> that allows a trusted platform in its operational environment to implement them.
+			Any conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must consider the extent to which X.509 functionality must be managed, and ensure that appropriate management claims are made in 
+			the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s Security Target (<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>) or that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to a <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> that allows a trusted platform in its Operational Environment (<abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>) to implement them.
 			</p><p>
 			This <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> describes the extended security functionality of X.509 in terms of <a href="#bibCC">[CC]</a>. </p>
-		<p>The contents of this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> must be appropriately incorporated into a <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr>, or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. When this package 
-		is so incorporated, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> must include selection-based requirements in accordance with the selections or assignments 
+		<p>The contents of this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> must be appropriately incorporated into a <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr>, or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. When this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> 
+		is incorporated as such, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> must include selection-based requirements in accordance with the selections or assignments 
 		indicated in the incorporating document.
-		</p><p>The <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr>, or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> that instantiates this Package must typically include the following components in order to satisfy 
-		dependencies of this Package. It is the responsibility of the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr>, or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> author who incorporates this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> to 
+		</p><p>The <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr>, or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> that instantiates this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> must typically include the following components in order to satisfy 
+		dependencies of this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>. It is the responsibility of the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr>, or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> author who incorporates this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> to 
 		ensure that dependence on these components is satisfied, either by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or by assumptions about its <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>.
-		</p><p>An <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> must identify the applicable version of the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr>, or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, and of this
-		<abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> in its conformance claims.</p>
-		<table><tr class="header"><th>Component</th><th>Explanation</th></tr><tr><td class="componentneeded" id="FCS_CKM.1"><a href="#FCS_CKM.1">FCS_CKM.1</a></td><td>To support public/private key pair generation for creating an X.509 certificate signing request (<abbr class="dyn-abbr"><a href="#abbr_CSR">CSR</a></abbr>), 
-					the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must
+		</p><p>An <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> must identify in its conformance claims, the applicable version of the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr>, or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, and of this
+		<abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>.</p>
+		<table><tr class="header"><th>Component</th><th>Explanation</th></tr><tr><td class="componentneeded" id="FCS_CKM.1"><a href="#FCS_CKM.1">FCS_CKM.1</a></td><td>To support public and private key pair generation for creating an X.509 <abbr class="dyn-abbr"><a href="#abbr_CSR">CSR</a></abbr>, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must
 					include <a href="#FCS_CKM.1">FCS_CKM.1</a> and specify the corresponding algorithms.<br/></td></tr><tr><td class="componentneeded" id="FCS_COP.1"><a href="#FCS_COP.1">FCS_COP.1</a></td><td>
 					To support the cryptography needed for X.509 validation, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include <a href="#FCS_COP.1">FCS_COP.1</a> 
 					(iterating as needed) to specify appropriate digital signature validation and hash algorithms for the
 					X.509 certificates presented to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
-				<br/></td></tr><tr><td class="componentneeded" id="FCS_RBG.1"><a href="#FCS_RBG.1">FCS_RBG.1</a></td><td>To support random bit generation needed for public/private key pair generation,
+				<br/></td></tr><tr><td class="componentneeded" id="FCS_RBG.1"><a href="#FCS_RBG.1">FCS_RBG.1</a></td><td>To support the Random Bit Generation (<abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr>) needed for public and private key pair generation,
 					the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include <a href="#FCS_RBG.1">FCS_RBG.1</a> or an extended <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> that defines comparable functionality.<br/></td></tr><tr><td class="componentneeded" id="FPT_STM.1"><a href="#FPT_STM.1">FPT_STM.1</a></td><td>To support validating whether a presented X.509 certificate is expired, 
 					the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include <a href="#FPT_STM.1">FPT_STM.1</a> or some other requirement that ensures reliable system time.  
 					<br/></td></tr><tr><td class="componentneeded" id="FTP_PRO.1"><a href="#FTP_PRO.1">FTP_PRO.1</a></td><td>To support <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> when claimed, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include 
-					<a href="#FTP_PRO.1">FTP_PRO.1</a> or equivalent extended <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>. To define the HTTPS and <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> protocol implementation for these communications.
+					<a href="#FTP_PRO.1">FTP_PRO.1</a> or equivalent extended <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> to define the Hypertext Transfer Protocol Secure (<abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr>) and Transport Layer Security (<abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>) protocol implementation for these communications.
 					Note that support for <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> is not mandatory.
 				<br/></td></tr><tr><td class="componentneeded" id="FTP_PRO.2"><a href="#FTP_PRO.2">FTP_PRO.2</a></td><td>To support <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> when claimed, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include 
-					<a href="#FTP_PRO.2">FTP_PRO.2</a> or equivalent extended <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>. To define the HTTPS and <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> protocol implementation for these communications.
+					<a href="#FTP_PRO.2">FTP_PRO.2</a> or equivalent extended <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> to define the <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> protocol implementation for these communications.
 					Note that support for <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> is not mandatory.
 				<br/></td></tr><tr><td class="componentneeded" id="FTP_PRO.3"><a href="#FTP_PRO.3">FTP_PRO.3</a></td><td>To support <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> when claimed, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include 
-					<a href="#FTP_PRO.3">FTP_PRO.3</a> or equivalent extended <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>. To define the HTTPS and <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> protocol implementation for these communications.
+					<a href="#FTP_PRO.3">FTP_PRO.3</a> or equivalent extended <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> to define the <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> protocol implementation for these communications.
 					Note that support for <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> is not mandatory.
 				<br/></td></tr><tr><td class="componentneeded" id="FTP_ITC.1"><a href="#FTP_ITC.1">FTP_ITC.1</a></td><td>To support <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> when claimed, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include <a href="#FTP_ITC.1">FTP_ITC.1</a> to define a trusted channel
-					between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and a trusted certification authority (<abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>).
+					between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and a trusted <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>.
 					Note that support for <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> is not mandatory.
 				<br/></td></tr></table>
 	
 <h1 class="indexable" data-level="1" id="Conformance_Claims">2 Conformance Claims</h1>
 	<dl><dt class="cclaim defined" id="Conformance Statement">Conformance Statement</dt><dd><span class="description">An <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> must claim exact conformance to this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>.
 				<br/><br/>
-				The evaluation methods used for evaluating the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> are a combination of the workunits defined in <a href="#bibCEM">[CEM]</a> as well as the
+				The evaluation methods used for evaluating the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> are a combination of the workunits defined in <a href="#bibCEM">[CEM]</a>, as well as the
 				EAs for ensuring that individual <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> have a sufficient level of supporting evidence in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> and 
 				guidance documentation, and have been sufficiently tested by the laboratory as part of completing ATE_IND.1.
 			</span></dd><dt class="cclaim defined" id="CC Conformance Claims">CC Conformance Claims</dt><dd><span class="description">This <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> is conformant to Part 2 (extended) of Common Criteria <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1. FPs
-			do not contain any <abbr class="dyn-abbr"><a href="#abbr_SAR">SARs</a></abbr> so no <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 3 claim is made.</span></dd><dt class="cclaim defined" id="PP Claim">PP Claim</dt><dd><span class="description">This <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> does not claim conformance to any <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.<br/><br/>
+			do not contain any <abbr class="dyn-abbr"><a href="#abbr_SAR">SARs</a></abbr>, so no <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 3 claim is made.</span></dd><dt class="cclaim defined" id="PP Claim">PP Claim</dt><dd><span class="description">This <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> does not claim conformance to any <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.<br/><br/>
 				<abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Configurations do not require enumeration of FPs; this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> can be claimed in any <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> that includes
 				a <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> that permits the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> to be claimed as part of it.
 			</span></dd><dt class="cclaim defined" id="Package Claim">Package Claim</dt><dd><span class="description">This <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> does not claim conformance to any other FPs.
@@ -800,7 +797,7 @@ The following sections list Common Criteria and technology terms used in this do
 	
 	<h2 class="indexable" data-level="2" id="ss-audit-table">3.1 Auditable Events for Mandatory SFRs</h2>
 		<p>
-			The auditable events specified in this Package are included in a <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> 
+			The auditable events specified in this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> are included in an <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> 
 			if the incorporating <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr>, or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> supports audit event reporting through FAU_GEN.1,
 			and if all other criteria in the incorporating <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> are met.
 		</p>
@@ -816,7 +813,8 @@ The following sections list Common Criteria and technology terms used in this do
 		
 		<div class="comp" id="FIA_X509_EXT.1"><h4>FIA_X509_EXT.1 X.509 Certificate Validation</h4>
 			<div class="element"><div class="reqid" id="FIA_X509_EXT.1.1"><a href="#FIA_X509_EXT.1.1" class="abbr">FIA_X509_EXT.1.1</a></div><div class="reqdesc">
-					The [<b>selection</b>: <span class="selectable-content" id="_s_1"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>,  <span class="selectable-content" id="_s_2"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span> ]
+					The [<b>selection</b>: <span class="selectable-content" id="_s_1"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>,  <span class="selectable-content" id="_s_2"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span> ] <span style="" class="comment " id="Comment-1-"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> vs platform selection added globally, of course if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> doesn't have a 'platform' (e.g. NDcPP) the
+							<abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> author can just force the selection of "<abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>".</span>
 					shall validate certificates in accordance with the following rules:
 					<ul> 
 						<li><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5280 certificate validation and certificate path validation supporting a minimum path length of 
@@ -825,20 +823,31 @@ The following sections list Common Criteria and technology terms used in this do
 							shall be used.</li>
 						<li>The certification path shall terminate with a trusted <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate designated as a trust anchor.</li>
 						<li>All <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates in the certification path shall contain the basicConstraints extension with 
-							the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> flag set to TRUE.</li>
-						<li>The revocation status of the certificate shall be validated using [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_3">The Online Certificate Status Protocol (<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr>) as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960</span></li><li style=""><span class="selectable-content" id="_s_4">Certificate Revocation Lists (<abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>) as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5280 and refined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8603</span></li><li style=""><span class="selectable-content" id="_s_5">An <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> Status Request Extension (<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> stapling) as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6066</span></li><li style=""><span class="selectable-content" id="_s_6">An <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> Multiple Certificate Status Request Extension (<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> multi-stapling) as specified
-								in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6961</span></li></ul>] and with [<b>selection</b>: <span class="selectable-content" id="_s_7">no exceptions</span>,  <span class="selectable-content" id="revocation-exceptions-exist">exceptions defined in <a href="#fia_x509_ext.5" class="dynref" data-format=""></a></span> ]</li>
+							the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> flag set to TRUE.</li> <span style="" class="comment " id="Comment-2-">This covers basically the same thing as <a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a>.2 (The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall only treat a certificate as a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>
+								certificate if the basicConstraints extension is present and the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> flag is set to TRUE) so there appears to
+								be no need to have a second element.</span>
+						<li>The revocation status of the certificate shall be validated using [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_3">The <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960</span></li><li style=""><span class="selectable-content" id="_s_4">CRLs as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5280 and refined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8603</span></li><li style=""><span class="selectable-content" id="_s_5">An <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> Status Request Extension (<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> stapling) as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6066</span></li><li style=""><span class="selectable-content" id="_s_6">An <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> Multiple Certificate Status Request Extension (<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> multi-stapling) as specified
+								in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6961</span></li></ul>] <span style="" class="comment " id="Comment-3-">Added to accommodate exception checking for revocation (see TD0605).</span>and with [<b>selection</b>: <span class="selectable-content" id="_s_7">no exceptions</span>,  <span class="selectable-content" id="revocation-exceptions-exist">exceptions defined in <a href="#FIA_X509_EXT.5">FIA_X509_EXT.5</a></span> ]</li>
 						<li>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate the extendedKeyUsage (<abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr>) field according to the following rules: 
 							[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_9">Certificates used for trusted updates and executable code integrity verification shall have the
-								Code Signing Purpose (id-kp 3 with <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> 1.3.6.1.5.5.7.3.3)</span></li><li style=""><span class="selectable-content" id="_s_10">Client certificates presented for <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> shall have the Client Authentication purpose
-								(id-kp 2 with <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> 1.3.6.1.5.5.7.3.2)</span></li><li style=""><span class="selectable-content" id="_s_11">Server certificates presented for <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> shall have the Server Authentication purpose
-										(id-kp 1 with <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> 1.3.6.1.5.5.7.3.1)</span></li><li style=""><span class="selectable-content" id="_s_12">Delegated <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> signer’s certificates presented for <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responses shall have the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr>
-										Signing purpose (id-kp 9 with <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> 1.3.6.1.5.5.7.3.9)</span></li><li style=""><span class="selectable-content" id="_s_13">Server certificates presented for <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> shall have the <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> Registration Authority (<abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr>)
-										purpose (id-kp-cmcRA with <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> 1.3.6.1.5.5.7.3.28)</span></li><li style=""><span class="selectable-content" id="_s_14">[<b>assignment</b>: 
-     <span class="assignable-content">other expected <abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr> values</span>]</span></li></ul>]
-						</li>
+								Code Signing Purpose (id-kp 3 with <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> 1.3.6.1.5.5.7.3.3).</span></li><li style=""><span class="selectable-content" id="_s_10">Client certificates presented for <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> shall have the Client Authentication purpose
+								(id-kp 2 with <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> 1.3.6.1.5.5.7.3.2).</span></li><li style=""><span class="selectable-content" id="_s_11">Server certificates presented for <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> shall have the Server Authentication purpose
+										(id-kp 1 with <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> 1.3.6.1.5.5.7.3.1).</span></li><li style=""><span class="selectable-content" id="_s_12">Delegated <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> signer’s certificates presented for <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responses shall have the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr>
+										Signing purpose (id-kp 9 with <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> 1.3.6.1.5.5.7.3.9).</span></li><li style=""><span class="selectable-content" id="_s_13">Server certificates presented for <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> shall have the Certificate Management over <abbr class="dyn-abbr"><a href="#abbr_CMS">CMS</a></abbr> (<abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr>) Registration Authority (<abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr>)
+										purpose (id-kp-cmcRA with <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> 1.3.6.1.5.5.7.3.28).</span></li><li style=""><span class="selectable-content" id="_s_14">[<b>assignment</b>: 
+     <span class="assignable-content">other expected <abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr> values</span>]</span></li></ul>]</li> <span style="" class="comment " id="Comment-4-">This would cover
+									S/MIME extensions as well as a catch-all/future proofing for anything else not currently listed.</span>
+							<span style="" class="comment " id="Comment-5-">General note about the open-ended assignments - they are here so that <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr> that use this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> can
+								accommodate things that we haven't anticipated through refinements/completing the assignment. If a <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>
+								adds stuff here, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> can also update the <abbr class="dyn-abbr"><a href="#abbr_EA">EA</a></abbr> with specific details needed for that permutation. So I
+								don't think that having an open-ended assignment here with no corresponding <abbr class="dyn-abbr"><a href="#abbr_EA">EA</a></abbr> violates the spirit of
+								exact conformance. We just need to make it clear to <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> authors that this is how it's intended to be used
+								(they can always fill out the assignment with 'no other' themselves and then there is no gap in the EAs).</span>
 							<li>[<b>selection</b>: <span class="selectable-content" id="_s_15">no other rules</span>,  <span class="selectable-content" id="_s_16">[<b>assignment</b>: 
      <span class="assignable-content">additional certificate evaluation rules</span>]</span> ]
+								<span style="" class="comment " id="Comment-6-">Catch-all added to the end just in case other rules are ever relevant (for example FDP_CER_EXT.1 in the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>
+									requires a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> to generate certs that use the certificate policy field but we don't have any rules for validating that
+									field's contents).</span>
 						</li>
 								</ul>
 					</div></div>
@@ -850,12 +859,12 @@ The following sections list Common Criteria and technology terms used in this do
 					
 					
 				<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">
-						<p>The evaluator shall ensure the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes where the check of validity of the certificates takes place
+						<p>The evaluator shall ensure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Summary Specification (<abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>) describes where the check of validity of the certificates takes place
 							(both in terms of circumstances as well as whether the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> or the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform is responsible for certificate
-							validation in each case) and that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> identifies the rules for certificate field checking. In any case
+							validation in each case) and that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> identifies the rules for certificate field checking. In cases
 							where a certificate is used in an authentication step or for validating the integrity of trusted updates,
 							it is expected that revocation checking will be performed. If X.509 certificates are used for power-on
-							self-tests, it is not necessary to verify certificate revocation status in this situation.
+							self-tests, it is not necessary to verify certificate revocation status.
 						</p>
 						
 						<p>The <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> shall describe when revocation checking is performed and on what certificates. If the revocation
@@ -866,7 +875,7 @@ The following sections list Common Criteria and technology terms used in this do
 					</div><div class="eacategory">Guidance</div><div class="ea">
 						<p>
 							The evaluator shall ensure that the operational guidance describes where the check of validity of the
-							certificates takes place and any of the rules for extendedKeyUsage fields.
+							certificates takes place and any of the rules for <abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr> fields.
 						</p>
 						
 						<p>
@@ -875,14 +884,17 @@ The following sections list Common Criteria and technology terms used in this do
 							the revocation check function.
 						</p>
 					</div><div class="eacategory">Tests</div><div class="ea">
+						<span style="" class="comment " id="Comment-7-">Synthesized from NDcPP (modified by TD0527) and App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> (modified by TD0669) - may need some additional
+							modification/tailoring for broader usage.</span>
 						<p>
 							The tests described must be performed in conjunction with the other certificate services evaluation
-							activities, including the functions in <a href="#FIA_X509_EXT.2.1">FIA_X509_EXT.2.1</a>. The tests for the extendedKeyUsage rules are
-							performed in conjunction with the uses that require those rules. If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports chains of length four
+							activities, <span style="" class="comment " id="Comment-8-">Do we want to do it this way or should everything be self-contained to the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> it's
+								referenced in?</span>including the functions in <a href="#FIA_X509_EXT.2.1">FIA_X509_EXT.2.1</a>. The tests for the <abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr> rules are
+							performed together with the uses that require those rules. If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports chains of length four
 							or greater, the evaluator shall create a chain of at least four certificates: the node certificate to be
-							tested, two Intermediate CAs, and the root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports chains of length three, then only one
+							tested, two intermediate CAs, and the Root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports chains of length three, then only one
 							intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> shall be created. If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports a maximum chain of length two, then a chain with no
-							Intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> shall be created.
+							intermediate CAs shall be created.
 						</p>
 						<span class="testlist-"><ul>
 							<li class="test-"><a id="_t_1" class="defined" href="#_t_1">Test FIA_X509_EXT.1:1</a>:
@@ -902,7 +914,7 @@ The following sections list Common Criteria and technology terms used in this do
 									Setting the basicConstraints field in an issuing certificate to have <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>=False
 								</li>
 								<li>
-									Omitting the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> signing bit of the key usage field in an issuing certificate, and
+									Omitting the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> signing bit of the key usage field in an issuing certificate
 								</li>
 								<li>
 									Setting the path length field of a valid <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> field to a value strictly less than the certificate path
@@ -922,20 +934,20 @@ The following sections list Common Criteria and technology terms used in this do
 							</li>
 							<li class="test-"><a id="_t_3" class="defined" href="#_t_3">Test FIA_X509_EXT.1:3</a>:
       The evaluator shall test that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can properly handle revoked certificates, conditional on
-								whether <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> Stapling or <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> Multi-stapling is selected; if multiple methods are selected,
+								whether <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> stapling, or <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> multi-stapling is selected; if multiple methods are selected,
 								then the following tests shall be performed for each method:
 								<ul>
 									<li>
 										The evaluator shall test revocation of the node certificate.
 									</li>
 									<li>
-										The evaluator shall also test revocation of an intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate (i.e., the intermediate
-										<abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate should be revoked by the root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>), if intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates are supported.
+										If intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates are supported, the evaluator shall also test revocation of an intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate (i.e., the intermediate
+										<abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate should be revoked by the Root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>).
 										If <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> stapling per <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6066 is the only supported revocation method, this test is omitted.
 									</li>
 									<li>
 										The evaluator shall ensure that a valid certificate is used and that the validation function succeeds. The
-										evaluator then attempts the test with a certificate that has been revoked (for each method chosen in the selection)
+										evaluator shall then attempt the test with a certificate that has been revoked (for each method chosen in the selection)
 										to ensure when the certificate is no longer valid that the validation function fails.
 									</li>
 								</ul>
@@ -944,13 +956,13 @@ The following sections list Common Criteria and technology terms used in this do
       
 								<p>
 									If any <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> option is selected, the evaluator shall ensure the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> has no other source of revocation
-									information available and configure the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> server or use a man-in-the-middle tool to present an
+									information available and configure the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> server, or use a man-in-the-middle tool to present an
 									<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> response signed by a certificate that does not have the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> signing purpose and which is the
 									only source of revocation status information advertised by the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> issuing the certificate being
 									validated. The evaluator shall verify that validation of the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> response fails and that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
 									treats the certificate being checked as invalid and rejects the connection. If <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> is selected, the
-									evaluator shall likewise configure the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> to be the only source of revocation status information,
-									and sign a <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> with a certificate that does not have the cRLsign key usage bit. The evaluator shall
+									evaluator shall also configure the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> to be the only source of revocation status information
+									and sign a <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> with a certificate that does not have the cRLSign key usage bit. The evaluator shall
 									verify that validation of the <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> fails and that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> treats the certificate being checked as
 									invalid and rejects the connection.
 								</p>
@@ -987,50 +999,55 @@ The following sections list Common Criteria and technology terms used in this do
 									certificate fails to validate (i.e., the signature on the certificate will not validate).
 								</p>
 							</li>
-							<li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FIA_X509_EXT.1:8</a>:
+							<li class="test-"><a id="fia-x509-ext-1e8" class="defined" href="#fia-x509-ext-1e8">Test FIA_X509_EXT.1:8</a>:
       
 								<p>
-									(Conditional on support for EC certificates) The evaluator shall establish a valid, trusted
-									certificate chain consisting of an EC leaf certificate, an EC Intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate not
-									designated as a trust anchor, and an EC certificate designated as a trusted anchor, where the
-									elliptic curve parameters are specified as a named curve. The evaluator shall confirm that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
+									[Conditional on support for Elliptic Curve (<abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr>)] The evaluator shall establish a valid, trusted
+									certificate chain consisting of an <abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr> leaf certificate, an <abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr> intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate not
+									designated as a trust anchor, and an <abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr> certificate designated as a trust anchor, where the
+									<abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr> parameters are specified as a named curve. The evaluator shall confirm that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
 									validates the certificate chain.	
 								</p>
 							</li>
 							<li class="test-"><a id="_t_9" class="defined" href="#_t_9">Test FIA_X509_EXT.1:9</a>:
       
 								<p>
-									(Conditional on support for EC certificates) The evaluator shall replace the intermediate
+									(Conditional on support for <abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr> certificates) The evaluator shall replace the intermediate
 									certificate in the certificate chain for the previous test with a modified certificate, where the
-									modified intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> has a public key information field where the EC parameters uses an explicit
-									format version of the Elliptic Curve parameters in the public key information field of the
-									intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate from Test 8a, and the modified Intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate is signed by
-									the trusted EC root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>,  but having no other changes. The evaluator shall confirm the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> treats the
+									modified intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> has a public key information field where the <abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr> parameters use an explicit
+									format version of the <abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr> parameters in the public key information field of the
+									intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate from <a href="#fia-x509-ext-1e8" class="dynref">Test FIA_X509_EXT.1:8</a>, and the modified intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate is signed by
+									the trusted <abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr> Root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>,  but having no other changes. The evaluator shall confirm the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> treats the
 									certificate as invalid.
 								</p>
 							</li>
 							<li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FIA_X509_EXT.1:10</a>:
       
 								<p>
-									(conditional on support for EC certificates) The evaluator shall establish a subordinate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>
-									certificate, where the elliptic curve parameters are specified as a named curve, that is signed by a
-									trusted EC root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. The evaluator shall attempt to load the certificate into the trust store and
+									(Conditional on support for <abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr> certificates) The evaluator shall establish a subordinate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>
+									certificate where the <abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr> parameters are specified as a named curve that is signed by a
+									trusted <abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr> Root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. The evaluator shall attempt to load the certificate into the trust store and
 									observe that it is accepted into the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s trust store. The evaluator shall then establish a
-									subordinate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate that uses an explicit format version of the elliptic curve parameters,
-									and that is signed by a trusted EC root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. The evaluator shall attempt to load the certificate into
-									the trust store and observe that it is rejected, and not added to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s trust store.
+									subordinate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate that uses an explicit format version of the <abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr> parameters
+									and that is signed by a trusted <abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr> Root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. The evaluator shall attempt to load the certificate into
+									the trust store and observe that it is rejected and not added to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s trust store.
 								</p>
 							</li>
 						</ul></span>
 					</div></div></div></div>
-		
+				
 		<div class="comp" id="FIA_X509_EXT.2"><h4>FIA_X509_EXT.2 X.509 Certificate Usage</h4>
-			<div class="element"><div class="reqid" id="FIA_X509_EXT.2.1"><a href="#FIA_X509_EXT.2.1" class="abbr">FIA_X509_EXT.2.1</a></div><div class="reqdesc">The
+			<div class="element"><div class="reqid" id="FIA_X509_EXT.2.1"><a href="#FIA_X509_EXT.2.1" class="abbr">FIA_X509_EXT.2.1</a></div><div class="reqdesc"><span style="" class="comment " id="Comment-9-">Changed from "Authentication" to "Usage" since X.509 can also be used mainly in the
+					context of integrity.</span>
+					The
 					[<b>selection</b>: <span class="selectable-content" id="_s_17"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>,  <span class="selectable-content" id="_s_18"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span> ]
 					shall use X.509v3 certificates as defined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5280 to support authentication for 
-					[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_19">[<b>assignment</b>: 
-     <span class="assignable-content">trusted communications protocol</span>]</span></li><li style=""><span class="selectable-content" id="_s_20">no protocols</span></li></ul>]
-					and [<b>selection</b>: <span class="selectable-content" id="_s_21">code signing for system software updates</span>,  <span class="selectable-content" id="_s_22">code signing for software integrity testing</span>,  <span class="selectable-content" id="_s_23">integrity verification for <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> protected data</span>,  <span class="selectable-content" id="_s_24">Administrator authentication</span>,  <span class="selectable-content" id="_s_25">user authentication</span>,  <span class="selectable-content" id="_s_26">[<b>assignment</b>: 
+					[<b>selection</b>: <span class="selectable-content" id="_s_19">[<b>assignment</b>: 
+     <span class="assignable-content">trusted communications protocol</span>]</span>,  <span class="selectable-content" id="_s_20">no protocols</span> ]
+					and <span style="" class="comment " id="Comment-10-">Added selections based on other uses of X.509 in various <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr> - making a distinction between
+						"administrators" (of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>) vs "users" (in the context of an organizational user the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> is authenticating
+						but who may not use the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> directly, e.g. when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> functions as an authentication server).</span>
+					[<b>selection</b>: <span class="selectable-content" id="_s_21">code signing for system software updates</span>,  <span class="selectable-content" id="_s_22">code signing for software integrity testing</span>,  <span class="selectable-content" id="_s_23">integrity verification for <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> protected data</span>,  <span class="selectable-content" id="_s_24">Administrator authentication</span>,  <span class="selectable-content" id="_s_25">User authentication</span>,  <span class="selectable-content" id="_s_26">[<b>assignment</b>: 
      <span class="assignable-content">other uses</span>]</span>,  <span class="selectable-content" id="_s_27">no additional uses</span> ].
 				</div></div>
 			<div class="element"><div class="reqid" id="FIA_X509_EXT.2.2"><a href="#FIA_X509_EXT.2.2" class="abbr">FIA_X509_EXT.2.2</a></div><div class="reqdesc">When the
@@ -1041,19 +1058,25 @@ The following sections list Common Criteria and technology terms used in this do
 			
 		<div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FIA_X509_EXT.2">FIA_X509_EXT.2</a></div> 
 					
-					
+				
 					
 			<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">
 						<p>
 							The evaluator shall check the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to ensure that it describes how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> chooses which certificates to use.
-						</p>
+						</p><span style="" class="comment " id="Comment-11-">Guidance activities were removed from this.</span>
 						
 						<p>
 							The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to confirm that it describes the behavior of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> when a connection
-							cannot be established during the validity check of a certificate. The evaluator shall verify that any
+							cannot be established during the certificate's validity check.<span style="" class="comment " id="Comment-12-">This used to say "used in
+								establishing a trusted channel" but it seems like there is no reason that it should be limited to that
+								since the same behavior will need to be described in non-trusted channel cases.</span>. The evaluator shall verify that any
 							distinctions between trusted channels are described.
 						</p>
-					</div><div class="eacategory">Guidance</div><div class="ea">
+					</div><div class="eacategory">Guidance</div><div class="ea"><span style="" class="comment " id="Comment-13-">The first part of the paragraph from ND-SD is not very clear on its intent so I've removed it. The
+					text from <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> that referred to guidance has been moved down to here. 		
+					("The evaluator shall ensure that the guidance documentation describes the configuration required in the operating
+					environment so the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can use the certificates. The guidance documentation shall also include any required
+					configuration on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to use the certificates").</span>
 						<p>
 							The evaluator shall verify that the operational guidance determines the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> chooses which certificates to use
 							for authentication.
@@ -1066,18 +1089,23 @@ The following sections list Common Criteria and technology terms used in this do
 						</p>
 					</div><div class="eacategory">Tests</div><div class="ea">
 						<p>
-							The evaluator shall perform the following test for each trusted channel:
+							The evaluator shall perform the following tests for each trusted channel: <span style="" class="comment " id="Comment-14-">Trusted channel testing is
+								synthesized from NDcPP/App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>. User/admin authentication is taken from GPOS <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.								
+								Note that we also still need something for the other uses for X.509 authentication (e.g. code signing for
+								updates or integrity) - these were not explicitly covered through X.509 requirements in other <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr>
+								(e.g. if code signing for updates is used, then it would be tested under FPT_TUD_EXT). They should probably
+								be all merged under X.509 so they aren't forked in different <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr>.</span>
 						</p>
 						<span class="testlist-"><ul>
 							<li class="test-"><a id="_t_11" class="defined" href="#_t_11">Test FIA_X509_EXT.2:1</a>:
       
 								<p>
-									The evaluator shall demonstrate that using a valid certificate that requires certificate validation
-									checking to be performed in at least some part by communicating with a non-TOE IT entity. The
+									The evaluator shall demonstrate that a valid certificate that requires certificate validation
+									checking to be performed in at least some part by communicating with a non-TOE IT entity is accepted. The
 									evaluator shall then manipulate the environment so that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is unable to verify the validity of
 									the certificate and observe that the action selected in <a href="#FIA_X509_EXT.2.2">FIA_X509_EXT.2.2</a> is performed. If the selected
-									action is administrator-configurable, then the evaluator shall follow the guidance documentation to
-									determine that all supported administrator-configurable options behave in their documented manner.
+									action is Administrator-configurable, then the evaluator shall follow the guidance documentation to
+									determine that all supported Administrator-configurable options behave in their documented manner.
 								</p>
 							</li>
 							<li class="test-"><a id="_t_12" class="defined" href="#_t_12">Test FIA_X509_EXT.2:2</a>:
@@ -1089,14 +1117,14 @@ The following sections list Common Criteria and technology terms used in this do
 								</p>
 								
 								<p>
-									If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> uses X.509 certificates for Administrator or user authentication, the evaluator shall
-									generate an X.509v3 certificate for a user with the Client Authentication <abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr> field set. The
-									evaluator will provision the <abbr class="dyn-abbr"><a href="#abbr_OS">OS</a></abbr> for authentication with the X.509v3 certificate.
+									If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> uses X.509 certificates for Administrator or User authentication, the evaluator shall
+									generate an X.509v3 certificate for a User with the Client Authentication <abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr> field set. The
+									evaluator will provision the Operating System (<abbr class="dyn-abbr"><a href="#abbr_OS">OS</a></abbr>) for authentication with the X.509v3 certificate.
 								</p>
 								
 								<p>
-									The evaluator will ensure that the certificates are validated by the <abbr class="dyn-abbr"><a href="#abbr_OS">OS</a></abbr> per <a href="#FIA_X509_EXT.1.1">FIA_X509_EXT.1.1</a> and then
-									conduct the following two tests:
+									The evaluator shall ensure that the certificates are validated by the <abbr class="dyn-abbr"><a href="#abbr_OS">OS</a></abbr> per <a href="#FIA_X509_EXT.1.1">FIA_X509_EXT.1.1</a>, and then
+									conduct the following two tests.
 								</p>
 							</li>
 							<li class="test-"><a id="_t_13" class="defined" href="#_t_13">Test FIA_X509_EXT.2:3</a>:
@@ -1120,14 +1148,16 @@ The following sections list Common Criteria and technology terms used in this do
 		<div class="comp" id="FIA_X509_EXT.3"><h4>FIA_X509_EXT.3 X.509 Certificate Requests</h4><div class="statustag"><i><b>This is an optional component. However, applied modules or packages might redefine it as mandatory.</b></i></div>
 			<div class="element"><div class="reqid" id="FIA_X509_EXT.3.1"><a href="#FIA_X509_EXT.3.1" class="abbr">FIA_X509_EXT.3.1</a></div><div class="reqdesc">The
 					[<b>selection</b>: <span class="selectable-content" id="_s_33"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>,  <span class="selectable-content" id="_s_34"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span> ]
-					shall generate a Certificate Request as specified by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 2986 and be able to provide the following information in the
+					shall generate a certificate request as specified by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 2986, and be able to provide the following information in the
 					request: public key and 
 					[<b>selection</b>: <span class="selectable-content" id="_s_35">device-specific information</span>,  <span class="selectable-content" id="_s_36">Common Name</span>,  <span class="selectable-content" id="_s_37">Organization</span>,  <span class="selectable-content" id="_s_38">Organizational Unit</span>,  <span class="selectable-content" id="_s_39">Country</span>,  <span class="selectable-content" id="_s_40">[<b>assignment</b>: 
-     <span class="assignable-content">other information</span>]</span> ].
+     <span class="assignable-content">other information</span>]<span style="" class="comment " id="Comment-15-">Assignment added as a catch-all/future proofing
+							for anything we may have missed - if this is redundant because "device-specific information" covers it then
+							remove and update the <abbr class="dyn-abbr"><a href="#abbr_EA">EA</a></abbr> accordingly.</span></span> ].
 				</div></div>
 			<div class="element"><div class="reqid" id="FIA_X509_EXT.3.2"><a href="#FIA_X509_EXT.3.2" class="abbr">FIA_X509_EXT.3.2</a></div><div class="reqdesc">The
 					[<b>selection</b>: <span class="selectable-content" id="_s_41"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>,  <span class="selectable-content" id="_s_42"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span> ]
-					shall validate the chain of certificates from the Root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> upon receiving the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Certificate Response.
+					shall validate the chain of certificates from the Root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> upon receiving the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate response.
 				</div></div>
 									
 			
@@ -1143,27 +1173,27 @@ The following sections list Common Criteria and technology terms used in this do
 					</div><div class="eacategory">Guidance</div><div class="ea">
 						<p>
 							The evaluator shall check to ensure that the guidance documentation contains instructions on requesting
-							certificates from a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>, including generation of a Certificate Request. If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author selects "Common Name",
+							certificates from a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>, including generation of a certificate request. If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author selects "Common Name",
 							"Organization", "Organizational Unit", or "Country", the evaluator shall ensure that this guidance includes
-							instructions for establishing these fields before creating the Certificate Request.
+							instructions for establishing these fields before creating the certificate request.
 						</p>
 					</div><div class="eacategory">Tests</div><div class="ea">
 						<span class="testlist-"><ul>
 							<li class="test-"><a id="_t_15" class="defined" href="#_t_15">Test FIA_X509_EXT.3:1</a>:
       
 								<p>
-									The evaluator shall use the guidance documentation to cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to generate a Certificate Request.
+									The evaluator shall use the guidance documentation to cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to generate a certificate request.
 									The evaluator shall capture the generated message and ensure that it conforms to the format specified.
-									The evaluator shall confirm that the Certificate Request provides the public key and other required
-									information, including any necessary user-input information.
+									The evaluator shall confirm that the certificate request provides the public key and other required
+									information, including any necessary User-input information.
 								</p>
 							</li>
 							<li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test FIA_X509_EXT.3:2</a>:
       
 								<p>
-									The evaluator shall demonstrate that validating a response message to a Certificate Request without a
+									The evaluator shall demonstrate that validating a response message to a certificate request without a
 									valid certification path results in the function failing. The evaluator shall then load one or more
-									certificates into the trust store used by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that are used as CAs to validate the certificate
+									certificates into the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s trust store that are used as CAs to validate the certificate
 									response message and demonstrate that the function succeeds.
 								</p>
 							</li>
@@ -1171,30 +1201,31 @@ The following sections list Common Criteria and technology terms used in this do
 					</div></div></div></div>
 		
 		<div class="comp" id="FIA_X509_EXT.4"><h4>FIA_X509_EXT.4 X.509 Certificate Enrollment</h4><div class="statustag"><i><b>This is an optional component. However, applied modules or packages might redefine it as mandatory.</b></i></div>
-			<div class="element"><div class="reqid" id="FIA_X509_EXT.4.1"><a href="#FIA_X509_EXT.4.1" class="abbr">FIA_X509_EXT.4.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use the Enrollment over Secure Transport (<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>) protocol as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 to request
-					certificate enrollment using the simple enrollment method described in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.2.
+			<div class="element"><div class="reqid" id="FIA_X509_EXT.4.1"><a href="#FIA_X509_EXT.4.1" class="abbr">FIA_X509_EXT.4.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> protocol as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 to request
+					certificate enrollment using the simple enrollment method described in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030, Section 4.2.
 				</div></div>
 			<div class="element"><div class="reqid" id="FIA_X509_EXT.4.2"><a href="#FIA_X509_EXT.4.2" class="abbr">FIA_X509_EXT.4.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of authenticating <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> requests using an existing certificate and corresponding private
-					key as specified by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 3.3.2.
+					key as specified by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030, Section 3.3.2.
 				</div></div>
-			<div class="element"><div class="reqid" id="FIA_X509_EXT.4.3"><a href="#FIA_X509_EXT.4.3" class="abbr">FIA_X509_EXT.4.3</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of authenticating <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> requests using <abbr class="dyn-abbr"><a href="#abbr_HTTP">HTTP</a></abbr> Basic Authentication with a username and
-					password as specified by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 3.2.3.
+			<div class="element"><div class="reqid" id="FIA_X509_EXT.4.3"><a href="#FIA_X509_EXT.4.3" class="abbr">FIA_X509_EXT.4.3</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of authenticating <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> requests using Hypertext Transfer Protocol (<abbr class="dyn-abbr"><a href="#abbr_HTTP">HTTP</a></abbr>) basic authentication with a username and
+					password as specified by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030, Section 3.2.3.
 				</div></div>
 			<div class="element"><div class="reqid" id="FIA_X509_EXT.4.4"><a href="#FIA_X509_EXT.4.4" class="abbr">FIA_X509_EXT.4.4</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server authentication using an Explicit Trust Anchor following the rules described in
 					<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030, section 3.6.1.
 				</div></div>
-			<div class="element"><div class="reqid" id="FIA_X509_EXT.4.5"><a href="#FIA_X509_EXT.4.5" class="abbr">FIA_X509_EXT.4.5</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of requesting server-provided private keys as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.4.
+			<div class="element"><div class="reqid" id="FIA_X509_EXT.4.5"><a href="#FIA_X509_EXT.4.5" class="abbr">FIA_X509_EXT.4.5</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of requesting server-provided private keys as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030, Section 4.4.
 				</div></div>
 			<div class="element"><div class="reqid" id="FIA_X509_EXT.4.6"><a href="#FIA_X509_EXT.4.6" class="abbr">FIA_X509_EXT.4.6</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of updating its <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>-specific Trust Anchor Database using the "Root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Key Update" process
-					described in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.1.3.					
+					described in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030, Section 4.1.3.					
 				</div></div>
-			<div class="element"><div class="reqid" id="FIA_X509_EXT.4.7"><a href="#FIA_X509_EXT.4.7" class="abbr">FIA_X509_EXT.4.7</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a Certificate Request Message for <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 2986 and be able to provide the
+			<div class="element"><div class="reqid" id="FIA_X509_EXT.4.7"><a href="#FIA_X509_EXT.4.7" class="abbr">FIA_X509_EXT.4.7</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a certificate request message for <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 2986 and be able to provide the
 					following information in the request: public key and
 					[<b>selection</b>: <span class="selectable-content" id="_s_43">device-specific information</span>,  <span class="selectable-content" id="_s_44">Common Name</span>,  <span class="selectable-content" id="_s_45">Organization</span>,  <span class="selectable-content" id="_s_46">Organizational Unit</span>,  <span class="selectable-content" id="_s_47">Country</span>,  <span class="selectable-content" id="_s_48">[<b>assignment</b>: 
-     <span class="assignable-content">other information</span>]</span> ].
+     <span class="assignable-content">other information</span>]<span style="" class="comment " id="Comment-16-">Assignment added as a catch-all/future proofing
+							for anything we may have missed.</span></span> ].
 				</div></div>
 			<div class="element"><div class="reqid" id="FIA_X509_EXT.4.8"><a href="#FIA_X509_EXT.4.8" class="abbr">FIA_X509_EXT.4.8</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate the chain of certificates from the Root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate in the Trust Anchor Database to
-					the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> Server <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate upon receiving a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Certificate Response.				
+					the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> Server <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate, upon receiving a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate response.				
 				</div></div>
 			
 			
@@ -1206,13 +1237,14 @@ The following sections list Common Criteria and technology terms used in this do
 					
 					
 				<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">
+						<span style="" class="comment " id="Comment-17-">This was taken from the MDF <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> as-is, but surely there could be one.</span>
 						<p>
 							There are no <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> EAs for this component.
 						</p>
 					</div><div class="eacategory">Guidance</div><div class="ea">
 						<p>
 							The evaluator shall check to ensure that the operational guidance contains instructions on requesting
-							certificates from an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server, including generating a Certificate Request Message.
+							certificates from an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server, including generating a certificate request message.
 						</p>
 					</div><div class="eacategory">Tests</div><div class="ea">
 						<span class="testlist-"><ul>
@@ -1220,9 +1252,9 @@ The following sections list Common Criteria and technology terms used in this do
       
 						<p>
 							The evaluator shall use the operational guidance to cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request certificate enrollment from an
-							<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server using the simple enrollment method described in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.2. When doing this, the
+							<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server using the simple enrollment method described in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030, Section 4.2. When doing this, the
 							evaluator shall ensure that the certificate request to the server is authenticated using an existing
-							certificate and private key as described by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 3.3.2. The evaluator shall confirm that the
+							certificate and private key as described by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030, Section 3.3.2. The evaluator shall confirm that the
 							resulting certificate is successfully obtained and installed in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> key store.
 						</p>	
 							</li>
@@ -1230,9 +1262,9 @@ The following sections list Common Criteria and technology terms used in this do
       
 								<p>
 									The evaluator shall use the operational guidance to cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request certificate enrollment
-									from an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server using the simple enrollment method described in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.2. When doing
+									from an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server using the simple enrollment method described in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030, Section 4.2. When doing
 									this, the evaluator shall ensure that the certificate request to the server is authenticated using a
-									username and password as described by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 3.2.3. The evaluator shall confirm that the
+									username and password as described by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030, Section 3.2.3. The evaluator shall confirm that the
 									resulting certificate is successfully obtained and installed in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> key store.
 								</p>	
 							</li>
@@ -1250,7 +1282,7 @@ The following sections list Common Criteria and technology terms used in this do
       
 								<p>
 									The evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server or use a man-in-the-middle tool to present a server
-									certificate to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that is present in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> general Trust Anchor Database but not its
+									certificate to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that is present in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> general Trust Anchor Database, but not its
 									<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>-specific Trust Anchor Database. The evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request certificate
 									enrollment from the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server. The evaluator shall verify that the request is not successful.
 								</p>	
@@ -1260,7 +1292,7 @@ The following sections list Common Criteria and technology terms used in this do
 								<p>
 									The evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server or use a man-in-the-middle tool to present an invalid
 									certificate. The evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request certificate enrollment from the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server.
-									The evaluator shall verify that the request is not successful The evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>
+									The evaluator shall verify that the request is not successful. The evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>
 									server or use a man-in-the-middle tool to present a certificate that does not have the <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> purpose
 									and verify that requests to the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server fail. The tester shall repeat the test using a valid
 									certificate and a certificate that contains the <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> purpose and verify that the certificate
@@ -1272,7 +1304,7 @@ The following sections list Common Criteria and technology terms used in this do
 								<p>
 									The evaluator shall use a packet sniffing tool between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server. The evaluator shall
 									turn on the sniffing tool and cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request certificate enrollment from an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server.
-									The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> protocol interaction occurs over a Transport Layer Security
+									The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> protocol interaction occurs over a <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>
 									(<abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>) protected connection. The evaluator is not expected to decrypt the connection but rather
 									observe that the packets conform to the <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> protocol format.
 								</p>	
@@ -1299,8 +1331,8 @@ The following sections list Common Criteria and technology terms used in this do
       
 								<p>
 									The evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server to provide a "Root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Key Update" as described in 
-									<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.1.3. The evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates from the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>
-									server and shall confirm that the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>-specific Trust Anchor Database is updated with the new trust
+									<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030, Section 4.1.3. The evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates from the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>
+									server and confirm that the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>-specific Trust Anchor Database is updated with the new trust
 									anchor.
 								</p>	
 							</li>
@@ -1308,8 +1340,8 @@ The following sections list Common Criteria and technology terms used in this do
       
 								<p>
 									The evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server to provide a "Root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Key Update" as described in
-									<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.1.3 but shall modify part of the NewWithOld certificate’s generated signature.
-									The evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates from the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server and shall confirm
+									<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030, Section 4.1.3 but shall modify part of the NewWithOld certificate’s generated signature.
+									The evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates from the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server and confirm
 									that the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>-specific Trust Anchor Database is not updated with the new trust anchor since the
 									signature did not verify.
 								</p>	
@@ -1320,7 +1352,7 @@ The following sections list Common Criteria and technology terms used in this do
 									The evaluator shall use the operational guidance to cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to generate a certificate request
 									message. The evaluator shall capture the generated message and ensure that it conforms to the format
 									specified by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 2986. The evaluator shall confirm that the certificate request provides the public
-									key and other required information, including any necessary user-input information.
+									key and other required information, including any necessary User-input information.
 								</p>	
 							</li>
 						</ul></span>
@@ -1390,29 +1422,38 @@ The following sections list Common Criteria and technology terms used in this do
 <tr><td><span class="term" id="abbr_CA"><abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr></span></td><td><span id="long_abbr_CA">Certification Authority</span></td></tr>
 <tr><td><span class="term" id="abbr_CC"><abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr></span></td><td><span id="long_abbr_CC">Common Criteria</span></td></tr>
 <tr><td><span class="term" id="abbr_CEM"><abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr></span></td><td><span id="long_abbr_CEM">Common Evaluation Methodology</span></td></tr>
-<tr><td><span class="term" id="abbr_CMC"><abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr></span></td><td><span id="long_abbr_CMC"></span></td></tr>
+<tr><td><span class="term" id="abbr_CMC"><abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr></span></td><td><span id="long_abbr_CMC">Certificate Management over <abbr class="dyn-abbr"><a href="#abbr_CMS">CMS</a></abbr></span></td></tr>
 <tr><td><span class="term" id="abbr_CMS"><abbr class="dyn-abbr"><a href="#abbr_CMS">CMS</a></abbr></span></td><td><span id="long_abbr_CMS">Cryptographic Message Syntax</span></td></tr>
+<tr><td><span class="term" id="abbr_cPP"><abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr></span></td><td><span id="long_abbr_cPP">collaborative Protection Profile</span></td></tr>
 <tr><td><span class="term" id="abbr_cPP" data-plural="cPPs"><abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr></span></td><td><span id="long_abbr_cPP">Collaborative Protection Profile</span></td></tr>
 <tr><td><span class="term" id="abbr_CRL"><abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr></span></td><td><span id="long_abbr_CRL">Certificate Revocation List</span></td></tr>
 <tr><td><span class="term" id="abbr_CSR"><abbr class="dyn-abbr"><a href="#abbr_CSR">CSR</a></abbr></span></td><td><span id="long_abbr_CSR">Certificate Signing Request</span></td></tr>
 <tr><td><span class="term" id="abbr_EA"><abbr class="dyn-abbr"><a href="#abbr_EA">EA</a></abbr></span></td><td><span id="long_abbr_EA">Evaluation Activity</span></td></tr>
-<tr><td><span class="term" id="abbr_ECC"><abbr class="dyn-abbr"><a href="#abbr_ECC">ECC</a></abbr></span></td><td><span id="long_abbr_ECC">Elliptic Curve Cryptography</span></td></tr>
+<tr><td><span class="term" id="abbr_EC"><abbr class="dyn-abbr"><a href="#abbr_EC">EC</a></abbr></span></td><td><span id="long_abbr_EC">Elliptic Curve</span></td></tr>
 <tr><td><span class="term" id="abbr_EKU"><abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr></span></td><td><span id="long_abbr_EKU">extendedKeyUsage</span></td></tr>
 <tr><td><span class="term" id="abbr_EST"><abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr></span></td><td><span id="long_abbr_EST">Enrollment over Secure Transport</span></td></tr>
 <tr><td><span class="term" id="abbr_FP"><abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr></span></td><td><span id="long_abbr_FP">Functional Package</span></td></tr>
+<tr><td><span class="term" id="abbr_FP"><abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr></span></td><td><span id="long_abbr_FP">Functional Package</span></td></tr>
 <tr><td><span class="term" id="abbr_HTTP"><abbr class="dyn-abbr"><a href="#abbr_HTTP">HTTP</a></abbr></span></td><td><span id="long_abbr_HTTP">Hypertext Transfer Protocol</span></td></tr>
-<tr><td><span class="term" id="abbr_KDF"><abbr class="dyn-abbr"><a href="#abbr_KDF">KDF</a></abbr></span></td><td><span id="long_abbr_KDF">Key Derivation Function</span></td></tr>
+<tr><td><span class="term" id="abbr_HTTPS"><abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr></span></td><td><span id="long_abbr_HTTPS">Hypertext Transfer Protocol Secure</span></td></tr>
+<tr><td><span class="term" id="abbr_ITU-T"><abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr></span></td><td><span id="long_abbr_ITU-T">International Telecommunication Union Telecommunication Standardization Sector</span></td></tr>
 <tr><td><span class="term" id="abbr_OCSP"><abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr></span></td><td><span id="long_abbr_OCSP">Online Certificate Status Protocol</span></td></tr>
 <tr><td><span class="term" id="abbr_OE"><abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr></span></td><td><span id="long_abbr_OE">Operational Environment</span></td></tr>
+<tr><td><span class="term" id="abbr_OE"><abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr></span></td><td><span id="long_abbr_OE">Operational Environment</span></td></tr>
 <tr><td><span class="term" id="abbr_OID"><abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr></span></td><td><span id="long_abbr_OID">Object Identifiers</span></td></tr>
-<tr><td><span class="term" id="abbr_OS"><abbr class="dyn-abbr"><a href="#abbr_OS">OS</a></abbr></span></td><td><span id="long_abbr_OS">Operation System</span></td></tr>
+<tr><td><span class="term" id="abbr_OS"><abbr class="dyn-abbr"><a href="#abbr_OS">OS</a></abbr></span></td><td><span id="long_abbr_OS">Operating System</span></td></tr>
+<tr><td><span class="term" id="abbr_PP"><abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr></span></td><td><span id="long_abbr_PP">Protection Profile</span></td></tr>
 <tr><td><span class="term" id="abbr_PP" data-plural="PPs"><abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr></span></td><td><span id="long_abbr_PP">Protection Profile</span></td></tr>
 <tr><td><span class="term" id="abbr_PP-Configuration"><abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr></span></td><td><span id="long_abbr_PP-Configuration">Protection Profile Configuration</span></td></tr>
 <tr><td><span class="term" id="abbr_PP-Module"><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr></span></td><td><span id="long_abbr_PP-Module">Protection Profile Module</span></td></tr>
-<tr><td><span class="term" id="abbr_RA"><abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr></span></td><td><span id="long_abbr_RA">Registrat Authority</span></td></tr>
+<tr><td><span class="term" id="abbr_PP-Module"><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr></span></td><td><span id="long_abbr_PP-Module">Protection Profile Module</span></td></tr>
+<tr><td><span class="term" id="abbr_RA"><abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr></span></td><td><span id="long_abbr_RA">Registration Authority</span></td></tr>
+<tr><td><span class="term" id="abbr_RBG"><abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr></span></td><td><span id="long_abbr_RBG">Random Bit Generator</span></td></tr>
 <tr><td><span class="term" id="abbr_RFC"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr></span></td><td><span id="long_abbr_RFC">Request for Comment</span></td></tr>
 <tr><td><span class="term" id="abbr_SAR" data-plural="SARs"><abbr class="dyn-abbr"><a href="#abbr_SAR">SAR</a></abbr></span></td><td><span id="long_abbr_SAR">Security Assurance Requirement</span></td></tr>
+<tr><td><span class="term" id="abbr_SFR"><abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr></span></td><td><span id="long_abbr_SFR">Security Functional Requirement</span></td></tr>
 <tr><td><span class="term" id="abbr_SFR" data-plural="SFRs"><abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr></span></td><td><span id="long_abbr_SFR">Security Functional Requirement</span></td></tr>
+<tr><td><span class="term" id="abbr_ST"><abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr></span></td><td><span id="long_abbr_ST">Security Target</span></td></tr>
 <tr><td><span class="term" id="abbr_ST" data-plural="STs"><abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr></span></td><td><span id="long_abbr_ST">Security Target</span></td></tr>
 <tr><td><span class="term" id="abbr_TLS"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span></td><td><span id="long_abbr_TLS">Transport Layer Security</span></td></tr>
 <tr><td><span class="term" id="abbr_TOE"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span></td><td><span id="long_abbr_TOE">Target of Evaluation</span></td></tr>
@@ -1422,49 +1463,29 @@ The following sections list Common Criteria and technology terms used in this do
 <tr><td><span class="term" id="abbr_TSFI" data-plural="TSFIs"><abbr class="dyn-abbr"><a href="#abbr_TSFI">TSFI</a></abbr></span></td><td><span id="long_abbr_TSFI"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> Interface</span></td></tr>
 <tr><td><span class="term" id="abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></span></td><td><span id="long_abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Summary Specification</span></td></tr>
 <tr><td><span class="term" id="abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></span></td><td><span id="long_abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Summary Specification</span></td></tr>
-</table><h1 id="appendix-bibliography" class="indexable" data-level="A">Appendix D -  Bibliography</h1><table><tr class="header"><th>Identifier</th><th>Title</th></tr><tr><td><span id="bibAppPP">[AppPP]</span></td><td><span class="description">
-				<a href="https://www.niap-ccevs.org/Profile/Info.cfm?id=429">Protection Profile for Application Software</a>
-			</span></td></tr><tr><td><span id="bibGPOS">[GPOSPP]</span></td><td><span class="description">
-				<a href="https://www.niap-ccevs.org/Profile/Info.cfm?id=442">Protection Profile for General Purpose Operating Systems</a>
-			</span></td></tr><tr><td><span id="bibMDM">[MDMPP]</span></td><td><span class="description">
-				<a href="https://www.niap-ccevs.org/Profile/Info.cfm?id=428">Protection Profile for Mobile Device Management</a>
-			</span></td></tr><tr><td><span id="bibRFC4251">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 4251]</span></td><td><span class="description">
-				<a href="https://tools.ietf.org/html/rfc4251">The Secure Shell (SSH) Protocol Architecture </a>
-			</span></td></tr><tr><td><span id="bibRFC4252 ">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 4252 ]</span></td><td><span class="description">
-				<a href="https://tools.ietf.org/html/rfc4252">The Secure Shell (SSH) Authentication Protocol</a>
-			</span></td></tr><tr><td><span id="bibRFC4253">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 4253]</span></td><td><span class="description">
-				<a href="https://tools.ietf.org/html/rfc4253">The Secure Shell (SSH) Transport Layer Protocol</a>
-			</span></td></tr><tr><td><span id="bibRFC4254">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 4254]</span></td><td><span class="description">
-				<a href="https://tools.ietf.org/html/rfc4254">The Secure Shell (SSH) Connection Protocol</a>
-			</span></td></tr><tr><td><span id="bibRFC4256">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 4256]</span></td><td><span class="description">
-				<a href="https://www.ietf.org/rfc/rfc4256.txt">Generic Message Exchange Authentication for the Secure Shell Protocol (SSH)</a>
-			</span></td></tr><tr><td><span id="bibRFC4344">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 4344]</span></td><td><span class="description">
-				<a href="https://tools.ietf.org/html/rfc4344">The Secure Shell (SSH) Transport Layer Encryption Modes</a>
-			</span></td></tr><tr><td><span id="bibRFC5647">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5647]</span></td><td><span class="description">
-				<a href="https://tools.ietf.org/html/rfc5647">AES Galois Counter Mode for the Secure Shell Transport Layer Protocol</a>
-			</span></td></tr><tr><td><span id="bibRFC5656">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5656]</span></td><td><span class="description">
-				<a href="https://tools.ietf.org/html/rfc5656">Elliptic Curve Algorithm Integration in the Secure Shell Transport Layer</a>
-			</span></td></tr><tr><td><span id="bibRFC6187">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6187]</span></td><td><span class="description">
-				<a href="https://tools.ietf.org/html/rfc6187">X.509v3 Certificates for Secure Shell Authentication</a>
-			</span></td></tr><tr><td><span id="bibRFC6668">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6668]</span></td><td><span class="description">
-				<a href="https://tools.ietf.org/html/rfc6668">SHA-2 Data Integrity Verification for the Secure Shell (SSH) Transport Layer Protocol</a>
-			</span></td></tr><tr><td><span id="bibRFC8268">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8268]</span></td><td><span class="description">
-				<a href="https://tools.ietf.org/html/rfc8268">More Modular Exponentiation (MODP) Diffie-Hellman (DH) Key Exchange (KEX) Groups for Secure Shell (SSH)</a>
-			</span></td></tr><tr><td><span id="bibRFC8308">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8308]</span></td><td><span class="description">
-				<a href="https://www.ietf.org/rfc/rfc8308.txt">Extension Negotiation in the Secure Shell (SSH) Protocol</a>
-			</span></td></tr><tr><td><span id="bibRFC8332">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8332]</span></td><td><span class="description">
-				<a href="https://www.ietf.org/rfc/rfc8332.txt">Use of RSA Keys with SHA-256 and SHA-512 in the Secure Shell (SSH) Protocol</a>
-			</span></td></tr><tr><td><span id="bibRFC8709">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8709]</span></td><td><span class="description">
-				<a href="https://tools.ietf.org/html/rfc8709">Ed25519 and Ed448 public key algorithms for the Secure Shell (SSH) protocol </a>
-			</span></td></tr><tr><td><span id="bibRFC8731">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8731]</span></td><td><span class="description">
-				<a href="https://tools.ietf.org/html/rfc8731">Secure Shell (SSH) Key Exchange Method using Curve25519 and Curve448</a>
-			</span></td></tr><tr><td><span id="bibVirt">[VirtPP]</span></td><td><span class="description">
-				<a href="https://www.niap-ccevs.org/Profile/Info.cfm?id=408">Protection Profile for Virtualization</a>
-			</span></td></tr><tr><td><span id="bibOpenssh">[openssh-portable/ PROTOCOL]</span></td><td><span class="description">
-				<a href="https://cvsweb.openbsd.org/cgi-bin/cvsweb/src/usr.bin/ssh/PROTOCOL?rev=1.31">OpenSSH's deviations and extensions (1.6 transport: AES-GCM) </a>
+</table><h1 id="appendix-bibliography" class="indexable" data-level="A">Appendix D -  Bibliography</h1><table><tr class="header"><th>Identifier</th><th>Title</th></tr><tr><td><span id="bibRFC2986">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 2986]</span></td><td><span class="description">
+				<a href="https://datatracker.ietf.org/doc/html/rfc2986">PKCS #10: Certification Request Syntax Specification
+					Version 1.7</a>
+			</span></td></tr><tr><td><span id="bibRFC5280 ">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5280 ]</span></td><td><span class="description">
+				<a href="https://datatracker.ietf.org/doc/html/rfc5280">Internet X.509 Public Key Infrastructure Certificate
+					and Certificate Revocation List (CRL) Profile</a>
+			</span></td></tr><tr><td><span id="bibRFC6066">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6066]</span></td><td><span class="description">
+				<a href="https://datatracker.ietf.org/doc/html/rfc6066">Transport Layer Security (TLS) Extensions: Extension
+					Definitions</a>
+			</span></td></tr><tr><td><span id="bibRFC6960">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960]</span></td><td><span class="description">
+				<a href="https://datatracker.ietf.org/doc/html/rfc6960">X.509 Internet Public Key Infrastructure Online Certificate
+					Status Protocol – OCSP </a>
+			</span></td></tr><tr><td><span id="bibRFC6961">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6961]</span></td><td><span class="description">
+				<a href="https://datatracker.ietf.org/doc/html/rfc6961">The Transport Layer Security (TLS) Multiple Certificate Status
+					Request Extension</a>
+			</span></td></tr><tr><td><span id="bibRFC7030">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030]</span></td><td><span class="description">
+				<a href="https://datatracker.ietf.org/doc/html/rfc7030">Enrollment over Secure Transport</a>
+			</span></td></tr><tr><td><span id="bibRFC8603">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8603]</span></td><td><span class="description">
+				<a href="https://datatracker.ietf.org/doc/html/rfc8603">Commercial National Security Algorithm (CNSA) Suite Certificate
+					and Certificate Revocation List (CRL) Profile</a>
 			</span></td></tr><tr><td><span id="bibCEM">[<abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr>]</span></td><td><span class="description">
    			<a href="https://commoncriteriaportal.org/files/ccfiles/CEM2022R1.pdf">Common
-   				Methodology for Information Technology Security - Evaluation Methodology</a>,
+   				Methodology for Information Technology Security Evaluation - Evaluation Methodology</a>,
    			CCMB-2022-11-006, <abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr>:2022, Revision 1, November 2022. </span></td></tr><tr><td><span id="bibCC">[<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]</span></td><td><span class="description">Common Criteria for Information Technology Security Evaluation - <ul>
             <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R5.pdf">Part
                 1: Introduction and General Model</a>, CCMB-2017-04-001, Version 3.1 Revision 5,
