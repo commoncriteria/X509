@@ -226,7 +226,7 @@
         </div>
         <h2 class="indexable" data-level="2" id="toes">1.3 Compliant Targets of Evaluation</h2>
         <p>
-            The Target of Evaluation (<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>) in this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> is the portion of a product that provides X.509 capabilities to other portions of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Security Functionality (<abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>), such as functions for subject authentication, trusted communications, validation of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> software and firmware updates, or integrity verification as part of self-testing. At minimum, a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will include the ability to validate X.509 certificates presented to it, including: 
+            The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> is the portion of a product that provides X.509 capabilities to other portions of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>, such as functions for subject authentication, trusted communications, validation of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> software and firmware updates, or integrity verification as part of self-testing. At minimum, a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will include the ability to validate X.509 certificates presented to it, including: 
             <ul>
                 <li>cryptographic validity of the digital signature.</li>
                 <li>time-based validity.</li>
@@ -245,7 +245,7 @@
              There may also be some situations where revocation checking is not performed. This <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> defines an optional requirement for cases where exceptions to the claimed revocation functionality exist. 
         </p>
         <p>
-             Lastly, the X.509 functionality defined by this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> is part of a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, but is not considered to be an entire <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> on its own. X.509 functionality is implemented by a wide variety of technology products, some of which are standalone and some dependent on a trusted platform (such as a software application on a general-purpose computer or mobile device). Auditable events have been defined for the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> in this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> for cases where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> boundary includes an audit function specified by FAU_GEN.1. A <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that conforms to this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> may also implement or rely on its operational environment to implement appropriate management functionality for X.509 functionality that may include: 
+             Lastly, the X.509 functionality defined by this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> is part of a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, but is not considered to be an entire <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> on its own. X.509 functionality is implemented by a wide variety of technology products, some of which are standalone and some dependent on a trusted platform (such as a software application on a general-purpose computer or mobile device). Auditable events have been defined for the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> in this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> for cases where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> boundary includes an audit function specified by FAU_GEN.1. A <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that conforms to this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> may also implement or rely on its <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> to implement appropriate management functionality for X.509 functionality that may include: 
             <ul>
                 <li>
                     specifying root and intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates to be used as trust anchors.
@@ -258,7 +258,7 @@
                     configuring how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> behaves in the event that certificate revocation information is unavailable.
                 </li>
             </ul>
-             Any conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must consider the extent to which X.509 functionality must be managed, and ensure that appropriate management claims are made in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s Security Target (<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>) or that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to a <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> that allows a trusted platform in its Operational Environment (<abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>) to implement them. 
+             Any conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must consider the extent to which X.509 functionality must be managed, and ensure that appropriate management claims are made in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> or that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to a <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> that allows a trusted platform in its <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> to implement them. 
         </p>
         <p>
              This <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> describes the extended security functionality of X.509 in terms of <a href="#bibCC">[CC]</a>. 
@@ -472,7 +472,7 @@
                     </div>
                     <div class="ea">
                         <p>
-                            The evaluator shall ensure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Summary Specification (<abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>) describes where the check of validity of the certificates takes place (both in terms of circumstances as well as whether the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> or the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform is responsible for certificate validation in each case) and that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> identifies the rules for certificate field checking. In cases where a certificate is used in an authentication step or for validating the integrity of trusted updates, it is expected that revocation checking will be performed. If X.509 certificates are used for power-on self-tests, it is not necessary to verify certificate revocation status. 
+                            The evaluator shall ensure the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes where the check of validity of the certificates takes place (both in terms of circumstances as well as whether the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> or the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform is responsible for certificate validation in each case) and that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> identifies the rules for certificate field checking. In cases where a certificate is used in an authentication step or for validating the integrity of trusted updates, it is expected that revocation checking will be performed. If X.509 certificates are used for power-on self-tests, it is not necessary to verify certificate revocation status. 
                         </p>
                         <p>
                             The <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> shall describe when revocation checking is performed and on what certificates. If the revocation checking during authentication is handled differently depending on whether a full certificate chain or only a leaf certificate is being presented, any differences must be summarized in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and explained in the operational guidance. 
@@ -1093,9 +1093,6 @@
                 <td><span class="term" id="abbr_CMS"><abbr class="dyn-abbr"><a href="#abbr_CMS">CMS</a></abbr></span></td><td><span id="long_abbr_CMS">Cryptographic Message Syntax</span></td>
             </tr>
             <tr>
-                <td><span class="term" id="abbr_cPP"><abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr></span></td><td><span id="long_abbr_cPP">collaborative Protection Profile</span></td>
-            </tr>
-            <tr>
                 <td><span class="term" id="abbr_cPP" data-plural="cPPs"><abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr></span></td><td><span id="long_abbr_cPP">Collaborative Protection Profile</span></td>
             </tr>
             <tr>
@@ -1120,9 +1117,6 @@
                 <td><span class="term" id="abbr_FP"><abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr></span></td><td><span id="long_abbr_FP">Functional Package</span></td>
             </tr>
             <tr>
-                <td><span class="term" id="abbr_FP"><abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr></span></td><td><span id="long_abbr_FP">Functional Package</span></td>
-            </tr>
-            <tr>
                 <td><span class="term" id="abbr_HTTP"><abbr class="dyn-abbr"><a href="#abbr_HTTP">HTTP</a></abbr></span></td><td><span id="long_abbr_HTTP">Hypertext Transfer Protocol</span></td>
             </tr>
             <tr>
@@ -1138,25 +1132,16 @@
                 <td><span class="term" id="abbr_OE"><abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr></span></td><td><span id="long_abbr_OE">Operational Environment</span></td>
             </tr>
             <tr>
-                <td><span class="term" id="abbr_OE"><abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr></span></td><td><span id="long_abbr_OE">Operational Environment</span></td>
-            </tr>
-            <tr>
                 <td><span class="term" id="abbr_OID"><abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr></span></td><td><span id="long_abbr_OID">Object Identifiers</span></td>
             </tr>
             <tr>
                 <td><span class="term" id="abbr_OS"><abbr class="dyn-abbr"><a href="#abbr_OS">OS</a></abbr></span></td><td><span id="long_abbr_OS">Operating System</span></td>
             </tr>
             <tr>
-                <td><span class="term" id="abbr_PP"><abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr></span></td><td><span id="long_abbr_PP">Protection Profile</span></td>
-            </tr>
-            <tr>
                 <td><span class="term" id="abbr_PP" data-plural="PPs"><abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr></span></td><td><span id="long_abbr_PP">Protection Profile</span></td>
             </tr>
             <tr>
                 <td><span class="term" id="abbr_PP-Configuration"><abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr></span></td><td><span id="long_abbr_PP-Configuration">Protection Profile Configuration</span></td>
-            </tr>
-            <tr>
-                <td><span class="term" id="abbr_PP-Module"><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr></span></td><td><span id="long_abbr_PP-Module">Protection Profile Module</span></td>
             </tr>
             <tr>
                 <td><span class="term" id="abbr_PP-Module"><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr></span></td><td><span id="long_abbr_PP-Module">Protection Profile Module</span></td>
@@ -1174,13 +1159,7 @@
                 <td><span class="term" id="abbr_SAR" data-plural="SARs"><abbr class="dyn-abbr"><a href="#abbr_SAR">SAR</a></abbr></span></td><td><span id="long_abbr_SAR">Security Assurance Requirement</span></td>
             </tr>
             <tr>
-                <td><span class="term" id="abbr_SFR"><abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr></span></td><td><span id="long_abbr_SFR">Security Functional Requirement</span></td>
-            </tr>
-            <tr>
                 <td><span class="term" id="abbr_SFR" data-plural="SFRs"><abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr></span></td><td><span id="long_abbr_SFR">Security Functional Requirement</span></td>
-            </tr>
-            <tr>
-                <td><span class="term" id="abbr_ST"><abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr></span></td><td><span id="long_abbr_ST">Security Target</span></td>
             </tr>
             <tr>
                 <td><span class="term" id="abbr_ST" data-plural="STs"><abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr></span></td><td><span id="long_abbr_ST">Security Target</span></td>
@@ -1189,22 +1168,13 @@
                 <td><span class="term" id="abbr_TLS"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span></td><td><span id="long_abbr_TLS">Transport Layer Security</span></td>
             </tr>
             <tr>
-                <td><span class="term" id="abbr_TOE"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span></td><td><span id="long_abbr_TOE">Target of Evaluation</span></td>
-            </tr>
-            <tr>
                 <td><span class="term" id="abbr_TOE" data-plural="TOEs"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span></td><td><span id="long_abbr_TOE">Target of Evaluation</span></td>
             </tr>
             <tr>
                 <td><span class="term" id="abbr_TSF"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span></td><td><span id="long_abbr_TSF"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Security Functionality</span></td>
             </tr>
             <tr>
-                <td><span class="term" id="abbr_TSF"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span></td><td><span id="long_abbr_TSF"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Security Functionality</span></td>
-            </tr>
-            <tr>
                 <td><span class="term" id="abbr_TSFI" data-plural="TSFIs"><abbr class="dyn-abbr"><a href="#abbr_TSFI">TSFI</a></abbr></span></td><td><span id="long_abbr_TSFI"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> Interface</span></td>
-            </tr>
-            <tr>
-                <td><span class="term" id="abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></span></td><td><span id="long_abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Summary Specification</span></td>
             </tr>
             <tr>
                 <td><span class="term" id="abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></span></td><td><span id="long_abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Summary Specification</span></td>

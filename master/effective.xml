@@ -61,7 +61,6 @@
    	<term full="basicConstraints">A Boolean flag that is used to designate whether a certificate is a CA certificate. If this flag is present
    	and set to TRUE on a certificate, that certificate also has a pathLen attribute.</term>
    	<term abbr="CA" full="Certification Authority"/>
-   	<term abbr="cPP" full="collaborative Protection Profile"/>
    	<term abbr="CMC" full="Certificate Management over CMS"/>
    	<term abbr="CMS" full="Cryptographic Message Syntax"/>
    	<term abbr="CRL" full="Certificate Revocation List">A method by which a CA has the ability to communicate that a certificate it issued
@@ -72,7 +71,6 @@
    	<term abbr="EKU" full="extendedKeyUsage">An optional attribute of an X.509 certificate that designates the intended usage of the certificate,
    	such as for server authentication, client authentication, or code signing.</term>
    	<term abbr="EST" full="Enrollment over Secure Transport"/>
-   	<term abbr="FP" full="Functional Package"/>
    	<term abbr="HTTP" full="Hypertext Transfer Protocol"/>
    	<term abbr="HTTPS" full="Hypertext Transfer Protocol Secure"/>
    	<term abbr="ITU-T" full="International Telecommunication Union Telecommunication Standardization Sector"/>
@@ -82,21 +80,13 @@
    		part of a connection handshake.</term>
    	<term full="OCSP Multi-Stapling">An expedited version of OCSP where the CA includes an assertion of a leaf certificate's validity, 
    		as well as the validity of any intermediate CA certificates between the root and the leaf, as part of a connection handshake.</term>
-   	<term abbr="OE" full="Operational Environment"/>
    	<term abbr="OID" full="Object Identifiers"/>
    	<term abbr="OS" full="Operating System"/>
    	<term full="pathLen">An attribute of CA certificates that specifies the maximum length of a certificate chain that terminates with that certificate.</term>
-   	<term abbr="PP" full="Protection Profile"/>
-   	<term abbr="PP-Module" full="Protection Profile Module"/>
    	<term abbr="RA" full="Registration Authority"/>
    	<term abbr="RBG" full="Random Bit Generator"/>
    	<term abbr="RFC" full="Request for Comment"/>
-   	<term abbr="SFR" full="Security Functional Requirement"/>
-   	<term abbr="ST" full="Security Target"/>
    	<term abbr="TLS" full="Transport Layer Security"/>
-   	<term abbr="TOE" full="Target of Evaluation"/>
-   	<term abbr="TSF" full="TOE Security Functionality"/>
-   	<term abbr="TSS" full="TOE Summary Specification"/>
    </tech-terms>
 	
      
@@ -105,7 +95,7 @@
 <!--			-->
     <sec:toes title="Compliant Targets of Evaluation">
     	    	
-		<h:p>The Target of Evaluation (TOE) in this FP is the portion of a product that provides X.509 capabilities to other portions of the TOE Security Functionality (TSF), such as 
+		<h:p>The TOE in this FP is the portion of a product that provides X.509 capabilities to other portions of the TSF, such as 
 			functions for subject authentication, 
 			trusted communications, validation of TOE software and firmware updates, or integrity verification as part of self-testing. 
 			At minimum, a conformant TOE will include the ability to validate X.509 certificates presented to it, including:
@@ -128,8 +118,8 @@
 			Lastly, the X.509 functionality defined by this FP is part of a TOE, but is not considered to be an entire TOE on its own. X.509 functionality
 			is implemented by a wide variety of technology products, some of which are standalone and some dependent on a trusted platform
 			(such as a software application on a general-purpose computer or mobile device). Auditable events have been defined for the SFRs in this FP for cases
-			where the TOE boundary includes an audit function specified by FAU_GEN.1. A TOE that conforms to this FP may also implement or rely on its operational
-			environment to implement appropriate management functionality for X.509 functionality that may include:
+			where the TOE boundary includes an audit function specified by FAU_GEN.1. A TOE that conforms to this FP may also implement or rely on its OE to implement
+			appropriate management functionality for X.509 functionality that may include:
 			<h:ul>
 				<h:li>specifying root and intermediate CA certificates to be used as trust anchors.</h:li>
 				<h:li>generating certificate requests and loading signed certificates for the TOE's own use into its trust store.</h:li>
@@ -137,7 +127,7 @@
 				<h:li>configuring how the TOE behaves in the event that certificate revocation information is unavailable.</h:li>
 			</h:ul>
 			Any conformant TOE must consider the extent to which X.509 functionality must be managed, and ensure that appropriate management claims are made in 
-			the TOE's Security Target (ST) or that the TOE conforms to a PP that allows a trusted platform in its Operational Environment (OE) to implement them.
+			the TOE's ST or that the TOE conforms to a PP that allows a trusted platform in its OE to implement them.
 			</h:p><h:p>
 			This FP describes the extended security functionality of X.509 in terms of <xref g="CC"/>. </h:p>
 		<h:p>The contents of this FP must be appropriately incorporated into a PP, cPP, or PP-Module. When this FP 
@@ -330,7 +320,7 @@
 					</title>
 				<aactivity>
 					<TSS>
-						<h:p>The evaluator shall ensure the TOE Summary Specification (TSS) describes where the check of validity of the certificates takes place
+						<h:p>The evaluator shall ensure the TSS describes where the check of validity of the certificates takes place
 							(both in terms of circumstances as well as whether the TSF or the TOE platform is responsible for certificate
 							validation in each case) and that the TSS identifies the rules for certificate field checking. In cases
 							where a certificate is used in an authentication step or for validating the integrity of trusted updates,

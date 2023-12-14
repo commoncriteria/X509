@@ -703,7 +703,7 @@ The following sections list Common Criteria and technology terms used in this do
 
     <h2 class="indexable" data-level="2" id="toes">1.3 Compliant Targets of Evaluation</h2>
     	    	
-		<p>The Target of Evaluation (<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>) in this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> is the portion of a product that provides X.509 capabilities to other portions of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Security Functionality (<abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>), such as 
+		<p>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> is the portion of a product that provides X.509 capabilities to other portions of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>, such as 
 			functions for subject authentication, 
 			trusted communications, validation of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> software and firmware updates, or integrity verification as part of self-testing<a id="period_32" href="#period_32">. </a>
 			At minimum, a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will include the ability to validate X.509 certificates presented to it, including:
@@ -723,8 +723,8 @@ The following sections list Common Criteria and technology terms used in this do
 			Lastly, the X.509 functionality defined by this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> is part of a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, but is not considered to be an entire <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> on its own<a id="period_43" href="#period_43">. </a>X.509 functionality
 			is implemented by a wide variety of technology products, some of which are standalone and some dependent on a trusted platform
 			(such as a software application on a general-purpose computer or mobile device)<a id="period_44" href="#period_44">. </a>Auditable events have been defined for the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> in this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> for cases
-			where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> boundary includes an audit function specified by FAU_GEN.1<a id="period_45" href="#period_45">. </a>A <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that conforms to this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> may also implement or rely on its operational
-			environment to implement appropriate management functionality for X.509 functionality that may include:
+			where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> boundary includes an audit function specified by FAU_GEN.1<a id="period_45" href="#period_45">. </a>A <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that conforms to this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> may also implement or rely on its <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> to implement
+			appropriate management functionality for X.509 functionality that may include:
 			<ul>
 				<li>specifying root and intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates to be used as trust anchors<a id="period_46" href="#period_46">. </a></li>
 				<li>generating certificate requests and loading signed certificates for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s own use into its trust store<a id="period_47" href="#period_47">. </a></li>
@@ -732,7 +732,7 @@ The following sections list Common Criteria and technology terms used in this do
 				<li>configuring how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> behaves in the event that certificate revocation information is unavailable<a id="period_49" href="#period_49">. </a></li>
 			</ul>
 			Any conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must consider the extent to which X.509 functionality must be managed, and ensure that appropriate management claims are made in 
-			the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s Security Target (<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>) or that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to a <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> that allows a trusted platform in its Operational Environment (<abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>) to implement them<a id="period_50" href="#period_50">. </a>			</p><p>
+			the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> or that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to a <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> that allows a trusted platform in its <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> to implement them<a id="period_50" href="#period_50">. </a>			</p><p>
 			This <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> describes the extended security functionality of X.509 in terms of <a href="#bibCC">[CC]</a><a id="period_51" href="#period_51">. </a></p>
 		<p>The contents of this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> must be appropriately incorporated into a <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr>, or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr><a id="period_52" href="#period_52">. </a>When this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> 
 		is incorporated as such, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> must include selection-based requirements in accordance with the selections or assignments 
@@ -849,7 +849,7 @@ The following sections list Common Criteria and technology terms used in this do
 					
 					
 				<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">
-						<p>The evaluator shall ensure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Summary Specification (<abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>) describes where the check of validity of the certificates takes place
+						<p>The evaluator shall ensure the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes where the check of validity of the certificates takes place
 							(both in terms of circumstances as well as whether the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> or the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform is responsible for certificate
 							validation in each case) and that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> identifies the rules for certificate field checking<a id="period_104" href="#period_104">. </a>In cases
 							where a certificate is used in an authentication step or for validating the integrity of trusted updates,
@@ -1379,7 +1379,6 @@ The following sections list Common Criteria and technology terms used in this do
 <tr><td><span class="term" id="abbr_CEM"><abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr></span></td><td><span id="long_abbr_CEM">Common Evaluation Methodology</span></td></tr>
 <tr><td><span class="term" id="abbr_CMC"><abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr></span></td><td><span id="long_abbr_CMC">Certificate Management over <abbr class="dyn-abbr"><a href="#abbr_CMS">CMS</a></abbr></span></td></tr>
 <tr><td><span class="term" id="abbr_CMS"><abbr class="dyn-abbr"><a href="#abbr_CMS">CMS</a></abbr></span></td><td><span id="long_abbr_CMS">Cryptographic Message Syntax</span></td></tr>
-<tr><td><span class="term" id="abbr_cPP"><abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr></span></td><td><span id="long_abbr_cPP">collaborative Protection Profile</span></td></tr>
 <tr><td><span class="term" id="abbr_cPP" data-plural="cPPs"><abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr></span></td><td><span id="long_abbr_cPP">Collaborative Protection Profile</span></td></tr>
 <tr><td><span class="term" id="abbr_CRL"><abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr></span></td><td><span id="long_abbr_CRL">Certificate Revocation List</span></td></tr>
 <tr><td><span class="term" id="abbr_CSR"><abbr class="dyn-abbr"><a href="#abbr_CSR">CSR</a></abbr></span></td><td><span id="long_abbr_CSR">Certificate Signing Request</span></td></tr>
@@ -1388,35 +1387,26 @@ The following sections list Common Criteria and technology terms used in this do
 <tr><td><span class="term" id="abbr_EKU"><abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr></span></td><td><span id="long_abbr_EKU">extendedKeyUsage</span></td></tr>
 <tr><td><span class="term" id="abbr_EST"><abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr></span></td><td><span id="long_abbr_EST">Enrollment over Secure Transport</span></td></tr>
 <tr><td><span class="term" id="abbr_FP"><abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr></span></td><td><span id="long_abbr_FP">Functional Package</span></td></tr>
-<tr><td><span class="term" id="abbr_FP"><abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr></span></td><td><span id="long_abbr_FP">Functional Package</span></td></tr>
 <tr><td><span class="term" id="abbr_HTTP"><abbr class="dyn-abbr"><a href="#abbr_HTTP">HTTP</a></abbr></span></td><td><span id="long_abbr_HTTP">Hypertext Transfer Protocol</span></td></tr>
 <tr><td><span class="term" id="abbr_HTTPS"><abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr></span></td><td><span id="long_abbr_HTTPS">Hypertext Transfer Protocol Secure</span></td></tr>
 <tr><td><span class="term" id="abbr_ITU-T"><abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr></span></td><td><span id="long_abbr_ITU-T">International Telecommunication Union Telecommunication Standardization Sector</span></td></tr>
 <tr><td><span class="term" id="abbr_OCSP"><abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr></span></td><td><span id="long_abbr_OCSP">Online Certificate Status Protocol</span></td></tr>
 <tr><td><span class="term" id="abbr_OE"><abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr></span></td><td><span id="long_abbr_OE">Operational Environment</span></td></tr>
-<tr><td><span class="term" id="abbr_OE"><abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr></span></td><td><span id="long_abbr_OE">Operational Environment</span></td></tr>
 <tr><td><span class="term" id="abbr_OID"><abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr></span></td><td><span id="long_abbr_OID">Object Identifiers</span></td></tr>
 <tr><td><span class="term" id="abbr_OS"><abbr class="dyn-abbr"><a href="#abbr_OS">OS</a></abbr></span></td><td><span id="long_abbr_OS">Operating System</span></td></tr>
-<tr><td><span class="term" id="abbr_PP"><abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr></span></td><td><span id="long_abbr_PP">Protection Profile</span></td></tr>
 <tr><td><span class="term" id="abbr_PP" data-plural="PPs"><abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr></span></td><td><span id="long_abbr_PP">Protection Profile</span></td></tr>
 <tr><td><span class="term" id="abbr_PP-Configuration"><abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr></span></td><td><span id="long_abbr_PP-Configuration">Protection Profile Configuration</span></td></tr>
-<tr><td><span class="term" id="abbr_PP-Module"><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr></span></td><td><span id="long_abbr_PP-Module">Protection Profile Module</span></td></tr>
 <tr><td><span class="term" id="abbr_PP-Module"><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr></span></td><td><span id="long_abbr_PP-Module">Protection Profile Module</span></td></tr>
 <tr><td><span class="term" id="abbr_RA"><abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr></span></td><td><span id="long_abbr_RA">Registration Authority</span></td></tr>
 <tr><td><span class="term" id="abbr_RBG"><abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr></span></td><td><span id="long_abbr_RBG">Random Bit Generator</span></td></tr>
 <tr><td><span class="term" id="abbr_RFC"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr></span></td><td><span id="long_abbr_RFC">Request for Comment</span></td></tr>
 <tr><td><span class="term" id="abbr_SAR" data-plural="SARs"><abbr class="dyn-abbr"><a href="#abbr_SAR">SAR</a></abbr></span></td><td><span id="long_abbr_SAR">Security Assurance Requirement</span></td></tr>
-<tr><td><span class="term" id="abbr_SFR"><abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr></span></td><td><span id="long_abbr_SFR">Security Functional Requirement</span></td></tr>
 <tr><td><span class="term" id="abbr_SFR" data-plural="SFRs"><abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr></span></td><td><span id="long_abbr_SFR">Security Functional Requirement</span></td></tr>
-<tr><td><span class="term" id="abbr_ST"><abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr></span></td><td><span id="long_abbr_ST">Security Target</span></td></tr>
 <tr><td><span class="term" id="abbr_ST" data-plural="STs"><abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr></span></td><td><span id="long_abbr_ST">Security Target</span></td></tr>
 <tr><td><span class="term" id="abbr_TLS"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span></td><td><span id="long_abbr_TLS">Transport Layer Security</span></td></tr>
-<tr><td><span class="term" id="abbr_TOE"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span></td><td><span id="long_abbr_TOE">Target of Evaluation</span></td></tr>
 <tr><td><span class="term" id="abbr_TOE" data-plural="TOEs"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span></td><td><span id="long_abbr_TOE">Target of Evaluation</span></td></tr>
 <tr><td><span class="term" id="abbr_TSF"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span></td><td><span id="long_abbr_TSF"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Security Functionality</span></td></tr>
-<tr><td><span class="term" id="abbr_TSF"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span></td><td><span id="long_abbr_TSF"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Security Functionality</span></td></tr>
 <tr><td><span class="term" id="abbr_TSFI" data-plural="TSFIs"><abbr class="dyn-abbr"><a href="#abbr_TSFI">TSFI</a></abbr></span></td><td><span id="long_abbr_TSFI"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> Interface</span></td></tr>
-<tr><td><span class="term" id="abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></span></td><td><span id="long_abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Summary Specification</span></td></tr>
 <tr><td><span class="term" id="abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></span></td><td><span id="long_abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Summary Specification</span></td></tr>
 </table><h1 id="appendix-bibliography" class="indexable" data-level="A">Appendix E -  Bibliography</h1><table><tr class="header"><th>Identifier</th><th>Title</th></tr><tr><td><span id="bibRFC2986">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 2986]</span></td><td><span class="description">
 				<a href="https://datatracker.ietf.org/doc/html/rfc2986">PKCS #10: Certification Request Syntax Specification
