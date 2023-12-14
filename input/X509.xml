@@ -465,7 +465,7 @@
 									certificate fails to validate (i.e., the signature on the certificate will not validate).
 								</h:p>
 							</test>
-							<test id="fia-x509-ext-1e8">
+							<test id="ec-validation-test">
 								<h:p>
 									[Conditional on support for Elliptic Curve (EC)] The evaluator shall establish a valid, trusted
 									certificate chain consisting of an EC leaf certificate, an EC intermediate CA certificate not
@@ -476,12 +476,12 @@
 							</test>
 							<test>
 								<h:p>
-									(Conditional on support for EC certificates) The evaluator shall replace the intermediate
-									certificate in the certificate chain for the previous test with a modified certificate, where the
-									modified intermediate CA has a public key information field where the EC parameters use an explicit
-									format version of the EC parameters in the public key information field of the
-									intermediate CA certificate from <xref to="fia-x509-ext-1e8"/>, and the modified intermediate CA certificate is signed by
-									the trusted EC Root CA,  but having no other changes. The evaluator shall confirm the TOE treats the
+									(Conditional on support for EC certificates) The evaluator shall replace the intermediate CA
+									certificate in the certificate chain used in <xref to="ec-validation-test"/> 
+									with a modified certificate that replaces
+									the EC parameters in the public key information field with an explicit format version 
+									of the parameters, but is otherwise identical to the original certificate (including being signed by the 
+									trusted EC Root CA). The evaluator shall confirm the TOE treats the
 									certificate as invalid.
 								</h:p>
 							</test>
