@@ -680,8 +680,16 @@ The following sections list Common Criteria and technology terms used in this do
 <tr><td><div id="Target_of_Evaluation">Target of Evaluation (TOE)</div></td><td>The product under evaluation. </td></tr>
 <tr><td><div id="TOE_Security_Functionality">TOE Security Functionality (TSF)</div></td><td>The security functionality of the product under evaluation.</td></tr>
 <tr><td><div id="TOE_Summary_Specification">TOE Summary Specification (TSS)</div></td><td>A description of how a TOE satisfies the SFRs in an ST.</td></tr>
-</table><h3 id="tech-terms" class="indexable" data-level="3">1.2.2 Technical Terms</h3><table style="width: 100%"><tr><td><div id="Connection">Connection</div></td><td>The SSH transport layer between a client and a server.  Within a connection there can
-			be multiple sessions. </td></tr>
+</table><h3 id="tech-terms" class="indexable" data-level="3">1.2.2 Technical Terms</h3><table style="width: 100%"><tr><td><div id="Certificate_Revocation_List">Certificate Revocation List (CRL)</div></td><td>A method by which a CA has the ability to communicate that a certificate it issued
+   	has been revoked and should no longer be trusted, originally described in RFC 5280.</td></tr>
+<tr><td><div id="OCSP_Multi-Stapling">OCSP Multi-Stapling</div></td><td>An expedited version of OCSP where the CA includes an assertion of a leaf certificate's validity, 
+   		as well as the validity of any intermediate CA certificates between the root and the leaf, as part of a connection handshake.</td></tr>
+<tr><td><div id="OCSP_Stapling">OCSP Stapling</div></td><td>An expedited version of OCSP where the CA includes an assertion of a leaf certificate's validity as 
+   		part of a connection handshake.</td></tr>
+<tr><td><div id="Online_Certificate_Status_Protocol">Online Certificate Status Protocol (OCSP)</div></td><td>A method by which a CA has the ability to communicate that a certificate it issued
+   		has been revoked and should no longer be trusted, originally secribed in RFC 6960.</td></tr>
+<tr><td><div id="extendedKeyUsage">extendedKeyUsage (EKU)</div></td><td>An otpional attribute of an X.509 certificate that designates the intended usage of the certificate,
+   	such as for server authentication, client authentication, or code signing.</td></tr>
 </table></div>
 	
      
@@ -1119,7 +1127,7 @@ The following sections list Common Criteria and technology terms used in this do
 								<p>
 									If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> uses X.509 certificates for Administrator or User authentication, the evaluator shall
 									generate an X.509v3 certificate for a User with the Client Authentication <abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr> field set. The
-									evaluator will provision the Operating System (<abbr class="dyn-abbr"><a href="#abbr_OS">OS</a></abbr>) for authentication with the X.509v3 certificate.
+									evaluator shall provision the <abbr class="dyn-abbr"><a href="#abbr_OS">OS</a></abbr> for authentication with the X.509v3 certificate.
 								</p>
 								
 								<p>
@@ -1305,7 +1313,7 @@ The following sections list Common Criteria and technology terms used in this do
 									The evaluator shall use a packet sniffing tool between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server. The evaluator shall
 									turn on the sniffing tool and cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to request certificate enrollment from an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server.
 									The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> protocol interaction occurs over a <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>
-									(<abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>) protected connection. The evaluator is not expected to decrypt the connection but rather
+									protected connection. The evaluator is not expected to decrypt the connection but rather
 									observe that the packets conform to the <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> protocol format.
 								</p>	
 							</li>

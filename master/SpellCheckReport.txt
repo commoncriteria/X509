@@ -16,6 +16,8 @@ output/X509-release-linkable.html: aren
 output/X509-release-linkable.html: cRLSign
 output/X509-release-linkable.html: doesn
 output/X509-release-linkable.html: ocnfiguration
+output/X509-release-linkable.html: otpional
+output/X509-release-linkable.html: secribed
 output/X509-release-linkable.html: ve
 output/X509-release.html: CER
 output/X509-release.html: CNSA
@@ -35,6 +37,8 @@ output/X509-release.html: aren
 output/X509-release.html: cRLSign
 output/X509-release.html: doesn
 output/X509-release.html: ocnfiguration
+output/X509-release.html: otpional
+output/X509-release.html: secribed
 output/X509-release.html: ve
 output/X509.html: CER
 output/X509.html: CNSA
@@ -53,4 +57,6 @@ output/X509.html: TUD
 output/X509.html: aren
 output/X509.html: cRLSign
 output/X509.html: doesn
+output/X509.html: otpional
+output/X509.html: secribed
 output/X509.html: ve
