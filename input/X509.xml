@@ -966,7 +966,7 @@
 			</description>
 		</entry>   
 		<entry id="bibRFC5280 ">
-			<tag>RFC 5280 </tag>
+			<tag>RFC 5280</tag>
 			<description>
 				<h:a href="https://datatracker.ietf.org/doc/html/rfc5280">Internet X.509 Public Key Infrastructure Certificate
 					and Certificate Revocation List (CRL) Profile</h:a>
