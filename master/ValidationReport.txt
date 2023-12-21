@@ -1,1 +1,0 @@
-/home/runner/work/X509/X509/input/X509.xml:37:20: error: element "using-cc2022" not allowed anywhere; expected the element end-tag or element "display-audit-with-sfrs"
