@@ -1,3 +1,4 @@
+output/X509-release-linkable.html: CEM
 output/X509-release-linkable.html: CER
 output/X509-release-linkable.html: CNSA
 output/X509-release-linkable.html: FCS
@@ -7,6 +8,7 @@ output/X509-release-linkable.html: GPOS
 output/X509-release-linkable.html: MDF
 output/X509-release-linkable.html: NDcPP
 output/X509-release-linkable.html: NewWithOld
+output/X509-release-linkable.html: Novemeber
 output/X509-release-linkable.html: STM
 output/X509-release-linkable.html: TD0527
 output/X509-release-linkable.html: TD0605
@@ -19,6 +21,7 @@ output/X509-release-linkable.html: ocnfiguration
 output/X509-release-linkable.html: pathLen
 output/X509-release-linkable.html: secribed
 output/X509-release-linkable.html: ve
+output/X509-release.html: CEM
 output/X509-release.html: CER
 output/X509-release.html: CNSA
 output/X509-release.html: FCS
@@ -28,6 +31,7 @@ output/X509-release.html: GPOS
 output/X509-release.html: MDF
 output/X509-release.html: NDcPP
 output/X509-release.html: NewWithOld
+output/X509-release.html: Novemeber
 output/X509-release.html: STM
 output/X509-release.html: TD0527
 output/X509-release.html: TD0605
@@ -40,6 +44,7 @@ output/X509-release.html: ocnfiguration
 output/X509-release.html: pathLen
 output/X509-release.html: secribed
 output/X509-release.html: ve
+output/X509.html: CEM
 output/X509.html: CER
 output/X509.html: CNSA
 output/X509.html: FCS
@@ -49,6 +54,7 @@ output/X509.html: GPOS
 output/X509.html: MDF
 output/X509.html: NDcPP
 output/X509.html: NewWithOld
+output/X509.html: Novemeber
 output/X509.html: STM
 output/X509.html: TD0527
 output/X509.html: TD0605
