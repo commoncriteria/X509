@@ -262,12 +262,21 @@
 	<!-- 3.1.2 FDP: User Data Protection -->
 	<!--			-->
 	<sec:fdp title="User Data Protection (FDP)">
-
-		<f-component name="OLT Leaf Certificate Profiles" cc-id="fdp_cer_ext.1" id="fdp-cer-ext-1">
+		<comment>This (only locally trusted) iteration for leaf certificates is more general than that in STIP, but does not include the 
+			STIP use case. The general case should be modeled after that in the CA PP. Here, certificates are supporting any TOE function, 
+			but are only trusted by the TOE function, whereas for STIP, the issued certificates are trusted by external clients or servers.
+		</comment>
+		<comment>Needs selection trigger</comment> 
+		
+		<f-component name="OLT Leaf Certificate Profiles" cc-id="fdp_cer_ext.1" iteration="OLTleaf">
 			
 		<f-element id="fdp-cer-ext-1e1">
 			<title>The TSF shall implement a certificate profile function for certificates issued by a CA embedded within the TOE, 
-				supporting <assignable>list of TOE functions</assignable>, using certificates in support of: <selectables>
+				supporting <comment>The subsequent reference to supported functions go beyond how they use certificates, so a more detailed 
+					list is required, separately from how they use the issued certificates. Also, it’s necessary to allow internal CA 
+					support of a function using TLS, while also allowing other functions using TLS to depend on an external CA. The 
+					profiles are dependent on the selection below, so it should be retained.</comment>
+				<assignable>list of TOE functions</assignable>, using certificates in support of: <selectables>
 					<selectable> <selectables linebreak="yes">
 						<selectable> <selectables>
 							<selectable>TLS</selectable>
@@ -506,9 +515,10 @@
 				</aactivity>
 			</f-element>
 		</f-component>
-		<f-component name="Certificate Request Matching" cc-id="fdp_cer_ext.2" id="fdp-cer-ext-2">
+		<f-component name="Certificate Request Matching" cc-id="fdp_cer_ext.2" id="fdp-cer-ext-2">	
 			<f-element id="fdp-cer-ext-2e1">
-				<title>The TSF shall <selectables>
+				<title><comment>Needs selection trigger</comment>
+					The TSF shall <selectables>
 					<selectable>invoke platform-provided functionality</selectable>
 					<selectable>provide functionality</selectable>
 					</selectables>
@@ -520,7 +530,8 @@
 				</title>
 			</f-element>
 			<f-element id="fdp-cer-ext-2e2">
-				<title>The TSF shall <selectables>
+				<title><comment>This generalizes requirements in other FDP_CER requirements from the STIP PP module.</comment>
+					The TSF shall <selectables>
 					<selectable>revoke</selectable>
 					<selectable>not issue</selectable>
 				</selectables>
@@ -707,7 +718,8 @@
 		
 		<f-component name="Certificate Status Information Required" cc-id="fdp_csir_ext.1" id="fdp-csir-ext-1">
 			<f-element id="fdp-csir-ext-1e1">
-				<title>The TSF shall <selectables>
+				<title> <comment>Needs selection trigger</comment>
+					The TSF shall <selectables>
 					<selectable>generate certificate status information</selectable>
 					<selectable>only issue certificates with a validity period of less than <assignable>time not to exceed 
 						24 hours</assignable></selectable>
@@ -730,8 +742,9 @@
 					as indicated in <xref to="fdp-cer-ext-1"/>. If the TSF provides access to a certificate repository, the ST author 
 					claims ‘provide access …’ and identifies the repository and methods of access in the assignment. If each supported 
 					function manages the validity of the certificates it uses without depending on the embedded CA, the ST author claims 
-					‘depend on…’ and describes the method used by each such function. In this case, the embedded function takes on 
-					traditional functionality of a CA.
+					‘depend on…’ and describes the method used by each such function. <comment>Certain requirements imposed on the base PP 
+						in support of an embedded CA would then apply to these functions.</comment> In this case, the embedded function takes 
+					on traditional functionality of a CA.
 				</note>
 				<aactivity>
 					<TSS>
@@ -755,7 +768,8 @@
 
 		<f-component name="OCSP Basic Response Generation" cc-id="fdp_ocsp_ext.1" id="fdp-ocsp-ext-1">
 			<f-element id="fdp-ocsp-ext-1">
-				<title>The TSF shall ensure that all mandatory fields in the OCSP basic response contain values in accordance with RFC 
+				<title><comment>Significant difference from existing SFR in STIP</comment>
+					The TSF shall ensure that all mandatory fields in the OCSP basic response contain values in accordance with RFC 
 					6960 which meet the following rules.
 					<h:ul>
 						<h:li>
@@ -767,7 +781,9 @@
 								<selectable>sha256WithRSAEncryption in accordance with RFC 6960 with key size of 2048 bits or greater</selectable>
 								<selectable> <selectables linebreak="yes">
 									<selectable>sha384WithRSAEncryption with key size of 3072 bits or greater</selectable>
-									<selectable>ecdsa-with-SHA384 using <selectables>
+									<selectable>ecdsa-with-SHA384 using <comment>Crypto TC review required – add secp256r1 or indicate in 
+										an application note that secp256r1 is deprecated – refining RFC 6960</comment>
+										<selectables>
 										<selectable>secp384r1</selectable>
 										<selectable>secp521r1</selectable>
 									</selectables></selectable>
@@ -854,7 +870,7 @@
 								<selectable>export CMC requests and import CMC responses under the control of an administrator,</selectable>
 								<selectable>require CMC transport over HTTPS in accordance with RFC 5273
 							 <selectables>
-								<selectable>as updated by RFC 6402,</selectable>
+								<selectable>as updated by RFC 6402</selectable>
 								<selectable>as refined by RFC 8996</selectable>
 								</selectables>
 								with all renewal requests using mutual authentication.
@@ -895,7 +911,8 @@
 		<f-component name="Certificate Management over CMS (CMC) Server" cc-id="fia_cmcs_ext.1" id="fia-cmcs-ext-1">
 	
 			<f-element id="fia-cmcs-ext-1e1">
-				<title>The TSF shall be able to accept and process CMC <selectables>
+				<title><comment>Based on CMC selected in FIA_X509_EXT.3 and what else?</comment>
+					The TSF shall be able to accept and process CMC <selectables>
 					<selectable>full requests</selectable>
 					<selectable>simple requests</selectable>
 				</selectables>
@@ -1045,7 +1062,8 @@
 		<f-component name="CMP Certificate Enrollment" cc-id="fia_cmpc_ext.1" id="fia-cmpc-ext-1">
 			
 			<f-element id="fia-cmpc-ext-1e1">
-				<title>The TSF shall
+				<title> <comment>Should this include a selection for RFC 9482 in support of IOT devices?</comment>
+					The TSF shall
 					 <selectables>
 						<selectable>invoke platform-provided functionality</selectable>
 						<selectable>provide functionality</selectable>
@@ -1068,7 +1086,9 @@
 					to 
 					 <selectables>
 						<selectable>export CMP requests and import CMP responses under the control of an administrator</selectable>
-						<selectable>transport CMP messages over HTTPS  in accordance with RFC 6712</selectable>
+					 	<selectable>transport CMP messages over <comment>HTTPS is recommended for external CAs, but other options are 
+					 		acceptable for embedded CAs or when CMP message protection mechanisms are used. If needed, include other 
+					 		options in a selection</comment> HTTPS in accordance with RFC 6712</selectable>
 						<selectable>with all renewal requests using mutual authentication</selectable>
 					</selectables>.
 				</title>
@@ -1129,7 +1149,9 @@
 						<selectable>invoke platform-provided functionality</selectable>
 						<selectable>provide functionality</selectable>
 					</selectables>
-					to authenticate CMP subjects and end-entities for re-enrollment via certificate-based authentication and
+					to authenticate CMP subjects and end-entities for re-enrollment via <comment>TLS (HTTPS) with mutual authentication is 
+						recommended for external clients, but other mechanisms for local subjects/end entities are acceptable. Consider 
+						adding options in a selection,</comment> certificate-based authentication and
 					 <selectables>
 						<selectable>RA assertion</selectable>
 						<selectable>no other method</selectable>
@@ -1189,6 +1211,8 @@
 						functionality required to meet the requirements are included.</h:p>
 					</Guidance>
 					<Tests>
+						<comment>Supported functions and options for CMP services by an embedded CA will require testing. Details for AA may 
+							need to be updated based on TC discussion regarding the SFR.</comment>
 						The evaluator shall perform the following tests.
 						<testlist>
 							<test>
@@ -1356,6 +1380,7 @@
 					</selectables>
 				</title>
 				<note role="Application">
+					<comment>So based on selection of EST in FIA_X509_EXT.3 AND what else?</comment>
 					This SFR is claimed if the TOE supports an EST server associated with an embedded CA to process enrollment requests; 
 					the embedded CA is referred to as the EST CA in the RFC.  Updates to RFC 7030 indicated in RFC 8996 applies to all 
 					references to RFC 7030 in this SFR. If Registration Authority (RA) functionality is supported, the ST author 
@@ -1482,7 +1507,9 @@
 		
 		<f-component name="Trust Store Management" cc-id="fia_tsm_ext.1" id="fia-tsm-ext-1">		
 			<f-element id="fia-tsm-ext-1e1">
-				<title>(managing trust store elements) The TSF shall
+				<title>(managing trust store elements)
+					<comment>Integrate allowance for platform managed trust store (see Palo Alto comment 5) – also impacts test 13</comment> 
+					The TSF shall
 					 <selectables>
 						<selectable>invoke platform-provided functionality</selectable>
 						<selectable>implement functionality</selectable></selectables>
@@ -1500,8 +1527,10 @@
 					and 
 					 <selectables linebreak="yes">
 						<selectable>Validating the certification path of any certificate that is neither a self-signed root CA
-						certificate nor an OCSP certificate with the no-check extension, <selectables><selectable>when installed by an
-						administrator as a trust store element</selectable><selectable>on use</selectable></selectables>and
+							certificate nor an OCSP certificate with the no-check extension, <selectables><selectable><comment>This depends 
+								on selection (which administrator). See Palo Alto comment 10. Also impacts test 13. Added selection to 
+								require one of when installed, when used and added no other to original selection</comment>when installed 
+								by an administrator as a trust store element</selectable><selectable>on use</selectable></selectables>and
 							 <selectables><selectable>on demand</selectable><selectable>during <assignable>defined events</assignable>
 							</selectable><selectable>periodically every <assignable>time</assignable></selectable><selectable>no other time
 							</selectable></selectables></selectable>
@@ -1516,8 +1545,9 @@
 						trusted public key. Trust store elements are single trusted public keys using the context of the trust store for 
 						certificate path validation. OCSP certificates trusted by the TOE may also be considered trust store elements, 
 						and must be loaded into a trust store when revocation information is not provided by the issuing CA. Revocation 
-						status of OCSP certificates is verified in accordance with the options RFC 6960, and the options used determine 
-						what validation is required when loading an OCSP certificate into a trust store. 
+						status of <comment>Is this sufficient, or do we refine 6960 to require an explicit no-check flag and move this 
+							into an SFR element?</comment> OCSP certificates is verified in accordance with the options RFC 6960, and 
+						the options used determine what validation is required when loading an OCSP certificate into a trust store. 
 					</h:p>
 					<h:p/>
 					<h:p>
@@ -1589,7 +1619,8 @@
 									invalidated element results in the function failing.
 									<h:p/>
 									Note: This repeats part of FIA_X509_EXT.1 Test 1. It is not necessary to repeat the method used to 
-									invalidate the trust anchor element that was previously tested.								
+									invalidate the trust anchor element that was previously tested.
+									<h:p/>
 							</test>
 							<test>
 								[conditional]: If the TSF supports installation of certificates that are neither self-signed root CA 
@@ -1810,7 +1841,7 @@
 					</note>	
 			</f-element>
 			<f-element id="fia-x509-ext-1e5">
-				<title>
+				<title> <comment>Palo Alto comment</comment>
 					(Certificate context and usage constraints specific to application supported) The TSF shall  <selectables>
 						<selectable>invoke platform-provided functionality</selectable>
 						<selectable>implement functionality</selectable>
@@ -1874,7 +1905,7 @@
 					The ST author claims ‘manage trust stores’ if the TSF provides a management capability for trust stores that 
 					terminate the certification paths used by TOE functions, regardless of whether or not the TSF uses platform 
 					functionality to perform the management. FIA_TSM_EXT.1 is included in this case. If all management of trust stores 
-					is performed by the platform, the ST author claims ‘use platform-managed trust stores’ 
+					is performed by the platform, the ST author claims ‘use platform-managed trust stores.’ 
 				</note>	
 			<aactivity>
 					<TSS>
