@@ -1108,8 +1108,12 @@ The following sections list Common Criteria and technology terms used in this do
 						</ul></span>
 					</div></div></div></div>
 		
-		<div class="comp" id="FDP_CSI_EXT.1"><h4>FDP_CSI_EXT.1 Certificate Status Information Generation</h4>
-			<div class="element"><div class="reqid" id="FDP_CSI_EXT.1.1"><a href="#FDP_CSI_EXT.1.1" class="abbr">FDP_CSI_EXT.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate certificate status information whose format complies with [<b>selection</b>: <span class="selectable-content" id="toe-supports-crl"><abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr> Recommendation X.509v2 <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr></span>,  <span class="selectable-content" id="_s_98"><abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr> Recommendation X.509v2 <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> as refined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8603 <span style="" class="comment " id="Comment-7-">should this also trigger <a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a>? Right now it doesn't</span></span>,  <span class="selectable-content" id="toe-supports-ocsp">the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> standard as defined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960</span> ].
+		<div class="comp" id="FDP_CSI_EXT.1"><h4>FDP_CSI_EXT.1 Certificate Status Information Generation</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
+	  <a href="#FDP_CSIR_EXT.1.1">FDP_CSIR_EXT.1.1</a>.
+      </i></b></div>
+			
+			<div class="element"><div class="reqid" id="FDP_CSI_EXT.1.1"><a href="#FDP_CSI_EXT.1.1" class="abbr">FDP_CSI_EXT.1.1</a></div><div class="reqdesc">
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate certificate status information whose format complies with [<b>selection</b>: <span class="selectable-content" id="toe-supports-crl"><abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr> Recommendation X.509v2 <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr></span>,  <span class="selectable-content" id="_s_98"><abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr> Recommendation X.509v2 <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> as refined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8603 <span style="" class="comment " id="Comment-7-">from CCPPD: should this also trigger <a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a>? Right now it doesn't</span></span>,  <span class="selectable-content" id="toe-supports-ocsp">the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> standard as defined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960</span> ].
 				<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -1170,7 +1174,7 @@ The following sections list Common Criteria and technology terms used in this do
 		<div class="comp" id="FDP_CSIR_EXT.1"><h4>FDP_CSIR_EXT.1 Certificate Status Information Required</h4>
 			<div class="element"><div class="reqid" id="FDP_CSIR_EXT.1.1"><a href="#FDP_CSIR_EXT.1.1" class="abbr">FDP_CSIR_EXT.1.1</a></div><div class="reqdesc"> <span style="" class="comment " id="Comment-8-">from CCPPD: The trigger for this is indicated as "This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is claimed if FDP_CER_EXT.1 is claimed." As there is no selection
 				triggering this, it should be categorized as an implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. Is that ok?</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_105">generate certificate status information</span>,  <span class="selectable-content" id="_s_106">only issue certificates with a validity period of less than [<b>assignment</b>: 
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="toe-generates-cert-status">generate certificate status information</span>,  <span class="selectable-content" id="_s_106">only issue certificates with a validity period of less than [<b>assignment</b>: 
      <span class="assignable-content">time not to exceed 
 						24 hours</span>]</span>,  <span class="selectable-content" id="_s_107">provide access to [<b>assignment</b>: 
      <span class="assignable-content">a certificate repository including status information</span>]

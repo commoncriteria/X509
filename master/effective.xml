@@ -648,11 +648,13 @@
 			</f-element>
 		</f-component>
 		
-		<f-component name="Certificate Status Information Generation" cc-id="fdp_csi_ext.1" id="fdp-csi-ext-1">
+		<f-component name="Certificate Status Information Generation" cc-id="fdp_csi_ext.1" id="fdp-csi-ext-1" status="sel-based">
+			<depends on="toe-generates-cert-status"/>
 			<f-element id="fdp-csi-ext-1e1">
-				<title>The TSF shall generate certificate status information whose format complies with <selectables>
+				<title>
+					The TSF shall generate certificate status information whose format complies with <selectables>
 					<selectable id="toe-supports-crl">ITU-T Recommendation X.509v2 CRL</selectable>
-					<selectable>ITU-T Recommendation X.509v2 CRL as refined by RFC 8603 <comment>should this also trigger FDP_CRL_EXT.1? Right now it doesn't</comment></selectable>
+					<selectable>ITU-T Recommendation X.509v2 CRL as refined by RFC 8603 <comment>from CCPPD: should this also trigger FDP_CRL_EXT.1? Right now it doesn't</comment></selectable>
 					<selectable id="toe-supports-ocsp">the OCSP standard as defined by RFC 6960</selectable>
 				</selectables>.
 				</title>
@@ -724,7 +726,7 @@
 				<title> <comment>from CCPPD: The trigger for this is indicated as "This SFR is claimed if FDP_CER_EXT.1 is claimed." As there is no selection
 				triggering this, it should be categorized as an implementation-dependent SFR. Is that ok?</comment>
 					The TSF shall <selectables>
-					<selectable>generate certificate status information</selectable>
+					<selectable id="toe-generates-cert-status">generate certificate status information</selectable>
 					<selectable>only issue certificates with a validity period of less than <assignable>time not to exceed 
 						24 hours</assignable></selectable>
 					<selectable>provide access to <assignable>a certificate repository including status information</assignable>

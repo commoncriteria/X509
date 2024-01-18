@@ -833,69 +833,12 @@ The following sections list Common Criteria and technology terms used in this do
 		
 		
 		
-		<div class="comp" id="FDP_CSI_EXT.1"><h4>FDP_CSI_EXT.1 Certificate Status Information Generation</h4>
-			<div class="element"><div class="reqid" id="FDP_CSI_EXT.1.1"><a href="#FDP_CSI_EXT.1.1" class="abbr">FDP_CSI_EXT.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate certificate status information whose format complies with [<b>selection</b>: <span class="selectable-content" id="toe-supports-crl"><abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr> Recommendation X.509v2 <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr></span>,  <span class="selectable-content" id="_s_98"><abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr> Recommendation X.509v2 <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> as refined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8603 <span style="" class="comment " id="Comment-7-">should this also trigger <a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a>? Right now it doesn't</span></span>,  <span class="selectable-content" id="toe-supports-ocsp">the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> standard as defined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960</span> ].
-				<div class="appnote"><span class="note-header">Application
-      Note:
-    </span><span class="note">
-					The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author indicates the supported Certificate Status information methods.
-				</span></div></div></div>
-			
-			<div class="element"><div class="reqid" id="FDP_CSI_EXT.1.2"><a href="#FDP_CSI_EXT.1.2" class="abbr">FDP_CSI_EXT.1.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support changes to the status of a certificate by [<b>selection</b>: <span class="selectable-content" id="_s_100">administrative action</span>,  <span class="selectable-content" id="_s_101"> [<b>assignment</b>: 
-     <span class="assignable-content">input from a supported function</span>]</span> ].
-				<div class="appnote"><span class="note-header">Application
-      Note:
-    </span><span class="note">
-					The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author indicates the methods to notify the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> of certificate status change. If inputs from a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> 
-					function supported by the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> trigger revocation, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author identifies the method of notification for 
-					each such function in the assignment.
-				</span></div></div></div>
-			
-			<div class="element"><div class="reqid" id="FDP_CSI_EXT.1.3"><a href="#FDP_CSI_EXT.1.3" class="abbr">FDP_CSI_EXT.1.3</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide certificate status information generated in accordance with <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a> via
-					 [<b>selection</b>: <span class="selectable-content" id="_s_102">posting CRLs at the location specified in the cRLDistributionPoints of the issued certificate</span>,  <span class="selectable-content" id="_s_103">an <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> mechanism indicated in the authorityInfoAccess extension of the issued certificate in accordance 
-						with FDP_OCSP_EXT.1FDP_OCSP_EXT.1.1</span>,  <span class="selectable-content" id="_s_104">an OSCP response provided to [<b>assignment</b>: 
-     <span class="assignable-content">a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function using certificates issued by the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> in 
-						support of <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or DTLS server functionality</span>] 
-						for <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> stapling</span> ].					
-				<div class="appnote"><span class="note-header">Application
-      Note:
-    </span><span class="note">
-					The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims the supported methods for distributing generated certificate status information to the supported 
-					functions that are relying parties for the issued certificates. If CRLs are identified in <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a>, 
-					then ‘posting CRLs at… cRLDistributionPoints…’ is claimed in <a href="#FDP_CSI_EXT.1.3">FDP_CSI_EXT.1.3</a> and ‘cRLDistributionPoints’ 
-					is claimed in <a href="#FDP_CSI_EXT.1.2">FDP_CSI_EXT.1.2</a>. If the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> standard is selected in <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a>, then at 
-					least one of ‘<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> mechanism…in the authorityInfoAccess…’ or ‘…<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> stapling…’ is claimed and ‘authorityInfoAccess’ 
-					must be claimed in <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a>. If ‘…<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> stapling’ is claimed, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author identifies the functions 
-					using <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> stapling for server-authenticated <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or DTLS and describes the interface to provide the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> response to 
-					each of the functions in the assignment.
-				</span></div></div></div>
-		<div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a></div>
-					
-					
-									
-				<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">
-						<p>The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and verify that the description of the revocation function meets the 
-						requirements.</p>
-					</div><div class="eacategory">Guidance</div><div class="ea">
-						<p>The evaluator shall examine the AGD documentation and verify that instructions for revoking certificates issued 
-						by the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> are included, and that the configuration of revocation status information locations is 
-						described.</p>
-					</div><div class="eacategory">Tests</div><div class="ea">
-						The evaluator shall perform the following test.
-						<span class="testlist-"><ul>
-							<li class="test-"><a id="_t_4" class="defined" href="#_t_4">Test FDP_CSI_EXT.1:1</a>:
-      
-							For each revocation method claimed, the evaluator shall attempt to cause the supported function to revoke an 
-							issued certificate. The evaluator shall demonstrate that the function no longer trusts the revoked 
-							certificate.
-							</li>
-						</ul></span>						
-					</div></div></div></div>
+		
 		
 		<div class="comp" id="FDP_CSIR_EXT.1"><h4>FDP_CSIR_EXT.1 Certificate Status Information Required</h4>
 			<div class="element"><div class="reqid" id="FDP_CSIR_EXT.1.1"><a href="#FDP_CSIR_EXT.1.1" class="abbr">FDP_CSIR_EXT.1.1</a></div><div class="reqdesc"> <span style="" class="comment " id="Comment-8-">from CCPPD: The trigger for this is indicated as "This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is claimed if FDP_CER_EXT.1 is claimed." As there is no selection
 				triggering this, it should be categorized as an implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. Is that ok?</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_105">generate certificate status information</span>,  <span class="selectable-content" id="_s_106">only issue certificates with a validity period of less than [<b>assignment</b>: 
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="toe-generates-cert-status">generate certificate status information</span>,  <span class="selectable-content" id="_s_106">only issue certificates with a validity period of less than [<b>assignment</b>: 
      <span class="assignable-content">time not to exceed 
 						24 hours</span>]</span>,  <span class="selectable-content" id="_s_107">provide access to [<b>assignment</b>: 
      <span class="assignable-content">a certificate repository including status information</span>]
@@ -1305,6 +1248,67 @@ The following sections list Common Criteria and technology terms used in this do
 							the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> meets the criteria of this requirement.
 							</li>
 						</ul></span>
+					</div></div></div></div><div class="comp" id="FDP_CSI_EXT.1"><h4>FDP_CSI_EXT.1 Certificate Status Information Generation</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
+           <a href="#FDP_CSIR_EXT.1.1">FDP_CSIR_EXT.1.1</a>.
+           </i></b></div>
+			
+			<div class="element"><div class="reqid" id="FDP_CSI_EXT.1.1"><a href="#FDP_CSI_EXT.1.1" class="abbr">FDP_CSI_EXT.1.1</a></div><div class="reqdesc">
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate certificate status information whose format complies with [<b>selection</b>: <span class="selectable-content" id="toe-supports-crl"><abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr> Recommendation X.509v2 <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr></span>,  <span class="selectable-content" id="_s_98"><abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr> Recommendation X.509v2 <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> as refined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8603 <span style="" class="comment " id="Comment-7-">from CCPPD: should this also trigger <a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a>? Right now it doesn't</span></span>,  <span class="selectable-content" id="toe-supports-ocsp">the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> standard as defined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960</span> ].
+				<div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+					The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author indicates the supported Certificate Status information methods.
+				</span></div></div></div>
+			
+			<div class="element"><div class="reqid" id="FDP_CSI_EXT.1.2"><a href="#FDP_CSI_EXT.1.2" class="abbr">FDP_CSI_EXT.1.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support changes to the status of a certificate by [<b>selection</b>: <span class="selectable-content" id="_s_100">administrative action</span>,  <span class="selectable-content" id="_s_101"> [<b>assignment</b>: 
+     <span class="assignable-content">input from a supported function</span>]</span> ].
+				<div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+					The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author indicates the methods to notify the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> of certificate status change. If inputs from a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> 
+					function supported by the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> trigger revocation, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author identifies the method of notification for 
+					each such function in the assignment.
+				</span></div></div></div>
+			
+			<div class="element"><div class="reqid" id="FDP_CSI_EXT.1.3"><a href="#FDP_CSI_EXT.1.3" class="abbr">FDP_CSI_EXT.1.3</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide certificate status information generated in accordance with <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a> via
+					 [<b>selection</b>: <span class="selectable-content" id="_s_102">posting CRLs at the location specified in the cRLDistributionPoints of the issued certificate</span>,  <span class="selectable-content" id="_s_103">an <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> mechanism indicated in the authorityInfoAccess extension of the issued certificate in accordance 
+						with FDP_OCSP_EXT.1FDP_OCSP_EXT.1.1</span>,  <span class="selectable-content" id="_s_104">an OSCP response provided to [<b>assignment</b>: 
+     <span class="assignable-content">a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function using certificates issued by the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> in 
+						support of <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or DTLS server functionality</span>] 
+						for <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> stapling</span> ].					
+				<div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+					The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims the supported methods for distributing generated certificate status information to the supported 
+					functions that are relying parties for the issued certificates. If CRLs are identified in <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a>, 
+					then ‘posting CRLs at… cRLDistributionPoints…’ is claimed in <a href="#FDP_CSI_EXT.1.3">FDP_CSI_EXT.1.3</a> and ‘cRLDistributionPoints’ 
+					is claimed in <a href="#FDP_CSI_EXT.1.2">FDP_CSI_EXT.1.2</a>. If the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> standard is selected in <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a>, then at 
+					least one of ‘<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> mechanism…in the authorityInfoAccess…’ or ‘…<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> stapling…’ is claimed and ‘authorityInfoAccess’ 
+					must be claimed in <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a>. If ‘…<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> stapling’ is claimed, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author identifies the functions 
+					using <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> stapling for server-authenticated <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or DTLS and describes the interface to provide the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> response to 
+					each of the functions in the assignment.
+				</span></div></div></div>
+		<div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a></div>
+					
+					
+									
+				<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">
+						<p>The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and verify that the description of the revocation function meets the 
+						requirements.</p>
+					</div><div class="eacategory">Guidance</div><div class="ea">
+						<p>The evaluator shall examine the AGD documentation and verify that instructions for revoking certificates issued 
+						by the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> are included, and that the configuration of revocation status information locations is 
+						described.</p>
+					</div><div class="eacategory">Tests</div><div class="ea">
+						The evaluator shall perform the following test.
+						<span class="testlist-"><ul>
+							<li class="test-"><a id="_t_4" class="defined" href="#_t_4">Test FDP_CSI_EXT.1:1</a>:
+      
+							For each revocation method claimed, the evaluator shall attempt to cause the supported function to revoke an 
+							issued certificate. The evaluator shall demonstrate that the function no longer trusts the revoked 
+							certificate.
+							</li>
+						</ul></span>						
 					</div></div></div></div><div class="comp" id="FDP_OCSP_EXT.1"><h4>FDP_OCSP_EXT.1 OCSP Basic Response Generation</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
            <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a>.
            </i></b></div>
