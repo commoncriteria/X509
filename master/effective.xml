@@ -648,79 +648,6 @@
 			</f-element>
 		</f-component>
 		
-		<f-component name="Certificate Status Information Generation" cc-id="fdp_csi_ext.1" id="fdp-csi-ext-1" status="sel-based">
-			<depends on="toe-generates-cert-status"/>
-			<f-element id="fdp-csi-ext-1e1">
-				<title>
-					The TSF shall generate certificate status information whose format complies with <selectables>
-					<selectable id="toe-supports-crl">ITU-T Recommendation X.509v2 CRL</selectable>
-					<selectable>ITU-T Recommendation X.509v2 CRL as refined by RFC 8603 <comment>from CCPPD: should this also trigger FDP_CRL_EXT.1? Right now it doesn't</comment></selectable>
-					<selectable id="toe-supports-ocsp">the OCSP standard as defined by RFC 6960</selectable>
-				</selectables>.
-				</title>
-				<note role="Application">
-					The ST author indicates the supported Certificate Status information methods.
-				</note>
-			</f-element>
-			
-			<f-element id="fdp-csi-ext-1e2">
-				<title>The TSF shall support changes to the status of a certificate by <selectables>
-					<selectable>administrative action</selectable>
-					<selectable> <assignable>input from a supported function</assignable></selectable>
-				</selectables>.
-				</title>
-				<note role="Application">
-					The ST author indicates the methods to notify the embedded CA of certificate status change. If inputs from a TOE 
-					function supported by the embedded CA trigger revocation, the ST author identifies the method of notification for 
-					each such function in the assignment.
-				</note>
-			</f-element>
-			
-			<f-element id="fdp-csi-ext-1e3">
-				<title>The TSF shall provide certificate status information generated in accordance with <xref to="fdp-csi-ext-1e1"/> via
-					 <selectables>
-					<selectable>posting CRLs at the location specified in the cRLDistributionPoints of the issued certificate</selectable>
-					<selectable>an OCSP mechanism indicated in the authorityInfoAccess extension of the issued certificate in accordance 
-						with <xref to="fdp-ocsp-ext-1"/></selectable>
-					<selectable>an OSCP response provided to <assignable>a TOE function using certificates issued by the embedded CA in 
-						support of TLS or DTLS server functionality</assignable> 
-						for OCSP stapling</selectable>
-				</selectables>.					
-				</title>
-				<note role="Application">
-					The ST author claims the supported methods for distributing generated certificate status information to the supported 
-					functions that are relying parties for the issued certificates. If CRLs are identified in <xref to="fdp-csi-ext-1e1"/>, 
-					then ‘posting CRLs at… cRLDistributionPoints…’ is claimed in <xref to="fdp-csi-ext-1e3"/> and ‘cRLDistributionPoints’ 
-					is claimed in <xref to="fdp-csi-ext-1e2"/>. If the OCSP standard is selected in <xref to="fdp-csi-ext-1e1"/>, then at 
-					least one of ‘OCSP mechanism…in the authorityInfoAccess…’ or ‘…OCSP stapling…’ is claimed and ‘authorityInfoAccess’ 
-					must be claimed in <xref to="fdp-csi-ext-1e1"/>. If ‘…OCSP stapling’ is claimed, the ST author identifies the functions 
-					using OCSP stapling for server-authenticated TLS or DTLS and describes the interface to provide the OCSP response to 
-					each of the functions in the assignment.
-				</note>
-				<aactivity>
-					<TSS>
-						<h:p>The evaluator shall examine the TSS and verify that the description of the revocation function meets the 
-						requirements.</h:p>
-					</TSS>
-					<Guidance>
-						<h:p>The evaluator shall examine the AGD documentation and verify that instructions for revoking certificates issued 
-						by the embedded CA are included, and that the configuration of revocation status information locations is 
-						described.</h:p>
-					</Guidance>
-					<Tests>
-						The evaluator shall perform the following test.
-						<testlist>
-							<test>
-							For each revocation method claimed, the evaluator shall attempt to cause the supported function to revoke an 
-							issued certificate. The evaluator shall demonstrate that the function no longer trusts the revoked 
-							certificate.
-							</test>
-						</testlist>						
-					</Tests>				
-				</aactivity>
-			</f-element>
-		</f-component>
-		
 		<f-component name="Certificate Status Information Required" cc-id="fdp_csir_ext.1" id="fdp-csir-ext-1">
 			<f-element id="fdp-csir-ext-1e1">
 				<title> <comment>from CCPPD: The trigger for this is indicated as "This SFR is claimed if FDP_CER_EXT.1 is claimed." As there is no selection
@@ -771,6 +698,81 @@
 				</aactivity>
 			</f-element>
 		</f-component>
+		
+		
+		<f-component name="Certificate Status Information Generation" cc-id="fdp_csi_ext.1" id="fdp-csi-ext-1" status="sel-based">
+			<depends on="toe-generates-cert-status"/>
+			<f-element id="fdp-csi-ext-1e1">
+				<title>
+					The TSF shall generate certificate status information whose format complies with <selectables>
+						<selectable id="toe-supports-crl">ITU-T Recommendation X.509v2 CRL</selectable>
+						<selectable>ITU-T Recommendation X.509v2 CRL as refined by RFC 8603 <comment>from CCPPD: should this also trigger FDP_CRL_EXT.1? Right now it doesn't</comment></selectable>
+						<selectable id="toe-supports-ocsp">the OCSP standard as defined by RFC 6960</selectable>
+					</selectables>.
+				</title>
+				<note role="Application">
+					The ST author indicates the supported Certificate Status information methods.
+				</note>
+			</f-element>
+			
+			<f-element id="fdp-csi-ext-1e2">
+				<title>The TSF shall support changes to the status of a certificate by <selectables>
+					<selectable>administrative action</selectable>
+					<selectable> <assignable>input from a supported function</assignable></selectable>
+				</selectables>.
+				</title>
+				<note role="Application">
+					The ST author indicates the methods to notify the embedded CA of certificate status change. If inputs from a TOE 
+					function supported by the embedded CA trigger revocation, the ST author identifies the method of notification for 
+					each such function in the assignment.
+				</note>
+			</f-element>
+			
+			<f-element id="fdp-csi-ext-1e3">
+				<title>The TSF shall provide certificate status information generated in accordance with <xref to="fdp-csi-ext-1e1"/> via
+					<selectables>
+						<selectable>posting CRLs at the location specified in the cRLDistributionPoints of the issued certificate</selectable>
+						<selectable>an OCSP mechanism indicated in the authorityInfoAccess extension of the issued certificate in accordance 
+							with <xref to="fdp-ocsp-ext-1"/></selectable>
+						<selectable>an OSCP response provided to <assignable>a TOE function using certificates issued by the embedded CA in 
+							support of TLS or DTLS server functionality</assignable> 
+							for OCSP stapling</selectable>
+					</selectables>.					
+				</title>
+				<note role="Application">
+					The ST author claims the supported methods for distributing generated certificate status information to the supported 
+					functions that are relying parties for the issued certificates. If CRLs are identified in <xref to="fdp-csi-ext-1e1"/>, 
+					then ‘posting CRLs at… cRLDistributionPoints…’ is claimed in <xref to="fdp-csi-ext-1e3"/> and ‘cRLDistributionPoints’ 
+					is claimed in <xref to="fdp-csi-ext-1e2"/>. If the OCSP standard is selected in <xref to="fdp-csi-ext-1e1"/>, then at 
+					least one of ‘OCSP mechanism…in the authorityInfoAccess…’ or ‘…OCSP stapling…’ is claimed and ‘authorityInfoAccess’ 
+					must be claimed in <xref to="fdp-csi-ext-1e1"/>. If ‘…OCSP stapling’ is claimed, the ST author identifies the functions 
+					using OCSP stapling for server-authenticated TLS or DTLS and describes the interface to provide the OCSP response to 
+					each of the functions in the assignment.
+				</note>
+				<aactivity>
+					<TSS>
+						<h:p>The evaluator shall examine the TSS and verify that the description of the revocation function meets the 
+							requirements.</h:p>
+					</TSS>
+					<Guidance>
+						<h:p>The evaluator shall examine the AGD documentation and verify that instructions for revoking certificates issued 
+							by the embedded CA are included, and that the configuration of revocation status information locations is 
+							described.</h:p>
+					</Guidance>
+					<Tests>
+						The evaluator shall perform the following test.
+						<testlist>
+							<test>
+								For each revocation method claimed, the evaluator shall attempt to cause the supported function to revoke an 
+								issued certificate. The evaluator shall demonstrate that the function no longer trusts the revoked 
+								certificate.
+							</test>
+						</testlist>						
+					</Tests>				
+				</aactivity>
+			</f-element>
+		</f-component>
+		
 
 		<f-component name="OCSP Basic Response Generation" cc-id="fdp_ocsp_ext.1" id="fdp-ocsp-ext-1" status="sel-based">
 			<depends on="toe-supports-ocsp" also="toe-issues-ocsp"/>

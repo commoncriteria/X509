@@ -19,7 +19,7 @@
 * Warning: Detected an empty _p_ element./Package[1]""/sec:Security_Functional_Requirements[1]""/sec:fdp[1]""/f-component[1]""/f-element[2]""/note[1]"The ST au"/h:p[4]""
 * Warning: Detected an empty _p_ element./Package[1]""/sec:Security_Functional_Requirements[1]""/sec:fdp[1]""/f-component[1]""/f-element[4]""/aactivity[1]""/TSS[1]""/h:p[2]""
 * Warning: Detected an empty _p_ element./Package[1]""/sec:Security_Functional_Requirements[1]""/sec:fdp[1]""/f-component[2]""/f-element[2]""/note[1]"This SFR "/h:p[1]""
-* Warning: Detected an empty _p_ element./Package[1]""/sec:Security_Functional_Requirements[1]""/sec:fdp[1]""/f-component[5]""/f-element[1]""/aactivity[1]""/Guidance[1]""/h:p[2]""
+* Warning: Detected an empty _p_ element./Package[1]""/sec:Security_Functional_Requirements[1]""/sec:fdp[1]""/f-component[4]""/f-element[1]""/aactivity[1]""/Guidance[1]""/h:p[2]""
 * Warning: Detected an empty _p_ element./Package[1]""/sec:Security_Functional_Requirements[1]""/sec:fdp[1]""/f-component[6]""/f-element[1]""/aactivity[1]""/Tests[1]"The evalu"/testlist[1]""/test[1]""/h:p[2]""
 * Warning: Detected an empty _p_ element./Package[1]""/sec:Security_Functional_Requirements[1]""/sec:fia[1]""/f-component[2]""/f-element[5]""/aactivity[1]""/Tests[1]"For each "/testlist[1]""/test[4]""/h:p[2]""
 * Warning: Detected an empty _p_ element./Package[1]""/sec:Security_Functional_Requirements[1]""/sec:fia[1]""/f-component[5]""/f-element[6]""/aactivity[1]""/Tests[1]""/h:p[2]""
