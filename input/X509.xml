@@ -266,12 +266,15 @@
 			STIP use case. The general case should be modeled after that in the CA PP. Here, certificates are supporting any TOE function, 
 			but are only trusted by the TOE function, whereas for STIP, the issued certificates are trusted by external clients or servers.
 		</comment>
-		<comment>Needs selection trigger</comment> 
-		
-		<f-component name="OLT Leaf Certificate Profiles" cc-id="fdp_cer_ext.1" iteration="OLTleaf">
-			
+		<f-component name="OLT Leaf Certificate Profiles" cc-id="fdp_cer_ext.1" iteration="OLTleaf" status="sel-based">
+			<depends on="toe-uses-embedded-ca" also="toe-requests-certs" and="toe-requests-certs-from-embedded-ca"/>
 		<f-element id="fdp-cer-ext-1e1">
-			<title>The TSF shall implement a certificate profile function for certificates issued by a CA embedded within the TOE, 
+			<title>
+				<comment>from CCPPD: This is also supposed to be triggered if "a designated trust store specified in FIA_X509_EXT.1.6 is associated with an embedded CA"
+				but there is no way to depict that via selection without changing FIA_X509_EXT.1.6. The conditiong being written in this manner
+				implies an implementation-dependent SFR but an SFR can't simultaneously be implementation-dependent and selection-based.</comment>
+				<comment>from CCPPD: It's unclear why this SFR is defined with an iteration when a non-iterated version of the SFR is never used.</comment>
+				The TSF shall implement a certificate profile function for certificates issued by a CA embedded within the TOE, 
 				supporting <comment>The subsequent reference to supported functions go beyond how they use certificates, so a more detailed 
 					list is required, separately from how they use the issued certificates. Also, it’s necessary to allow internal CA 
 					support of a function using TLS, while also allowing other functions using TLS to depend on an external CA. The 
@@ -515,9 +518,16 @@
 				</aactivity>
 			</f-element>
 		</f-component>
-		<f-component name="Certificate Request Matching" cc-id="fdp_cer_ext.2" id="fdp-cer-ext-2">	
+		<f-component name="Certificate Request Matching" cc-id="fdp_cer_ext.2" id="fdp-cer-ext-2" status="sel-based">
+			<depends on="toe-requests-certs-from-embedded-ca"/>
 			<f-element id="fdp-cer-ext-2e1">
-				<title><comment>Needs selection trigger</comment>
+				<title><comment>CCPPD2: The note on when this SFR is claims also says "It may be claimed if ‘obtain certificates from an embedded CA’ is claimed in FIA_XCM_EXT.2 when the interaction between the embedded CA and the supported function includes a request event that is logged."
+				This would be an implementation-dependent trigger but an SFR can't simultaneously be selection-based and implementation-based.
+				
+				It also says that it must be claimed if FDP_CER_EXT.1 is claimed and 'request certificates from an embedded CA' is claimed in FIA_XCM_EXT.2.1.
+				The first part of that condition will always apply if the second part applies though because the FIA_XCM_EXT.2.1 is also a trigger for 
+				claiming FDP_CER_EXT.1. So that part was left off. Also note however that FDP_CER_EXT.1 is referred to as FDP_CER_EXT.1/OLTLeaf; there is no 
+				un-iterated "FDP_CER_EXT.1" so this part of the referece is ambiguous regardless.</comment>
 					The TSF shall <selectables>
 					<selectable>invoke platform-provided functionality</selectable>
 					<selectable>provide functionality</selectable>
@@ -537,9 +547,9 @@
 				</selectables>
 					certificates that cannot be associated with <selectables linebreak="yes">
 					<selectable>A PKCS-10 request validated in accordance with RFC 2986</selectable>
-					<selectable>An EST request processed in accordance with FIA_ESTS_EXT.1</selectable>
-					<selectable>A CMC request processed in accordance with FIA_CMCS_EXT.1</selectable>
-					<selectable>A CMP request processed in accordance with FIA_CMPS_EXT.1</selectable>
+					<selectable id="toe-enforces-est">An EST request processed in accordance with FIA_ESTS_EXT.1</selectable>
+					<selectable id="toe-enforces-cmc">A CMC request processed in accordance with FIA_CMCS_EXT.1</selectable>
+					<selectable id="toe-enforces-cmp">A CMP request processed in accordance with FIA_CMPS_EXT.1</selectable>
 					</selectables> 
 					from a supported TOE function.		
 				</title>
@@ -584,7 +594,8 @@
 			</f-element>			
 		</f-component>
 		
-		<f-component name="Certificate Revocation List Generation" cc-id="fdp_crl_ext.1" id="fdp-crl-ext-1">
+		<f-component name="Certificate Revocation List Generation" cc-id="fdp_crl_ext.1" id="fdp-crl-ext-1" status="sel-based">
+			<depends on="toe-supports-crl"/>
 			<f-element id="fdp-crl-ext-1e1">
 				<title>The TSF shall generate CRLs in accordance with ITU-T Recommendation X.509 which meets the following rules.
 					<h:ul>
@@ -648,9 +659,9 @@
 		<f-component name="Certificate Status Information Generation" cc-id="fdp_csi_ext.1" id="fdp-csi-ext-1">
 			<f-element id="fdp-csi-ext-1e1">
 				<title>The TSF shall generate certificate status information whose format complies with <selectables>
-					<selectable>ITU-T Recommendation X.509v2 CRL</selectable>
-					<selectable>ITU-T Recommendation X.509v2 CRL as refined by RFC 8603</selectable>
-					<selectable>the OCSP standard as defined by RFC 6960</selectable>
+					<selectable id="toe-supports-crl">ITU-T Recommendation X.509v2 CRL</selectable>
+					<selectable>ITU-T Recommendation X.509v2 CRL as refined by RFC 8603 <comment>should this also trigger FDP_CRL_EXT.1? Right now it doesn't</comment></selectable>
+					<selectable id="toe-supports-ocsp">the OCSP standard as defined by RFC 6960</selectable>
 				</selectables>.
 				</title>
 				<note role="Application">
@@ -718,7 +729,8 @@
 		
 		<f-component name="Certificate Status Information Required" cc-id="fdp_csir_ext.1" id="fdp-csir-ext-1">
 			<f-element id="fdp-csir-ext-1e1">
-				<title> <comment>Needs selection trigger</comment>
+				<title> <comment>from CCPPD: The trigger for this is indicated as "This SFR is claimed if FDP_CER_EXT.1 is claimed." As there is no selection
+				triggering this, it should be categorized as an implementation-dependent SFR. Is that ok?</comment>
 					The TSF shall <selectables>
 					<selectable>generate certificate status information</selectable>
 					<selectable>only issue certificates with a validity period of less than <assignable>time not to exceed 
@@ -766,7 +778,8 @@
 			</f-element>
 		</f-component>
 
-		<f-component name="OCSP Basic Response Generation" cc-id="fdp_ocsp_ext.1" id="fdp-ocsp-ext-1">
+		<f-component name="OCSP Basic Response Generation" cc-id="fdp_ocsp_ext.1" id="fdp-ocsp-ext-1" status="sel-based">
+			<depends on="toe-supports-ocsp" also="toe-issues-ocsp"/>
 			<f-element id="fdp-ocsp-ext-1">
 				<title><comment>Significant difference from existing SFR in STIP</comment>
 					The TSF shall ensure that all mandatory fields in the OCSP basic response contain values in accordance with RFC 
@@ -837,8 +850,8 @@
 	<!--			-->
 	<sec:fia title="Identification and Authentication (FIA)">
 		
-		<f-component name="CMC Client Certificate Enrollment" cc-id="fia_cmcc_ext.1" id="fia-cmcc-ext-1">
-			
+		<f-component name="CMC Client Certificate Enrollment" cc-id="fia_cmcc_ext.1" id="fia-cmcc-ext-1" status="sel-based">
+			<depends on="toe-uses-cmc"/>
 			<f-element id="fia-cmcc-ext-1e1">
 				<title>The TSF shall
 					 <selectables>
@@ -908,8 +921,8 @@
 			</f-element>		
 		</f-component>
 
-		<f-component name="Certificate Management over CMS (CMC) Server" cc-id="fia_cmcs_ext.1" id="fia-cmcs-ext-1">
-	
+		<f-component name="Certificate Management over CMS (CMC) Server" cc-id="fia_cmcs_ext.1" id="fia-cmcs-ext-1" status="sel-based">
+			<depends on="toe-enforces-cmc"/>
 			<f-element id="fia-cmcs-ext-1e1">
 				<title><comment>Based on CMC selected in FIA_X509_EXT.3 and what else?</comment>
 					The TSF shall be able to accept and process CMC <selectables>
@@ -1059,8 +1072,8 @@
 			
 		</f-component>
 
-		<f-component name="CMP Certificate Enrollment" cc-id="fia_cmpc_ext.1" id="fia-cmpc-ext-1">
-			
+		<f-component name="CMP Certificate Enrollment" cc-id="fia_cmpc_ext.1" id="fia-cmpc-ext-1" status="sel-based">
+			<depends on="toe-uses-cmp"/>
 			<f-element id="fia-cmpc-ext-1e1">
 				<title> <comment>Should this include a selection for RFC 9482 in support of IOT devices?</comment>
 					The TSF shall
@@ -1123,7 +1136,8 @@
 			</f-element>		
 		</f-component>
 		
-		<f-component name="Certificate Management Protocol (CMP) Server" cc-id="fia_cmps_ext.1" id="fia-cmps-ext-1">
+		<f-component name="Certificate Management Protocol (CMP) Server" cc-id="fia_cmps_ext.1" id="fia-cmps-ext-1" status="sel-based">
+			<depends on="toe-enforces-cmp"/>
 			<f-element id="fia-cmps-ext-1e1">
 				<title>The TSF shall use the Certificate Management Protocol (CMP) as specified in <selectables>
 					<selectable>RFC 4210 as updated by RFC 6712 and RFC 9481 (v2 CMP)</selectable>
@@ -1248,7 +1262,8 @@
 			
 		</f-component>
 		
-		<f-component name="EST Certificate Enrollment" cc-id="fia_estc_ext.1" id="fia-estc-ext-1">
+		<f-component name="EST Certificate Enrollment" cc-id="fia_estc_ext.1" id="fia-estc-ext-1" status="sel-based">
+			<depends on="toe-uses-est"/>
 			<f-element id="fia-estc-ext-1e1">
 				<title>The TSF shall
 					 <selectables>
@@ -1370,7 +1385,8 @@
 			</f-element>
 		</f-component>
 
-		<f-component name="Enrollment over Secure Transport (EST) Server" cc-id="fia_ests_ext.1" id="fdp-ests-ext-1">
+		<f-component name="Enrollment over Secure Transport (EST) Server" cc-id="fia_ests_ext.1" id="fdp-ests-ext-1" status="sel-based">
+			<depends on="toe-enforces-est"/>
 			<f-element id="fia-ests-ext-1e1">
 				<title>The TSF shall use the Enrollment over Secure Transport (EST) protocol as specified in RFC 7030, as updated by RFC 
 					8996, to receive, process, and respond to certificate simple enrollment requests from authorized clients and
@@ -1505,7 +1521,8 @@
 			</f-element>
 		</f-component>
 		
-		<f-component name="Trust Store Management" cc-id="fia_tsm_ext.1" id="fia-tsm-ext-1">		
+		<f-component name="Trust Store Management" cc-id="fia_tsm_ext.1" id="fia-tsm-ext-1" status="sel-based">
+			<depends on="toe-manages trust stores"/>
 			<f-element id="fia-tsm-ext-1e1">
 				<title>(managing trust store elements)
 					<comment>Integrate allowance for platform managed trust store (see Palo Alto comment 5) – also impacts test 13</comment> 
@@ -1649,6 +1666,7 @@
 		</ext-comp-def>
 		
 		<f-component name="X.509 Certificate Validation" cc-id="fia_x509_ext.1" status="sel-based">
+			<depends on="toe-verifies-certs"/>
 			<f-element id="fia-x509-ext-1e1">
 				<title>
 					The TSF shall  <selectables>
@@ -1813,7 +1831,7 @@
 									point</selectable><selectable>OCSP responder</selectable><selectable> <assignable>alternate sources
 									</assignable></selectable></selectables></selectable>
 								<selectable>Local revocation status information from <selectables><selectable>cached CRL</selectable>
-									<selectable>embedded CA repository</selectable><selectable>local OCSP responder</selectable>
+									<selectable id="toe-uses-embedded-ca">embedded CA repository</selectable><selectable>local OCSP responder</selectable>
 									<selectable>administrator configuration</selectable></selectables></selectable>
 								<selectable>An OCSP TLS Status Request Extension (OCSP stapling) as specified in RFC 6066,</selectable>
 								<selectable>An OCSP TLS Multiple Certificate Status Request Extension (OCSP multi-stapling as specified
@@ -1897,7 +1915,7 @@
 				<title>
 					(managing trust store elements) <comment>Integrate allowance for platform managed trust store  (see Palo Alto comment 5) 
 						– also impacts test 13</comment> The TSF shall  <selectables>
-						<selectable>manage trust stores</selectable>
+						<selectable id='toe-manages-trust-stores'>manage trust stores</selectable>
 						<selectable>use platform-managed trust stores</selectable></selectables>
 					used for certification path validation.
 				</title>
@@ -2060,6 +2078,7 @@
 		</f-component>
 				
 		<f-component name="X.509 Certificate Support for Functions" cc-id="fia_x509_ext.2" status="sel-based">
+			<depends on="toe-verifies-certs" also="toe-requests-certs"/>
 			<f-element id="fia-x509-ext-2e1">
 				<title>
 					The TSF shall
@@ -2144,6 +2163,7 @@
 		</f-component>
 		
 		<f-component name="X.509 Certificate Requests" cc-id="fia_x509_ext.3" status="sel-based">
+			<depends on="toe-requests-certs"/>
 			<f-element id="fia-x509-ext-3e1">
 				<title>The TSF shall
 					 <selectables>
@@ -2152,10 +2172,10 @@
 					Certificate Requests as specified by 
 					 <selectables linebreak="yes">
 						<selectable>RFC 2986 (PKCS-10)</selectable>
-						<selectable>RFC 7030 as updated by RFC 8996 (EST)</selectable>
-						<selectable>RFC 5272 as updated by RFC 6402 (CMC)</selectable>
+						<selectable id="toe-uses-est">RFC 7030 as updated by RFC 8996 (EST)</selectable>
+						<selectable id="toe-uses-cmc">RFC 5272 as updated by RFC 6402 (CMC)</selectable>
 						<selectable>RFC 5272 as updated by RFC 8756 (CNSA CMC)</selectable>
-						<selectable>RFC 4210 as updated by RFC 9481 (CMP)</selectable>
+						<selectable id="toe-uses-cmp">RFC 4210 as updated by RFC 9481 (CMP)</selectable>
 						</selectables>
 					and be able to provide the following information in the request: public key,
 					 <selectables linebreak="yes">
@@ -2236,8 +2256,8 @@
 			<f-element id="fia-xcm-ext-1e1">
 				<title>The TSF shall
 					 <selectables>
-						<selectable>verify</selectable>
-						<selectable>use</selectable></selectables>
+						<selectable id="toe-verifies-certs">verify</selectable>
+						<selectable id="toe-uses-certs">use</selectable></selectables>
 					X.509 certificates.
 				</title>
 				<note role="application">
@@ -2249,12 +2269,14 @@
 			</f-element>
 		</f-component>
 		<f-component name="X.509 Certificate Usage" cc-id="fia_xcm_ext.2" id="fia-xcm-ext-2" status="sel-based">
+			<depends on="toe-uses-certs"/>
 			<f-element id="fia-xcm-ext-2e1">
 				<title>The TSF shall
 					 <selectables>
-						<selectable>request certificates from an <selectables><selectable>external</selectable><selectable>embedded
+						<selectable id="toe-requests-certs">request certificates from an <selectables><selectable>external</selectable>
+							<selectable id="toe-requests-from-embedded-ca">embedded
 						</selectable></selectables>CA,</selectable>
-						<selectable>obtain certificates from an embedded CA</selectable></selectables>to represent <assignable>TOE functions 
+						<selectable id="toe-obtains-certs">obtain certificates from an embedded CA</selectable></selectables>to represent <assignable>TOE functions 
 						</assignable>for
 					 <selectables linebreak="yes">
 						<selectable> <selectables><selectable>TLS</selectable><selectable>DTLS</selectable><selectable>IPsec or IKE
