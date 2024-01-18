@@ -659,9 +659,10 @@
 		<f-component name="Certificate Status Information Generation" cc-id="fdp_csi_ext.1" id="fdp-csi-ext-1" status="sel-based">
 			<depends on="toe-generates-cert-status"/>
 			<f-element id="fdp-csi-ext-1e1">
-				<title>The TSF shall generate certificate status information whose format complies with <selectables>
+				<title>
+					The TSF shall generate certificate status information whose format complies with <selectables>
 					<selectable id="toe-supports-crl">ITU-T Recommendation X.509v2 CRL</selectable>
-					<selectable>ITU-T Recommendation X.509v2 CRL as refined by RFC 8603 <comment>should this also trigger FDP_CRL_EXT.1? Right now it doesn't</comment></selectable>
+					<selectable>ITU-T Recommendation X.509v2 CRL as refined by RFC 8603 <comment>from CCPPD: should this also trigger FDP_CRL_EXT.1? Right now it doesn't</comment></selectable>
 					<selectable id="toe-supports-ocsp">the OCSP standard as defined by RFC 6960</selectable>
 				</selectables>.
 				</title>
