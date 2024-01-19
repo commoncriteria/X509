@@ -508,11 +508,7 @@
 								configuration and inputs provided by the external entity in the associated certificate request. If 
 								multiple name types are supported for the profile, the evaluator shall repeat this test for each name 
 								type and observe that the name in the issued certificate is properly normalized.</h:p>
-							</test>
-							<h:p>This SFR is claimed if <xref to="fdp-cer-ext-1"/> is claimed and ‘request certificates from an embedded CA’ is 
-							claimed in <xref to="fia-xcm-ext-2e1"/>. It may be claimed if ‘obtain certificates from an embedded CA’ is 
-							claimed in <xref to="fia-xcm-ext-2"/> is claimed when the interaction between the embedded CA and the 
-							supported function includes a request event that is logged.</h:p>
+							</test>							
 						</testlist>
 					</Tests>
 				</aactivity>
@@ -587,8 +583,7 @@
 							if the binding is searchable, the evaluator shall cause a TOE function to initiate a certificate request for 
 							the external entity and observe that a binding associates the certificate with the function’s request.</h:p>
 							</test>
-						</testlist>
-						This SFR is dependent on ‘An EST request…’ selection in <xref to="fdp-cer-ext-2e2"/>.						
+						</testlist>												
 					</Tests>
 				</aactivity>
 			</f-element>			
@@ -1379,11 +1374,7 @@
 							embedded CA’s functionality is not limited in this manner, full set of requirements in the Certification 
 							Authority Protection Profile should be used. The following SFR characterize the basic security functionality 
 							of an embedded CA aligned to threats to the supported TOE functions.</h:p>
-						<h:p/>
-						<h:p>This SFR is claimed if the TOE verifies or uses certificates issued by an embedded CA. It must be claimed if 
-							‘Local revocation status information from embedded CA repository’ is claimed in FIA_X509_EXT.1.4, if a 
-							designated trust store specified in FIA_X509_EXT.1.6 is associated with an embedded CA, or if ‘embedded CA 
-							or ‘obtain certificates from an embedded CA’ selections are claimed in FIA_XCM_EXT.2.</h:p>
+						<h:p/>						
 					</Tests>
 				</aactivity>
 			</f-element>
