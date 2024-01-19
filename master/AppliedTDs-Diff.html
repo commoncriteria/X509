@@ -862,9 +862,6 @@
                                         [conditional] For each certificate profile associated to a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function that issues certificates to an external entity (if any), the evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to issue a certificate and observe that the certificate meets the appropriate profile, including constraints determined by the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> configuration and inputs provided by the external entity in the associated certificate request. If multiple name types are supported for the profile, the evaluator shall repeat this test for each name type and observe that the name in the issued certificate is properly normalized.
                                     </p>
                                 </li>
-                                <p>
-                                    This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is claimed if <a href="#fdp-cer-ext-1" class="dynref" data-format=""></a> is claimed and &lsquo;request certificates from an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>&rsquo; is claimed in <a href="#FIA_XCM_EXT.2.1">FIA_XCM_EXT.2.1</a>. It may be claimed if &lsquo;obtain certificates from an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>&rsquo; is claimed in <a href="#FIA_XCM_EXT.2">FIA_XCM_EXT.2</a> is claimed when the interaction between the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> and the supported function includes a request event that is logged.
-                                </p>
                             </ul>
                         </span> 
                     </div>
@@ -941,7 +938,7 @@
                                     </p>
                                 </li>
                             </ul>
-                        </span> This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is dependent on &lsquo;An <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> request&hellip;&rsquo; selection in <a href="#FDP_CER_EXT.2.2">FDP_CER_EXT.2.2</a>. 
+                        </span> 
                     </div>
                 </div>
             </div>
@@ -1661,9 +1658,6 @@
                             Embedded Certification Authority operations: An embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> has limited functionality to issue certificates to be able to authenticate external entities for <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> services and inter-TOE service communications and for integrity services of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> data. Certificates issued by an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> are not trusted by entities external to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, and so, the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> is not required support standard revocation services intended to be widely distributed. The embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> does not accept general certificate requests from external entities, but instead acts on (implied or explicit) certificate requests associated with other <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> functions. In particular, administrators do not have full control of the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>&rsquo;s functionality to issue general certificates, but only interact with the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> via <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> functions that depend on the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> maintains the ability to manage the status of issued certificates directly via trust stores. If the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>&rsquo;s functionality is not limited in this manner, full set of requirements in the Certification Authority Protection Profile should be used. The following <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> characterize the basic security functionality of an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> aligned to threats to the supported <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> functions.
                         </p>
                         <p></p>
-                        <p>
-                            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is claimed if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> verifies or uses certificates issued by an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. It must be claimed if &lsquo;Local revocation status information from embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> repository&rsquo; is claimed in <a href="#FIA_X509_EXT.1.4">FIA_X509_EXT.1.4</a>, if a designated trust store specified in <a href="#FIA_X509_EXT.1.6">FIA_X509_EXT.1.6</a> is associated with an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>, or if &lsquo;embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> or &lsquo;obtain certificates from an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>&rsquo; selections are claimed in <a href="#FIA_XCM_EXT.2">FIA_XCM_EXT.2</a>.
-                        </p>
                     </div>
                 </div>
             </div>

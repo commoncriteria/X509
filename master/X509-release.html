@@ -1129,11 +1129,7 @@ The following sections list Common Criteria and technology terms used in this do
 								configuration and inputs provided by the external entity in the associated certificate request. If 
 								multiple name types are supported for the profile, the evaluator shall repeat this test for each name 
 								type and observe that the name in the issued certificate is properly normalized.</p>
-							</li>
-							<p>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is claimed if <a href="#fdp-cer-ext-1" class="dynref" data-format=""></a> is claimed and ‘request certificates from an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’ is 
-							claimed in <a href="#FIA_XCM_EXT.2.1">FIA_XCM_EXT.2.1</a>. It may be claimed if ‘obtain certificates from an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’ is 
-							claimed in <a href="#FIA_XCM_EXT.2">FIA_XCM_EXT.2</a> is claimed when the interaction between the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> and the 
-							supported function includes a request event that is logged.</p>
+							</li>							
 						</ul></span>
 					</div></div></div></div><div class="comp" id="FDP_CER_EXT.2"><h4>FDP_CER_EXT.2 Certificate Request Matching</h4><div class="statustag"></div>
 			
@@ -1190,8 +1186,7 @@ The following sections list Common Criteria and technology terms used in this do
 							if the binding is searchable, the evaluator shall cause a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function to initiate a certificate request for 
 							the external entity and observe that a binding associates the certificate with the function’s request.</p>
 							</li>
-						</ul></span>
-						This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is dependent on ‘An <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> request…’ selection in <a href="#FDP_CER_EXT.2.2">FDP_CER_EXT.2.2</a>.						
+						</ul></span>												
 					</div></div></div></div><div class="comp" id="FDP_CRL_EXT.1"><h4>FDP_CRL_EXT.1 Certificate Revocation List Generation</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
            <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a>.
            </i></b></div>
@@ -1782,11 +1777,7 @@ The following sections list Common Criteria and technology terms used in this do
 							embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’s functionality is not limited in this manner, full set of requirements in the Certification 
 							Authority Protection Profile should be used. The following <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> characterize the basic security functionality 
 							of an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> aligned to threats to the supported <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> functions.</p>
-						<p></p>
-						<p>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is claimed if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> verifies or uses certificates issued by an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. It must be claimed if 
-							‘Local revocation status information from embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> repository’ is claimed in <a href="#FIA_X509_EXT.1.4">FIA_X509_EXT.1.4</a>, if a 
-							designated trust store specified in <a href="#FIA_X509_EXT.1.6">FIA_X509_EXT.1.6</a> is associated with an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>, or if ‘embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> 
-							or ‘obtain certificates from an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’ selections are claimed in <a href="#FIA_XCM_EXT.2">FIA_XCM_EXT.2</a>.</p>
+						<p></p>						
 					</div></div></div></div><div class="comp" id="FIA_ESTS_EXT.1"><h4>FIA_ESTS_EXT.1 Enrollment over Secure Transport (EST) Server</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
            <a href="#FDP_CER_EXT.2.2">FDP_CER_EXT.2.2</a>.
            </i></b></div>
