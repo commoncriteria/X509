@@ -261,15 +261,15 @@
 	<!-- 			-->
 	<!-- 3.1.2 FDP: User Data Protection -->
 	<!--			-->
-	<sec:fdp title="User Data Protection (FDP)">
-		<comment>This (only locally trusted) iteration for leaf certificates is more general than that in STIP, but does not include the 
-			STIP use case. The general case should be modeled after that in the CA PP. Here, certificates are supporting any TOE function, 
-			but are only trusted by the TOE function, whereas for STIP, the issued certificates are trusted by external clients or servers.
-		</comment>
-		<f-component name="OLT Leaf Certificate Profiles" cc-id="fdp_cer_ext.1" iteration="OLTleaf" status="sel-based">
+	<sec:fdp title="User Data Protection (FDP)">		
+		<f-component name="OLT Leaf Certificate Profiles" cc-id="fdp_cer_ext.1" id="fdp-cer-ext-1" iteration="OLTleaf" status="sel-based">
 			<depends on="toe-uses-embedded-ca" also="toe-requests-certs" and="toe-requests-certs-from-embedded-ca"/>
 		<f-element id="fdp-cer-ext-1e1">
 			<title>
+				<comment>This (only locally trusted) iteration for leaf certificates is more general than that in STIP, but does not include the 
+					STIP use case. The general case should be modeled after that in the CA PP. Here, certificates are supporting any TOE function, 
+					but are only trusted by the TOE function, whereas for STIP, the issued certificates are trusted by external clients or servers.
+				</comment>
 				<comment>from CCPPD: This is also supposed to be triggered if "a designated trust store specified in FIA_X509_EXT.1.6 is associated with an embedded CA"
 				but there is no way to depict that via selection without changing FIA_X509_EXT.1.6. The conditiong being written in this manner
 				implies an implementation-dependent SFR but an SFR can't simultaneously be implementation-dependent and selection-based.</comment>
@@ -523,7 +523,7 @@
 				It also says that it must be claimed if FDP_CER_EXT.1 is claimed and 'request certificates from an embedded CA' is claimed in FIA_XCM_EXT.2.1.
 				The first part of that condition will always apply if the second part applies though because the FIA_XCM_EXT.2.1 is also a trigger for 
 				claiming FDP_CER_EXT.1. So that part was left off. Also note however that FDP_CER_EXT.1 is referred to as FDP_CER_EXT.1/OLTLeaf; there is no 
-				un-iterated "FDP_CER_EXT.1" so this part of the referece is ambiguous regardless.</comment>
+				un-iterated "FDP_CER_EXT.1" so this part of the reference is ambiguous regardless.</comment>
 					The TSF shall <selectables>
 					<selectable>invoke platform-provided functionality</selectable>
 					<selectable>provide functionality</selectable>
@@ -562,7 +562,7 @@
 					only if one or more of ‘generate certificate status information’ or ‘provide access to…’ is claimed in 
 					<xref to="fdp-csir-ext-1e1"/>. The method of validating a request is specific to the request method. If ‘An EST 
 					request…’ is claimed, <xref to="fia-ests-ext-1"/> is also claimed; If ‘A CMC request…’ is claimed, <xref to="fia-cmcs-ext-1"/> 
-					is also claimed. If ‘A CMP request…’ is claimed, <xref to="fia-cmps-ext-1e4"/> is also claimed. It is preferred, but 
+					is also claimed. If ‘A CMP request…’ is claimed, <xref to="fia-cmps-ext-1"/> is also claimed. It is preferred, but 
 					not required that the request identifiers, certificate identifiers and the binding is retained in searchable audit 
 					records for the embedded CA, but other mechanisms of establishing a binding are acceptable.				
 				</note>
@@ -672,7 +672,7 @@
 					embedded CA that includes status information. Distribution of Certificate status information is not required if 
 					certificates expire before notification is required, or if the issued certificates are only trusted by a single TOE 
 					function that manages the validity of certificates. If general methods are supported, the ‘generate certificate status 
-					information’ option is claimed and <xref to="fdp-csi-ext-1"/>. If certificates are issued for a sufficiently small 
+					information’ option is claimed and <xref to="fdp-csi-ext-1"/> is claimed. If certificates are issued for a sufficiently small 
 					validity period, which is less than the time that is typically allowed to process revocation requests, revocation 
 					information is not required and the ST author assigns the maximum validity period allowed by the certificate profile, 
 					as indicated in <xref to="fdp-cer-ext-1"/>. If the TSF provides access to a certificate repository, the ST author 
@@ -1302,7 +1302,7 @@
 						<selectable>implicit TA database</selectable>
 						<selectable>explicit TA database</selectable>
 					</selectables>
-					in accordance with <h:b>FIA_X.509_EXT.1</h:b> for all EST requests.					
+					in accordance with <xref to="fia-x509-ext.1"/> for all EST requests.					
 				</title>
 			</f-element><f-element id="fia-estc-ext-1e4">
 				<title>The TSF shall
@@ -1354,7 +1354,7 @@
 					<Tests>
 						<testlist>
 							<test>
-								<h:p>Test 1: the evaluator shall demonstrate the TOEs ability to configure and update trust stores 
+								<h:p>Test 1: the evaluator shall demonstrate the TOE's ability to configure and update trust stores 
 								associated with EST servers.</h:p>
 							</test>
 							<test>
@@ -1380,7 +1380,7 @@
 			</f-element>
 		</f-component>
 
-		<f-component name="Enrollment over Secure Transport (EST) Server" cc-id="fia_ests_ext.1" id="fdp-ests-ext-1" status="sel-based">
+		<f-component name="Enrollment over Secure Transport (EST) Server" cc-id="fia_ests_ext.1" id="fia-ests-ext-1" status="sel-based">
 			<depends on="toe-enforces-est"/>
 			<f-element id="fia-ests-ext-1e1">
 				<title>The TSF shall use the Enrollment over Secure Transport (EST) protocol as specified in RFC 7030, as updated by RFC 
@@ -1405,7 +1405,7 @@
 			<f-element id="fia-ests-ext-1e2">
 				<title>The TSF shall <selectables>
 					<selectable>invoke platform-provided functionality</selectable>
-					<selectable>provide functionalit</selectable>
+					<selectable>provide functionality</selectable>
 				</selectables>
 					to authenticate EST clients for re-enrollment via TLS certificate-based mutual authentication in accordance with 
 					RFC 7030 Section 3.3.2.					
@@ -1418,7 +1418,7 @@
 			<f-element id="fia-ests-ext-1e3">
 				<title>The TSF shall <selectables>
 					<selectable>invoke platform-provided functionality</selectable>
-					<selectable>provide functionalit</selectable>
+					<selectable>provide functionality</selectable>
 				</selectables>
 					to authenticate EST clients for initial enrollment and for supplemental authentication via <selectables linebreak="yes">
 						<selectable>HTTP basic authentication in accordance with RFC7030 section 3.2.3</selectable>
@@ -1619,8 +1619,8 @@
 						The evaluator shall review the TSS and verify that the description of trust store management meets the requirements.
 					</TSS>
 					<Guidance>
-						The evaluator shall review the guidance documentation and verify that instructions for manageing trust store elements 
-						ae included.
+						The evaluator shall review the guidance documentation and verify that instructions for managing trust store elements 
+						are included.
 					</Guidance>
 					<Tests>
 						The evaluator shall perform the following tests:
@@ -1660,7 +1660,7 @@
 			</fam-behavior>
 		</ext-comp-def>
 		
-		<f-component name="X.509 Certificate Validation" cc-id="fia_x509_ext.1" status="sel-based">
+		<f-component name="X.509 Certificate Validation" cc-id="fia_x509_ext.1" id="fia-x509-ext-1" status="sel-based">
 			<depends on="toe-verifies-certs"/>
 			<f-element id="fia-x509-ext-1e1">
 				<title>
@@ -1738,7 +1738,7 @@
 							<h:li>Subject Key Identifier</h:li>
 							and <selectables linebreak="yes">
 								<selectable>certificatePolicies</selectable>
-								<selectable>politicising</selectable>
+								<selectable>policyMapping</selectable>
 								<selectable>Subject alternate name containing any of the following name types <selectables linebreak="yes">
 									<selectable>rfc822Name</selectable>
 									<selectable>dNSName</selectable>
@@ -1879,7 +1879,9 @@
 										(id-kp-emailProtection with OID 1.3.6.1.5.5.7.3.4),</selectable>
 									<selectable>IPsec and IKE certificates used in conjunction with other applications requiring an 
 										explicit EKU also have the IPsec-IKE purpose (id-kp-ipsecIKE with OID 1.3.6.1.5.5.7.3.17) in 
-										accordance with RFC 4945, section 5.1.3.12,</selectable></selectables></selectable>
+										accordance with RFC 4945, section 5.1.3.12,</selectable>
+									<selectable><assignable>other EKU values required by supported applications</assignable></selectable>
+								</selectables></selectable>
 								<selectable> <selectables><selectable>certification path</selectable><selectable> <assignable>context from 
 										certification path processing</assignable>passed to supported function</selectable>
 								</selectables></selectable></selectables>									
@@ -2172,14 +2174,17 @@
 						<selectable>RFC 5272 as updated by RFC 8756 (CNSA CMC)</selectable>
 						<selectable id="toe-uses-cmp">RFC 4210 as updated by RFC 9481 (CMP)</selectable>
 						</selectables>
-					and be able to provide the following information in the request: public key,
-					 <selectables linebreak="yes">
-						<selectable>rfc822Name</selectable>
-						<selectable>dNSName</selectable>
-						<selectable>directoryName</selectable>
-						<selectable>uniformResourceIdentifier</selectable>
-						<selectable>iPAddress</selectable>
-						<selectable> <assignable>other SAN types</assignable></selectable>
+					and be able to provide the following information in the request: public key, <selectables linebreak="yes">
+						<selectable>Subject DN</selectable>
+						<selectable>one or more of the following SAN types<selectables linebreak="yes">
+							<selectable>rfc822Name</selectable>
+							<selectable>dNSName</selectable>
+							<selectable>directoryName</selectable>
+							<selectable>uniformResourceIdentifier</selectable>
+							<selectable>iPAddress</selectable>
+							<selectable> <assignable>other SAN types</assignable></selectable>
+						</selectables>
+						</selectable>
 					</selectables>
 					and <assignable>list of other certificate field and extension values</assignable><comment>TC: Please provide suggested 
 						values here to be used as selections</comment><comment>TC: We received no suggested selections. Please provide 
@@ -2196,7 +2201,7 @@
 			<f-element id="fia-x509-ext-3e2">
 				<title>The TSF shall
 					 <selectables>
-						<selectable>invoke platform=provided functionality</selectable>
+						<selectable>invoke platform-provided functionality</selectable>
 						<selectable>provide functionality</selectable></selectables>
 					to validate the certificate path in accordance with <xref to="FIA-X509-EXT-1"/> upon receiving the CA Certificate 
 					Response, and validate that the certificate path of the response is consistent with the intended usage.
