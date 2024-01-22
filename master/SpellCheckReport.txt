@@ -37,13 +37,11 @@ output/X509-release-linkable.html: directoryName
 output/X509-release-linkable.html: doesn
 output/X509-release-linkable.html: emailProtection
 output/X509-release-linkable.html: expectedPolicy
-output/X509-release-linkable.html: functionalit
 output/X509-release-linkable.html: hashAlg
 output/X509-release-linkable.html: iPAddress
 output/X509-release-linkable.html: ipsecIKE
 output/X509-release-linkable.html: issuerAltName
 output/X509-release-linkable.html: issuerUniqueID
-output/X509-release-linkable.html: manageing
 output/X509-release-linkable.html: nameConstraints
 output/X509-release-linkable.html: nextUpdate
 output/X509-release-linkable.html: nocheck
@@ -55,10 +53,9 @@ output/X509-release-linkable.html: ok
 output/X509-release-linkable.html: pathLen
 output/X509-release-linkable.html: pkix
 output/X509-release-linkable.html: policyConstraints
-output/X509-release-linkable.html: politicising
+output/X509-release-linkable.html: policyMapping
 output/X509-release-linkable.html: preferredSignatureAlgorithm
 output/X509-release-linkable.html: producedAt
-output/X509-release-linkable.html: referece
 output/X509-release-linkable.html: rfc822Name
 output/X509-release-linkable.html: secp256r1
 output/X509-release-linkable.html: secp384r1
@@ -126,7 +123,6 @@ output/X509-release.html: directoryName
 output/X509-release.html: doesn
 output/X509-release.html: emailProtection
 output/X509-release.html: expectedPolicy
-output/X509-release.html: functionalit
 output/X509-release.html: function’
 output/X509-release.html: generation’
 output/X509-release.html: hashAlg
@@ -138,7 +134,6 @@ output/X509-release.html: issuerAltName
 output/X509-release.html: issuerUniqueID
 output/X509-release.html: issue’
 output/X509-release.html: location’
-output/X509-release.html: manageing
 output/X509-release.html: messaging’
 output/X509-release.html: nameConstraints
 output/X509-release.html: nextUpdate
@@ -151,11 +146,10 @@ output/X509-release.html: ok
 output/X509-release.html: pathLen
 output/X509-release.html: pkix
 output/X509-release.html: policyConstraints
-output/X509-release.html: politicising
+output/X509-release.html: policyMapping
 output/X509-release.html: preferredSignatureAlgorithm
 output/X509-release.html: producedAt
 output/X509-release.html: raw’
-output/X509-release.html: referece
 output/X509-release.html: repository’
 output/X509-release.html: revoke’
 output/X509-release.html: rfc822Name
@@ -230,7 +224,6 @@ output/X509.html: directoryName
 output/X509.html: doesn
 output/X509.html: emailProtection
 output/X509.html: expectedPolicy
-output/X509.html: functionalit
 output/X509.html: function’
 output/X509.html: generation’
 output/X509.html: hashAlg
@@ -242,7 +235,6 @@ output/X509.html: issuerAltName
 output/X509.html: issuerUniqueID
 output/X509.html: issue’
 output/X509.html: location’
-output/X509.html: manageing
 output/X509.html: messaging’
 output/X509.html: nameConstraints
 output/X509.html: nextUpdate
@@ -254,11 +246,10 @@ output/X509.html: ok
 output/X509.html: pathLen
 output/X509.html: pkix
 output/X509.html: policyConstraints
-output/X509.html: politicising
+output/X509.html: policyMapping
 output/X509.html: preferredSignatureAlgorithm
 output/X509.html: producedAt
 output/X509.html: raw’
-output/X509.html: referece
 output/X509.html: repository’
 output/X509.html: revoke’
 output/X509.html: rfc822Name
