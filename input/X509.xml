@@ -1302,7 +1302,7 @@
 						<selectable>implicit TA database</selectable>
 						<selectable>explicit TA database</selectable>
 					</selectables>
-					in accordance with <xref to="fia-x509-ext.1"/> for all EST requests.					
+					in accordance with <xref to="fia-x509-ext-1"/> for all EST requests.					
 				</title>
 			</f-element><f-element id="fia-estc-ext-1e4">
 				<title>The TSF shall
@@ -2176,7 +2176,7 @@
 						</selectables>
 					and be able to provide the following information in the request: public key, <selectables linebreak="yes">
 						<selectable>Subject DN</selectable>
-						<selectable>one or more of the following SAN types<selectables linebreak="yes">
+						<selectable>one or more of the following SAN types <selectables linebreak="yes">
 							<selectable>rfc822Name</selectable>
 							<selectable>dNSName</selectable>
 							<selectable>directoryName</selectable>
