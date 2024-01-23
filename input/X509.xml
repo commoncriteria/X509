@@ -2310,7 +2310,7 @@
 						<selectable id="toe-requests-certs">request certificates from an <selectables><selectable>external</selectable>
 							<selectable id="toe-requests-certs-from-embedded-ca">embedded
 						</selectable></selectables> CA,</selectable>
-						<selectable id="toe-obtains-certs">obtain certificates from an embedded CA</selectable></selectables>to represent <assignable>TOE functions 
+						<selectable id="toe-obtains-certs">obtain certificates from an embedded CA</selectable></selectables> to represent <assignable>TOE functions 
 						</assignable> for
 					 <selectables linebreak="yes">
 						<selectable> <selectables><selectable>TLS</selectable><selectable>DTLS</selectable><selectable>IPsec or IKE
@@ -2319,9 +2319,9 @@
 							</selectable>
 						<selectable> <selectables><selectable>code signing for system software updates</selectable><selectable>code 
 								signing for software integrity testing</selectable><selectable>integrity verification for TSF protected 
-									data</selectable><selectable>administrator authentication</selectable><selectable>user authentication 
-									</selectable><selectable> <assignable>other uses</assignable></selectable></selectables></selectable>
-						</selectables>								
+									data</selectable><selectable>administrator authentication</selectable><selectable>user authentication</selectable>
+							<selectable> <assignable>other uses</assignable></selectable></selectables> </selectable>
+						</selectables>.								
 				</title>
 				<note role="application">
 					The ST author claims the method for obtaining certificates and the source of certificates, and describes the 
