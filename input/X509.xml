@@ -619,8 +619,8 @@
 						</h:li>
 						<h:li>
 							The signature and signatureAlgorithm fields shall contain the OID for a digital signature algorithm in 
-							accordance with FCS_COP.1/SigGen <comment>from CCPPD: iterations should not be in the literal definition
-							of SFR text because the SFR can't predict or define how PP or ST authors use the iteration convention</comment> in the base PP.
+							accordance with FCS_COP.1 in the base PP. <comment>from CCPPD: proposed updates here and in app note
+							(comment kept to preserve numbering of other comments)</comment>
 						</h:li>
 						<h:li>
 							The thisUpdate field shall indicate the issue date of the CRL.
@@ -632,7 +632,15 @@
 					</h:ul>										
 				</title>
 				<note role="Application">
+					<h:p>
 					This requirement should be claimed if 'ITU-T Recommendation X.509v2 CRL' is selected in <xref to="fdp-csi-ext-1e1"/>.
+					</h:p>
+					<h:p>
+					The ST author is expected to refine the FCS_COP.1 reference to include an iteration name that is appropriate for the digital signature
+					requirement of the PP or PP-Module that conforms to this package. For example, a name like "FCS_COP.1/SigGen" is typical.
+					It is expected that the supported signatures are limited to 2048-bit RSA or higher, or ECDSA using NIST P-256, P-384, or P-521,
+					based on the signature requirements in the PPs and PP-Modules with which this FP is intended for use.
+					</h:p>
 				</note>
 				<aactivity>
 					<TSS>
@@ -685,9 +693,12 @@
 					as indicated in <xref to="fdp-cer-ext-1"/>. If the TSF provides access to a certificate repository, the ST author 
 					claims ‘provide access …’ and identifies the repository and methods of access in the assignment. If each supported 
 					function manages the validity of the certificates it uses without depending on the embedded CA, the ST author claims 
-					‘depend on…’ and describes the method used by each such function. <comment>Certain requirements imposed on the base PP 
-						in support of an embedded CA would then apply to these functions.</comment> In this case, the embedded function takes 
-					on traditional functionality of a CA.
+					‘depend on…’ and describes the method used by each such function. <comment>from CCPPD2: proposed
+					resolution to the original comment here listed below at the end of the app note. Comment kept here to preserve
+					numbering of other comments.</comment> In this case, the embedded function takes 
+					on traditional functionality of a CA. Depending on the PP or PP-Module that this FP is used with, certain requirements of 
+					that PP or PP-Module would then apply to the functionality described here as well, such as authorized administration to configure
+					the function.
 				</note>
 				<aactivity>
 					<TSS>
@@ -942,11 +953,12 @@
 				<note role="Application">
 					The ST author claims supported CMC request processing and the supported CMC profiles. A CMC profile describes the 
 					cryptographic functions and extensions supported. If profiles other than RFC 8756 are supported, the ST author 
-					describes the supported cryptographic functions and extensions. Cryptographic functions used in the CMC profile are 
-					limited to those claimed in the base PP <comment>from CCPPD: "base PP" probably not the best term to use here
-					because theoretically this package could also extend a PP-Module (in addition to the term being "Base-PP") 
-					- note this occurs in multiple places</comment> 
-					by <xref to="fia-cmcs-ext-1e4"/>.
+					describes the supported cryptographic functions and extensions used for those profiles. 
+					Cryptographic functions used in the CMC profile are limited to those specified in the PP or PP-Module which claims conformance 
+					to this FP. The mechanism that implements these functions (e.g., whether it is part of the TSF or invoked from its platform) 
+					is specified in <xref to="fia-cmcs-ext-1e4"/>. 
+					<comment>from CCPPD: update made here to address original comment. This comment kept to preserve numbering of the other comments.
+					See also proposed updates to FIA_CMCS_EXT.1.4 below.</comment> 
 				</note>
 			</f-element>
 			
@@ -988,18 +1000,17 @@
 			
 			<f-element id="fia-cmcs-ext-1e4">
 				<title>
-					The TSF shall <selectables>
-						<selectable>invoke platform-provided functionality to require</selectable>
-						<selectable>require</selectable>
-					</selectables>
-					supported CMC messages use <selectables>
-						<selectable>any</selectable>
-						<selectable> <assignable>list of functions</assignable></selectable>
-					</selectables>
-					cryptographic support functions supported by the base PP.
+					The TSF shall require the use of <selectables>
+						<selectable>platform-provided</selectable>
+						<selectable>TSF</selectable>
+					</selectables> cryptographic functionality for supported CMC messages
+					using the following functions: <assignable>list of cryptographic functions</assignable>.
 				</title>
 				<note role="Application">
-					ST author indicates which supported cryptographic functions are used for CMC. 
+					The ST author specifies the cryptographic functions used for CMC and whether these functions are part of the TSF or invoked by it
+					as part of the TOE platform (e.g., a cryptographic library offered by a general-purpose operating system for third-party applications).
+					It is expected that the cryptographic implementation cited here is consistent with any claims made in the PP or PP-Module which 
+					claims conformance to this FP, both with regards to where the implementation resides and for what algorithms are used.
 				</note>
 			</f-element>
 						
