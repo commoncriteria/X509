@@ -4,7 +4,17 @@
         /Package[1]""/sec:Security_Functional_Requirements[1]""/sec:fia[1]""/f-component[12]""/f-element[1]""
 * Warning: This document still has at least one comment.
 * Error: Detected dangling id-reference to toe-issues-ocsp from attribute
-        also/Package[1]""/sec:Security_Functional_Requirements[1]""/sec:fdp[1]""/f-component[6]""/depends[1]""/also[1]""
+        also/Package[1]""/sec:Security_Functional_Requirements[1]""/sec:fdp[1]""/f-component[7]""/depends[1]""/also[1]""
+* Error: Detected multiple elements with an id of 'fdp-cer-ext-1'.
+* Error: Detected multiple elements with an id of 'fdp-cer-ext-1e1'.
+* Error: Detected multiple elements with an id of 'fdp-cer-ext-1e2'.
+* Error: Detected multiple elements with an id of 'fdp-cer-ext-1e3'.
+* Error: Detected multiple elements with an id of 'fdp-cer-ext-1e4'.
+* Error: Detected multiple elements with an id of 'fdp-cer-ext-1'.
+* Error: Detected multiple elements with an id of 'fdp-cer-ext-1e1'.
+* Error: Detected multiple elements with an id of 'fdp-cer-ext-1e2'.
+* Error: Detected multiple elements with an id of 'fdp-cer-ext-1e3'.
+* Error: Detected multiple elements with an id of 'fdp-cer-ext-1e4'.
 * Error: Detected multiple elements with an id of 'fdp-ocsp-ext-1'.
 * Error: Detected multiple elements with an id of 'fdp-ocsp-ext-1'.
  Failed to find a reference to bibCEM.

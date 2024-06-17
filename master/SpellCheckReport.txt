@@ -16,6 +16,7 @@ output/X509-release-linkable.html: IOT
 output/X509-release-linkable.html: Novemeber
 output/X509-release-linkable.html: OLT
 output/X509-release-linkable.html: OLTLeaf
+output/X509-release-linkable.html: OLTleafFDP
 output/X509-release-linkable.html: OSCP
 output/X509-release-linkable.html: PCKS
 output/X509-release-linkable.html: Palo
@@ -95,6 +96,7 @@ output/X509-release.html: IOT
 output/X509-release.html: Novemeber
 output/X509-release.html: OLT
 output/X509-release.html: OLTLeaf
+output/X509-release.html: OLTleafFDP
 output/X509-release.html: OSCP
 output/X509-release.html: PCKS
 output/X509-release.html: Palo
@@ -196,6 +198,7 @@ output/X509.html: IOT
 output/X509.html: Novemeber
 output/X509.html: OLT
 output/X509.html: OLTLeaf
+output/X509.html: OLTleafFDP
 output/X509.html: OSCP
 output/X509.html: PCKS
 output/X509.html: Palo
