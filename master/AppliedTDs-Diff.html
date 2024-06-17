@@ -667,7 +667,7 @@
         </table>
         <h2 id="-sel-based" class="indexable" data-level="2">B.2 User Data Protection (FDP)</h2>
         <div class="comp" id="FDP_CER_EXT.1/OLTleaf">
-            <h4>FDP_CER_EXT.1/OLTleaf OLT Leaf Certificate Profiles</h4>
+            <h4>FDP_CER_EXT.1/OLTleaf Leaf Certificate Profiles (Only Locally Trusted)</h4>
             <div class="statustag">
                 <b><i>The inclusion of this selection-based component depends upon selection in <a href="#FIA_X509_EXT.1.4">FIA_X509_EXT.1.4</a>, <a href="#FIA_XCM_EXT.2.1">FIA_XCM_EXT.2.1</a>. </i></b>
             </div>
@@ -735,7 +735,7 @@
                     <a href="#FDP_CER_EXT.1.2/OLTleaf" class="abbr">FDP_CER_EXT.1.2/OLTleaf</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate certificates using certificate profiles that comply with requirements for issued certificates as specified in IETF <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5280, &ldquo;Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (<abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>) Profile&rdquo; as refined below, that apply to all supported functions described in FDP_CER_EXT.1.1/OLTleafFDP_CER_EXT.1.1: 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate certificates using certificate profiles that comply with requirements for issued certificates as specified in IETF <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5280, &ldquo;Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (<abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>) Profile&rdquo; as refined below, that apply to all supported functions described in <a href="#FDP_CER_EXT.1.1/OLTleaf">FDP_CER_EXT.1.1/OLTleaf</a>: 
                     <ul>
                         <li>The version is 3 (value 02).</li>
                         <li>The certificate does not contain subjectUniqueID or issuerUniqueID fields.</li>
@@ -893,7 +893,7 @@
                         </li>
                     </ul>
                     <div class="appnote">
-                        <span class="note-header">Application Note: </span><span class="note"> General profiles described in FDP_CER_EXT.1.2/OLTleafFDP_CER_EXT.1.2 are refined by specific configurations of the issuing <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> in the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> element. The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims the source of these inputs </span>
+                        <span class="note-header">Application Note: </span><span class="note"> General profiles described in <a href="#FDP_CER_EXT.1.2/OLTleaf">FDP_CER_EXT.1.2/OLTleaf</a> are refined by specific configurations of the issuing <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> in the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> element. The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims the source of these inputs </span>
                     </div>
                 </div>
             </div>
@@ -1063,7 +1063,7 @@
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note">
                             <p>
-                                 This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> ensures the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> is able to associate any issued certificate to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function that requested it using request methods indicated in FDP_CER_EXT.1.4/OLTleafFDP_CER_EXT.1.4. Although the supported certificate requests allow certificate requests from external entities, the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> described in this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> functional package is not intended to be used in support of purely external purposes; any certificates which cannot be associated with a request by an authorized <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function must be revoked on discovery. This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is not claimed if the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> does not act on standard certificate requests, but only generates certificates as indicated by inputs from the supported functions. 
+                                 This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> ensures the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> is able to associate any issued certificate to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function that requested it using request methods indicated in FDP_CER_EXT.1.4. Although the supported certificate requests allow certificate requests from external entities, the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> described in this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> functional package is not intended to be used in support of purely external purposes; any certificates which cannot be associated with a request by an authorized <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function must be revoked on discovery. This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is not claimed if the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> does not act on standard certificate requests, but only generates certificates as indicated by inputs from the supported functions. 
                             </p>
                             <p>
                                  If the association in <a href="#FDP_CER_EXT.2">FDP_CER_EXT.2</a> is performed as a condition of issuance, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims &lsquo;not issue&rsquo;; if the association is performed after issuance, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims &lsquo;revoke&rsquo;. Revoke should be claimed only if one or more of &lsquo;generate certificate status information&rsquo; or &lsquo;provide access to&hellip;&rsquo; is claimed in <a href="#FDP_CSIR_EXT.1.1">FDP_CSIR_EXT.1.1</a>. The method of validating a request is specific to the request method. If &lsquo;An <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> request&hellip;&rsquo; is claimed, <a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a> is also claimed; If &lsquo;A <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> request&hellip;&rsquo; is claimed, <a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a> is also claimed. If &lsquo;A CMP request&hellip;&rsquo; is claimed, <a href="#FIA_CMPS_EXT.1">FIA_CMPS_EXT.1</a> is also claimed. It is preferred, but not required that the request identifiers, certificate identifiers and the binding is retained in searchable audit records for the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>, but other mechanisms of establishing a binding are acceptable. 
@@ -3539,7 +3539,7 @@
                         <rect x="232" y="31" width="12" height="16" fill="none" stroke="black"></rect>
                         <line x1="152" y1="37" x2="231" y2="37" stroke="black"></line>
                     </svg>
-                    <p>FDP_CER_EXT.1, OLT Leaf Certificate Profiles, QQQQ</p>
+                    <p>FDP_CER_EXT.1, Leaf Certificate Profiles, QQQQ</p>
                     <p>
                         <a href="#FDP_CER_EXT.2">FDP_CER_EXT.2</a>, Certificate Request Matching, QQQQ
                     </p>
@@ -3547,7 +3547,7 @@
                     <p>QQQQ</p>
                     <h4>Audit: FDP_CER_EXT.1</h4>
                     <p>QQQQ</p>
-                    <h4>FDP_CER_EXT.1 OLT Leaf Certificate Profiles</h4>
+                    <h4>FDP_CER_EXT.1 Leaf Certificate Profiles</h4>
                     <div style="margin-left: 1em;">
                         <table class="ecd_heir_dep" style="width: 100%">
                             <tr>
@@ -3608,7 +3608,7 @@
                         </ul>
                         ] and shall ensure that issued certificates for use by the associated <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> functions are consistent with configured profiles. 
                         <h4 id="ext-comp-FDP_CER_EXT.1.2">FDP_CER_EXT.1.2</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate certificates using certificate profiles that comply with requirements for issued certificates as specified in IETF <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5280, &ldquo;Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (<abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>) Profile&rdquo; as refined below, that apply to all supported functions described in FDP_CER_EXT.1.1/OLTleafFDP_CER_EXT.1.1: 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate certificates using certificate profiles that comply with requirements for issued certificates as specified in IETF <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5280, &ldquo;Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (<abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>) Profile&rdquo; as refined below, that apply to all supported functions described in FDP_CER_EXT.1.1: 
                         <ul>
                             <li>The version is 3 (value 02).</li>
                             <li>The certificate does not contain subjectUniqueID or issuerUniqueID fields.</li>

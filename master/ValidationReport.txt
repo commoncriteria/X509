@@ -1,4 +1,4 @@
-/home/runner/work/X509/X509/input/X509.xml:535:113: error: value of attribute "status" is invalid; must be equal to "feat-based", "objective", "optional" or "sel-based"
+/home/runner/work/X509/X509/input/X509.xml:535:109: error: value of attribute "status" is invalid; must be equal to "feat-based", "objective", "optional" or "sel-based"
 /home/runner/work/X509/X509/input/X509.xml:538:14: error: element "comp-lev" not allowed anywhere; expected the element end-tag or element "audit-event", "audit-table", "depends", "f-element" or "note"
 /home/runner/work/X509/X509/input/X509.xml:539:16: error: element "management" not allowed anywhere; expected the element end-tag or element "audit-event", "audit-table", "depends", "f-element" or "note"
 /home/runner/work/X509/X509/input/X509.xml:540:11: error: element "audit" not allowed anywhere; expected the element end-tag or element "audit-event", "audit-table", "depends", "f-element" or "note"
