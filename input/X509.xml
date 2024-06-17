@@ -261,9 +261,20 @@
 	<!-- 			-->
 	<!-- 3.1.2 FDP: User Data Protection -->
 	<!--			-->
-	<sec:fdp title="User Data Protection (FDP)">		
+	<sec:fdp title="User Data Protection (FDP)">
+		
+		<ext-comp-def fam-id="FDP_CER_EXT" title="QQQQ">
+			<fam-behavior>QQQQ</fam-behavior>
+		</ext-comp-def>
+		
 		<f-component name="OLT Leaf Certificate Profiles" cc-id="fdp_cer_ext.1" id="fdp-cer-ext-1" iteration="OLTleaf" status="sel-based">
 			<depends on="toe-uses-embedded-ca" also="toe-requests-certs" and="toe-requests-certs-from-embedded-ca"/>
+			
+			<comp-lev>QQQQ</comp-lev>
+			<management>QQQQ</management>
+			<audit>QQQQ</audit>
+			<dependencies>QQQQ</dependencies>
+			
 		<f-element id="fdp-cer-ext-1e1">
 			<title>
 				<comment>This (only locally trusted) iteration for leaf certificates is more general than that in STIP, but does not include the 
@@ -517,9 +528,17 @@
 					</Tests>
 				</aactivity>
 			</f-element>
+			<audit-event>
+				<audit-event-descr>QQQQ</audit-event-descr>
+				<audit-event-info>QQQQ</audit-event-info>
+			</audit-event>
 		</f-component>
 		<f-component name="Certificate Request Matching" cc-id="fdp_cer_ext.2" id="fdp-cer-ext-2" status="sel-based">
 			<depends on="toe-requests-certs-from-embedded-ca"/>
+			<comp-lev>QQQQ</comp-lev>
+			<management>QQQQ</management>
+			<audit>QQQQ</audit>
+			<dependencies>QQQQ</dependencies>
 			<f-element id="fdp-cer-ext-2e1">
 				<title><comment>CCPPD2: The note on when this SFR is claims also says "It may be claimed if ‘obtain certificates from an embedded CA’ is claimed in FIA_XCM_EXT.2 when the interaction between the embedded CA and the supported function includes a request event that is logged."
 				This would be an implementation-dependent trigger but an SFR can't simultaneously be selection-based and implementation-based.
@@ -592,11 +611,23 @@
 						</testlist>												
 					</Tests>
 				</aactivity>
-			</f-element>			
+			</f-element>	
+			<audit-event>
+				<audit-event-descr>QQQQ</audit-event-descr>
+				<audit-event-info>QQQQ</audit-event-info>
+			</audit-event>
 		</f-component>
+		
+		<ext-comp-def fam-id="FDP_CRL_EXT" title="QQQQ">
+			<fam-behavior>QQQQ</fam-behavior>
+		</ext-comp-def>
 		
 		<f-component name="Certificate Revocation List Generation" cc-id="fdp_crl_ext.1" id="fdp-crl-ext-1" status="sel-based">
 			<depends on="toe-supports-crl"/>
+			<comp-lev>QQQQ</comp-lev>
+			<management>QQQQ</management>
+			<audit>QQQQ</audit>
+			<dependencies>QQQQ</dependencies>
 			<f-element id="fdp-crl-ext-1e1">
 				<title>The TSF shall generate CRLs in accordance with ITU-T Recommendation X.509 which meets the following rules.
 					<h:ul>
@@ -664,9 +695,21 @@
 					</Tests>
 				</aactivity>
 			</f-element>
+			<audit-event>
+				<audit-event-descr>QQQQ</audit-event-descr>
+				<audit-event-info>QQQQ</audit-event-info>
+			</audit-event>
 		</f-component>
 		
+		<ext-comp-def fam-id="FDP_CSIR_EXT" title="QQQQ">
+			<fam-behavior>QQQQ</fam-behavior>
+		</ext-comp-def>
+		
 		<f-component name="Certificate Status Information Required" cc-id="fdp_csir_ext.1" id="fdp-csir-ext-1">
+			<comp-lev>QQQQ</comp-lev>
+			<management>QQQQ</management>
+			<audit>QQQQ</audit>
+			<dependencies>QQQQ</dependencies>
 			<f-element id="fdp-csir-ext-1e1">
 				<title> <comment>from CCPPD: The trigger for this is indicated as "This SFR is claimed if FDP_CER_EXT.1 is claimed." As there is no selection
 				triggering this, it should be categorized as an implementation-dependent SFR. Is that ok?</comment>
@@ -717,11 +760,22 @@
 					</Tests>
 				</aactivity>
 			</f-element>
+			<audit-event>
+				<audit-event-descr>QQQQ</audit-event-descr>
+				<audit-event-info>QQQQ</audit-event-info>
+			</audit-event>
 		</f-component>
 		
+		<ext-comp-def fam-id="FDP_CSI_EXT" title="QQQQ">
+			<fam-behavior>QQQQ</fam-behavior>
+		</ext-comp-def>
 		
 		<f-component name="Certificate Status Information Generation" cc-id="fdp_csi_ext.1" id="fdp-csi-ext-1" status="sel-based">
 			<depends on="toe-generates-cert-status"/>
+			<comp-lev>QQQQ</comp-lev>
+			<management>QQQQ</management>
+			<audit>QQQQ</audit>
+			<dependencies>QQQQ</dependencies>
 			<f-element id="fdp-csi-ext-1e1">
 				<title>
 					The TSF shall generate certificate status information whose format complies with <selectables>
@@ -791,11 +845,22 @@
 					</Tests>				
 				</aactivity>
 			</f-element>
+			<audit-event>
+				<audit-event-descr>QQQQ</audit-event-descr>
+				<audit-event-info>QQQQ</audit-event-info>
+			</audit-event>
 		</f-component>
 		
-
+		<ext-comp-def fam-id="FDP_OCSP_EXT" title="QQQQ">
+			<fam-behavior>QQQQ</fam-behavior>
+		</ext-comp-def>
+		
 		<f-component name="OCSP Basic Response Generation" cc-id="fdp_ocsp_ext.1" id="fdp-ocsp-ext-1" status="sel-based">
 			<depends on="toe-supports-ocsp" also="toe-issues-ocsp"/>
+			<comp-lev>QQQQ</comp-lev>
+			<management>QQQQ</management>
+			<audit>QQQQ</audit>
+			<dependencies>QQQQ</dependencies>
 			<f-element id="fdp-ocsp-ext-1">
 				<title><comment>Significant difference from existing SFR in STIP</comment>
 					The TSF shall ensure that all mandatory fields in the OCSP basic response contain values in accordance with RFC 
@@ -857,6 +922,10 @@
 					</Tests>
 				</aactivity>
 			</f-element>
+			<audit-event>
+				<audit-event-descr>QQQQ</audit-event-descr>
+				<audit-event-info>QQQQ</audit-event-info>
+			</audit-event>
 		</f-component>		
 	</sec:fdp>
 	
@@ -865,8 +934,16 @@
 	<!--			-->
 	<sec:fia title="Identification and Authentication (FIA)">
 		
+		<ext-comp-def fam-id="FIA_CMCC_EXT" title="QQQQ">
+			<fam-behavior>QQQQ</fam-behavior>
+		</ext-comp-def>
+		
 		<f-component name="CMC Client Certificate Enrollment" cc-id="fia_cmcc_ext.1" id="fia-cmcc-ext-1" status="sel-based">
 			<depends on="toe-uses-cmc"/>
+			<comp-lev>QQQQ</comp-lev>
+			<management>QQQQ</management>
+			<audit>QQQQ</audit>
+			<dependencies>QQQQ</dependencies>
 			<f-element id="fia-cmcc-ext-1e1">
 				<title>The TSF shall
 					 <selectables>
@@ -933,11 +1010,23 @@
 						</testlist>
 					</Tests>
 				</aactivity>
-			</f-element>		
+			</f-element>	
+			<audit-event>
+				<audit-event-descr>QQQQ</audit-event-descr>
+				<audit-event-info>QQQQ</audit-event-info>
+			</audit-event>
 		</f-component>
 
+		<ext-comp-def fam-id="FIA_CMCS_EXT" title="QQQQ">
+			<fam-behavior>QQQQ</fam-behavior>
+		</ext-comp-def>
+		
 		<f-component name="Certificate Management over CMS (CMC) Server" cc-id="fia_cmcs_ext.1" id="fia-cmcs-ext-1" status="sel-based">
 			<depends on="toe-enforces-cmc"/>
+			<comp-lev>QQQQ</comp-lev>
+			<management>QQQQ</management>
+			<audit>QQQQ</audit>
+			<dependencies>QQQQ</dependencies>
 			<f-element id="fia-cmcs-ext-1e1">
 				<title><comment>Based on CMC selected in FIA_X509_EXT.3 and what else?</comment>
 					The TSF shall be able to accept and process CMC <selectables>
@@ -1087,10 +1176,23 @@
 				</aactivity>
 			</f-element>
 			
+			<audit-event>
+				<audit-event-descr>QQQQ</audit-event-descr>
+				<audit-event-info>QQQQ</audit-event-info>
+			</audit-event>
+			
 		</f-component>
+		
+		<ext-comp-def fam-id="FIA_CMPC_EXT" title="QQQQ">
+			<fam-behavior>QQQQ</fam-behavior>
+		</ext-comp-def>
 
 		<f-component name="CMP Certificate Enrollment" cc-id="fia_cmpc_ext.1" id="fia-cmpc-ext-1" status="sel-based">
 			<depends on="toe-uses-cmp"/>
+			<comp-lev>QQQQ</comp-lev>
+			<management>QQQQ</management>
+			<audit>QQQQ</audit>
+			<dependencies>QQQQ</dependencies>
 			<f-element id="fia-cmpc-ext-1e1">
 				<title> <comment>Should this include a selection for RFC 9482 in support of IOT devices?</comment>
 					The TSF shall
@@ -1150,11 +1252,25 @@
 						</testlist>
 					</Tests>
 				</aactivity>
-			</f-element>		
+			</f-element>	
+			
+			<audit-event>
+				<audit-event-descr>QQQQ</audit-event-descr>
+				<audit-event-info>QQQQ</audit-event-info>
+			</audit-event>
+			
 		</f-component>
+		
+		<ext-comp-def fam-id="FIA_CMPCS_EXT" title="QQQQ">
+			<fam-behavior>QQQQ</fam-behavior>
+		</ext-comp-def>
 		
 		<f-component name="Certificate Management Protocol (CMP) Server" cc-id="fia_cmps_ext.1" id="fia-cmps-ext-1" status="sel-based">
 			<depends on="toe-enforces-cmp"/>
+			<comp-lev>QQQQ</comp-lev>
+			<management>QQQQ</management>
+			<audit>QQQQ</audit>
+			<dependencies>QQQQ</dependencies>
 			<f-element id="fia-cmps-ext-1e1">
 				<title>The TSF shall use the Certificate Management Protocol (CMP) as specified in <selectables>
 					<selectable>RFC 4210 as updated by RFC 6712 and RFC 9481 (v2 CMP)</selectable>
@@ -1277,10 +1393,23 @@
 				</aactivity>
 			</f-element>
 			
+			<audit-event>
+				<audit-event-descr>QQQQ</audit-event-descr>
+				<audit-event-info>QQQQ</audit-event-info>
+			</audit-event>
+			
 		</f-component>
+		
+		<ext-comp-def fam-id="FIA_ESTC_EXT" title="QQQQ">
+			<fam-behavior>QQQQ</fam-behavior>
+		</ext-comp-def>
 		
 		<f-component name="EST Certificate Enrollment" cc-id="fia_estc_ext.1" id="fia-estc-ext-1" status="sel-based">
 			<depends on="toe-uses-est"/>
+			<comp-lev>QQQQ</comp-lev>
+			<management>QQQQ</management>
+			<audit>QQQQ</audit>
+			<dependencies>QQQQ</dependencies>
 			<f-element id="fia-estc-ext-1e1">
 				<title>The TSF shall
 					 <selectables>
@@ -1400,10 +1529,24 @@
 					</Tests>
 				</aactivity>
 			</f-element>
+			
+			<audit-event>
+				<audit-event-descr>QQQQ</audit-event-descr>
+				<audit-event-info>QQQQ</audit-event-info>
+			</audit-event>
+			
 		</f-component>
+		
+		<ext-comp-def fam-id="FIA_ESTS_EXT" title="QQQQ">
+			<fam-behavior>QQQQ</fam-behavior>
+		</ext-comp-def>
 
 		<f-component name="Enrollment over Secure Transport (EST) Server" cc-id="fia_ests_ext.1" id="fia-ests-ext-1" status="sel-based">
 			<depends on="toe-enforces-est"/>
+			<comp-lev>QQQQ</comp-lev>
+			<management>QQQQ</management>
+			<audit>QQQQ</audit>
+			<dependencies>QQQQ</dependencies>
 			<f-element id="fia-ests-ext-1e1">
 				<title>The TSF shall use the Enrollment over Secure Transport (EST) protocol as specified in RFC 7030, as updated by RFC 
 					8996, to receive, process, and respond to certificate simple enrollment requests from authorized clients and
@@ -1536,10 +1679,24 @@
 					</Tests>
 				</aactivity>
 			</f-element>
+			
+			<audit-event>
+				<audit-event-descr>QQQQ</audit-event-descr>
+				<audit-event-info>QQQQ</audit-event-info>
+			</audit-event>
+			
 		</f-component>
+		
+		<ext-comp-def fam-id="FIA_TSM_EXT" title="QQQQ">
+			<fam-behavior>QQQQ</fam-behavior>
+		</ext-comp-def>
 		
 		<f-component name="Trust Store Management" cc-id="fia_tsm_ext.1" id="fia-tsm-ext-1" status="sel-based">
 			<depends on="toe-manages-trust-stores"/>
+			<comp-lev>QQQQ</comp-lev>
+			<management>QQQQ</management>
+			<audit>QQQQ</audit>
+			<dependencies>QQQQ</dependencies>
 			<f-element id="fia-tsm-ext-1e1">
 				<title>(managing trust store elements)
 					<comment>Integrate allowance for platform managed trust store (see Palo Alto comment 5) – also impacts test 13</comment> 
@@ -1673,6 +1830,12 @@
 					</Tests>
 				</aactivity>
 			</f-element>			
+			
+			<audit-event>
+				<audit-event-descr>QQQQ</audit-event-descr>
+				<audit-event-info>QQQQ</audit-event-info>
+			</audit-event>
+			
 		</f-component>
 
 
@@ -1686,6 +1849,10 @@
 		</ext-comp-def>
 		
 		<f-component name="X.509 Certificate Validation" cc-id="fia_x509_ext.1" id="fia-x509-ext-1" status="sel-based">
+			<comp-lev>blah</comp-lev>
+			<management>blah</management>
+			<audit>blah</audit>
+			<dependencies>blah</dependencies>
 			<depends on="toe-verifies-certs"/>
 			<f-element id="fia-x509-ext-1e1">
 				<title>
@@ -2103,7 +2270,10 @@
 				</aactivity>				
 			</f-element>
 						
-			<audit-event/>
+			<audit-event>
+				<audit-event-descr>QQQQ</audit-event-descr>
+				<audit-event-info>QQQQ</audit-event-info>
+			</audit-event>
  <!-- 			
 			<audit-event>
 				<audit-event-descr>Unsuccessful attempt to validate a certificate.</audit-event-descr>
@@ -2113,6 +2283,12 @@
 		</f-component>
 				
 		<f-component name="X.509 Certificate Support for Functions" cc-id="fia_x509_ext.2" status="sel-based">
+			
+			<comp-lev>QQQQ</comp-lev>
+			<management>QQQQ</management>
+			<audit>QQQQ</audit>
+			<dependencies>QQQQ</dependencies>
+			
 			<depends on="toe-verifies-certs" also="toe-requests-certs"/>
 			<f-element id="fia-x509-ext-2e1">
 				<title>
@@ -2197,11 +2373,20 @@
 					</Tests>
 			</aactivity>
 			</f-element>
-			<audit-event/>
+			
+			<audit-event>
+				<audit-event-descr>QQQQ</audit-event-descr>
+				<audit-event-info>QQQQ</audit-event-info>
+			</audit-event>
+			
 		</f-component>
 		
 		<f-component name="X.509 Certificate Requests" cc-id="fia_x509_ext.3" status="sel-based">
 			<depends on="toe-requests-certs"/>
+			<comp-lev>QQQQ</comp-lev>
+			<management>QQQQ</management>
+			<audit>QQQQ</audit>
+			<dependencies>QQQQ</dependencies>
 			<f-element id="fia-x509-ext-3e1">
 				<title>The TSF shall
 					 <selectables>
@@ -2292,12 +2477,24 @@
 						</testlist>
 					</Tests>
 				</aactivity>
-			</f-element>									
-			<audit-event/>
+			</f-element>	
+			
+			<audit-event>
+				<audit-event-descr>QQQQ</audit-event-descr>
+				<audit-event-info>QQQQ</audit-event-info>
+			</audit-event>
+			
 		</f-component>
 		
+		<ext-comp-def fam-id="FIA_XCM_EXT" title="QQQQ">
+			<fam-behavior>QQQQ</fam-behavior>
+		</ext-comp-def>
+		
 		<f-component name="X.509 Certificate Management" cc-id="fia_xcm_ext.1" id="fia-xcm-ext-1">
-			
+			<comp-lev>QQQQ</comp-lev>
+			<management>QQQQ</management>
+			<audit>QQQQ</audit>
+			<dependencies>QQQQ</dependencies>
 			<f-element id="fia-xcm-ext-1e1">
 				<title>The TSF shall
 					 <selectables>
@@ -2312,9 +2509,19 @@
 					selected, FIA_XCM_EXT.2 must be included.
 				</note>
 			</f-element>
+			
+			<audit-event>
+				<audit-event-descr>QQQQ</audit-event-descr>
+				<audit-event-info>QQQQ</audit-event-info>
+			</audit-event>
+			
 		</f-component>
 		<f-component name="X.509 Certificate Usage" cc-id="fia_xcm_ext.2" id="fia-xcm-ext-2" status="sel-based">
 			<depends on="toe-uses-certs"/>
+			<comp-lev>QQQQ</comp-lev>
+			<management>QQQQ</management>
+			<audit>QQQQ</audit>
+			<dependencies>QQQQ</dependencies>
 			<f-element id="fia-xcm-ext-2e1">
 				<title>The TSF shall
 					 <selectables>
@@ -2342,6 +2549,12 @@
 					certificates from an embedded certification authority’ is claimed, FDP_CER_EXT.1 is claimed.
 				</note>
 			</f-element>
+			
+			<audit-event>
+				<audit-event-descr>QQQQ</audit-event-descr>
+				<audit-event-info>QQQQ</audit-event-info>
+			</audit-event>
+			
 		</f-component>
 	</sec:fia>
 
