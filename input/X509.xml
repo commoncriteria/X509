@@ -323,7 +323,7 @@
 				<title>
 					The TSF shall generate certificates using certificate profiles that comply with requirements for issued certificates 
 					as specified in IETF RFC 5280, “Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List 
-					(CRL) Profile” as refined below, that apply to all supported functions described in <xref to="fdp-cer-ext-1e1-oltleaf"/>:
+					(CRL) Profile” as refined below, that apply to all supported functions described in <no-link>FDP_CER_EXT.1.1</no-link><h:b>/OLTleaf</h:b>:
 					<h:ul>
 						<h:li>The version is 3 (value 02).</h:li>
 						<h:li>The certificate does not contain subjectUniqueID or issuerUniqueID fields.</h:li>
@@ -586,7 +586,7 @@
 				<title>
 					The TSF shall generate certificates using certificate profiles that comply with requirements for issued certificates 
 					as specified in IETF RFC 5280, “Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List 
-					(CRL) Profile” as refined below, that apply to all supported functions described in <xref to="fdp-cer-ext-1e1"/>:
+					(CRL) Profile” as refined below, that apply to all supported functions described in <no-link>FDP_CER_EXT.1.1</no-link>:
 					<h:ul>
 						<h:li>The version is 3 (value 02).</h:li>
 						<h:li>The certificate does not contain subjectUniqueID or issuerUniqueID fields.</h:li>
