@@ -270,11 +270,6 @@
 		<f-component name="OLT Leaf Certificate Profiles" cc-id="fdp_cer_ext.1" id="fdp-cer-ext-1" iteration="OLTleaf" status="sel-based">
 			<depends on="toe-uses-embedded-ca" also="toe-requests-certs" and="toe-requests-certs-from-embedded-ca"/>
 			
-			<comp-lev>QQQQ</comp-lev>
-			<management>QQQQ</management>
-			<audit>QQQQ</audit>
-			<dependencies>QQQQ</dependencies>
-			
 		<f-element id="fdp-cer-ext-1e1">
 			<title>
 				<comment>This (only locally trusted) iteration for leaf certificates is more general than that in STIP, but does not include the 
@@ -529,10 +524,206 @@
 				</aactivity>
 			</f-element>
 			<audit-event>
-				<audit-event-descr>QQQQ</audit-event-descr>
-				<audit-event-info>QQQQ</audit-event-info>
+				<audit-event-descr>Certificate generation</audit-event-descr>
+				<audit-event-info>Success: <selectables>
+					<selectable>Certificate value</selectable>
+					<selectable>certificate object identifier</selectable></selectables></audit-event-info>
 			</audit-event>
 		</f-component>
+		
+		
+		<f-component name="OLT Leaf Certificate Profiles" cc-id="fdp_cer_ext.1" id="fdp-cer-ext-1" status="invisible">
+			<depends on="toe-uses-embedded-ca" also="toe-requests-certs" and="toe-requests-certs-from-embedded-ca"/>
+			
+			<comp-lev>QQQQ</comp-lev>
+			<management>QQQQ</management>
+			<audit>QQQQ</audit>
+			<dependencies>QQQQ</dependencies>
+			
+			<f-element id="fdp-cer-ext-1e1">
+				<title>
+					<comment>This (only locally trusted) iteration for leaf certificates is more general than that in STIP, but does not include the 
+						STIP use case. The general case should be modeled after that in the CA PP. Here, certificates are supporting any TOE function, 
+						but are only trusted by the TOE function, whereas for STIP, the issued certificates are trusted by external clients or servers.
+					</comment>
+					<comment>from CCPPD: This is also supposed to be triggered if "a designated trust store specified in FIA_X509_EXT.1.6 is associated with an embedded CA"
+						but there is no way to depict that via selection without changing FIA_X509_EXT.1.6. The condition being written in this manner
+						implies an implementation-dependent SFR but an SFR can't simultaneously be implementation-dependent and selection-based.</comment>
+					<h:br/><h:br/>
+					<comment>from CCPPD: It's unclear why this SFR is defined with an iteration when a non-iterated version of the SFR is never used.</comment>
+					The TSF shall implement a certificate profile function for certificates issued by a CA embedded within the TOE, 
+					supporting <comment>The subsequent reference to supported functions go beyond how they use certificates, so a more detailed 
+						list is required, separately from how they use the issued certificates. Also, it’s necessary to allow internal CA 
+						support of a function using TLS, while also allowing other functions using TLS to depend on an external CA. The 
+						profiles are dependent on the selection below, so it should be retained.</comment>
+					<assignable>list of TOE functions</assignable>, using certificates in support of: <selectables>
+						<selectable> <selectables linebreak="yes">
+							<selectable> <selectables>
+								<selectable>TLS</selectable>
+								<selectable>DTLS</selectable>
+							</selectables>
+								<selectables>
+									<selectable>client authentication</selectable>
+									<selectable>server authentication</selectable></selectables></selectable>
+							<selectable>IPsec and IKE peer authentication</selectable>
+							<selectable>SMIME subject authentication</selectable>
+							<selectable> <assignable>entity authentication for other authentication protocols</assignable></selectable>
+						</selectables></selectable>
+						<selectable> <selectables linebreak="yes">
+							<selectable>Code signing for system software updates</selectable>
+							<selectable>Code signing for software integrity testing</selectable>
+							<selectable>Integrity verification for TOE protected data</selectable>
+							<selectable>Administrator authentication</selectable>
+							<selectable>User authentication</selectable>
+							<selectable> <assignable>other TOE functions</assignable></selectable>
+						</selectables></selectable>
+					</selectables>
+					and shall ensure that issued certificates for use by the associated TOE functions are consistent with configured profiles.
+				</title>
+			</f-element>
+			
+			<f-element id="fdp-cer-ext-1e2">
+				<title>
+					The TSF shall generate certificates using certificate profiles that comply with requirements for issued certificates 
+					as specified in IETF RFC 5280, “Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List 
+					(CRL) Profile” as refined below, that apply to all supported functions described in <xref to="fdp-cer-ext-1e1"/>:
+					<h:ul>
+						<h:li>The version is 3 (value 02).</h:li>
+						<h:li>The certificate does not contain subjectUniqueID or issuerUniqueID fields.</h:li>
+						<h:li>The certificate serial number is unique with respect to each supported embedded CA.</h:li>
+						<h:li>The validity field shall specify a notBefore value that does not precede the current time and a notAfter 
+							value that does not precede the value specified in notBefore, and does not exceed the value specified in 
+							notBefore by  <selectables>
+								<selectable>a time length configured by an administrator</selectable>
+								<selectable> <assignable>positive length of time</assignable></selectable>
+							</selectables></h:li>
+						<h:li>The issuer field is populated with the name of the embedded CA issuing the certificate.</h:li>
+						<h:li>The following extensions are supported as described:
+							<h:ul>
+								<h:li>authorityKeyIdentifier  <selectables>
+									<selectable>containing the Subject Key Identifier in the issuing CA's certificate</selectable>
+									<selectable> <assignable>an identifier associated with a trust store element corresponding to the issuing 
+										CA</assignable></selectable> 
+								</selectables></h:li>
+								<h:li>keyUsage is marked critical and is not empty</h:li>
+								<h:li> <selectables linebreak="yes">
+									<selectable>subjectKeyIdentifier is populated</selectable>
+									<selectable>extendedKeyUsage is present and is populated with  <selectables linebreak="yes">
+										<selectable>serverAuth {OID: 1.3.6.1.5.5.7.3.1}</selectable>
+										<selectable>clientAuth {OID: 1.3.6.1.5.5.7.3.2}</selectable>
+										<selectable>emailProtection {OID: 1.3.6.1.5.5.7.3.4}</selectable>
+										<selectable>ipsecIKE {OID: 1.3.6.1.5.5.7.3.17}</selectable>
+										<selectable>codeSigning {OID: 1.3.6.1.5.5.7.3.3}</selectable>
+										<selectable> <assignable>other values</assignable></selectable>
+									</selectables></selectable>
+									<selectable>subjectAltName with name of type  <selectables linebreak="yes">
+										<selectable>rfc822Name</selectable>
+										<selectable>dNSName</selectable>
+										<selectable>directoryName</selectable>
+										<selectable>uniformResourceIdentifier</selectable>
+										<selectable>iPAddress</selectable>
+										<selectable> <assignable>other name</assignable></selectable>
+									</selectables></selectable>
+									<selectable>basicConstraints is populated with CA flag equal to false</selectable>
+									<selectable>cRLDistributionPoints indicating an access location for CRLs <selectables>
+										<selectable>configured by an administrator</selectable>
+										<selectable>determined by the TSF</selectable></selectables></selectable>
+									<selectable>authorityInfoAccess indicating an access location for <selectables>
+										<selectable>CA certificates</selectable>
+										<selectable>OCSP responder</selectable></selectables> <selectables>
+											<selectable>configured by an administrator</selectable>
+											<selectable>determined by the TSF</selectable></selectables></selectable>
+									<selectable> <assignable>other extensions</assignable></selectable>
+									<selectable>no other extensions</selectable></selectables></h:li>
+								<h:li>The authorityKeyIdentifier extension in any certificate issued by the TOE must be populated with
+									<selectables>
+										<selectable>the subjectKeyIdentifier extension contained in the TOE’s embedded CA’s signing certificate
+										</selectable>
+										<selectable>an identifier indicating a trust store element associated with the embedded CA’s public
+											key</selectable>
+									</selectables>.</h:li>
+							</h:ul>
+						</h:li></h:ul>
+				</title>
+			</f-element>
+			<f-element id="fdp-cer-ext-1e3">
+				<title> The TSF shall implement the following rules for populating certificate fields based on constraints imposed by the 
+					configuration of the embedded CA.
+					<h:ul>
+						<h:li>The validity field shall specify a notAfter time that does not exceed <selectables>
+							<selectable> <assignable>a non-negative time period</assignable> prior to the notAfter time of the CA’s signing 
+								certificate</selectable>
+							<selectable>a time associated with the next scheduled update of the trust anchor associated with the CA’s 
+								public key</selectable>
+							<selectable> <assignable>a fixed time configured for the signature algorithm used</assignable></selectable>
+						</selectables></h:li>
+						<h:li>The issuer field is populated with the <selectables linebreak="yes">
+							<selectable>subject of the CA’s signing certificate as configured by an administrator</selectable>
+							<selectable>an identifier for a trust store element associated with the embedded CA’s public key</selectable>
+						</selectables></h:li>
+						<h:li> <selectables linebreak="yes">
+							<selectable>The subject name is limited based on name constraints <selectables>
+								<selectable>indicated in the embedded CA’s certificate</selectable>
+								<selectable>specified in the context of the trust store element associated with the embedded CA’s public 
+									key</selectable></selectables></selectable>
+							<selectable>The policyConstraints field is populated with <selectables>
+								<selectable>a policy included in the embedded CA's certificate</selectable>
+								<selectable>an expectedPolicy included in the context of the trust store element associated with the 
+									embedded CA's public key</selectable></selectables></selectable>
+							<selectable>no other CA-specific rules</selectable>
+						</selectables></h:li>
+					</h:ul>
+				</title>
+			</f-element>
+			<f-element id="fdp-cer-ext-1e4">
+				<title>The TSF shall populate the following certificate fields according to the rules:
+					<h:ul>
+						<h:li>The subject, as populated in the <selectables linebreak="yes">
+							<selectable>subjectName</selectable>
+							<selectable>subjectAltName of type <selectables linebreak="yes">
+								<selectable>rfc822Name</selectable>
+								<selectable>dNSName</selectable>
+								<selectable>directoryName</selectable>
+								<selectable>uniformResourceIdentifier</selectable>
+								<selectable>iPAddress</selectable>
+								<selectable> <assignable>other name type</assignable></selectable>							
+							</selectables></selectable></selectables>
+							of the issued certificate is determined by <selectables linebreak="yes">
+								<selectable>PKCS-10 request in accordance with RFC 2986</selectable>
+								<selectable>EST request in accordance with RFC 7030 as updated by RFC 8996</selectable>
+								<selectable>A CMC request in accordance with RFC 5272 as updated by RFC 6402</selectable>
+								<selectable>A CMC request in accordance with RFC 5272 as refined by RFC 8756</selectable>
+							</selectables>				
+							provided by the supported function</h:li>
+						<h:li>The public key populated in the issued certificate is <selectables linebreak="yes">
+							<selectable>generated by the TOE on <assignable>a specific event</assignable> and <selectables>
+								<selectable>made available to the supported function via an inter-TOE channel</selectable>
+								<selectable>made available to an external entity via a protected channel</selectable>
+								<selectable> <assignable>associated with the supported function</assignable></selectable>
+							</selectables></selectable>
+							<selectable>provided <selectables>
+								<selectable>in the request</selectable>
+								<selectable>by the supported function</selectable></selectables>
+								together with <assignable>evidence of proof of possession by the requested subject</assignable>
+							</selectable></selectables></h:li>
+						<h:li> <selectables linebreak="yes"> 
+							<selectable>The <selectables>
+								<selectable>notBefore</selectable>
+								<selectable>notAfter</selectable>
+							</selectables> portion of the validity field of the issued certificate is limited by <assignable>inputs from the
+								supported function</assignable></selectable>
+							<selectable> <assignable>other issuance conditions</assignable></selectable>
+							<selectable>No other condition</selectable>
+						</selectables></h:li>
+					</h:ul>
+				</title>
+				<aactivity>
+					<no-tests/>
+				</aactivity>
+			</f-element>
+			<audit-event/>
+		</f-component>
+		
 		<f-component name="Certificate Request Matching" cc-id="fdp_cer_ext.2" id="fdp-cer-ext-2" status="sel-based">
 			<depends on="toe-requests-certs-from-embedded-ca"/>
 			<comp-lev>QQQQ</comp-lev>
@@ -699,6 +890,10 @@
 				<audit-event-descr>QQQQ</audit-event-descr>
 				<audit-event-info>QQQQ</audit-event-info>
 			</audit-event>
+			<audit-event>
+				<audit-event-descr>QQQQ</audit-event-descr>
+				<audit-event-info>QQQQ</audit-event-info>
+			</audit-event>
 		</f-component>
 		
 		<ext-comp-def fam-id="FDP_CSIR_EXT" title="QQQQ">
@@ -760,10 +955,7 @@
 					</Tests>
 				</aactivity>
 			</f-element>
-			<audit-event>
-				<audit-event-descr>QQQQ</audit-event-descr>
-				<audit-event-info>QQQQ</audit-event-info>
-			</audit-event>
+			<audit-event/>
 		</f-component>
 		
 		<ext-comp-def fam-id="FDP_CSI_EXT" title="QQQQ">
@@ -1464,7 +1656,7 @@
 							accordance with RFC 7030 section 3.2.3</selectable>
 						<selectable>Certificate-based authentication in accordance with RFC 7030 section 3.3.2 using
 							 <assignable>pre-existing certificate authorized by the EST server</assignable></selectable>
-					</selectables>
+					</selectables>.
 				</title>
 			</f-element>
 			<f-element id="fia-estc-ext-1e5">
@@ -1849,10 +2041,10 @@
 		</ext-comp-def>
 		
 		<f-component name="X.509 Certificate Validation" cc-id="fia_x509_ext.1" id="fia-x509-ext-1" status="sel-based">
-			<comp-lev>blah</comp-lev>
-			<management>blah</management>
-			<audit>blah</audit>
-			<dependencies>blah</dependencies>
+			<comp-lev>QQQQ</comp-lev>
+			<management>QQQQ</management>
+			<audit>QQQQ</audit>
+			<dependencies>QQQQ</dependencies>
 			<depends on="toe-verifies-certs"/>
 			<f-element id="fia-x509-ext-1e1">
 				<title>
