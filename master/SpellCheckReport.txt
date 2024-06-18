@@ -7,7 +7,6 @@ output/X509-release-linkable.html: CCPPD
 output/X509-release-linkable.html: CCPPD2
 output/X509-release-linkable.html: CEM
 output/X509-release-linkable.html: CMP
-output/X509-release-linkable.html: CMPCS
 output/X509-release-linkable.html: CNSA
 output/X509-release-linkable.html: Crypto
 output/X509-release-linkable.html: FCS
@@ -86,7 +85,6 @@ output/X509-release.html: CCPPD
 output/X509-release.html: CCPPD2
 output/X509-release.html: CEM
 output/X509-release.html: CMP
-output/X509-release.html: CMPCS
 output/X509-release.html: CNSA
 output/X509-release.html: Crypto
 output/X509-release.html: FCS
@@ -187,7 +185,6 @@ output/X509.html: CCPPD
 output/X509.html: CCPPD2
 output/X509.html: CEM
 output/X509.html: CMP
-output/X509.html: CMPCS
 output/X509.html: CNSA
 output/X509.html: Crypto
 output/X509.html: FCS
