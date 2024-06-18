@@ -263,7 +263,7 @@
 	<!--			-->
 	<sec:fdp title="User Data Protection (FDP)">
 		
-		<ext-comp-def fam-id="FDP_CER_EXT" title="QQQQ">
+		<ext-comp-def fam-id="FDP_CER_EXT" title="Certificate Usage">
 			<fam-behavior>QQQQ</fam-behavior>
 		</ext-comp-def>
 		
@@ -527,7 +527,7 @@
 				<audit-event-descr>Certificate generation</audit-event-descr>
 				<audit-event-info>Success: <selectables>
 					<selectable>Certificate value</selectable>
-					<selectable>certificate object identifier</selectable></selectables></audit-event-info>
+					<selectable>Certificate object identifier</selectable></selectables></audit-event-info>
 			</audit-event>
 		</f-component>
 		
@@ -804,8 +804,20 @@
 				</aactivity>
 			</f-element>	
 			<audit-event>
-				<audit-event-descr>QQQQ</audit-event-descr>
-				<audit-event-info>QQQQ</audit-event-info>
+				<audit-event-descr>Linking of certificate to certificate request</audit-event-descr>
+				<audit-event-info>Success:<selectables>
+					<selectable>Certificate value</selectable>
+					<selectable>Certificate object identifier</selectable> </selectables>,
+					<selectables>
+					<selectable>Certificate request</selectable>
+					<selectable>Link to certificate request object identifier</selectable>
+					</selectables>
+				</audit-event-info>
+				<audit-event-info>Failure: Reason for failure,<selectables>
+						<selectable>Certificate request</selectable>
+						<selectable>Link to certificate request object identifier</selectable>
+					</selectables>
+				</audit-event-info>
 			</audit-event>
 		</f-component>
 		
@@ -887,13 +899,10 @@
 				</aactivity>
 			</f-element>
 			<audit-event>
-				<audit-event-descr>QQQQ</audit-event-descr>
-				<audit-event-info>QQQQ</audit-event-info>
+				<audit-event-descr>Failure to generate CRL</audit-event-descr>
+				<audit-event-info>N/A</audit-event-info>
 			</audit-event>
-			<audit-event>
-				<audit-event-descr>QQQQ</audit-event-descr>
-				<audit-event-info>QQQQ</audit-event-info>
-			</audit-event>
+	
 		</f-component>
 		
 		<ext-comp-def fam-id="FDP_CSIR_EXT" title="QQQQ">
@@ -1037,10 +1046,8 @@
 					</Tests>				
 				</aactivity>
 			</f-element>
-			<audit-event>
-				<audit-event-descr>QQQQ</audit-event-descr>
-				<audit-event-info>QQQQ</audit-event-info>
-			</audit-event>
+			<audit-event/>
+				
 		</f-component>
 		
 		<ext-comp-def fam-id="FDP_OCSP_EXT" title="QQQQ">
@@ -1115,8 +1122,8 @@
 				</aactivity>
 			</f-element>
 			<audit-event>
-				<audit-event-descr>QQQQ</audit-event-descr>
-				<audit-event-info>QQQQ</audit-event-info>
+				<audit-event-descr>Failure to generate certificate status information</audit-event-descr>
+				<audit-event-info>N/A</audit-event-info>
 			</audit-event>
 		</f-component>		
 	</sec:fdp>
@@ -1204,9 +1211,16 @@
 				</aactivity>
 			</f-element>	
 			<audit-event>
-				<audit-event-descr>QQQQ</audit-event-descr>
-				<audit-event-info>QQQQ</audit-event-info>
+				<audit-event-descr>CMC requests (generated or received) containing certificate or revocation requests</audit-event-descr>
+				<audit-event-info>Identifiers for all entities authenticating the request, including the entity providing client 
+					authentication for the CMC transport (if any)</audit-event-info>
+				<audit-event-info>The submitted request</audit-event-info>		
 			</audit-event>
+			<audit-event>
+				<audit-event-descr>CMC responses issued</audit-event-descr>
+				<audit-event-info>Any signed response</audit-event-info>				
+			</audit-event>
+				
 		</f-component>
 
 		<ext-comp-def fam-id="FIA_CMCS_EXT" title="QQQQ">
@@ -1369,8 +1383,14 @@
 			</f-element>
 			
 			<audit-event>
-				<audit-event-descr>QQQQ</audit-event-descr>
-				<audit-event-info>QQQQ</audit-event-info>
+				<audit-event-descr>CMC requests (generated or received) containing certificate or revocation requests</audit-event-descr>
+				<audit-event-info>Identifiers for all entities authenticating the request, including the entity providing client 
+					authentication for the CMC transport (if any)</audit-event-info>
+				<audit-event-info>The submitted request</audit-event-info>		
+			</audit-event>
+			<audit-event>
+				<audit-event-descr>CMC responses issued</audit-event-descr>
+				<audit-event-info>Any signed response</audit-event-info>				
 			</audit-event>
 			
 		</f-component>
@@ -1446,14 +1466,11 @@
 				</aactivity>
 			</f-element>	
 			
-			<audit-event>
-				<audit-event-descr>QQQQ</audit-event-descr>
-				<audit-event-info>QQQQ</audit-event-info>
-			</audit-event>
+			<audit-event/>
 			
 		</f-component>
 		
-		<ext-comp-def fam-id="FIA_CMPCS_EXT" title="QQQQ">
+		<ext-comp-def fam-id="FIA_CMPS_EXT" title="Certificate Management Protocol (CMP) Server">
 			<fam-behavior>QQQQ</fam-behavior>
 		</ext-comp-def>
 		
@@ -1585,11 +1602,8 @@
 				</aactivity>
 			</f-element>
 			
-			<audit-event>
-				<audit-event-descr>QQQQ</audit-event-descr>
-				<audit-event-info>QQQQ</audit-event-info>
-			</audit-event>
-			
+			<audit-event/>
+							
 		</f-component>
 		
 		<ext-comp-def fam-id="FIA_ESTC_EXT" title="QQQQ">
@@ -1723,10 +1737,16 @@
 			</f-element>
 			
 			<audit-event>
-				<audit-event-descr>QQQQ</audit-event-descr>
-				<audit-event-info>QQQQ</audit-event-info>
+				<audit-event-descr>EST requests (generated or received) containing certificate or revocation requests</audit-event-descr>
+				<audit-event-info>Identifiers for all entities authenticating the request, including the entity providing client 
+					authentication for the EST transport (if any)</audit-event-info>
+				<audit-event-info>The submitted request</audit-event-info>		
 			</audit-event>
-			
+			<audit-event>
+				<audit-event-descr>EST responses issued</audit-event-descr>
+				<audit-event-info>Any signed response</audit-event-info>				
+			</audit-event>
+						
 		</f-component>
 		
 		<ext-comp-def fam-id="FIA_ESTS_EXT" title="QQQQ">
@@ -1873,8 +1893,14 @@
 			</f-element>
 			
 			<audit-event>
-				<audit-event-descr>QQQQ</audit-event-descr>
-				<audit-event-info>QQQQ</audit-event-info>
+				<audit-event-descr>EST requests (generated or received) containing certificate or revocation requests</audit-event-descr>
+				<audit-event-info>Identifiers for all entities authenticating the request, including the entity providing client 
+					authentication for the EST transport (if any)</audit-event-info>
+				<audit-event-info>The submitted request</audit-event-info>		
+			</audit-event>
+			<audit-event>
+				<audit-event-descr>EST responses issued</audit-event-descr>
+				<audit-event-info>Any signed response</audit-event-info>				
 			</audit-event>
 			
 		</f-component>
@@ -2023,10 +2049,7 @@
 				</aactivity>
 			</f-element>			
 			
-			<audit-event>
-				<audit-event-descr>QQQQ</audit-event-descr>
-				<audit-event-info>QQQQ</audit-event-info>
-			</audit-event>
+			<audit-event/>
 			
 		</f-component>
 
@@ -2463,8 +2486,13 @@
 			</f-element>
 						
 			<audit-event>
-				<audit-event-descr>QQQQ</audit-event-descr>
-				<audit-event-info>QQQQ</audit-event-info>
+				<audit-event-descr>Unsuccessful attempt to validate a certificate</audit-event-descr>
+				<audit-event-info>Reason for failure of certificate validation</audit-event-info>
+			</audit-event>
+			<audit-event>
+				<audit-event-descr>Any addition, replacement, or removal of trust</audit-event-descr>
+				<audit-event-info>Identification of certificates added, replaced or removed as anchors in the TOE’s trust store or removed
+					as trust anchor in the TOE’s trust store</audit-event-info>
 			</audit-event>
  <!-- 			
 			<audit-event>
@@ -2567,8 +2595,8 @@
 			</f-element>
 			
 			<audit-event>
-				<audit-event-descr>QQQQ</audit-event-descr>
-				<audit-event-info>QQQQ</audit-event-info>
+				<audit-event-descr>Failed certificate validations</audit-event-descr>
+				<audit-event-info>None</audit-event-info>
 			</audit-event>
 			
 		</f-component>
@@ -2672,8 +2700,8 @@
 			</f-element>	
 			
 			<audit-event>
-				<audit-event-descr>QQQQ</audit-event-descr>
-				<audit-event-info>QQQQ</audit-event-info>
+				<audit-event-descr>None</audit-event-descr>
+				<audit-event-info>None</audit-event-info>
 			</audit-event>
 			
 		</f-component>
@@ -2702,11 +2730,8 @@
 				</note>
 			</f-element>
 			
-			<audit-event>
-				<audit-event-descr>QQQQ</audit-event-descr>
-				<audit-event-info>QQQQ</audit-event-info>
-			</audit-event>
-			
+			<audit-event/>
+							
 		</f-component>
 		<f-component name="X.509 Certificate Usage" cc-id="fia_xcm_ext.2" id="fia-xcm-ext-2" status="sel-based">
 			<depends on="toe-uses-certs"/>
@@ -2742,11 +2767,8 @@
 				</note>
 			</f-element>
 			
-			<audit-event>
-				<audit-event-descr>QQQQ</audit-event-descr>
-				<audit-event-info>QQQQ</audit-event-info>
-			</audit-event>
-			
+			<audit-event/>
+							
 		</f-component>
 	</sec:fia>
 
