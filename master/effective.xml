@@ -256,7 +256,7 @@
 	<sec:fdp title="User Data Protection (FDP)">
 		
 		<ext-comp-def fam-id="FDP_CER_EXT" title="Certificate Usage">
-			<fam-behavior>QQQQ</fam-behavior>
+			<fam-behavior>Components in this family define requirements for the TOE’s ability to generate and issue certificates.</fam-behavior>
 		</ext-comp-def>
 		
 		<f-component name="Leaf Certificate Profiles (Only Locally Trusted)" cc-id="fdp_cer_ext.1" id="fdp-cer-ext-1" iteration="OLTleaf" status="sel-based">
@@ -527,10 +527,21 @@
 		<f-component name="Leaf Certificate Profiles" cc-id="fdp_cer_ext.1" id="fdp-cer-ext-1" status="invisible">
 			<depends on="toe-uses-embedded-ca" also="toe-requests-certs" and="toe-requests-certs-from-embedded-ca"/>
 			
-			<comp-lev>QQQQ</comp-lev>
-			<management>QQQQ</management>
-			<audit>QQQQ</audit>
-			<dependencies>QQQQ</dependencies>
+			<comp-lev> requires the TSF to implement a TOE-trusted certificate profile function that conforms to profiles when acting as a CA.</comp-lev>
+			<management>No specific management functions are identified.</management>
+			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+				<h:ul>
+					<h:li>Certificate generation</h:li>
+				</h:ul>
+			</audit>
+			<dependencies>
+				<no-link>FCS_CKM.1</no-link> Cryptographic Key Generation<h:p/>
+				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:p/>
+				FIA_X509_EXT.1 X.509 Certificate Handling<h:p/>
+				FIA_X509_EXT.2 X.509 Certificate Support for Functions<h:p/>
+				FIA_X509_EXT.3 X.509 Certificate Requests<h:p/>
+				<no-link>FMT_SMR.1</no-link> Security Roles
+			</dependencies>
 			
 			<f-element id="fdp-cer-ext-1e1">
 				<title>
@@ -718,10 +729,18 @@
 		
 		<f-component name="Certificate Request Matching" cc-id="fdp_cer_ext.2" id="fdp-cer-ext-2" status="sel-based">
 			<depends on="toe-requests-certs-from-embedded-ca"/>
-			<comp-lev>QQQQ</comp-lev>
-			<management>QQQQ</management>
-			<audit>QQQQ</audit>
-			<dependencies>QQQQ</dependencies>
+			<comp-lev> requires the TSF to maintain a linkage between supported certificate requests and certificates it has issued to be able to 
+				associate each certificate with each request</comp-lev>
+			<management>No specific management functions are identified.</management>
+			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+				<h:ul>
+					<h:li>Linking of certificate to certificate request</h:li>
+				</h:ul>
+			</audit>
+			<dependencies>
+				FDP_CER_EXT.1 Leaf Certificate Profiles (Only Locally Trusted)<h:p/>
+				[FIA_ESTS_EXT.1 Enrollment Over Secure Transport (EST) Server OR FIA_CMCS_EXT.1 Certificate Management Over CMS (CMC) Server OR FIA_CMPS_EXT.1 Certificate Management Protocol (CMP) Server
+			</dependencies>
 			<f-element id="fdp-cer-ext-2e1">
 				<title><comment>CCPPD2: The note on when this SFR is claims also says "It may be claimed if ‘obtain certificates from an embedded CA’ is claimed in FIA_XCM_EXT.2 when the interaction between the embedded CA and the supported function includes a request event that is logged."
 				This would be an implementation-dependent trigger but an SFR can't simultaneously be selection-based and implementation-based.
@@ -805,7 +824,7 @@
 					<selectable>Link to certificate request object identifier</selectable>
 					</selectables>
 				</audit-event-info>
-				<audit-event-info>Failure: Reason for failure,<selectables>
+				<audit-event-info>Failure: Reason for failure, <selectables>
 						<selectable>Certificate request</selectable>
 						<selectable>Link to certificate request object identifier</selectable>
 					</selectables>
@@ -813,16 +832,24 @@
 			</audit-event>
 		</f-component>
 		
-		<ext-comp-def fam-id="FDP_CRL_EXT" title="QQQQ">
-			<fam-behavior>QQQQ</fam-behavior>
+		<ext-comp-def fam-id="FDP_CRL_EXT" title="Certificate Revocation List Generation">
+			<fam-behavior>Components in this family define requirements for the usage of certificate revocation lists (CRLs) as a method of
+				recording certificate status information.</fam-behavior>
 		</ext-comp-def>
 		
 		<f-component name="Certificate Revocation List Generation" cc-id="fdp_crl_ext.1" id="fdp-crl-ext-1" status="sel-based">
 			<depends on="toe-supports-crl"/>
-			<comp-lev>QQQQ</comp-lev>
-			<management>QQQQ</management>
-			<audit>QQQQ</audit>
-			<dependencies>QQQQ</dependencies>
+			<comp-lev> requires the TSF to include specific information in any certificate revocation lists that it creates.</comp-lev>
+			<management>No specific management functions are identified.</management>
+			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+				<h:ul>
+					<h:li>Failure to generate CRL</h:li>
+				</h:ul>
+			</audit>
+			<dependencies>
+				<no-link>FCS_COP.1 </no-link> Cryptographic Operation<h:p/>
+				FDP_CSI_EXT.1 Certificate Status Information
+			</dependencies>
 			<f-element id="fdp-crl-ext-1e1">
 				<title>The TSF shall generate CRLs in accordance with ITU-T Recommendation X.509 which meets the following rules.
 					<h:ul>
@@ -897,15 +924,21 @@
 	
 		</f-component>
 		
-		<ext-comp-def fam-id="FDP_CSIR_EXT" title="QQQQ">
-			<fam-behavior>QQQQ</fam-behavior>
+		<ext-comp-def fam-id="FDP_CSIR_EXT" title="Certificate Status Information Required">
+			<fam-behavior>Components in this family define requirements for the association of certificate status information with
+				certificates issued by the TOE.</fam-behavior>
 		</ext-comp-def>
 		
 		<f-component name="Certificate Status Information Required" cc-id="fdp_csir_ext.1" id="fdp-csir-ext-1">
-			<comp-lev>QQQQ</comp-lev>
-			<management>QQQQ</management>
-			<audit>QQQQ</audit>
-			<dependencies>QQQQ</dependencies>
+			<comp-lev> requires the TSF to maintain certificate status information for its issued certificates, ensure any certificates it 
+				issues are valid for a sufficient period of time, supply a repository with status information, or identify a method to
+				invalidate trust that has been revoked.</comp-lev>
+			<management>No specific management functions are identified.</management>
+			<audit>There are no auditable events foreseen.</audit>
+			<dependencies>
+				FDP_CER_EXT.1 Leaf Certificate Profiles (Only Locally Trusted)<h:p/>
+				FDP_CSI_EXT.1 Certificate Status Information Generation										
+			</dependencies>
 			<f-element id="fdp-csir-ext-1e1">
 				<title> <comment>from CCPPD: The trigger for this is indicated as "This SFR is claimed if FDP_CER_EXT.1 is claimed." As there is no selection
 				triggering this, it should be categorized as an implementation-dependent SFR. Is that ok?</comment>
@@ -959,16 +992,21 @@
 			<audit-event/>
 		</f-component>
 		
-		<ext-comp-def fam-id="FDP_CSI_EXT" title="QQQQ">
-			<fam-behavior>QQQQ</fam-behavior>
+		<ext-comp-def fam-id="FDP_CSI_EXT" title="Certificate Status Information Generation">
+			<fam-behavior>Components in this family define requirements for the TOE’s ability to generate certificate status information and
+				to modify the status of issued certificates.</fam-behavior>
 		</ext-comp-def>
 		
 		<f-component name="Certificate Status Information Generation" cc-id="fdp_csi_ext.1" id="fdp-csi-ext-1" status="sel-based">
 			<depends on="toe-generates-cert-status"/>
-			<comp-lev>QQQQ</comp-lev>
-			<management>QQQQ</management>
-			<audit>QQQQ</audit>
-			<dependencies>QQQQ</dependencies>
+			<comp-lev> requires the TSF to generate certificate status information using a supported method and to define conditions in
+				which this information can be modified.</comp-lev>
+			<management>No specific management functions are identified.</management>
+			<audit>There are no auditable events foreseen.</audit>
+			<dependencies>
+				[FDP_CRL_EXT.1 Certificate Revocation List Generation OR FDP_OCSP_EXT.1 OCSP Basic Response Generation]<h:p/>
+				FMT_SMR.1 Security Roles			
+			</dependencies>
 			<f-element id="fdp-csi-ext-1e1">
 				<title>
 					The TSF shall generate certificate status information whose format complies with <selectables>
@@ -1042,16 +1080,24 @@
 				
 		</f-component>
 		
-		<ext-comp-def fam-id="FDP_OCSP_EXT" title="QQQQ">
-			<fam-behavior>QQQQ</fam-behavior>
+		<ext-comp-def fam-id="FDP_OCSP_EXT" title="OCSP Basic Response Generation">
+			<fam-behavior>Components in this family define requirements for the usage of the Online Certificate Status Protocol (OCSP) as a
+				method of recording certificate status information.</fam-behavior>
 		</ext-comp-def>
 		
 		<f-component name="OCSP Basic Response Generation" cc-id="fdp_ocsp_ext.1" id="fdp-ocsp-ext-1" status="sel-based">
 			<depends on="toe-supports-ocsp" also="toe-issues-ocsp"/>
-			<comp-lev>QQQQ</comp-lev>
-			<management>QQQQ</management>
-			<audit>QQQQ</audit>
-			<dependencies>QQQQ</dependencies>
+			<comp-lev> requires the TSF to include specific information in any OCSP response that it creates.</comp-lev>
+			<management>No specific management functions are identified.</management>
+			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+				<h:ul>
+					<h:li>Failure to generate certificate status information</h:li>
+				</h:ul>
+			</audit>
+			<dependencies>
+				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:p/>
+				<no-link>FPT_STM.1</no-link> Reliable Time Stamps
+			</dependencies>
 			<f-element id="fdp-ocsp-ext-1">
 				<title><comment>Significant difference from existing SFR in STIP</comment>
 					The TSF shall ensure that all mandatory fields in the OCSP basic response contain values in accordance with RFC 
@@ -1125,16 +1171,25 @@
 	<!--			-->
 	<sec:fia title="Identification and Authentication (FIA)">
 		
-		<ext-comp-def fam-id="FIA_CMCC_EXT" title="QQQQ">
-			<fam-behavior>QQQQ</fam-behavior>
+		<ext-comp-def fam-id="FIA_CMCC_EXT" title="CMC Client Certificate Enrollment">
+			<fam-behavior>Components in this family define requirements for the TOE to generate CMC requests.</fam-behavior>
 		</ext-comp-def>
 		
 		<f-component name="CMC Client Certificate Enrollment" cc-id="fia_cmcc_ext.1" id="fia-cmcc-ext-1" status="sel-based">
 			<depends on="toe-uses-cmc"/>
-			<comp-lev>QQQQ</comp-lev>
-			<management>QQQQ</management>
-			<audit>QQQQ</audit>
-			<dependencies>QQQQ</dependencies>
+			<comp-lev> requires the TSF to generate, export, import, and transport CMC requests that meet client and end-entity compliance
+				requirements.</comp-lev>
+			<management>No specific management functions are identified.</management>
+			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+				<h:ul>
+					<h:li>CMC requests (generated or received) containing certificate or revocation requests</h:li>
+					<h:li>CMC responses issued</h:li>
+				</h:ul>
+			</audit>
+			<dependencies>
+				FIA_X509_EXT.3 X.509 Certificate Requests<h:p/>
+				<no-link>FMT_SMR.1</no-link> Security Roles
+			</dependencies>
 			<f-element id="fia-cmcc-ext-1e1">
 				<title>The TSF shall
 					 <selectables>
@@ -1215,16 +1270,25 @@
 				
 		</f-component>
 
-		<ext-comp-def fam-id="FIA_CMCS_EXT" title="QQQQ">
-			<fam-behavior>QQQQ</fam-behavior>
+		<ext-comp-def fam-id="FIA_CMCS_EXT" title="Certificate Management over CMS (CMC) Server">
+			<fam-behavior>Components in this family define requirements for the TOE to accept CMC requests.</fam-behavior>
 		</ext-comp-def>
 		
 		<f-component name="Certificate Management over CMS (CMC) Server" cc-id="fia_cmcs_ext.1" id="fia-cmcs-ext-1" status="sel-based">
 			<depends on="toe-enforces-cmc"/>
-			<comp-lev>QQQQ</comp-lev>
-			<management>QQQQ</management>
-			<audit>QQQQ</audit>
-			<dependencies>QQQQ</dependencies>
+			<comp-lev> requires the TSF to accept, process, and send CMC requests that meet CMS server and CA requirements.</comp-lev>
+			<management>No specific management functions are identified.</management>
+			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+				<h:ul>
+					<h:li>CMC requests (generated or received) containing certificate or revocation requests</h:li>
+					<h:li>CMC responses issued</h:li>
+				</h:ul>
+			</audit>
+			<dependencies>
+				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:p/>
+				FIA_CMCC_EXT.1 CMC Client Certificate Enrollment<h:p/>
+				FIA_X509_EXT.3 X.509 Certificate Requests
+			</dependencies>
 			<f-element id="fia-cmcs-ext-1e1">
 				<title><comment>Based on CMC selected in FIA_X509_EXT.3 and what else?</comment>
 					The TSF shall be able to accept and process CMC <selectables>
@@ -1387,16 +1451,20 @@
 			
 		</f-component>
 		
-		<ext-comp-def fam-id="FIA_CMPC_EXT" title="QQQQ">
-			<fam-behavior>QQQQ</fam-behavior>
+		<ext-comp-def fam-id="FIA_CMPC_EXT" title="CMP Certificate Enrollment">
+			<fam-behavior>Components in this family define requirements for the TOE to generate CMP requests.</fam-behavior>
 		</ext-comp-def>
 
 		<f-component name="CMP Certificate Enrollment" cc-id="fia_cmpc_ext.1" id="fia-cmpc-ext-1" status="sel-based">
 			<depends on="toe-uses-cmp"/>
-			<comp-lev>QQQQ</comp-lev>
-			<management>QQQQ</management>
-			<audit>QQQQ</audit>
-			<dependencies>QQQQ</dependencies>
+			<comp-lev> requires the TSF to generate, export, import, and transport CMP requests that meet subject and end-entity compliance
+				requirements.</comp-lev>
+			<management>No specific management functions are identified.</management>
+			<audit>There are no auditable events foreseen.</audit>
+			<dependencies>
+				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:p/>
+				FIA_X509_EXT.3 X.509 Certificate Requests
+			</dependencies>
 			<f-element id="fia-cmpc-ext-1e1">
 				<title> <comment>Should this include a selection for RFC 9482 in support of IOT devices?</comment>
 					The TSF shall
@@ -1463,15 +1531,18 @@
 		</f-component>
 		
 		<ext-comp-def fam-id="FIA_CMPS_EXT" title="Certificate Management Protocol (CMP) Server">
-			<fam-behavior>QQQQ</fam-behavior>
+			<fam-behavior>Components in this family define requirements for the TOE to authenticate CMP requests.</fam-behavior>
 		</ext-comp-def>
 		
 		<f-component name="Certificate Management Protocol (CMP) Server" cc-id="fia_cmps_ext.1" id="fia-cmps-ext-1" status="sel-based">
 			<depends on="toe-enforces-cmp"/>
-			<comp-lev>QQQQ</comp-lev>
-			<management>QQQQ</management>
-			<audit>QQQQ</audit>
-			<dependencies>QQQQ</dependencies>
+			<comp-lev> requires the TSF to receive, process, and respond to CMP requests from authorized clients and RAs.</comp-lev>
+			<management>No specific management functions are identified.</management>
+			<audit>There are no auditable events foreseen.</audit>
+			<dependencies>
+				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:p/>
+				FIA_CMPC_EXT.1 CMP Certificate Enrollment
+			</dependencies>
 			<f-element id="fia-cmps-ext-1e1">
 				<title>The TSF shall use the Certificate Management Protocol (CMP) as specified in <selectables>
 					<selectable>RFC 4210 as updated by RFC 6712 and RFC 9481 (v2 CMP)</selectable>
@@ -1598,16 +1669,34 @@
 							
 		</f-component>
 		
-		<ext-comp-def fam-id="FIA_ESTC_EXT" title="QQQQ">
-			<fam-behavior>QQQQ</fam-behavior>
+		<ext-comp-def fam-id="FIA_ESTC_EXT" title="EST Certificate Enrollment">
+			<fam-behavior>Components in this family define requirements for the TOE’s use of Enrollment over Secure Transport (EST) to
+				obtain certificates from an external CA.</fam-behavior>
 		</ext-comp-def>
 		
 		<f-component name="EST Certificate Enrollment" cc-id="fia_estc_ext.1" id="fia-estc-ext-1" status="sel-based">
 			<depends on="toe-uses-est"/>
-			<comp-lev>QQQQ</comp-lev>
-			<management>QQQQ</management>
-			<audit>QQQQ</audit>
-			<dependencies>QQQQ</dependencies>
+			<comp-lev> defines the ability of the TSF to perform Enrollment over Secure Transport (EST) as a client connecting to an
+				external CA.</comp-lev>
+			<management>No specific management functions are identified.</management>
+			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+				<h:ul>
+					<h:li>EST requests (generated or received) containing certificate or revocation requests</h:li>
+					<h:li>EST responses issued</h:li>
+				</h:ul>
+			</audit>
+			<dependencies>
+				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:p/>
+				FCS_TLSC_EXT.2 TLS Client Support for Mutual Authentication<h:p/>
+				FIA_ENR_EXT.1 Certificate Enrollment<h:p/>
+				FIA_X509_EXT.1 X.509 Certificate Validation<h:p/>
+				FIA_X509_EXT.3 X.509 Certificate Requests<h:p/>
+				<no-link>FMT_SMR.1</no-link> Security Roles<h:p/>
+				<no-link>FTP_PRO.1</no-link> Trusted Channel Protocol<h:p/>
+				<no-link>FTP_PRO.2</no-link> Trusted Channel Establishment<h:p/> 
+				<no-link>FTP_PRO.3</no-link> Trusted Channel Data Protection<h:p/>
+				<no-link>FTP_ITC.1</no-link> Inter-TSF Trusted Channel
+			</dependencies>
 			<f-element id="fia-estc-ext-1e1">
 				<title>The TSF shall
 					 <selectables>
@@ -1619,7 +1708,7 @@
 						<selectable>simple</selectable>
 						<selectable>full CMC</selectable>
 					</selectables>
-					requests using Enrollment over Secure Transport (EST) in accordance with in RFC 7030 with an EST server associated to 
+					requests using Enrollment over Secure Transport (EST) in accordance with RFC 7030 with an EST server associated to 
 					a certification authority.
 				</title>
 			</f-element>
@@ -1741,16 +1830,34 @@
 						
 		</f-component>
 		
-		<ext-comp-def fam-id="FIA_ESTS_EXT" title="QQQQ">
-			<fam-behavior>QQQQ</fam-behavior>
+		<ext-comp-def fam-id="FIA_ESTS_EXT" title="Enrollment over Secure Transport (EST) Server">
+			<fam-behavior>Components in this family define requirements for the TOE’s use of Enrollment over Secure Transport (EST) to
+				authenticate certificates from an external CA.</fam-behavior>
 		</ext-comp-def>
 
 		<f-component name="Enrollment over Secure Transport (EST) Server" cc-id="fia_ests_ext.1" id="fia-ests-ext-1" status="sel-based">
 			<depends on="toe-enforces-est"/>
-			<comp-lev>QQQQ</comp-lev>
-			<management>QQQQ</management>
-			<audit>QQQQ</audit>
-			<dependencies>QQQQ</dependencies>
+			<comp-lev> defines the ability of the TSF to perform Enrollment over Secure Transport (EST) as a server connecting to an
+				external CA.</comp-lev>
+			<management>No specific management functions are identified.</management>
+			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+				<h:ul>
+					<h:li>EST requests (generated or received) containing certificate or revocation requests</h:li>
+					<h:li>EST responses issued</h:li>
+				</h:ul>			
+			</audit>
+			<dependencies>
+				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:p/>
+				FCS_TLSC_EXT.2 TLS Client Support for Mutual Authentication<h:p/>
+				FIA_ESTC_EXT.1 EST Cetificate Enrollment<h:p/>
+				FIA_X509_EXT.1 X.509 Certificate Validation<h:p/>
+				FIA_X509_EXT.3 X.509 Certificate Requests<h:p/>
+				<no-link>FMT_SMR.1</no-link> Security Roles
+				<no-link>FTP_PRO.1</no-link> Trusted Channel Protocol<h:p/>
+				<no-link>FTP_PRO.2</no-link> Trusted Channel Establishment<h:p/> 
+				<no-link>FTP_PRO.3</no-link> Trusted Channel Data Protection<h:p/>
+				<no-link>FTP_ITC.1</no-link> Inter-TSF Trusted Channel
+			</dependencies>
 			<f-element id="fia-ests-ext-1e1">
 				<title>The TSF shall use the Enrollment over Secure Transport (EST) protocol as specified in RFC 7030, as updated by RFC 
 					8996, to receive, process, and respond to certificate simple enrollment requests from authorized clients and
@@ -1897,16 +2004,20 @@
 			
 		</f-component>
 		
-		<ext-comp-def fam-id="FIA_TSM_EXT" title="QQQQ">
-			<fam-behavior>QQQQ</fam-behavior>
+		<ext-comp-def fam-id="FIA_TSM_EXT" title="Trust Store Management">
+			<fam-behavior>Components in this family define requirements for the TOE on how to manage trust stores.</fam-behavior>
 		</ext-comp-def>
 		
 		<f-component name="Trust Store Management" cc-id="fia_tsm_ext.1" id="fia-tsm-ext-1" status="sel-based">
 			<depends on="toe-manages-trust-stores"/>
-			<comp-lev>QQQQ</comp-lev>
-			<management>QQQQ</management>
-			<audit>QQQQ</audit>
-			<dependencies>QQQQ</dependencies>
+			<comp-lev> defines the ability of the TSF to manage trust stores using a specified option to validate certificates.</comp-lev>
+			<management>No specific management functions are identified.</management>
+			<audit>There are no auditable events foreseen.</audit>
+			<dependencies>
+				FDP_OCSP_EXT.1 OCSP Basic Response Generation<h:p/>
+				<no-link>FMT_SMF.1</no-link> Specification of Management Functions<h:p/>
+				<no-link>FMT_SMR.1</no-link> Security Roles
+			</dependencies>
 			<f-element id="fia-tsm-ext-1e1">
 				<title>(managing trust store elements)
 					<comment>Integrate allowance for platform managed trust store (see Palo Alto comment 5) – also impacts test 13</comment> 
@@ -2047,19 +2158,26 @@
 
 
 		<ext-comp-def fam-id="FIA_X509_EXT" title="X.509 Certificate Handling">
-			<fam-behavior>This family defines the behavior and use of X.509 certificates for functions to
-				be performed by the TSF. Components in this family require validation of certificates
-				according to a specified set of rules, use of certificates for authentication for protocols and
-				integrity verification, generation of certificate requests, certificate enrollment, and revocation checking behavior.
-				
-			</fam-behavior>
+			<fam-behavior>Components in this family define the behavior and use of X.509 certificates for functions to be performed by the
+				TSF. Components in this family require validation of certificates according to a specified set of rules, use of certificates
+				for authentication for protocols and integrity verification, generation of certificate requests, certificate enrollment, and
+				revocation checking behavior.</fam-behavior>
 		</ext-comp-def>
 		
 		<f-component name="X.509 Certificate Validation" cc-id="fia_x509_ext.1" id="fia-x509-ext-1" status="sel-based">
-			<comp-lev>QQQQ</comp-lev>
-			<management>QQQQ</management>
-			<audit>QQQQ</audit>
-			<dependencies>QQQQ</dependencies>
+			<comp-lev> requires the TSF to check and validate certificates in accordance with the RFCs and rules specified in the component.</comp-lev>
+			<management>No specific management functions are identified.</management>
+			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+				<h:ul>
+					<h:li>Unsuccessful attempt to validate a certificate</h:li>
+					<h:li>Any addition, replacement, or removal of trust</h:li>
+				</h:ul>
+			</audit>
+			<dependencies>
+				FCS_COP.1 Cryptographic Operation<h:p/>
+				[FDP_CRL_EXT.1 Certificate Revocation List Generation OR FDP_OCSP_EXT.1 OCSP Basic Response Generation]<h:p/>
+				FIA_XCM_EXT.1 X.509 Certificate Management
+			</dependencies>
 			<depends on="toe-verifies-certs"/>
 			<f-element id="fia-x509-ext-1e1">
 				<title>
@@ -2496,10 +2614,18 @@
 				
 		<f-component name="X.509 Certificate Support for Functions" cc-id="fia_x509_ext.2" status="sel-based">
 			
-			<comp-lev>QQQQ</comp-lev>
-			<management>QQQQ</management>
-			<audit>QQQQ</audit>
-			<dependencies>QQQQ</dependencies>
+			<comp-lev> requires the TSF to use certificates to authenticate peers in protocols that support certificates, as well as
+				for integrity verification and potentially other functions that require certificates.</comp-lev>
+			<management>No specific management functions are identified.</management>
+			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+				<h:ul>
+					<h:li>Failed certificate validations</h:li>
+				</h:ul>
+			</audit>
+			<dependencies>
+				FIA_X509_EXT.1 X.509 Certificate Validation<h:p/>
+				FIA_XCM_EXT.1 X.509 Certificate Management	
+			</dependencies>
 			
 			<depends on="toe-verifies-certs" also="toe-requests-certs"/>
 			<f-element id="fia-x509-ext-2e1">
@@ -2595,10 +2721,15 @@
 		
 		<f-component name="X.509 Certificate Requests" cc-id="fia_x509_ext.3" status="sel-based">
 			<depends on="toe-requests-certs"/>
-			<comp-lev>QQQQ</comp-lev>
-			<management>QQQQ</management>
-			<audit>QQQQ</audit>
-			<dependencies>QQQQ</dependencies>
+			<comp-lev> requires the TSF to be able to generate Certificate Request Messages and validate responses.</comp-lev>
+			<management>No specific management functions are identified.</management>
+			<audit>There are no auditable events foreseen.</audit>
+			<dependencies>
+				<no-link>FCS_CKM.1</no-link> Cryptographic Key Generation<h:p/>
+				FIA_X509_EXT.1 X.509 Certificate Validation<h:p/>
+				FIA_X509_EXT.2 X.509 Certificate Support for Functions<h:p/>
+				FIA_XCM_EXT.1 X.509 Certificate Management
+			</dependencies>
 			<f-element id="fia-x509-ext-3e1">
 				<title>The TSF shall
 					 <selectables>
@@ -2691,22 +2822,23 @@
 				</aactivity>
 			</f-element>	
 			
-			<audit-event>
-				<audit-event-descr>None</audit-event-descr>
-				<audit-event-info>None</audit-event-info>
-			</audit-event>
-			
+			<audit-event/>
+							
 		</f-component>
 		
-		<ext-comp-def fam-id="FIA_XCM_EXT" title="QQQQ">
-			<fam-behavior>QQQQ</fam-behavior>
+		<ext-comp-def fam-id="FIA_XCM_EXT" title="Certificate Management and Usage">
+			<fam-behavior>Components in this family define how the TSF handles X.509 certificates for specific functions for specific
+				protocols.</fam-behavior>
 		</ext-comp-def>
 		
 		<f-component name="X.509 Certificate Management" cc-id="fia_xcm_ext.1" id="fia-xcm-ext-1">
-			<comp-lev>QQQQ</comp-lev>
-			<management>QQQQ</management>
-			<audit>QQQQ</audit>
-			<dependencies>QQQQ</dependencies>
+			<comp-lev> defines how the TSF verifies or uses X.509 certificates.</comp-lev>
+			<management>No specific management functions are identified.</management>
+			<audit>There are no auditable events foreseen.</audit>
+			<dependencies>
+				[FIA_X509_EXT.1 X.509 Certificate Validation and FIA_X509_EXT.2 X.509 Certificate Support for Functions OR FIA_XCM_EXT.2
+				X.509 Certificate Usage] 				
+			</dependencies>
 			<f-element id="fia-xcm-ext-1e1">
 				<title>The TSF shall
 					 <selectables>
@@ -2727,10 +2859,14 @@
 		</f-component>
 		<f-component name="X.509 Certificate Usage" cc-id="fia_xcm_ext.2" id="fia-xcm-ext-2" status="sel-based">
 			<depends on="toe-uses-certs"/>
-			<comp-lev>QQQQ</comp-lev>
-			<management>QQQQ</management>
-			<audit>QQQQ</audit>
-			<dependencies>QQQQ</dependencies>
+			<comp-lev> defines how the TSF requests or obtains certificates to represent specific functions for specific protocols.</comp-lev>
+			<management>No specific management functions are identified.</management>
+			<audit>There are no auditable events foreseen.</audit>
+			<dependencies>
+				[FDP_CER_EXT.1 Leaf Certificate Profiles (Only Locally Trusted) and FDP_CER_EXT.2 Certificate Request Matching OR 
+				FIA_X509_EXT.3 X.509 Certificate Requests
+				FIA_XCM_EXT.1 X.509 Certificate Management
+			</dependencies>
 			<f-element id="fia-xcm-ext-2e1">
 				<title>The TSF shall
 					 <selectables>
