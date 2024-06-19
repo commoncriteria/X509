@@ -739,7 +739,8 @@
 			</audit>
 			<dependencies>
 				FDP_CER_EXT.1 Leaf Certificate Profiles (Only Locally Trusted)<h:p/>
-				[FIA_ESTS_EXT.1 Enrollment Over Secure Transport (EST) Server OR FIA_CMCS_EXT.1 Certificate Management Over CMS (CMC) Server OR FIA_CMPS_EXT.1 Certificate Management Protocol (CMP) Server
+				[FIA_ESTS_EXT.1 Enrollment Over Secure Transport (EST) Server OR FIA_CMCS_EXT.1 Certificate Management Over CMS (CMC) Server
+				OR FIA_CMPS_EXT.1 Certificate Management Protocol (CMP) Server]
 			</dependencies>
 			<f-element id="fdp-cer-ext-2e1">
 				<title><comment>CCPPD2: The note on when this SFR is claims also says "It may be claimed if ‘obtain certificates from an embedded CA’ is claimed in FIA_XCM_EXT.2 when the interaction between the embedded CA and the supported function includes a request event that is logged."
@@ -2864,7 +2865,7 @@
 			<audit>There are no auditable events foreseen.</audit>
 			<dependencies>
 				[FDP_CER_EXT.1 Leaf Certificate Profiles (Only Locally Trusted) and FDP_CER_EXT.2 Certificate Request Matching OR 
-				FIA_X509_EXT.3 X.509 Certificate Requests
+				FIA_X509_EXT.3 X.509 Certificate Requests]<h:p/>
 				FIA_XCM_EXT.1 X.509 Certificate Management
 			</dependencies>
 			<f-element id="fia-xcm-ext-2e1">

@@ -49,6 +49,7 @@
 * Warning: Detected an empty _p_ element./Package[1]""/sec:Security_Functional_Requirements[1]""/sec:fia[1]""/f-component[10]""/dependencies[1]""/h:p[1]""
 * Warning: Detected an empty _p_ element./Package[1]""/sec:Security_Functional_Requirements[1]""/sec:fia[1]""/f-component[10]""/dependencies[1]""/h:p[2]""
 * Warning: Detected an empty _p_ element./Package[1]""/sec:Security_Functional_Requirements[1]""/sec:fia[1]""/f-component[10]""/dependencies[1]""/h:p[3]""
+* Warning: Detected an empty _p_ element./Package[1]""/sec:Security_Functional_Requirements[1]""/sec:fia[1]""/f-component[12]""/dependencies[1]"[FDP_CER_"/h:p[1]""
  Failed to find a reference to bibCEM.
  Failed to find a reference to fia-ests-ext.1e1.
  Failed to find a reference to FIA-X509-EXT-1.

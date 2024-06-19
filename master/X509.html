@@ -3075,7 +3075,7 @@ The following sections list Common Criteria and technology terms used in this do
 					X.509 certificates.
 				</div><h4>Management: FIA_XCM_EXT.2</h4><p>No specific management functions are identified.</p><h4>Audit: FIA_XCM_EXT.2</h4><p>There are no auditable events foreseen.</p><h4>FIA_XCM_EXT.2 X.509 Certificate Usage</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
 				[FDP_CER_EXT.1 Leaf Certificate Profiles (Only Locally Trusted) and <a href="#FDP_CER_EXT.2">FDP_CER_EXT.2</a> Certificate Request Matching OR 
-				<a href="#FIA_X509_EXT.3">FIA_X509_EXT.3</a> X.509 Certificate Requests
+				<a href="#FIA_X509_EXT.3">FIA_X509_EXT.3</a> X.509 Certificate Requests]<p></p>
 				<a href="#FIA_XCM_EXT.1">FIA_XCM_EXT.1</a> X.509 Certificate Management
 			</td></tr></table><h4 id="ext-comp-FIA_XCM_EXT.2.1">FIA_XCM_EXT.2.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
 					 [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="toe-requests-certs">request certificates from an [<b>selection</b>: <span class="selectable-content" id="_s_422">external</span>,  <span class="selectable-content" id="toe-requests-certs-from-embedded-ca">embedded
@@ -3194,7 +3194,8 @@ The following sections list Common Criteria and technology terms used in this do
 				</ul>
 			</p><h4>FDP_CER_EXT.2 Certificate Request Matching</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
 				FDP_CER_EXT.1 Leaf Certificate Profiles (Only Locally Trusted)<p></p>
-				[<a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a> Enrollment Over Secure Transport (<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>) Server OR <a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a> Certificate Management Over <abbr class="dyn-abbr"><a href="#abbr_CMS">CMS</a></abbr> (<abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr>) Server OR <a href="#FIA_CMPS_EXT.1">FIA_CMPS_EXT.1</a> Certificate Management Protocol (CMP) Server
+				[<a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a> Enrollment Over Secure Transport (<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>) Server OR <a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a> Certificate Management Over <abbr class="dyn-abbr"><a href="#abbr_CMS">CMS</a></abbr> (<abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr>) Server
+				OR <a href="#FIA_CMPS_EXT.1">FIA_CMPS_EXT.1</a> Certificate Management Protocol (CMP) Server]
 			</td></tr></table><h4 id="ext-comp-FDP_CER_EXT.2.1">FDP_CER_EXT.2.1</h4><span style="" class="comment " id="Comment-9-">CCPPD2: The note on when this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is claims also says "It may be claimed if ‘obtain certificates from an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’ is claimed in <a href="#FIA_XCM_EXT.2">FIA_XCM_EXT.2</a> when the interaction between the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> and the supported function includes a request event that is logged."
 				This would be an implementation-dependent trigger but an <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> can't simultaneously be selection-based and implementation-based.
 				
