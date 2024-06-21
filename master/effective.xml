@@ -96,9 +96,9 @@
 <!--			-->
     <sec:toes title="Compliant Targets of Evaluation">
     	    	
-		<h:p>The TOE in this FP is the portion of a product that provides X.509 capabilities to other portions of the TSF, such as 
-			functions for subject authentication, 
-			trusted communications, validation of TOE software and firmware updates, or integrity verification as part of self-testing. 
+		<h:p>The Target of Evaluation (TOE) in this Functional Package (FP) is a product that utilizes Public Key Infrastructure (PKI) capabilities
+			and optionally provides PKI services to authorized IT entities in the Operational Environment (OE).
+			<!--
 			At minimum, a conformant TOE will include the ability to validate X.509 certificates presented to it, including:
 			<h:ul>
 				<h:li>cryptographic validity of the digital signature.</h:li>
@@ -107,8 +107,9 @@
 				<h:li>revocation status using a Certificate Revocation List (CRL) or the Online Certificate Status Protocol (OCSP).</h:li>
 				<h:li>validation that the certificate's extensions are consistent with its intended use.</h:li>
 			</h:ul>A conformant TOE must also define its intended uses for X.509 certificates and how to proceed when a certificate with undetermined 
-			revocation status is presented to it.
-			</h:p><h:p>
+			revocation status is presented to it. --> 
+			</h:p> 
+    	<h:p>
 			This FP also defines mechanisms by which the TSF can generate a Certificate Signing Request (CSR) for receiving a signed certificate from a 
 			Certification Authority (CA). This may be generated either as a file that is provided to a CA manually or done via an active network connection to the 
 			CA using Enrollment over Secure Transport (EST).
@@ -255,7 +256,7 @@
 	<!--			-->
 	<sec:fdp title="User Data Protection (FDP)">
 		
-		<ext-comp-def fam-id="FDP_CER_EXT" title="Certificate Usage">
+		<ext-comp-def fam-id="FDP_CER_EXT" title="Certificate Generation and Issuance">
 			<fam-behavior>Components in this family define requirements for the TOE’s ability to generate and issue certificates.</fam-behavior>
 		</ext-comp-def>
 		
@@ -535,11 +536,8 @@
 				</h:ul>
 			</audit>
 			<dependencies>
-				<no-link>FCS_CKM.1</no-link> Cryptographic Key Generation<h:p/>
-				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:p/>
-				FIA_X509_EXT.1 X.509 Certificate Handling<h:p/>
-				FIA_X509_EXT.2 X.509 Certificate Support for Functions<h:p/>
-				FIA_X509_EXT.3 X.509 Certificate Requests<h:p/>
+				<no-link>FCS_CKM.1</no-link> Cryptographic Key Generation<h:br/>
+				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:br/>
 				<no-link>FMT_SMR.1</no-link> Security Roles
 			</dependencies>
 			
@@ -738,7 +736,7 @@
 				</h:ul>
 			</audit>
 			<dependencies>
-				FDP_CER_EXT.1 Leaf Certificate Profiles (Only Locally Trusted)<h:p/>
+				FDP_CER_EXT.1 Leaf Certificate Profiles<h:br/>
 				[FIA_ESTS_EXT.1 Enrollment Over Secure Transport (EST) Server OR FIA_CMCS_EXT.1 Certificate Management Over CMS (CMC) Server
 				OR FIA_CMPS_EXT.1 Certificate Management Protocol (CMP) Server]
 			</dependencies>
@@ -848,8 +846,7 @@
 				</h:ul>
 			</audit>
 			<dependencies>
-				<no-link>FCS_COP.1 </no-link> Cryptographic Operation<h:p/>
-				FDP_CSI_EXT.1 Certificate Status Information
+				<no-link>FCS_COP.1 </no-link> Cryptographic Operation
 			</dependencies>
 			<f-element id="fdp-crl-ext-1e1">
 				<title>The TSF shall generate CRLs in accordance with ITU-T Recommendation X.509 which meets the following rules.
@@ -936,10 +933,7 @@
 				invalidate trust that has been revoked.</comp-lev>
 			<management>No specific management functions are identified.</management>
 			<audit>There are no auditable events foreseen.</audit>
-			<dependencies>
-				FDP_CER_EXT.1 Leaf Certificate Profiles (Only Locally Trusted)<h:p/>
-				FDP_CSI_EXT.1 Certificate Status Information Generation										
-			</dependencies>
+			<dependencies/>
 			<f-element id="fdp-csir-ext-1e1">
 				<title> <comment>from CCPPD: The trigger for this is indicated as "This SFR is claimed if FDP_CER_EXT.1 is claimed." As there is no selection
 				triggering this, it should be categorized as an implementation-dependent SFR. Is that ok?</comment>
@@ -1005,7 +999,7 @@
 			<management>No specific management functions are identified.</management>
 			<audit>There are no auditable events foreseen.</audit>
 			<dependencies>
-				[FDP_CRL_EXT.1 Certificate Revocation List Generation OR FDP_OCSP_EXT.1 OCSP Basic Response Generation]<h:p/>
+				[FDP_CRL_EXT.1 Certificate Revocation List Generation OR FDP_OCSP_EXT.1 OCSP Basic Response Generation]<h:br/>
 				FMT_SMR.1 Security Roles			
 			</dependencies>
 			<f-element id="fdp-csi-ext-1e1">
@@ -1046,6 +1040,9 @@
 					</selectables>.					
 				</title>
 				<note role="Application">
+					If "ITU-T Recommendation X.509v2 CRL" or "ITU-T Recommendation X.509v2 CRL as refined by RFC 8603" is selected in FDP_CSI_EXT.1.1, 
+					FDP_CRL_EXT.1 must be claimed. If "the OCSP standard as defined by RFC 6960" is selected in FDP_OCSP_EXT.1.1, FDP_OCSP_EXT.1 must be claimed.
+					
 					The ST author claims the supported methods for distributing generated certificate status information to the supported 
 					functions that are relying parties for the issued certificates. If CRLs are identified in <xref to="fdp-csi-ext-1e1"/>, 
 					then ‘posting CRLs at… cRLDistributionPoints…’ is claimed in <xref to="fdp-csi-ext-1e3"/> and ‘cRLDistributionPoints’ 
@@ -1096,10 +1093,10 @@
 				</h:ul>
 			</audit>
 			<dependencies>
-				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:p/>
+				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:br/>
 				<no-link>FPT_STM.1</no-link> Reliable Time Stamps
 			</dependencies>
-			<f-element id="fdp-ocsp-ext-1">
+			<f-element id="fdp-ocsp-ext-1e1">
 				<title><comment>Significant difference from existing SFR in STIP</comment>
 					The TSF shall ensure that all mandatory fields in the OCSP basic response contain values in accordance with RFC 
 					6960 which meet the following rules.
@@ -1188,8 +1185,12 @@
 				</h:ul>
 			</audit>
 			<dependencies>
-				FIA_X509_EXT.3 X.509 Certificate Requests<h:p/>
-				<no-link>FMT_SMR.1</no-link> Security Roles
+				FIA_X509_EXT.3 X.509 Certificate Requests<h:br/>
+				<no-link>FMT_SMR.1</no-link> Security Roles<h:br/>
+				<no-link>FTP_PRO.1</no-link> Trusted Channel Protocol<h:br/>
+				<no-link>FTP_PRO.2</no-link> Trusted Channel Establishment<h:br/>
+				<no-link>FTP_PRO.3</no-link> Trusted Channel Data Protection<h:br/>
+				<no-link>FTP_ITC.1</no-link> Inter-TSF Trusted Channel
 			</dependencies>
 			<f-element id="fia-cmcc-ext-1e1">
 				<title>The TSF shall
@@ -1286,9 +1287,13 @@
 				</h:ul>
 			</audit>
 			<dependencies>
-				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:p/>
-				FIA_CMCC_EXT.1 CMC Client Certificate Enrollment<h:p/>
-				FIA_X509_EXT.3 X.509 Certificate Requests
+				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:br/>
+				FDP_CER_EXT.2 Certificate Request Matching<h:br/>
+				<no-link>FPT_STM.1</no-link> Reliable Time Stamps<h:br/>
+				<no-link>FTP_PRO.1</no-link> Trusted Channel Protocol<h:br/>
+				<no-link>FTP_PRO.2</no-link> Trusted Channel Establishment<h:br/>
+				<no-link>FTP_PRO.3</no-link> Trusted Channel Data Protection<h:br/>
+				<no-link>FTP_ITC.1</no-link> Inter-TSF Trusted Channel
 			</dependencies>
 			<f-element id="fia-cmcs-ext-1e1">
 				<title><comment>Based on CMC selected in FIA_X509_EXT.3 and what else?</comment>
@@ -1463,8 +1468,12 @@
 			<management>No specific management functions are identified.</management>
 			<audit>There are no auditable events foreseen.</audit>
 			<dependencies>
-				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:p/>
-				FIA_X509_EXT.3 X.509 Certificate Requests
+				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:br/>
+				FIA_X509_EXT.3 X.509 Certificate Requests<h:br/>
+				<no-link>FTP_PRO.1</no-link> Trusted Channel Protocol<h:br/>
+				<no-link>FTP_PRO.2</no-link> Trusted Channel Establishment<h:br/>
+				<no-link>FTP_PRO.3</no-link> Trusted Channel Data Protection<h:br/>
+				<no-link>FTP_ITC.1</no-link> Inter-TSF Trusted Channel
 			</dependencies>
 			<f-element id="fia-cmpc-ext-1e1">
 				<title> <comment>Should this include a selection for RFC 9482 in support of IOT devices?</comment>
@@ -1541,8 +1550,13 @@
 			<management>No specific management functions are identified.</management>
 			<audit>There are no auditable events foreseen.</audit>
 			<dependencies>
-				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:p/>
-				FIA_CMPC_EXT.1 CMP Certificate Enrollment
+				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:br/>
+				FDP_CER_EXT.2 Certificate Request Matching<h:br/>
+				<no-link>FPT_STM.1</no-link> Reliable Time Stamps<h:br/>
+				<no-link>FTP_PRO.1</no-link> Trusted Channel Protocol<h:br/>
+				<no-link>FTP_PRO.2</no-link> Trusted Channel Establishment<h:br/>
+				<no-link>FTP_PRO.3</no-link> Trusted Channel Data Protection<h:br/>
+				<no-link>FTP_ITC.1</no-link> Inter-TSF Trusted Channel
 			</dependencies>
 			<f-element id="fia-cmps-ext-1e1">
 				<title>The TSF shall use the Certificate Management Protocol (CMP) as specified in <selectables>
@@ -1687,15 +1701,12 @@
 				</h:ul>
 			</audit>
 			<dependencies>
-				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:p/>
-				FCS_TLSC_EXT.2 TLS Client Support for Mutual Authentication<h:p/>
-				FIA_ENR_EXT.1 Certificate Enrollment<h:p/>
-				FIA_X509_EXT.1 X.509 Certificate Validation<h:p/>
-				FIA_X509_EXT.3 X.509 Certificate Requests<h:p/>
-				<no-link>FMT_SMR.1</no-link> Security Roles<h:p/>
-				<no-link>FTP_PRO.1</no-link> Trusted Channel Protocol<h:p/>
-				<no-link>FTP_PRO.2</no-link> Trusted Channel Establishment<h:p/> 
-				<no-link>FTP_PRO.3</no-link> Trusted Channel Data Protection<h:p/>
+				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:br/>
+				FDP_CER_EXT.2 Certificate Request Matching<h:br/>
+				<no-link>FPT_STM.1</no-link> Reliable Time Stamps<h:br/>
+				<no-link>FTP_PRO.1</no-link> Trusted Channel Protocol<h:br/>
+				<no-link>FTP_PRO.2</no-link> Trusted Channel Establishment<h:br/>
+				<no-link>FTP_PRO.3</no-link> Trusted Channel Data Protection<h:br/>
 				<no-link>FTP_ITC.1</no-link> Inter-TSF Trusted Channel
 			</dependencies>
 			<f-element id="fia-estc-ext-1e1">
@@ -1848,15 +1859,13 @@
 				</h:ul>			
 			</audit>
 			<dependencies>
-				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:p/>
-				FCS_TLSC_EXT.2 TLS Client Support for Mutual Authentication<h:p/>
-				FIA_ESTC_EXT.1 EST Cetificate Enrollment<h:p/>
-				FIA_X509_EXT.1 X.509 Certificate Validation<h:p/>
-				FIA_X509_EXT.3 X.509 Certificate Requests<h:p/>
+				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:br/>
+				FDP_CER_EXT.2 Certificate Request Matching<h:br/>
 				<no-link>FMT_SMR.1</no-link> Security Roles
-				<no-link>FTP_PRO.1</no-link> Trusted Channel Protocol<h:p/>
-				<no-link>FTP_PRO.2</no-link> Trusted Channel Establishment<h:p/> 
-				<no-link>FTP_PRO.3</no-link> Trusted Channel Data Protection<h:p/>
+				<no-link>FPT_STM.1</no-link> Reliable Time Stamps<h:br/>
+				<no-link>FTP_PRO.1</no-link> Trusted Channel Protocol<h:br/>
+				<no-link>FTP_PRO.2</no-link> Trusted Channel Establishment<h:br/> 
+				<no-link>FTP_PRO.3</no-link> Trusted Channel Data Protection<h:br/>
 				<no-link>FTP_ITC.1</no-link> Inter-TSF Trusted Channel
 			</dependencies>
 			<f-element id="fia-ests-ext-1e1">
@@ -1932,8 +1941,8 @@
 				<aactivity>
 					<TSS>
 						<h:p>The evaluator shall examine the TSS to ensure it describes the implementation of this protocol. If the 
-						description indicates the use or RA for initial issuance or authorization of certificates, the evaluator shall 
-						examine the TSS to ensure that this role supported and associated with the specified entities.</h:p>
+						description indicates the use of RA for initial issuance or authorization of certificates, the evaluator shall 
+						examine the TSS to ensure that this role is supported and associated with the specified entities.</h:p>
 					</TSS>
 					<Guidance>
 						<h:p>The evaluator shall examine the operational guidance to ensure it contains instructions on configuring the TOE 
@@ -2015,8 +2024,7 @@
 			<management>No specific management functions are identified.</management>
 			<audit>There are no auditable events foreseen.</audit>
 			<dependencies>
-				FDP_OCSP_EXT.1 OCSP Basic Response Generation<h:p/>
-				<no-link>FMT_SMF.1</no-link> Specification of Management Functions<h:p/>
+				<no-link>FMT_SMF.1</no-link> Specification of Management Functions<h:br/>
 				<no-link>FMT_SMR.1</no-link> Security Roles
 			</dependencies>
 			<f-element id="fia-tsm-ext-1e1">
@@ -2171,12 +2179,11 @@
 			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
 				<h:ul>
 					<h:li>Unsuccessful attempt to validate a certificate</h:li>
-					<h:li>Any addition, replacement, or removal of trust</h:li>
+					<h:li>Any addition, replacement, or removal of trust anchors in the TOE’s trust store</h:li>
 				</h:ul>
 			</audit>
 			<dependencies>
-				FCS_COP.1 Cryptographic Operation<h:p/>
-				[FDP_CRL_EXT.1 Certificate Revocation List Generation OR FDP_OCSP_EXT.1 OCSP Basic Response Generation]<h:p/>
+				FCS_COP.1 Cryptographic Operation<h:br/>
 				FIA_XCM_EXT.1 X.509 Certificate Management
 			</dependencies>
 			<depends on="toe-verifies-certs"/>
@@ -2601,7 +2608,7 @@
 				<audit-event-info>Reason for failure of certificate validation</audit-event-info>
 			</audit-event>
 			<audit-event>
-				<audit-event-descr>Any addition, replacement, or removal of trust</audit-event-descr>
+				<audit-event-descr>Any addition, replacement, or removal of trust anchors in the TOE's trust store</audit-event-descr>
 				<audit-event-info>Identification of certificates added, replaced or removed as anchors in the TOE’s trust store or removed
 					as trust anchor in the TOE’s trust store</audit-event-info>
 			</audit-event>
@@ -2624,7 +2631,7 @@
 				</h:ul>
 			</audit>
 			<dependencies>
-				FIA_X509_EXT.1 X.509 Certificate Validation<h:p/>
+				FIA_X509_EXT.1 X.509 Certificate Validation<h:br/>
 				FIA_XCM_EXT.1 X.509 Certificate Management	
 			</dependencies>
 			
@@ -2726,9 +2733,9 @@
 			<management>No specific management functions are identified.</management>
 			<audit>There are no auditable events foreseen.</audit>
 			<dependencies>
-				<no-link>FCS_CKM.1</no-link> Cryptographic Key Generation<h:p/>
-				FIA_X509_EXT.1 X.509 Certificate Validation<h:p/>
-				FIA_X509_EXT.2 X.509 Certificate Support for Functions<h:p/>
+				<no-link>FCS_CKM.1</no-link> Cryptographic Key Generation<h:br/>
+				FIA_X509_EXT.1 X.509 Certificate Validation<h:br/>
+				FIA_X509_EXT.2 X.509 Certificate Support for Functions<h:br/>
 				FIA_XCM_EXT.1 X.509 Certificate Management
 			</dependencies>
 			<f-element id="fia-x509-ext-3e1">
@@ -2836,10 +2843,7 @@
 			<comp-lev> defines how the TSF verifies or uses X.509 certificates.</comp-lev>
 			<management>No specific management functions are identified.</management>
 			<audit>There are no auditable events foreseen.</audit>
-			<dependencies>
-				[FIA_X509_EXT.1 X.509 Certificate Validation and FIA_X509_EXT.2 X.509 Certificate Support for Functions OR FIA_XCM_EXT.2
-				X.509 Certificate Usage] 				
-			</dependencies>
+			<dependencies/>			
 			<f-element id="fia-xcm-ext-1e1">
 				<title>The TSF shall
 					 <selectables>
@@ -2853,8 +2857,10 @@
 					function supported by the TOE. If “verify” is selected, then FIA_X509_EXT.1, FIA_X509_EXT.2 are included; if “use” is 
 					selected, FIA_XCM_EXT.2 must be included.
 				</note>
+				<aactivity>
+					<no-tests/>
+				</aactivity>
 			</f-element>
-			
 			<audit-event/>
 							
 		</f-component>
@@ -2864,8 +2870,7 @@
 			<management>No specific management functions are identified.</management>
 			<audit>There are no auditable events foreseen.</audit>
 			<dependencies>
-				[FDP_CER_EXT.1 Leaf Certificate Profiles (Only Locally Trusted) and FDP_CER_EXT.2 Certificate Request Matching OR 
-				FIA_X509_EXT.3 X.509 Certificate Requests]<h:p/>
+				FIA_X509_EXT.1 X.509 Certificate Validation<h:br/>
 				FIA_XCM_EXT.1 X.509 Certificate Management
 			</dependencies>
 			<f-element id="fia-xcm-ext-2e1">
@@ -2894,6 +2899,11 @@
 					‘embedded CA’ is claimed in the sub-selection, then FDP_CER_EXT.1 and FDP_CER_EXT.2 are also claimed. If ‘obtain 
 					certificates from an embedded certification authority’ is claimed, FDP_CER_EXT.1 is claimed.
 				</note>
+				<aactivity>
+					<no-tests>This SFR is evaluated through the dependent SFRs that are claimed based on the selections made 
+						(FIA_X509_EXT.3 for certificate requests, FDP_CER_EXT.1 and FDP_CER_EXT.2 for obtaining certificates from its own CA,
+						and FIA_X509_EXT.2 for the TOE's use of certificates).</no-tests>
+				</aactivity>
 			</f-element>
 			
 			<audit-event/>
