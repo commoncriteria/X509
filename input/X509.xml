@@ -727,7 +727,7 @@
 					</h:ul>
 				</title>
 				<aactivity>
-					<no-tests/>
+					<no-tests>There are no EAs for this component.</no-tests>
 				</aactivity>
 			</f-element>
 			<audit-event/>
@@ -1048,9 +1048,10 @@
 					</selectables>.					
 				</title>
 				<note role="Application">
+					<h:p>
 					If "ITU-T Recommendation X.509v2 CRL" or "ITU-T Recommendation X.509v2 CRL as refined by RFC 8603" is selected in FDP_CSI_EXT.1.1, 
 					FDP_CRL_EXT.1 must be claimed. If "the OCSP standard as defined by RFC 6960" is selected in FDP_OCSP_EXT.1.1, FDP_OCSP_EXT.1 must be claimed.
-					
+					</h:p><h:p>
 					The ST author claims the supported methods for distributing generated certificate status information to the supported 
 					functions that are relying parties for the issued certificates. If CRLs are identified in <xref to="fdp-csi-ext-1e1"/>, 
 					then ‘posting CRLs at… cRLDistributionPoints…’ is claimed in <xref to="fdp-csi-ext-1e3"/> and ‘cRLDistributionPoints’ 
@@ -1059,6 +1060,7 @@
 					must be claimed in <xref to="fdp-csi-ext-1e1"/>. If ‘…OCSP stapling’ is claimed, the ST author identifies the functions 
 					using OCSP stapling for server-authenticated TLS or DTLS and describes the interface to provide the OCSP response to 
 					each of the functions in the assignment.
+					</h:p>
 				</note>
 				<aactivity>
 					<TSS>
