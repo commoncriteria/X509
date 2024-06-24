@@ -1077,7 +1077,7 @@
 						<testlist>
 							<test id="revoked-cert-test">
 								For each revocation method claimed, the evaluator shall attempt to cause the supported function to revoke an 
-								issued certificate. The evaluator shall demonstrate that the function no longer trusts the revoked 
+								issued certificate. The evaluator shall demonstrate that the function no longer accepts the revoked 
 								certificate.
 							</test>
 						</testlist>						
@@ -2159,7 +2159,7 @@
 								[conditional]: If the TSF supports installation of certificates that are neither self-signed root CA 
 								certificates nor OCSP certificates without revocation status, the evaluator shall demonstrate that the 
 								TSF prevents the installation of each such supported certificate type if the certificate is revoked prior 
-								to installation, and that the TSF invalidates such a certificate when it’s status information is indicated 
+								to installation, and that the TSF invalidates such a certificate when its status information is indicated 
 								as revoked when checked subsequent to installation.
 							</h:p><h:p>								
 								Note: such certificate types can include leaf certificates associated with context specific to the leaf, 
