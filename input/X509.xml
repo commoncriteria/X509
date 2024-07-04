@@ -17,7 +17,7 @@
       <PPTitle>Functional Package for X.509</PPTitle>
       <PPVersion>1.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2023-12-14</PPPubDate>
+      <PPPubDate>2024-07-05</PPPubDate>
       <Keywords>X.509; certificates; PKI</Keywords>
     </ReferenceTable>
   </PPReference>
@@ -25,7 +25,7 @@
   <RevisionHistory>
   	<entry>
       <version>1.0</version>
-      <date>2023-12-14</date>
+      <date>2024-07-05</date>
       <subject>Initial draft.</subject>
   	</entry>
   </RevisionHistory>
@@ -53,7 +53,7 @@
       	</h:p><h:p>
 		This <h:i>Functional Package (FP) for X.509</h:i> provides a collection of X.509 
       		Security Functional Requirements (SFRs) and 
-		Evaluation Activities (EAs) for the issuance, use, and validation of X.509 certificates. The intent 
+      		Evaluation Activities (EAs) for the verification and assertion identities of X.509 certificates, for the limited issuance of certificates used locally by TOE functions, and for the generation and provision of certificate status information of such TOE-issued certificates to the TOE functions that rely on such TOE-issued certificates. The intent 
 		of this FP is to provide Protection Profile (PP), collaborative Protection Profile (cPP), and Protection Profile Module (PP-Module) authors 
 		with a readily consumable collection of SFRs and EAs to be integrated into
 		their documents.  
@@ -75,6 +75,7 @@
    	<term abbr="CRL" full="Certificate Revocation List">A method by which a CA has the ability to communicate that a certificate it issued
    	has been revoked and should no longer be trusted, originally described in RFC 5280.</term>
    	<term abbr="CSR" full="Certificate Signing Request"></term>
+   	<term abbr="DN" full="Distinguished Name"></term>
    	<term abbr="EA" full="Evaluation Activity"></term>
    	<term abbr="EC" full="Elliptic Curve"></term>
    	<term abbr="EKU" full="extendedKeyUsage">An optional attribute of an X.509 certificate that designates the intended usage of the certificate,
@@ -89,12 +90,14 @@
    		part of a connection handshake.</term>
    	<term full="OCSP Multi-Stapling">An expedited version of OCSP where the CA includes an assertion of a leaf certificate's validity, 
    		as well as the validity of any intermediate CA certificates between the root and the leaf, as part of a connection handshake.</term>
-   	<term abbr="OID" full="Object Identifiers"></term>
+   	<term abbr="OID" full="Object Identifier"></term>
    	<term abbr="OS" full="Operating System"></term>
    	<term full="pathLen">An attribute of CA certificates that specifies the maximum length of a certificate chain that terminates with that certificate.</term>
+   	<term abbr="PKI" full="Public Key Infrastructure"></term>
    	<term abbr="RA" full="Registration Authority"></term>
    	<term abbr="RBG" full="Random Bit Generator"></term>
    	<term abbr="RFC" full="Request for Comment"></term>
+   	<term abbr="SAN" full="Subject Alternative Name"></term>
    	<term abbr="TLS" full="Transport Layer Security"></term>
    </tech-terms>
 	
@@ -104,7 +107,14 @@
 <!--			-->
     <sec:toes title="Compliant Targets of Evaluation">
     	    	
-		<h:p>The Target of Evaluation (TOE) in this Functional Package (FP) is a product that utilizes Public Key Infrastructure (PKI) capabilities
+		<h:p>
+			The Target of Evaluation (TOE) in this Functional Package (FP) a product that uses X.509 capabilities for certificates.  A certificate user that depends on the public key of a certificate is required to process certificates using the ‘verify’ capabilities included in this FP. Such certificate users verify certificates for a variety of TOE functions, including subject authentication,
+			trusted communications, validation of TOE software and firmware updates, or integrity verification as part of self-testing. 
+		</h:p><h:p>
+			A certificate user that is represented as the subject of a certificate depends on the ‘assert' capabilities included in this FP. TOE functions use certificates issued by a certification authority trusted by a relying party to convey a subject and context information associated with the certificate to the relying party. TOE functions that use certificates include external entity initiated communications with the TOE such as web services or email, and TOE-initiated communications with entities requiring client authentication. When all verifiers of a certificate are associated with TOE functions, it is permissible to use an embedded certification authority that is only trusted by the TOE (i.e., only locally trusted). When such functionality is provided, the TOE depends on the provider functionality of the FP. TOE functions that verify TOE provided certificates depend on the certificate status provider functionality in this FP; TOE functions that use TOE provided certificates depend on the certificate issuance functionality of this FP.
+		</h:p>
+			
+			The Target of Evaluation (TOE) in this Functional Package (FP) is a product that utilizes Public Key Infrastructure (PKI) capabilities
 			and optionally provides PKI services to authorized IT entities in the Operational Environment (OE).
 			<!--
 			At minimum, a conformant TOE will include the ability to validate X.509 certificates presented to it, including:
@@ -116,7 +126,7 @@
 				<h:li>validation that the certificate's extensions are consistent with its intended use.</h:li>
 			</h:ul>A conformant TOE must also define its intended uses for X.509 certificates and how to proceed when a certificate with undetermined 
 			revocation status is presented to it. --> 
-			</h:p> 
+			
     	<h:p>
 			This FP also defines mechanisms by which the TSF can generate a Certificate Signing Request (CSR) for receiving a signed certificate from a 
 			Certification Authority (CA). This may be generated either as a file that is provided to a CA manually or done via an active network connection to the 
@@ -148,6 +158,8 @@
 		ensure that dependence on these components is satisfied, either by the TOE or by assumptions about its OE.
 		</h:p><h:p>An ST must identify in its conformance claims the applicable version of the PP, cPP, or PP-Module, and of this
 		FP.</h:p>
+    	
+    	<h:div class="table-caption"><ctr ctr-type="Table" id="dependencies">: Dependent Components Required for Package Functionality</ctr></h:div>
 		<componentsneeded>
 			<componentneeded>
 				<componentid>FCS_CKM.1</componentid>
@@ -206,6 +218,32 @@
 			
 		</componentsneeded>
 	</sec:toes>
+	
+	<sec:Use_Cases>
+		The following use cases are distinct and may be combined for any given TOE. They include the TOE as a relying party verifying the identity of entities using certificates obtained from an external CA; the TOE asserting an identity in a certificate provided by an external CA and providing identity verification (authentication) to external relying parties; and the TOE acting as the sole relying party of entities issued certificates using an embedded CA. Combining the verify and subject use cases also includes authentication and verification between internal entities; Combining all three use cases allows external CAs to be used for both internal and external entities, but an internal embedded CA is only to be used for internal relying parties.<h:br/><h:br/>
+		Note: A TOE that provides general Certification Authority functionality for external entities should be validated against the Certification Authority Protection Profile instead of this FP. 
+		<h:br/><h:br/>
+		Note: TOEs that provide certification authority functionality as an embedded CA in support of TLS inspection should use the SSL/TLS Inspection Proxy (STIP) Protection Profile module instead of this FP. The ‘provide’ functionality in this FP is a generalization of the security requirements of the embedded CA functionality for STIP PP module, but this FP does not include the proxy and TLS processing requirements from the STIP PP module.
+		<h:br/><h:br/>
+		The following diagrams show each TOE use case(within the red box) with respect to its role in an overall system.
+		<usecases>
+			<usecase id="usecase1" title="TOE as a Relying Party">
+				<description>
+					<figure entity="images/usecase1.png" title="Use Case 1: TOE as a Relying Party" id="fig-usecase1"/>
+				</description>
+			</usecase>
+			<usecase id="usecase2" title="TOE Asserting an Identity Using Certificates">
+				<description>
+					<figure entity="images/usecase2.png" title="Use Case 2: TOE Asserting an Identity Using Certificates" id="fig-usecase1"/>
+				</description>
+			</usecase>
+			<usecase id="usecase3" title="TOE as the Sole Relying Party of a Certificate Issued by an Embedded CA.">
+				<description>
+					<figure entity="images/usecase3.png" title="Use Case 3: TOE as the Sole Relying Party of a Certificate Issued by an Embedded CA." id="fig-usecase1"/>
+				</description>
+			</usecase>
+		</usecases>
+	</sec:Use_Cases> 
 </sec:Introduction>
   
 <!-- 			-->
@@ -316,7 +354,7 @@
 				different certificate profiles, each associated with unique embedded CA supporting a subset of the supported functions 
 				or the TOE may support a common profile that uses the key usage and extended key usage extensions to differentiate the 
 				intended use of a certificate. When a single CA supports multiple functions, the extendedKeyUsage extension is claimed 
-				in FDP_CER_EXT.1.2 to distinguish which functions are supported by the certificate.
+				in <no-link>FDP_CER_EXT.1.2</no-link>/OLTLeaf to distinguish which functions are supported by the certificate.
 			</note>
 		</f-element>
 			
@@ -595,7 +633,7 @@
 				<title>
 					The TSF shall generate certificates using certificate profiles that comply with requirements for issued certificates 
 					as specified in IETF RFC 5280, “Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List 
-					(CRL) Profile” as refined below, that apply to all supported functions described in <no-link>FDP_CER_EXT.1.1</no-link>:
+					(CRL) Profile” as refined below, that apply to all supported functions described in <no-link>FDP_CER_EXT.1.1</no-link>/OLTLeaf:
 					<h:ul>
 						<h:li>The version is 3 (value 02).</h:li>
 						<h:li>The certificate does not contain subjectUniqueID or issuerUniqueID fields.</h:li>
@@ -749,11 +787,11 @@
 				OR FIA_CMPS_EXT.1 Certificate Management Protocol (CMP) Server]
 			</dependencies>
 			<f-element id="fdp-cer-ext-2e1">
-				<title><comment>CCPPD2: The note on when this SFR is claims also says "It may be claimed if ‘obtain certificates from an embedded CA’ is claimed in FIA_XCM_EXT.2 when the interaction between the embedded CA and the supported function includes a request event that is logged."
+				<title><comment>CCPPD2: The note on when this SFR is claims also says "It may be claimed if ‘obtain certificates from an embedded CA’ is claimed in FIA_XCU_EXT.2 when the interaction between the embedded CA and the supported function includes a request event that is logged."
 				This would be an implementation-dependent trigger but an SFR can't simultaneously be selection-based and implementation-based.
 				
-				It also says that it must be claimed if FDP_CER_EXT.1 is claimed and 'request certificates from an embedded CA' is claimed in FIA_XCM_EXT.2.1.
-				The first part of that condition will always apply if the second part applies though because the FIA_XCM_EXT.2.1 is also a trigger for 
+				It also says that it must be claimed if FDP_CER_EXT.1 is claimed and 'request certificates from an embedded CA' is claimed in FIA_XCU_EXT.2.1.
+				The first part of that condition will always apply if the second part applies though because the FIA_XCU_EXT.2.1 is also a trigger for 
 				claiming FDP_CER_EXT.1. So that part was left off. Also note however that FDP_CER_EXT.1 is referred to as FDP_CER_EXT.1/OLTLeaf; there is no 
 				un-iterated "FDP_CER_EXT.1" so this part of the reference is ambiguous regardless.</comment>
 					The TSF shall <selectables>
@@ -783,12 +821,7 @@
 				</title>
 				<note role="Application">
 				<h:p>
-					This SFR ensures the TSF is able to associate any issued certificate to the TOE function that requested it using 
-					request methods indicated in <xref to="fdp-cer-ext-1e4"/>. Although the supported certificate requests allow certificate requests 
-					from external entities, the embedded CA described in this PP functional package is not intended to be used in support 
-					of purely external purposes; any certificates which cannot be associated with a request by an authorized TOE function 
-					must be revoked on discovery. This SFR is not claimed if the embedded CA does not act on standard certificate 
-					requests, but only generates certificates as indicated by inputs from the supported functions.  
+					This SFR is claimed when certifiate requests to an embedded CA are supported. It ensures that administrators of the TSF are able to associate any issued certificate to a request from an authorized entity associated with a supported function, and identify certificates issued in response to requests from unauthorized entities, as the result of the misuse of access to the TOE.
 				</h:p><h:p>
 					If the association in <xref to="fdp-cer-ext-2"/> is performed as a condition of issuance, the ST author claims 
 					‘not issue’; if the association is performed after issuance, the ST author claims ‘revoke’. Revoke should be claimed 
@@ -878,7 +911,7 @@
 						</h:li>
 						<h:li>
 							The signature and signatureAlgorithm fields shall contain the OID for a digital signature algorithm in 
-							accordance with FCS_COP.1 in the base PP. <comment>from CCPPD: proposed updates here and in app note
+							accordance with FCS_COP.1 in the Base-PP. <comment>from CCPPD: proposed updates here and in app note
 							(comment kept to preserve numbering of other comments)</comment>
 						</h:li>
 						<h:li>
@@ -936,6 +969,7 @@
 		</ext-comp-def>
 		
 		<f-component name="Certificate Status Information Required" cc-id="fdp_csir_ext.1" id="fdp-csir-ext-1">
+			<!-- 	<depends on="toe-obtains-certs"></depends>  -->
 			<comp-lev> requires the TSF to maintain certificate status information for its issued certificates, ensure any certificates it 
 				issues are valid for a sufficient period of time, supply a repository with status information, or identify a method to
 				invalidate trust that has been revoked.</comp-lev>
@@ -1019,7 +1053,7 @@
 					</selectables>.
 				</title>
 				<note role="Application">
-					The ST author indicates the supported Certificate Status information methods.
+					The ST author indicates the supported Certificate Status information methods. If "ITU-T Recommendation X.509v2 CRL" or "ITU-T Recommendation X.509v2 CRL as refined by RFC 8603" are claimed, FDP_CRL_EXT.1 is also claimed. If "the OCSP standard as defined by RFC 6960" is claimed, FDP_OCSP_EXT.1 is also claimed.
 				</note>
 			</f-element>
 			
@@ -1571,7 +1605,7 @@
 			<f-element id="fia-cmps-ext-1e1">
 				<title>The TSF shall use the Certificate Management Protocol (CMP) as specified in <selectables>
 					<selectable>RFC 4210 as updated by RFC 6712 and RFC 9481 (v2 CMP)</selectable>
-					<selectable>RFC 4210 as updated by RFC 9480 (v3 CMP)</selectable>
+					<selectable>RFC 4210 as updated by RFC 6712 and RFC 9480 (v3 CMP)</selectable>
 					</selectables>
 					to receive, process, and respond to CMP requests received from authorized clients and <selectables> 
 					<selectable> <assignable>entities authorized as registration authorities</assignable></selectable>
@@ -1579,10 +1613,10 @@
 				</selectables>.					
 				</title>
 				<note role="Application">
-					This SFR is claimed if the embedded CA supports CMP server functionality. If Registration Authority is supported, 
-					the ST author describes entities that are issued RA certificates. Authorized entities may be an administrative user, 
-					or a functional entity associated with a supported TOE function. Certificates associated with such authorized 
-					entities have an extendedKeyUsage field that includes the id-kp-cmpRA purpose and are used to authenticate initial 
+					This SFR is claimed if the embedded CA supports CMP server functionality, as indicated in FDP_CER_EXT.1.4, and the claimed versions match the selections. If Registration Authority is supported, 
+					the ST author describes entities that are issued RA roles. Authorized entities may be an administrative user, 
+					or a functional entity associated with a supported TOE function. If v3 CMC is also supported, certificates associated with such authorized 
+					entities have an extendedKeyUsage field that includes the id-kp-cmcRA purpose. Entities with an RA role are used to authenticate initial 
 					requests on behalf of authorized clients that might not have existing certificates issued by the embedded CA.
 				</note>
 			</f-element>
@@ -1602,9 +1636,9 @@
 					</selectables>.
 				</title>
 				<note role="Application">
-					Certificate-based authentication refers to signatures used in CMP messages from clients or end entities who possess a 
+					Certificate-based authentication refers to signatures used in CMP messages from clients or end entities who possess a certificate
 					used for transferring messages directly from the client or end entity. The ST author claims authentication methods 
-					used for initial requests and as alternate authentication methods for CMP messages. If RA entities are described in 
+					used for initial requests and any alternate authentication methods for CMP messages. If RA entities are claimed in 
 					<xref to="fia-cmps-ext-1e1"/>, the ST author claims ‘RA assertion’ if RA authentication is used to authorize subject 
 					or end entity requests. 
 				</note>
@@ -1818,23 +1852,6 @@
 									requests using EST are compliant with the requirements.</h:p>
 							</test>
 						</testlist>
-						<h:p>Embedded Certification Authority operations: An embedded CA has limited functionality to issue certificates 
-							to be able to authenticate external entities for TOE services and inter-TOE service communications and for 
-							integrity services of TOE data. Certificates issued by an embedded CA are not trusted by entities external 
-							to the TOE, and so, the embedded CA is not required support standard revocation services intended to be 
-							widely distributed. The embedded CA does not accept general certificate requests from external entities, 
-							but instead acts on (implied or explicit) certificate requests associated with other TOE functions. 
-							In particular, administrators do not have full control of the embedded CA’s functionality to issue general 
-							certificates, but only interact with the embedded CA via TOE functions that depend on the embedded CA. The 
-							TOE maintains the ability to manage the status of issued certificates directly via trust stores. If the 
-							embedded CA’s functionality is not limited in this manner, full set of requirements in the Certification 
-							Authority Protection Profile should be used. The following SFR characterize the basic security functionality 
-							of an embedded CA aligned to threats to the supported TOE functions.</h:p>
-						
-						<h:p>This SFR is claimed if the TOE verifies or uses certificates issued by an embedded CA. It must be claimed if 
-							‘Local revocation status information from embedded CA repository’ is claimed in FIA_X509_EXT.1.4, if a 
-							designated trust store specified in FIA_X509_EXT.1.6 is associated with an embedded CA, or if ‘embedded CA 
-							or ‘obtain certificates from an embedded CA’ selections are claimed in FIA_XCM_EXT.2.</h:p>
 					</Tests>
 				</aactivity>
 			</f-element>
@@ -1951,7 +1968,7 @@
 				<aactivity>
 					<TSS>
 						<h:p>The evaluator shall examine the TSS to ensure it describes the implementation of this protocol. If the 
-						description indicates the use of RA for initial issuance or authorization of certificates, the evaluator shall 
+						description indicates the use of an RA for initial issuance or authorization of certificates, the evaluator shall 
 						examine the TSS to ensure that this role is supported and associated with the specified entities.</h:p>
 					</TSS>
 					<Guidance>
@@ -2047,9 +2064,9 @@
 					to manage <assignable>designated trust store or individual trust store elements</assignable> by
 					 <selectables linebreak="yes">
 						<selectable>Using an update function</selectable>
-						<selectable>Use of application provided inputs</selectable>
+						<selectable>Use of <assignable>inputs provided by the supported function</assignable></selectable>
 						<selectable>Allowing the administrator to manage the trusted <selectables><selectable>self-signed root CA 
-							certificate</selectable><selectable>OCSP certificate</selectable><selectable>public key</selectable>
+							certificate</selectable><selectable>local OCSP certificate</selectable><selectable>'no-check' OCSP certificate</selectable><selectable>public key</selectable>
 						</selectables> 
 						of a trust store’s elements</selectable>
 						<selectable>Allowing the administrator to manage context rules of a trust store</selectable>
@@ -2058,91 +2075,80 @@
 					and 
 					 <selectables linebreak="yes">
 						<selectable>Validating the certification path of any certificate that is neither a self-signed root CA
-							certificate nor an OCSP certificate with the no-check extension, <selectables><selectable><comment>This depends 
+							certificate nor an OCSP certificate, <selectables><selectable><comment>This depends 
 								on selection (which administrator). See Palo Alto comment 10. Also impacts test 13. Added selection to 
 								require one of when installed, when used and added no other to original selection</comment> when installed 
 								by an administrator as a trust store element</selectable><selectable>on use</selectable></selectables> and
 							 <selectables><selectable>on demand</selectable><selectable>during <assignable>defined events</assignable></selectable>
 							 	<selectable>periodically every <assignable>time</assignable></selectable><selectable>no other time
 							</selectable></selectables></selectable>
-						<selectable>Prohibit installation of certificates that are neither a self-signed root CA nor an OCSP certificate 
-						with the no-check extension as trust store elements.</selectable>
+						<selectable>Prohibit inclusion of certificates that are neither a self-signed root CA nor an OCSP certificate as trust store elements.</selectable>
 					</selectables>
 				</title>
 				<note role="application">
 					<h:p>
 						This element focuses on the management of trust stores used for certificate path processing. Trust stores consist 
-						of the context rules and one or more self-signed root CA certificates containing a trusted public key or a ‘raw’ 
-						trusted public key. Trust store elements are single trusted public keys using the context of the trust store for 
+						of the context rules and one or more self-signed root CA certificates containing a trusted public key or ‘raw’ 
+						trusted public keys. Trust store elements are single trusted public keys using the context of the trust store for 
 						certificate path validation. OCSP certificates trusted by the TOE may also be considered trust store elements, 
-						and must be loaded into a trust store when revocation information is not provided by the issuing CA. Revocation 
+						and must be included in a trust store when revocation information is not provided directly by the issuing CA. Revocation 
 						status of <comment>Is this sufficient, or do we refine 6960 to require an explicit no-check flag and move this 
-							into an SFR element?</comment> OCSP certificates is verified in accordance with the options RFC 6960, and 
-						the options used determine what validation is required when loading an OCSP certificate into a trust store. 
+							into an SFR element?</comment>local (associated with a locally configured OCSP responder) or ‘no-check’ (contains the extension id-pkix-ocsp-nocheck) OCSP certificates is verified in accordance with the options RFC 6960 section 4.2.2.2.1. 
 					</h:p>
-					
 					<h:p>
-						The ST author designates which trust stores are managed in the assignment, and specifies one or more options for 
+						The ST author designates which trust stores or trust store elements are managed in the assignment (a subset of those indicated in <no-link>FIA_X509_EXT.1.6</no-link>) and specifies one or more options for 
 						the management of trust stores used for validating certificates in the second selection.
 					</h:p>
 					<h:ul>
 						<h:li>
-							The ‘Using an update function’ option is claimed if the TOE includes trust store updates as part of the 
+							The ‘Using an update function’ option is claimed if the TOE includes trust store updates as part of the TOE's
 							update function.
 						</h:li>
 						<h:li>
-							The ‘Use of application provided inputs’ is claimed if reference identifiers or other application specific 
-							context information can change certificate path processing rules.
+							The ‘Use of inputs provided by the supported function’ option is claimed if reference identifiers or other specific 
+							context information provided by the function initialize certificate path processing rules.
 						</h:li>
 						<h:li>
 							The ‘Allowing administrators to manage the trusted…’ option is claimed if the TOE supports administrator 
 							management of the public key associated to a trust store. The ST author specifies which trusted public keys 
-							are loaded. OCSP certificates are claimed if OCSP certificates with the no-check (id-pkix-ocsp-nocheck with 
-							OID 1.3.6.1.5.5.7.48.1.5) are loaded.
+							are loaded. Local or 'no-check' OCSP certificates are claimed if OCSP certificates are loaded.
 						</h:li>
 						<h:li>
 							The ‘Allowing administrator to manage context rules of a trust store‘ option is claimed if the TOE supports 
 							administrator management of the context rules associated with a trust store. 
 						</h:li>
 						<h:li>
-							The ‘Methods in accordance with RFC 5934’ option is claimed if supported.
+							The ‘Methods in accordance with RFC 5934’ option is claimed if the Trust Anchor Management Protocol is supported.
 						</h:li>						
 					</h:ul>
 					<h:p>
-						The ST author indicates support for adding intermediate CA, OCSP certificates with revocation information provided 
+						The ST author indicates support for validating intermediate CA, OCSP certificates with revocation information provided 
 						by the issuing CA, or leaf certificates as trust store elements in the second selection and specifies when full 
-						validation of the certificate path for these certificates is performed. Non-root CA certificates loaded into a 
-						trust store do not negate requirements for validating the certificate path for those certificates, but may change 
-						when certificate validation is performed or associate additional context to non-root certificates.
+						validation of the certificate path for these certificates is performed. 
 					</h:p>
-					
 					<h:p>
-						Intermediate CA certificates and OCSP certificates whose revocation status is provided by the issuing CA may be 
-						loaded as trust store elements to reduce path processing times during high-frequency operations, but are validated 
-						periodically or at specific events to ensure they remain valid. It is expected that certificate paths for such 
-						certificates are validated between the time when revocation information is expected to be updated and when 
-						certificate path validation terminating at the trusted intermediate CA is performed.
-					</h:p>
-					
-					<h:p>
-						Leaf certificates issued by a trusted CA may be loaded as trust store elements that represent privileged users, 
-						inter-TOE processes, or other entities where non-certificate based context such as association with a local 
-						account, or limited functionality, is required. If supported, it is expected that the full certificate path of 
-						issued leaf certificates loaded as trust store elements are validated on use. In applications where self-signed 
-						leaf certificates or raw public key pairs are used (e.g., for SSH), the certificate or key pair is treated as a 
-						trust store element.
+						The first option ‘Validating…’ is claimed if trust stores may include certificates other than root and OCSP (local or ‘no-check') certificates. For example, such trust store elements may include intermediate certificates to enhance performance or to refine the context for certification paths including these CA certificates. It is also common to designate leaf certificates associated with privileged users as trust store elements. If this option is claimed, the ST author also indicates when the revocation checks are performed. The first option ‘when installed…’ is claimed if ‘Allowing administrator to manage…’ is claimed. The ‘on-use’ option is claimed if such certificates are included in a trust store via other options (if ‘Using an update function’ or ‘Using … RFC 5934’ is claimed). The ‘on use’ option may also be claimed for installed certificates. In addition, the ST author indicates other times (if any) that the revocation status of such certificates is checked.
+					</h:p><h:p>
+						The second option, ‘Prohibit…’ is claimed otherwise – that is, if the managed trust stores do not contain certificates whose revocation status can change after the trust store is initialized.
 					</h:p>
 				</note>
 				<aactivity>
 					<TSS>
-						The evaluator shall review the TSS and verify that the description of trust store management meets the requirements.
+						<h:p>
+						The evaluator shall review the TSS and verify that the description of each trust store includes a description of the management method, or methods, that meets the requirements, to include management methods of both pre-loaded and installed trust store elements if the methods differ.
+						</h:p><h:p>
+						[conditional: if the TSF supports inclusion of certificates that are neither self-signed root CA certificates not OCSP certificates without revocation status, the evaluator shall review the TSS and verify that the description indicates when such certificates are checked for revocation status and that the description meets the requirements.
+						</h:p>
 					</TSS>
 					<Guidance>
-						The evaluator shall review the guidance documentation and verify that instructions for managing trust store elements 
-						are included.
+						<h:p>
+						The evaluator shall review the operational guidance to verify that instructions for all configurable features, if any, of the TSF are included.
+						</h:p><h:p>
+						[conditional] If administrative management of trust stores (public keys or context) is supported, the evaluator shall review the operational guidance and verify that instructions for managing all trust store elements in all administrator-managed trust stores is included. 
+						</h:p>
 					</Guidance>
 					<Tests>
-						The evaluator shall perform the following tests:
+						The evaluator shall perform one or more of the following tests:
 						<testlist>
 							<test>
 									<h:p>
@@ -2159,12 +2165,14 @@
 								[conditional]: If the TSF supports installation of certificates that are neither self-signed root CA 
 								certificates nor OCSP certificates without revocation status, the evaluator shall demonstrate that the 
 								TSF prevents the installation of each such supported certificate type if the certificate is revoked prior 
-								to installation, and that the TSF invalidates such a certificate when its status information is indicated 
-								as revoked when checked subsequent to installation.
+								to installation.
 							</h:p><h:p>								
 								Note: such certificate types can include leaf certificates associated with context specific to the leaf, 
 								or intermediate CA certificates.
 							</h:p>								
+							</test>
+							<test>
+								[conditional]: If the TSF supports the inclusion of certificates that are neither self-signed root CA certificates not OCSP certificates without revocation status and claims revocation status checks other than “when installed…” the evaluator shall demonstrate for each such certificate type, and for each event that checks revocation status, that a certificate of the indicated type that is revoked prior to the indicated event is not considered valid.
 							</test>
 						</testlist>
 					</Tests>
@@ -2194,7 +2202,7 @@
 			</audit>
 			<dependencies>
 				FCS_COP.1 Cryptographic Operation<h:br/>
-				FIA_XCM_EXT.1 X.509 Certificate Management
+				FIA_XCU_EXT.1 X.509 Certificate Utilization
 			</dependencies>
 			<depends on="toe-verifies-certs"/>
 			<f-element id="fia-x509-ext-1e1">
@@ -2642,7 +2650,7 @@
 			</audit>
 			<dependencies>
 				FIA_X509_EXT.1 X.509 Certificate Validation<h:br/>
-				FIA_XCM_EXT.1 X.509 Certificate Management	
+				FIA_XCU_EXT.1 X.509 Certificate Utilization	
 			</dependencies>
 			
 			<depends on="toe-verifies-certs" also="toe-requests-certs"/>
@@ -2746,7 +2754,7 @@
 				<no-link>FCS_CKM.1</no-link> Cryptographic Key Generation<h:br/>
 				FIA_X509_EXT.1 X.509 Certificate Validation<h:br/>
 				FIA_X509_EXT.2 X.509 Certificate Support for Functions<h:br/>
-				FIA_XCM_EXT.1 X.509 Certificate Management
+				FIA_XCU_EXT.1 X.509 Certificate Utilization
 			</dependencies>
 			<f-element id="fia-x509-ext-3e1">
 				<title>The TSF shall
@@ -2844,46 +2852,55 @@
 							
 		</f-component>
 		
-		<ext-comp-def fam-id="FIA_XCM_EXT" title="Certificate Management and Usage">
+		<ext-comp-def fam-id="FIA_XCU_EXT" title="Certificate Utilization and Usage">
 			<fam-behavior>Components in this family define how the TSF handles X.509 certificates for specific functions for specific
 				protocols.</fam-behavior>
 		</ext-comp-def>
 		
-		<f-component name="X.509 Certificate Management" cc-id="fia_xcm_ext.1" id="fia-xcm-ext-1">
+		<f-component name="X.509 Certificate Utilization" cc-id="fia_xcu_ext.1" id="fia-xcu-ext-1">
 			<comp-lev> defines how the TSF verifies or uses X.509 certificates.</comp-lev>
 			<management>No specific management functions are identified.</management>
 			<audit>There are no auditable events foreseen.</audit>
 			<dependencies/>			
-			<f-element id="fia-xcm-ext-1e1">
+			<f-element id="fia-xcu-ext-1e1">
 				<title>The TSF shall
 					 <selectables>
 						<selectable id="toe-verifies-certs">verify</selectable>
-						<selectable id="toe-uses-certs">use</selectable></selectables>
-					X.509 certificates.
+						<selectable id="toe-asserts-certs">assert</selectable></selectables>
+					identities included in X.509 certificates.
 				</title>
 				<note role="application">
-					A TSF ‘verifies’ certificates from external entities, to include certificates obtained from an external certification 
-					authority in response to a request for a certificate it uses. A TSF ‘uses’ certificates to represent itself or a 
-					function supported by the TOE. If “verify” is selected, then FIA_X509_EXT.1, FIA_X509_EXT.2 are included; if “use” is 
-					selected, FIA_XCM_EXT.2 must be included.
+					<h:p>
+					The ST author claims "verify" when the TOE associates identities included in X.509 certificates with users, external entities or inter-TOE entities authorized to exercise TOE functionality. The ST author claims "assert" when the TOE represents itself or its functions to internal or external entities.
+					</h:p><h:p>
+						If "verify" is selected, then FIA_X509_EXT.1 and FIA_X509_EXT.2 must be included. If "assert" is selected, FIA_XCU_EXT.2 must be included.
+					</h:p>
 				</note>
 				<aactivity>
-					<no-tests/>
+					<TSS>
+						The evaluator shall review the TSS and verify that the "verify" and "assert" claims are consistent with those selected in the SFR.
+					</TSS>
+					<Guidance>
+						There are no guidance EAs for this component.
+					</Guidance>
+					<Tests>
+						There are no test EAs for this component.
+					</Tests>
 				</aactivity>
 			</f-element>
 			<audit-event/>
 							
 		</f-component>
-		<f-component name="X.509 Certificate Usage" cc-id="fia_xcm_ext.2" id="fia-xcm-ext-2" status="sel-based">
-			<depends on="toe-uses-certs"/>
+		<f-component name="X.509 Certificate Usage" cc-id="fia_xcu_ext.2" id="fia-xcu-ext-2" status="sel-based">
+			<depends on="toe-asserts-certs"/>
 			<comp-lev> defines how the TSF requests or obtains certificates to represent specific functions for specific protocols.</comp-lev>
 			<management>No specific management functions are identified.</management>
 			<audit>There are no auditable events foreseen.</audit>
 			<dependencies>
 				FIA_X509_EXT.1 X.509 Certificate Validation<h:br/>
-				FIA_XCM_EXT.1 X.509 Certificate Management
+				FIA_XCU_EXT.1 X.509 Certificate Utilization
 			</dependencies>
-			<f-element id="fia-xcm-ext-2e1">
+			<f-element id="fia-xcu-ext-2e1">
 				<title>The TSF shall
 					 <selectables>
 						<selectable id="toe-requests-certs">request certificates from an <selectables><selectable>external</selectable>
@@ -2906,13 +2923,14 @@
 					The ST author claims the method for obtaining certificates and the source of certificates, and describes the 
 					functions represented and how the functions use certificates. The ST author claims ‘request certificates…’ if 
 					certificates are requested using standard request formats or protocols, and FIA_X509_EXT.3 is also claimed. If 
-					‘embedded CA’ is claimed in the sub-selection, then FDP_CER_EXT.1 and FDP_CER_EXT.2 are also claimed. If ‘obtain 
-					certificates from an embedded certification authority’ is claimed, FDP_CER_EXT.1 is claimed.
+					‘embedded CA’ is claimed in the sub-selection, then <no-link>FDP_CER_EXT.1</no-link>/OLTLeaf and FDP_CER_EXT.2 are also claimed. If ‘obtain 
+					certificates from an embedded certification authority’ is claimed, <no-link>FDP_CER_EXT.1</no-link>/OLTLeaf is claimed.
 				</note>
 				<aactivity>
 					<no-tests>This SFR is evaluated through the dependent SFRs that are claimed based on the selections made 
-						(FIA_X509_EXT.3 for certificate requests, FDP_CER_EXT.1 and FDP_CER_EXT.2 for obtaining certificates from its own CA,
-						and FIA_X509_EXT.2 for the TOE's use of certificates).</no-tests>
+						(<no-link>FIA_X509_EXT.3</no-link> for certificate requests, <no-link>FDP_CER_EXT.1</no-link>/OLTLeaf and <no-link>FDP_CER_EXT.2</no-link> 
+						for obtaining certificates from its own CA,
+						and <no-link>FIA_X509_EXT.2</no-link> for the TOE's use of certificates).</no-tests>
 				</aactivity>
 			</f-element>
 			
