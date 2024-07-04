@@ -27,10 +27,10 @@ output/X509-release-linkable.html: anyPurpose
 output/X509-release-linkable.html: authorityInfoAccess
 output/X509-release-linkable.html: authorityKeyIdentifier
 output/X509-release-linkable.html: cRLDistributionPoints
+output/X509-release-linkable.html: certifiate
 output/X509-release-linkable.html: certificatePolicies
 output/X509-release-linkable.html: certificationRequestInfo
 output/X509-release-linkable.html: clientAuth
-output/X509-release-linkable.html: cmpRA
 output/X509-release-linkable.html: codeSigning
 output/X509-release-linkable.html: dNSName
 output/X509-release-linkable.html: directoryName
@@ -112,10 +112,11 @@ output/X509-release.html: authorityKeyIdentifier
 output/X509-release.html: authority’
 output/X509-release.html: cRLDistributionPoints
 output/X509-release.html: cRLDistributionPoints’
+output/X509-release.html: certifiate
 output/X509-release.html: certificatePolicies
 output/X509-release.html: certificationRequestInfo
+output/X509-release.html: check’
 output/X509-release.html: clientAuth
-output/X509-release.html: cmpRA
 output/X509-release.html: codeSigning
 output/X509-release.html: constraints’
 output/X509-release.html: dNSName
@@ -128,7 +129,6 @@ output/X509-release.html: generation’
 output/X509-release.html: hashAlg
 output/X509-release.html: iPAddress
 output/X509-release.html: information’
-output/X509-release.html: inputs’
 output/X509-release.html: ipsecIKE
 output/X509-release.html: issuerAltName
 output/X509-release.html: issuerUniqueID
@@ -149,6 +149,7 @@ output/X509-release.html: policyConstraints
 output/X509-release.html: policyMapping
 output/X509-release.html: preferredSignatureAlgorithm
 output/X509-release.html: producedAt
+output/X509-release.html: provide’
 output/X509-release.html: raw’
 output/X509-release.html: repository’
 output/X509-release.html: revoke’
@@ -172,9 +173,9 @@ output/X509-release.html: un
 output/X509-release.html: uniformResourceIdentifier
 output/X509-release.html: uniqueIssuerID
 output/X509-release.html: uniqueSubjectID
-output/X509-release.html: uses’
+output/X509-release.html: use’
 output/X509-release.html: v2
-output/X509-release.html: verifies’
+output/X509-release.html: verify’
 output/X509-release.html: ’
 output/X509.html: 509v2
 output/X509.html: 5934’
@@ -213,10 +214,11 @@ output/X509.html: authorityKeyIdentifier
 output/X509.html: authority’
 output/X509.html: cRLDistributionPoints
 output/X509.html: cRLDistributionPoints’
+output/X509.html: certifiate
 output/X509.html: certificatePolicies
 output/X509.html: certificationRequestInfo
+output/X509.html: check’
 output/X509.html: clientAuth
-output/X509.html: cmpRA
 output/X509.html: codeSigning
 output/X509.html: constraints’
 output/X509.html: dNSName
@@ -229,7 +231,6 @@ output/X509.html: generation’
 output/X509.html: hashAlg
 output/X509.html: iPAddress
 output/X509.html: information’
-output/X509.html: inputs’
 output/X509.html: ipsecIKE
 output/X509.html: issuerAltName
 output/X509.html: issuerUniqueID
@@ -249,6 +250,7 @@ output/X509.html: policyConstraints
 output/X509.html: policyMapping
 output/X509.html: preferredSignatureAlgorithm
 output/X509.html: producedAt
+output/X509.html: provide’
 output/X509.html: raw’
 output/X509.html: repository’
 output/X509.html: revoke’
@@ -272,7 +274,7 @@ output/X509.html: un
 output/X509.html: uniformResourceIdentifier
 output/X509.html: uniqueIssuerID
 output/X509.html: uniqueSubjectID
-output/X509.html: uses’
+output/X509.html: use’
 output/X509.html: v2
-output/X509.html: verifies’
+output/X509.html: verify’
 output/X509.html: ’
