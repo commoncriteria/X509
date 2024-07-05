@@ -2330,13 +2330,17 @@
 			</f-element>
 				<f-element id="fia-x509-ext-1e2">
 					<title>
-						(required extension processing) The TSF shall  <selectables>
+						The TSF shall  <selectables>
 							<selectable>invoke platform-provided functionality</selectable>
 							<selectable>implement</selectable></selectables> processing of the extensions indicated in RFC 5280, section 4.2,
 						<h:ul> 
 							<h:li>Authority Key Identifier,</h:li>
 							<h:li>Subject Key Identifier</h:li>
+							<h:li>keyUsage</h:li>
 							and <selectables linebreak="yes">
+								<selectable>basicConstraints</selectable>
+								<selectable>authorityInformationAccess</selectable>
+								<selectable>cRLDistributionPoints</selectable>
 								<selectable>certificatePolicies</selectable>
 								<selectable>policyMapping</selectable>
 								<selectable>Subject alternate name containing any of the following name types <selectables linebreak="yes">
@@ -2367,7 +2371,7 @@
 				</f-element>
 			<f-element id="fia-x509-ext-1e3">
 				<title>
-					(Revocation status checking) The TSF shall  <selectables>
+					The TSF shall  <selectables>
 						<selectable>invoke platform-provided functionality</selectable>
 						<selectable>implement functionality</selectable></selectables>
 					to validate revocation status of the certificate using <selectables linebreak="yes">
@@ -2376,8 +2380,8 @@
 							<selectable>Certificate Revocation Lists as specified in RFC 5280</selectable>
 							<selectable>Based on validity period: Certificates expiring within <assignable>time less than 24 hours</assignable> of the current 
 								time are considered valid when no other valid revocation status information is available</selectable>
-							<selectable>Administrative notification: <assignable>administrative action upon notification</assignable> using <assignable>
-								method to invalidate supported functions</assignable> if the certificate is compromised.</selectable>
+							<selectable>Administrative notification of revocation: <assignable>administrative action upon notification</assignable> using <assignable>
+								method to invalidate use of certificate(s) in supported functions</assignable> when the certificate is revoked.</selectable>
 							<selectable>Direct association with Certification Authority: <assignable>direct revocation status information 
 								implementations</assignable></selectable>
 						</selectables>.
@@ -2385,42 +2389,47 @@
 					<note role="application">
 						<h:p>
 						The ST author claims the type of revocation status information supported. It is preferred that OCSP and CRL are 
-						supported when certificate validation supports multiple applications as indicated in FIA_X509_EXT.2. However, 
-						some applications require alternative approaches to revocation status validation. It is preferred that 
-						certificates supporting these applications not indicate revocation information sources, but it is understood that 
-						certification authorities issuing such certificates may not follow such practices.
+						supported when certificate validation supports multiple functions as indicated in FIA_X509_EXT.2. However, 
+						some functions require alternative approaches to revocation status validation and CAs supporting these functions may not provide OCSP or CRL sources. Certificates supporting these functions utilize alternative revocation status validation methods.
 						</h:p><h:p>
-						The option ‘Based on validity period…’ is claimed if certificates supporting an application are only valid for 
+						The option ‘Based on validity period…’ is claimed if certificates supporting a function are only valid for 
 						less than 24 hours and issued under a certificate policy that allows 24 hours or longer to process revocation 
 						requests. The time allowance in this option is specified in the assignment; if this is configurable, the 
 						assignment indicates so and specifies the limits of the assignment. 
 						</h:p><h:p>
-						The option ‘Administrative notification…’ is claimed if the certificates are used by an application for which 
+						The option ‘Administrative notification…’ is claimed if the certificates are used by a function for which 
 						out-of-band notification of compromise is practiced and is expected to be claimed when certificates that do not 
 						include revocation status information sources are processed. Typically used for OCSP certificates without 
 						revocation status source information, certificates which validate software or firmware components or maintain 
 						data integrity when the TOE is in a state prohibiting revocation status retrieval or processing. This option 
 						assumes public notification or direct notification to administrators by the issuer of the certificate, or for 
 						embedded certification authority functionality under the control of the administrator. The assignments in this 
-						option are used to describe required administrative actions and methods used to invalidate the application using 
-						certificates. 
+						option are used to describe required administrative actions and methods used to invalidate the function using 
+						such certificates. 
 						</h:p><h:p>
 						The option ‘Direct association with Certification Authority…’ is claimed if the certificates are used for 
 						TOE-specific functions and where TOE has direct and reliable communication path with the issuing CA. The CA in this 
 						case could be an embedded CA, or a CA dedicated to the TSF. If claimed, the ST author identifies the issuing CA and 
 						the method of automated notification in the assignment.   
 						</h:p><h:p>
-						Certificates that do not have revocation status location indicated in either the CRL DP or AIA are not expected to 
-						be revoked and are considered valid if all other certificates in the path are valid and have not revoked. In 
-						certain cases, no certificates in a path will have revocation status information advertised; if the TOE supports 
-						these cases, one of the last three selections is claimed and the basis for invalidating certificates is explained 
-						in the assignment.
+						Certificates that do not have revocation status location indicated in either the CRL DP or AIA are not expected to use CRL or OCSP for revocation status validation. In this case, one of the last three selections is claimed and the basis for invalidating certificates is explained 
+						in the assignment. In many of these cases, revocation status for the issuing CA certificates is depended on to indicate the status of leaf certificates, so it is preferred that CRL or OCSP is claimed even if leaf certificates exclusively use alternative methods. It is acceptable to include such intermediate certificates in trust stores to avoid the requirement to check revocation status when connections to obtain certificate status information are not available.
 						</h:p>
 					</note>	
 			</f-element>
 			<f-element id="fia-x509-ext-1e4">
 				<title>
-					(Retrieving revocation status information) The TSF shall  <selectables>
+					The TSF shall  <selectables>
+						<selectable>not obtain revocation status information by the TSF by reason of <selectables>
+							<selectable>determining that the certificate expires within <assignable>time less than 24 hours</assignable></selectable>
+							<selectable>determining that the <assignable>supported function</assignable> validates revocation status using <assignable>methods supported by the function</assignable></selectable>
+						</selectables> 
+						
+						</selectable>
+						
+						
+						
+						
 						<selectable>invoke platform-provided functionality</selectable>
 						<selectable>implement functionality</selectable></selectables> to obtain supported revocation status information
 							via <selectables linebreak="yes">
@@ -2436,9 +2445,9 @@
 				</title>
 					<note role="application">
 					<h:p>
-						The ST author claims the supported methods to obtain revocation status information. It is preferred, but not 
+						The ST author claims the supported options the TSF uses to ensure that supported functions obtain revocation status information. These options must be consistent with the rules for revocation status checking claimed in FIA_X509_EXT.1.1. It is preferred, but not 
 						required, that multiple methods are claimed to ensure valid revocation is available when a supported function 
-						requires it. It is required that at least one source is supported for each supported application indicated in 
+						requires it. If the option to not obtain revocation status information by reason that the TSF determines that supported functions performs revocation checking is claimed, the ST author specifies the specific function(s) from FIA_X509_EXT.2 that perform revocation status checking and the methods used by the function, including the relevant SFR references). It is required that at least one option is supported for each supported function indicated in 
 						FIA_X509_EXT.2. 
 					</h:p>
 						<h:p>
@@ -2446,9 +2455,9 @@
 						to include direct information from a CA that might not be via a CRL or OCSP. The selection indicates the types of 
 						sources for which external revocation status is supported. 
 					</h:p><h:p>
-						Local status information is claimed if the TOE maintains revocation status information status. The type of status 
+						Local status information is claimed if the TOE maintains revocation status information. The type of status 
 						information maintained locally is claimed in the selection for this option. If ‘embedded CA repository’ is 
-						claimed, FDP_CER_EXT.1/OLTleaf is also claimed. When a default status value is configured for when all other 
+						claimed, FDP_CER_EXT.1/OLTleaf and FDP_CSIR_EXT.1 are also claimed. When a default status value is configured for when all other 
 						sources are not available, the ST author claims local revocation status information and administrator 
 						configuration.
 					</h:p><h:p>
@@ -2460,64 +2469,64 @@
 			</f-element>
 			<f-element id="fia-x509-ext-1e5">
 				<title> <comment>Palo Alto comment</comment>
-					(Certificate context and usage constraints specific to application supported) The TSF shall  <selectables>
+					The TSF shall  <selectables>
 						<selectable>invoke platform-provided functionality</selectable>
 						<selectable>implement functionality</selectable>
 						<selectable>pass context information to the supported function</selectable></selectables> to validate that the 
-							context of the certificate path and trust store element is consistent with the application use via
+							context of the certificate path and trust store element is consistent with the function use via
 							 <selectables linebreak="yes">
-								<selectable> <assignable>trust store context rules</assignable>,</selectable>
-								<selectable>extendedKeyUsage (EKU) field according to the following rules: <selectables linebreak="yes">
-									<selectable>Certificates used for trusted updates and executable code integrity verification shall 
-										have the Code Signing Purpose (id-kp 3 with OID 1.3.6.1.5.5.7.3.3),</selectable>
-									<selectable>Client certificates presented for TLS shall have the Client Authentication purpose (id-kp
-										2 with OID 1.3.6.1.5.5.7.3.2),</selectable>
-									<selectable>Server certificates presented for TLS shall have the Server Authentication purpose (id-kp 
-										1 with OID 1.3.6.1.5.5.7.3.1),</selectable>
-									<selectable>Delegated OCSP signer’s certificates presented for OCSP responses shall have the OCSP 
-										Signing purpose (id-kp 9 with OID 1.3.6.1.5.5.7.3.9),</selectable>
-									<selectable>Server certificates presented for EST shall have the CMC Registration Authority (RA) 
-										purpose (id-kp-cmcRA with OID 1.3.6.1.5.5.7.3.28),</selectable>
-									<selectable>Certificates representing a Registration Authority have the CMC Registration Authority 
-										Purpose (id-kp-cmcRA with OID 1.3.6.1.5.5.7.3.28),</selectable>
-									<selectable>SMIME certificates presented to protect email have the email protection purpose 
-										(id-kp-emailProtection with OID 1.3.6.1.5.5.7.3.4),</selectable>
-									<selectable>IPsec and IKE certificates used in conjunction with other applications requiring an 
-										explicit EKU also have the IPsec-IKE purpose (id-kp-ipsecIKE with OID 1.3.6.1.5.5.7.3.17) in 
-										accordance with RFC 4945, section 5.1.3.12,</selectable>
-									<selectable><assignable>other EKU values required by supported applications</assignable></selectable>
-								</selectables></selectable>
-								<selectable> <selectables><selectable>certification path</selectable><selectable> <assignable>context from 
-										certification path processing</assignable> passed to supported function</selectable>
-								</selectables></selectable></selectables>									
+							 	<selectable>processing <selectables linebreak="yes">
+							 		<selectable><assignable>trust store context rules</assignable></selectable>
+							 		<selectable>extendedKeyUsage field constraints in the leaf certificate including: <selectables>
+							 			selectable> <assignable>trust store context rules</assignable>,</selectable>
+							 		<selectable>extendedKeyUsage (EKU) field constraints in the leaf certificate including: <selectables linebreak="yes">
+							 			<selectable>Certificates used for trusted updates and executable code integrity verification shall 
+							 				have the Code Signing Purpose (id-kp 3 with OID 1.3.6.1.5.5.7.3.3),</selectable>
+							 			<selectable>Client certificates presented for TLS shall have the Client Authentication purpose (id-kp
+							 				2 with OID 1.3.6.1.5.5.7.3.2),</selectable>
+							 			<selectable>Server certificates presented for TLS shall have the Server Authentication purpose (id-kp 
+							 				1 with OID 1.3.6.1.5.5.7.3.1),</selectable>
+							 			<selectable>Delegated OCSP signer’s certificates presented for OCSP responses shall have the OCSP 
+							 				Signing purpose (id-kp 9 with OID 1.3.6.1.5.5.7.3.9),</selectable>
+							 			<selectable>Server certificates presented for EST shall have the CMC Registration Authority (RA) 
+							 				purpose (id-kp-cmcRA with OID 1.3.6.1.5.5.7.3.28),</selectable>
+							 			<selectable>Certificates representing a Registration Authority have the CMC Registration Authority 
+							 				Purpose (id-kp-cmcRA with OID 1.3.6.1.5.5.7.3.28),</selectable>
+							 			<selectable>Certificates representing a Registration Authority have the v3 CMP Registration Authority Purpose (id-kp-cmcRA with OID 1.3.6.1.5.5.7.3.28)</selectable>
+							 			<selectable>SMIME certificates presented to protect email have the email protection purpose 
+							 				(id-kp-emailProtection with OID 1.3.6.1.5.5.7.3.4),</selectable>
+							 			<selectable>IPsec and IKE certificates used in conjunction with other functions requiring an 
+							 				explicit EKU also have the IPsec-IKE purpose (id-kp-ipsecIKE with OID 1.3.6.1.5.5.7.3.17) in 
+							 				accordance with RFC 4945, section 5.1.3.12,</selectable>
+							 			<selectable><assignable>other EKU values required by supported functions</assignable></selectable>
+							 		</selectables> and rejects the certificate if the context requirements are not met,</selectable>
+							 		</selectables> </selectable>
+
+								<selectable>passing <selectables><selectable>certification path</selectable><selectable><assignable>context from 
+										certification path processing</assignable> passed to the supported function</selectable>
+								</selectables></selectable></selectables>.									
 				</title>
 				<note role="application">
 				<h:p>
-					The ST author claims the trust store context rules and describes the application context for each supported trust 
-					store, if any. Such rules include the interpretation of extensions in a root CA certificate used as a trust store 
-					element, required extensions in intermediate CA certificates, and required extensions in the leaf certificate, with 
-					interpretations (referenced RFC and/or refined use) on how such extensions and their values limit the applicability 
-					of a certification path, any initial name constraints (including reference IDs processed as part of path validation), 
-					expected certificate policies, etc. 
+					he ST author claims whether the TSF processes trust store rules or passes context to the supported function. If the TSF processes trust store context rules, the ST author describes the application context for each supported trust store, if any. Such rules include the interpretation of extensions in a root CA certificate used as a trust store element, the interpretation of required extensions in intermediate CA certificates, and required extensions in the leaf certificate, with interpretations (referenced RFC and/or refined use) on how such extensions and their values limit the applicability of a certification path, any initial name constraints (including reference IDs processed as part of path validation), expected certificate policies, etc. 
 				</h:p><h:p>
-					The ST author claims all explicit EKU values for applications (Code integrity, OCSP, TLS, DTLS, SMIME), claimed in 
-					FIA_X509_EXT.2.1. It is preferred, but not required that each application using certificates indicated in 
+					The ST author claims "extendedKeyUsage field..." if context depends on the value of the EKU in leaf certificates. This selection is required if the TSF supports the listed functions (Code integrity, OCSP, TLS, DTLS, SMIME), as claimed in 
+					FIA_X509_EXT.2.1 or as required in other SFRs in this package. It is preferred, but not required that each function using certificates indicated in 
 					FIA_X509_EXT.2.1 is associated with an EKU. While RFC 5280 generally allows the use of ‘anyPurpose’ it indicates that 
-					applications may require explicit values. Certificates without an EKU field or with the ‘anyPurpose’ OID in lieu of 
+					applications may require explicit values. This element clarifies the requirement that certificates without an EKU field or with the ‘anyPurpose’ OID in lieu of 
 					the required explicit value are considered invalid if used for applications for which an explicit EKU value is 
 					required.
 				</h:p><h:p>
 					The ST author claims ‘pass context information to the supported function’ and the final option in the last selection 
 					to describe certification path context information passed to the supported function. Context information can be the 
 					entire certification path used, or specific context (name constraints, policy constraints etc.) made available to the 
-					function for its own suitability decision. This option is not to be claimed in lieu of processing the required 
-					extendedKeyUsage fields for supported functions.
+					function for its own suitability decision. Any context information derived from certification path processing by the TSF that is passed to the supported function, to include the certification path processing and the resulting context, in the assignment. The option to pass information is not to be claimed in lieu of processing the required extendedKeyUsage fields for supported functions unless the ST of the function supported includes the required context processing.
 				</h:p>
 				</note>	
 			</f-element>
 			<f-element id="fia-x509-ext-1e6">
 				<title>
-					(managing trust store elements) <comment>Integrate allowance for platform managed trust store  (see Palo Alto comment 5) 
+					<comment>Integrate allowance for platform managed trust store  (see Palo Alto comment 5) 
 						– also impacts test 13</comment> The TSF shall  <selectables>
 						<selectable id='toe-manages-trust-stores'>manage trust stores</selectable>
 						<selectable>use platform-managed trust stores</selectable></selectables>
@@ -2531,8 +2540,12 @@
 				</note>	
 			<aactivity>
 					<TSS>
-						The evaluator shall review the TSS and verify that the description of certificate path validation meets the 
+						<h:p>
+						The evaluator shall review the TSS and verify that the description of certificate path validation and context verification meets the 
 						requirements.
+						</h:p><h:p>
+							The evaluator shall review the TSS and verify that all trust stores used for certification path verification are described, to include context associated with the trust store, and any pre-loaded trust store elements, and that the management capabilities associated with each trust store is described.  
+						</h:p>
 					</TSS>
 					<Guidance>
 						The evaluator shall ensure that instructions for any configurable features of the validation process are 
