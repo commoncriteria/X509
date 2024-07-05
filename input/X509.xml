@@ -2475,10 +2475,11 @@
 						<selectable>pass context information to the supported function</selectable></selectables> to validate that the 
 							context of the certificate path and trust store element is consistent with the function use via
 							 <selectables linebreak="yes">
-							 	<selectable>processing <selectables linebreak="yes">
+							 	<selectable>processing 
+							 		<selectables linebreak="yes">
 							 		<selectable><assignable>trust store context rules</assignable></selectable>
 							 		<selectable>extendedKeyUsage field constraints in the leaf certificate including: <selectables>
-							 			selectable> <assignable>trust store context rules</assignable>,</selectable>
+							 			<selectable> <assignable>trust store context rules</assignable>,</selectable>
 							 		<selectable>extendedKeyUsage (EKU) field constraints in the leaf certificate including: <selectables linebreak="yes">
 							 			<selectable>Certificates used for trusted updates and executable code integrity verification shall 
 							 				have the Code Signing Purpose (id-kp 3 with OID 1.3.6.1.5.5.7.3.3),</selectable>
@@ -2498,7 +2499,7 @@
 							 			<selectable>IPsec and IKE certificates used in conjunction with other functions requiring an 
 							 				explicit EKU also have the IPsec-IKE purpose (id-kp-ipsecIKE with OID 1.3.6.1.5.5.7.3.17) in 
 							 				accordance with RFC 4945, section 5.1.3.12,</selectable>
-							 			<selectable><assignable>other EKU values required by supported functions</assignable></selectable>
+							 			<selectable><assignable>other EKU values required by supported functions</assignable></selectable></selectables></selectable>
 							 		</selectables> and rejects the certificate if the context requirements are not met,</selectable>
 							 		</selectables> </selectable>
 
