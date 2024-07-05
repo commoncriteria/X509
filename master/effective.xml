@@ -229,9 +229,9 @@
 					<figure entity="images/usecase2.png" title="Use Case 2: TOE Asserting an Identity Using Certificates" id="fig-usecase1"/>
 				</description>
 			</usecase>
-			<usecase id="usecase3" title="TOE as the Sole Relying Party of a Certificate Issued by an Embedded CA.">
+			<usecase id="usecase3" title="TOE as the Sole Relying Party of a Certificate Issued by an Embedded CA">
 				<description>
-					<figure entity="images/usecase3.png" title="Use Case 3: TOE as the Sole Relying Party of a Certificate Issued by an Embedded CA." id="fig-usecase1"/>
+					<figure entity="images/usecase3.png" title="Use Case 3: TOE as the Sole Relying Party of a Certificate Issued by an Embedded CA" id="fig-usecase1"/>
 				</description>
 			</usecase>
 		</usecases>
@@ -346,7 +346,7 @@
 				different certificate profiles, each associated with unique embedded CA supporting a subset of the supported functions 
 				or the TOE may support a common profile that uses the key usage and extended key usage extensions to differentiate the 
 				intended use of a certificate. When a single CA supports multiple functions, the extendedKeyUsage extension is claimed 
-				in <no-link>FDP_CER_EXT.1.2</no-link>/OLTLeaf to distinguish which functions are supported by the certificate.
+				in <xref to="fdp-cer-ext-1e2-oltleaf"/> to distinguish which functions are supported by the certificate.
 			</note>
 		</f-element>
 			
@@ -366,6 +366,10 @@
 								<selectable> <assignable>positive length of time</assignable></selectable>
 							</selectables></h:li>
 						<h:li>The issuer field is populated with the name of the embedded CA issuing the certificate.</h:li>
+						<h:li>The signature field and the algorithm specification in the subjectPublicKeyInfo signature field agree and <selectables>
+							<selectable>are in accordance with RFC 8603</selectable>
+							<selectable>use <assignable>list of supported functions</assignable></selectable>
+						</selectables></h:li>
 						<h:li>The following extensions are supported as described:
 						<h:ul>
 							<h:li>authorityKeyIdentifier  <selectables>
@@ -373,7 +377,7 @@
 								<selectable> <assignable>an identifier associated with a trust store element corresponding to the issuing 
 									CA</assignable></selectable> 
 								</selectables></h:li>
-							<h:li>keyUsage is marked critical and is not empty</h:li>
+							<h:li>keyUsage is present, and is not empty</h:li>
 							<h:li> <selectables linebreak="yes">
 								<selectable>subjectKeyIdentifier is populated</selectable>
 								<selectable>extendedKeyUsage is present and is populated with  <selectables linebreak="yes">
@@ -435,6 +439,8 @@
 					that if a single embedded CA issues certificates supporting multiple functions, the explicit EKU purposes for each 
 					function, including IPsec/IKE if supported, are claimed. Other supported EKU values specific to supported functions 
 					are indicated in the assignment.
+					</h:p><h:p>
+						If “subjectAlternateName” is claimed as a supported extension, the ST author claims all RFC 5280 Name types supported and designates any other standard name types in the assignment, indicating the formatting and normalization standard used for each supported name types. Standards used to refine or provide alternate normalization for RFC 5280 name types are claimed via the assignment.
 					</h:p>
 				</note>
 			</f-element>
@@ -474,7 +480,7 @@
 			<f-element id="fdp-cer-ext-1e4-oltleaf">
 				<title>The TSF shall populate the following certificate fields according to the rules:
 				<h:ul>
-					<h:li>The subject, as populated in the <selectables linebreak="yes">
+					<h:li>Each subject identifier as populated in the <selectables linebreak="yes">
 						<selectable>subjectName</selectable>
 						<selectable>subjectAltName of type <selectables linebreak="yes">
 							<selectable>rfc822Name</selectable>
@@ -487,10 +493,20 @@
 						of the issued certificate is determined by <selectables linebreak="yes">
 							<selectable>PKCS-10 request in accordance with RFC 2986</selectable>
 							<selectable>EST request in accordance with RFC 7030 as updated by RFC 8996</selectable>
-							<selectable>A CMC request in accordance with RFC 5272 as updated by RFC 6402</selectable>
-							<selectable>A CMC request in accordance with RFC 5272 as refined by RFC 8756</selectable>
+							<selectable>A CMC request meeting the profile specified in <selectables>
+								<selectable>RFC 8756</selectable>
+								<selectable><assignable>CMC profile supported</assignable></selectable>
+							</selectables> in accordance with RFC 5272, RFC 5273, and RFC 5274 as updated by RFC 6402</selectable>
+							<selectable>A CMP request in accordance with RFC 4210 <selectables>
+								<selectable>as updated by RFC 6712 and RFC 9481 (v2 CMP)</selectable>
+								<selectable>as updated by RFC 6712 and RFC 9480 (v3 CMP)</selectable>
+							</selectables></selectable>
 						</selectables>				
-						provided by the supported function</h:li>
+						validated by <selectables>
+							<selectable>the supported function</selectable>
+							<selectable><assignable>administrator action</assignable></selectable>
+							<selectable><assignable>automated processes</assignable></selectable>
+						</selectables></h:li>
 					<h:li>The public key populated in the issued certificate is <selectables linebreak="yes">
 						<selectable>generated by the TOE on <assignable>a specific event</assignable> and <selectables>
 							<selectable>made available to the supported function via an inter-TOE channel</selectable>
@@ -514,15 +530,20 @@
 				</h:ul>
 				</title>
 				<note role="Application">
-					A certificate profile is further refined by inputs of the function(s) supported. The ST author describes how subjects 
-					of certificates are determined, where the key-pair is generated, and other constraints specific to the supported 
-					function’s interaction. When the subject of a certificate represents an entity external to the TOE, a standard 
-					certificate request formatting or protocols is supported, and all certificate values requested by the external 
-					device are included in the request; the internal TOE function which exclusively trusts these external certificates 
+					<h:p>
+					A certificate profile is further refined by inputs of the function(s) supported. 
+					</h:p><h:p>
+						In the first bullet, the ST author describes the name types indicated for each supported function (a subset of the supported name types indicated in <xref to="fdp-cer-ext-1e2-oltleaf"/>), how subjects 
+					of certificates are determined, and how the requested subject names are validated. Note that when multiple names are included in a request, 'validated' applies to all names populated in a certificate. When the subject of a certificate represents an entity external to the TOE or when an internal TOE entity supports it, a standard 
+					certificate request formatting or protocols is supported, and all certificate values requested by the entity are included in the request; the internal TOE function which exclusively trusts these external certificates 
 					may act as a registration authority as specified in the claimed RFC. When the subject of the certificate is 
 					associated with an internal TOE function, the values in the populated certificate may use any method that is under 
-					the control of the subject. When the EST or a CMC method is claimed, the ST author will claim the corresponding SFR 
-					describing the requirements for server functionality.
+					the control of the subject. PKCS-10 is claimed when the supported function interfaces directly with an embedded CA to generate a certificate representing a TOE entity. When the EST, CMC, or CMP method is claimed, the ST author will claim the corresponding FDP_ESTS_EXT.1, FDP_CMCS_EXT.1, or FDP_CMPS_EXT.1, respectively.  
+					</h:p><h:p>
+					In the second bullet, the ST author indicates where the key pair is generated and how the embedded CA validates that the entity represented in the certificate is in possession of the associated private key.
+					</h:p><h:p>
+					In the third bullet, the ST author describes the additional certificate constraints, if any, provided by the supported function that may override the values included in a certificate request (if supported).
+					</h:p>
 				</note>
 				<aactivity>
 					<TSS>
@@ -533,6 +554,8 @@
 						</h:p><h:p>
 						The evaluator shall further examine the TSS to ensure that it describes how the TSF updates and enforces each 
 						certificate profile based on the configuration of the CA and inputs provided by the supported function.
+						</h:p><h:p>
+							For each subject DN or subjectAlternateName name type supported, the evaluator shall verify that the ST indicates the normalization standard used for the name type and the method used for ensuring the name populated in the certificate is appropriately normalized.	
 						</h:p>
 					</TSS>
 					<Guidance>
@@ -543,12 +566,17 @@
 						The evaluator shall perform the following test.
 						<testlist>
 							<test>
-								<h:p>[conditional] For each certificate profile associated to a TOE function that issues certificates to an 
-								external entity (if any), the evaluator shall cause the TOE to issue a certificate and observe that the 
+								<h:p>For each supported function claimed in <xref to="fdp-cer-ext-1e1-oltleaf"/>, and for each certificate profile associated to the function, the evaluator shall cause the TOE to issue a certificate and observe that the 
 								certificate meets the appropriate profile, including constraints determined by the embedded CA 
-								configuration and inputs provided by the external entity in the associated certificate request. If 
-								multiple name types are supported for the profile, the evaluator shall repeat this test for each name 
-								type and observe that the name in the issued certificate is properly normalized.</h:p>
+								configuration and inputs provided by the function. If 
+								multiple name types are supported, the evaluator shall repeat this test as necessary to include all supported name types.</h:p>
+							</test>
+                            <test>
+                            	[conditional] If “subjectName” is claimed and standard certificate requests are supported that allow a general DN to be input, the  evaluator shall send the TSF a certificate request that includes a DN with an RDN component containing multiple elements and verify that TSF rejects the request.
+                            </test>
+							<test>
+								[conditional] If “subjectAlternateName” is claimed, and standard certificate requests are supported that allow multiple SAN entries, then for each name type supported, the evaluator shall send the TSF a certificate request with multiple SAN entries of the indicated name type, where the first entry is valid and the second entry is invalid. The evaluator shall confirm that the TSF issues a certificate containing only the first entry.
+								Note: the method to create an invalid entry depends on the validation methods claimed.
 							</test>							
 						</testlist>
 					</Tests>
@@ -625,7 +653,7 @@
 				<title>
 					The TSF shall generate certificates using certificate profiles that comply with requirements for issued certificates 
 					as specified in IETF RFC 5280, “Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List 
-					(CRL) Profile” as refined below, that apply to all supported functions described in <no-link>FDP_CER_EXT.1.1</no-link>/OLTLeaf:
+					(CRL) Profile” as refined below, that apply to all supported functions described in <xref to="fdp-cer-ext-1e1-oltleaf"/>:
 					<h:ul>
 						<h:li>The version is 3 (value 02).</h:li>
 						<h:li>The certificate does not contain subjectUniqueID or issuerUniqueID fields.</h:li>
@@ -903,7 +931,7 @@
 						</h:li>
 						<h:li>
 							The signature and signatureAlgorithm fields shall contain the OID for a digital signature algorithm in 
-							accordance with FCS_COP.1 in the Base-PP. <comment>from CCPPD: proposed updates here and in app note
+							accordance with FCS_COP.1 in the base PP. <comment>from CCPPD: proposed updates here and in app note
 							(comment kept to preserve numbering of other comments)</comment>
 						</h:li>
 						<h:li>
@@ -1079,11 +1107,16 @@
 					FDP_CRL_EXT.1 must be claimed. If "the OCSP standard as defined by RFC 6960" is selected in FDP_OCSP_EXT.1.1, FDP_OCSP_EXT.1 must be claimed.
 					</h:p><h:p>
 					The ST author claims the supported methods for distributing generated certificate status information to the supported 
-					functions that are relying parties for the issued certificates. If CRLs are identified in <xref to="fdp-csi-ext-1e1"/>, 
+					functions that are relying parties for the issued certificates. If CRLs are claimed in <xref to="fdp-csi-ext-1e1"/>, 
 					then ‘posting CRLs at… cRLDistributionPoints…’ is claimed in <xref to="fdp-csi-ext-1e3"/> and ‘cRLDistributionPoints’ 
-					is claimed in <xref to="fdp-csi-ext-1e2"/>. If the OCSP standard is selected in <xref to="fdp-csi-ext-1e1"/>, then at 
-					least one of ‘OCSP mechanism…in the authorityInfoAccess…’ or ‘…OCSP stapling…’ is claimed and ‘authorityInfoAccess’ 
-					must be claimed in <xref to="fdp-csi-ext-1e1"/>. If ‘…OCSP stapling’ is claimed, the ST author identifies the functions 
+						is claimed in <xref to="fdp-cer-ext-1e2-oltleaf"/>. 
+					</h:p><h:p>
+						If the OCSP standard is selected in <xref to="fdp-csi-ext-1e1"/>, then FDP_OCSP_EXT.1 is also claimed and at 
+						least one of ‘OCSP mechanism…in the authorityInfoAccess…’ or ‘…OCSP stapling…’ is claimed in the selection for <xref to="fdp-csi-ext-1e3"/>.                     </h:p><h:p>
+						If ‘OCSP mechanism…in the authorityInfoAccess…’ is claimed in <xref to="fdp-csi-ext-1e3"/>, ‘authorityInfoAccess’ 
+							must be claimed in <xref to="fdp-cer-ext-1e1-oltleaf"/>. 
+					</h:p><h:p>
+						If ‘…OCSP stapling’ is claimed, the ST author identifies the functions 
 					using OCSP stapling for server-authenticated TLS or DTLS and describes the interface to provide the OCSP response to 
 					each of the functions in the assignment.
 					</h:p>
@@ -1216,7 +1249,7 @@
 			<management>No specific management functions are identified.</management>
 			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
 				<h:ul>
-					<h:li>CMC requests (generated or received) containing certificate or revocation requests</h:li>
+					<h:li>CMC certificate or revocation requests</h:li>
 					<h:li>CMC responses issued</h:li>
 				</h:ul>
 			</audit>
@@ -1296,10 +1329,8 @@
 				</aactivity>
 			</f-element>	
 			<audit-event>
-				<audit-event-descr>CMC requests (generated or received) containing certificate or revocation requests</audit-event-descr>
-				<audit-event-info>Identifiers for all entities authenticating the request, including the entity providing client 
-					authentication for the CMC transport (if any)</audit-event-info>
-				<audit-event-info>The submitted request</audit-event-info>		
+				<audit-event-descr>CMC certificate or revocation requests</audit-event-descr>
+				<audit-event-info>None</audit-event-info>
 			</audit-event>
 			<audit-event>
 				<audit-event-descr>CMC responses issued</audit-event-descr>
@@ -1318,7 +1349,7 @@
 			<management>No specific management functions are identified.</management>
 			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
 				<h:ul>
-					<h:li>CMC requests (generated or received) containing certificate or revocation requests</h:li>
+					<h:li>CMC messages received containing certificate or revocation requests</h:li>
 					<h:li>CMC responses issued</h:li>
 				</h:ul>
 			</audit>
@@ -1344,7 +1375,7 @@
 					in accordance with RFC 5272, RFC 5273, and RFC 5274, as updated by RFC 6402.				
 			</title>
 				<note role="Application">
-					The ST author claims supported CMC request processing and the supported CMC profiles. A CMC profile describes the 
+					The ST author claims supported CMC request processing and the supported CMC profiles as indicated in <xref to="fdp-cer-ext-1e4-oltleaf"/>, with matching selections. A CMC profile describes the 
 					cryptographic functions and extensions supported. If profiles other than RFC 8756 are supported, the ST author 
 					describes the supported cryptographic functions and extensions used for those profiles. 
 					Cryptographic functions used in the CMC profile are limited to those specified in the PP or PP-Module which claims conformance 
@@ -1481,10 +1512,10 @@
 			</f-element>
 			
 			<audit-event>
-				<audit-event-descr>CMC requests (generated or received) containing certificate or revocation requests</audit-event-descr>
+				<audit-event-descr>CMC messages received containing certificate or revocation requests</audit-event-descr>
 				<audit-event-info>Identifiers for all entities authenticating the request, including the entity providing client 
 					authentication for the CMC transport (if any)</audit-event-info>
-				<audit-event-info>The submitted request</audit-event-info>		
+				<audit-event-info>The request received</audit-event-info>		
 			</audit-event>
 			<audit-event>
 				<audit-event-descr>CMC responses issued</audit-event-descr>
@@ -1502,7 +1533,11 @@
 			<comp-lev> requires the TSF to generate, export, import, and transport CMP requests that meet subject and end-entity compliance
 				requirements.</comp-lev>
 			<management>No specific management functions are identified.</management>
-			<audit>There are no auditable events foreseen.</audit>
+			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+				<h:ul>
+					<h:li>CMP certificate or revocation requests</h:li>
+				</h:ul>
+			</audit>
 			<dependencies>
 				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:br/>
 				FIA_X509_EXT.3 X.509 Certificate Requests<h:br/>
@@ -1520,8 +1555,8 @@
 					</selectables>
 					to generate CMP requests
 					 <selectables>
-						<selectable>in accordance with RFC 4210 as updated by RFC 9481 (CMP version 2)</selectable>
-						<selectable>in accordance with RFC 4210 as updated by RFC 9480 (CMP version 3)</selectable>
+						<selectable>in accordance with RFC 4210 as updated by RFC 6712 and RFC 9481 (CMP version 2)</selectable>
+						<selectable>in accordance with RFC 4210 as updated by RFC 6712 and RFC 9480 (CMP version 3)</selectable>
 					</selectables>,
 					which meet the compliance requirements for subject and end entities.
 				</title>
@@ -1538,12 +1573,12 @@
 						<selectable>export CMP requests and import CMP responses under the control of an administrator</selectable>
 					 	<selectable>transport CMP messages over <comment>HTTPS is recommended for external CAs, but other options are 
 					 		acceptable for embedded CAs or when CMP message protection mechanisms are used. If needed, include other 
-					 		options in a selection</comment> HTTPS in accordance with RFC 6712</selectable>
-						<selectable>with all renewal requests using mutual authentication</selectable>
+					 		options in a selection</comment> HTTPS in accordance with RFC 6712, with all renewal requests using mutual authentication</selectable>
+						<selectable>transport CMP messages over HTTPS in accordance with RFC 9480 (CMP version 3) with all renewal requests using mutual authentication</selectable>
 					</selectables>.
 				</title>
 				<note role="application">
-					The ST author claims the methods for exchanging CMP messages. If CMC transport over HTTPS is claimed, the HTTPS (with 
+					The ST author claims the methods for exchanging CMP messages. If CMP transport over HTTPS is claimed, the HTTPS (with 
 					mutual authentication for re-key requests) uses compliant cryptographic functions in accordance with base SFR.
 				</note>
 				<aactivity>
@@ -1562,7 +1597,7 @@
 									compliant with the requirements.</h:p>
 							</test>
 							<test>
-								<h:p>[conditional]: if HTTPS transport of CMC is supported, the evaluator will observe that CMC messages are 
+								<h:p>[conditional]: if HTTPS transport of CMP is supported, the evaluator shall observe that CMP messages are 
 								transported over a compliant HTTPS session with the CA. If re-key is supported, the evaluator shall attempt 
 								to re-key a certificate obtained in <xref to="valid-cmpc-test"/>, and verify that compliant mutually authenticated HTTPS is 
 								established with the CA.</h:p>
@@ -1572,7 +1607,10 @@
 				</aactivity>
 			</f-element>	
 			
-			<audit-event/>
+			<audit-event>
+				<audit-event-descr>CMP certificate or revocation requests</audit-event-descr>
+				<audit-event-info>None</audit-event-info>
+			</audit-event>
 			
 		</f-component>
 		
@@ -1584,7 +1622,12 @@
 			<depends on="toe-enforces-cmp"/>
 			<comp-lev> requires the TSF to receive, process, and respond to CMP requests from authorized clients and RAs.</comp-lev>
 			<management>No specific management functions are identified.</management>
-			<audit>There are no auditable events foreseen.</audit>
+			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+				<h:ul>
+					<h:li>CMC messages received containing certificate or revocation requests</h:li>
+					<h:li>CMC responses issued</h:li>
+				</h:ul>
+			</audit>
 			<dependencies>
 				<no-link>FCS_COP.1</no-link> Cryptographic Operation<h:br/>
 				FDP_CER_EXT.2 Certificate Request Matching<h:br/>
@@ -1716,7 +1759,16 @@
 				</aactivity>
 			</f-element>
 			
-			<audit-event/>
+			<audit-event>
+				<audit-event-descr>CMP messages-received containing certificate or revocation requests</audit-event-descr>
+				<audit-event-info>Identifiers for all entities authenticating the request, including the entity providing client 
+					authentication for the CMC transport (if any)</audit-event-info>
+				<audit-event-info>The request received</audit-event-info>		
+			</audit-event>
+			<audit-event>
+				<audit-event-descr>CMC response issued</audit-event-descr>
+				<audit-event-info>None</audit-event-info>				
+			</audit-event>
 							
 		</f-component>
 		
@@ -1732,8 +1784,7 @@
 			<management>No specific management functions are identified.</management>
 			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
 				<h:ul>
-					<h:li>EST requests (generated or received) containing certificate or revocation requests</h:li>
-					<h:li>EST responses issued</h:li>
+					<h:li>EST certificate or revocation requests</h:li>
 				</h:ul>
 			</audit>
 			<dependencies>
@@ -1849,14 +1900,8 @@
 			</f-element>
 			
 			<audit-event>
-				<audit-event-descr>EST requests (generated or received) containing certificate or revocation requests</audit-event-descr>
-				<audit-event-info>Identifiers for all entities authenticating the request, including the entity providing client 
-					authentication for the EST transport (if any)</audit-event-info>
-				<audit-event-info>The submitted request</audit-event-info>		
-			</audit-event>
-			<audit-event>
-				<audit-event-descr>EST responses issued</audit-event-descr>
-				<audit-event-info>Any signed response</audit-event-info>				
+				<audit-event-descr>EST certificate or revocation requests</audit-event-descr>
+				<audit-event-info>None</audit-event-info>
 			</audit-event>
 						
 		</f-component>
@@ -1873,7 +1918,7 @@
 			<management>No specific management functions are identified.</management>
 			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
 				<h:ul>
-					<h:li>EST requests (generated or received) containing certificate or revocation requests</h:li>
+					<h:li>EST messages received containing certificate or revocation requests</h:li>
 					<h:li>EST responses issued</h:li>
 				</h:ul>			
 			</audit>
@@ -2021,10 +2066,10 @@
 			</f-element>
 			
 			<audit-event>
-				<audit-event-descr>EST requests (generated or received) containing certificate or revocation requests</audit-event-descr>
+				<audit-event-descr>EST messages received containing certificate or revocation requests</audit-event-descr>
 				<audit-event-info>Identifiers for all entities authenticating the request, including the entity providing client 
 					authentication for the EST transport (if any)</audit-event-info>
-				<audit-event-info>The submitted request</audit-event-info>		
+				<audit-event-info>The received request</audit-event-info>		
 			</audit-event>
 			<audit-event>
 				<audit-event-descr>EST responses issued</audit-event-descr>
@@ -2041,7 +2086,11 @@
 			<depends on="toe-manages-trust-stores"/>
 			<comp-lev> defines the ability of the TSF to manage trust stores using a specified option to validate certificates.</comp-lev>
 			<management>No specific management functions are identified.</management>
-			<audit>There are no auditable events foreseen.</audit>
+			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+				<h:ul>
+					<h:li>Any addition, replacement, or removal of trust anchors in the TOE's trust store</h:li>
+				</h:ul>
+			</audit>
 			<dependencies>
 				<no-link>FMT_SMF.1</no-link> Specification of Management Functions<h:br/>
 				<no-link>FMT_SMR.1</no-link> Security Roles
@@ -2088,7 +2137,7 @@
 							into an SFR element?</comment>local (associated with a locally configured OCSP responder) or ‘no-check’ (contains the extension id-pkix-ocsp-nocheck) OCSP certificates is verified in accordance with the options RFC 6960 section 4.2.2.2.1. 
 					</h:p>
 					<h:p>
-						The ST author designates which trust stores or trust store elements are managed in the assignment (a subset of those indicated in <no-link>FIA_X509_EXT.1.6</no-link>) and specifies one or more options for 
+						The ST author designates which trust stores or trust store elements are managed in the assignment (a subset of those indicated in FIA_X509_EXT.1.6) and specifies one or more options for 
 						the management of trust stores used for validating certificates in the second selection.
 					</h:p>
 					<h:ul>
@@ -2171,7 +2220,10 @@
 				</aactivity>
 			</f-element>			
 			
-			<audit-event/>
+			<audit-event>
+				<audit-event-descr>Any addition, replacement, or removal of trust anchors in the TOE's trust store</audit-event-descr>
+				<audit-event-info>Identification of trust store element and modification made</audit-event-info>		
+			</audit-event>
 			
 		</f-component>
 
@@ -2189,7 +2241,6 @@
 			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
 				<h:ul>
 					<h:li>Unsuccessful attempt to validate a certificate</h:li>
-					<h:li>Any addition, replacement, or removal of trust anchors in the TOE’s trust store</h:li>
 				</h:ul>
 			</audit>
 			<dependencies>
@@ -2208,33 +2259,38 @@
 							<selectable>unlimited path length</selectable>
 							<selectable>maximum path length of <assignable>positive integer</assignable> certificates</selectable>
 						</selectables> and certificate paths exceeding the maximum path length are invalid.</h:li>
-						<h:li>The certification path shall terminate at a trust anchor element appropriate for the application supported.</h:li>
-						<h:li>Certificates containing subjectUniqueID or issuerUniqueID fields are considered invalid</h:li>
-						<h:li> <selectables linebreak="yes">
-							<selectable>Certificates are signed using cryptographic signatures or hashes in accordance with RFC 8603,</selectable>
-							<selectable>Certificates are signed using <assignable>list of supported cryptographic algorithms</assignable></selectable>
+						<h:li>The current time is within the notBefore and notAfter values of all certificates in the certification path.</h:li>
+						<h:li>The certification path shall terminate at a trust anchor element appropriate for the supported function.</h:li>
+						<h:li>Certificates containing subjectUniqueID or issuerUniqueID fields are considered invalid.</h:li>
+						<h:li>Certificates are signed using cryptographic signatures and hashes in accordance with RFC 8603, and <selectables linebreak="yes">
+							<selectable><assignable>list of supported cryptographic algorithms</assignable></selectable>
+							<selectable>no other algorithms</selectable>
 							</selectables>
 							and certificates signed using other cryptographic algorithms are considered invalid.</h:li>
 						<h:li> 
 							<selectables>
-							<selectable>CRLs are signed using <selectables linebreak="yes">
-								<selectable>cryptographic signatures using algorithms and associated hash functions in accordance 
-										with RFC 8603</selectable>
-								<selectable> <assignable>list of supported cryptographic algorithms</assignable></selectable></selectables>
-							and CRLs signed using other cryptographic algorithms are considered invalid;</selectable>
-						<selectable>
-						OCSP responses are signed using <selectables linebreak="yes">
-							<selectable>sha256WithRSAEncryption in accordance with RFC 6960 with key size of 2048 bits or greater,</selectable>
-							<selectable> <selectables linebreak="yes">
-								<selectable><comment>Discuss OCSP gap in RFC 8603 with Crypto TC to determine how group constraints are 
-									captured.</comment><comment>Crypto TC review: Either add secp256r1 or add an application note 
-										regarding refining RFC 6960 to deprecate the algorithm</comment> sha384WithRSAEncryption with key 
-									size of 3072 bits or greater,</selectable>
-								<selectable>ecdsa-with-SHA384 using <selectables><selectable>secp384r1</selectable><selectable>secp521r1
-								</selectable></selectables> requested using the preferredSignatureAlgorithm extension</selectable></selectables>
-								and are considered invalid if using other algorithms;</selectable></selectables></selectable>
-								<selectable>no other signature algorithm constraints.</selectable>
-						</selectables></h:li>
+								<selectable>CRLs are signed using cryptographic signatures and hashes in accordance with RFC 8603 and <selectables linebreak="yes">
+									<selectable><assignable>list of supported cryptographic algorithms</assignable></selectable>
+									<selectable>no other algorithms</selectable></selectables>
+									and CRLs signed using other cryptographic algorithms are considered invalid;</selectable>
+								<selectable>
+									OCSP responses are signed using <comment>Discuss OCSP gap in RFC 8603 with Crypto TC to determine how group constraints are 
+										captured.</comment><comment>Crypto TC review: Either add secp256r1 or add an application note 
+											regarding refining RFC 6960 to deprecate the algorithm</comment>
+									<selectables linebreak="yes">
+												<selectable>sha256WithRSAEncryption in accordance with RFC 6960 with key size of 2048 bits or greater,</selectable>
+												<selectable>ecdsa-with-SHA384 using 
+													<selectables><selectable>secp384r1</selectable><selectable>secp521r1</selectable></selectables>,</selectable>
+												<selectable>ecdsa-with-SHA512 using 
+                                                     <selectables><selectable>secp384r1</selectable><selectable>secp521r1</selectable></selectables>,
+												</selectable></selectables> and <selectables>
+													<selectable><assignable>list of other supported algorithms</assignable></selectable>
+													<selectable>no other algorithms</selectable>
+												</selectables>
+									requested using the preferredSignatureAlgorithm extension
+							and OCSP responses are considered invalid if using other algorithms;</selectable>
+							<selectable>no other signature algorithm constraints.</selectable>
+							</selectables></h:li>
 					</h:ul>		
 				</title>
 					<note role="application">
@@ -2254,11 +2310,9 @@
 						The restriction on uniqueSubjectID and uniqueIssuerID refines RFC 5280, which only requires the extensions be 
 						ignored.
 					</h:p><h:p>
-						For the selection on certificate signing rules, the ST author claim one of the certificate signature algorithm 
-						limitations. The second option is claimed if any of the signature and hash algorithms are described in the FCS_COP 
-						family of SFRs from the base PP is supported. For these signature limitations, use of P-521 is allowed, even though 
-						its use is not explicitly indicated in RFC 8603, and can be supported when ‘Certificates are signed…in accordance 
-						with RFC 8603’ or when ‘CRLs are signed…in accordance with RFC 8603’ is claimed.
+						For the selection on certificate signing rules, the ST author claims one of the certificate signature algorithm 
+						limitations. The second option is claimed if any of the signature and hash algorithms described in the FCS_COP 
+						family of SFRs from the base PP are supported. For these signature limitations, use of P-521 or SHA-512 is indicated by including the supported algorithms in the assignment, even though its use is not explicitly indicated in RFC 8603.
 					</h:p><h:p>
 						ST authors similarly claim signature algorithm limitations in the final selection for each supported revocation 
 						status (CRL or OCSP) method claimed in FIA_X509_EXT.1.3. If CRL or OCSP methods are not claimed in 
@@ -2617,11 +2671,6 @@
 				<audit-event-descr>Unsuccessful attempt to validate a certificate</audit-event-descr>
 				<audit-event-info>Reason for failure of certificate validation</audit-event-info>
 			</audit-event>
-			<audit-event>
-				<audit-event-descr>Any addition, replacement, or removal of trust anchors in the TOE's trust store</audit-event-descr>
-				<audit-event-info>Identification of certificates added, replaced or removed as anchors in the TOE’s trust store or removed
-					as trust anchor in the TOE’s trust store</audit-event-info>
-			</audit-event>
  <!-- 			
 			<audit-event>
 				<audit-event-descr>Unsuccessful attempt to validate a certificate.</audit-event-descr>
@@ -2635,11 +2684,7 @@
 			<comp-lev> requires the TSF to use certificates to authenticate peers in protocols that support certificates, as well as
 				for integrity verification and potentially other functions that require certificates.</comp-lev>
 			<management>No specific management functions are identified.</management>
-			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
-				<h:ul>
-					<h:li>Failed certificate validations</h:li>
-				</h:ul>
-			</audit>
+			<audit/>
 			<dependencies>
 				FIA_X509_EXT.1 X.509 Certificate Validation<h:br/>
 				FIA_XCU_EXT.1 X.509 Certificate Utilization	
@@ -2730,10 +2775,7 @@
 			</aactivity>
 			</f-element>
 			
-			<audit-event>
-				<audit-event-descr>Failed certificate validations</audit-event-descr>
-				<audit-event-info>None</audit-event-info>
-			</audit-event>
+			<audit-event/>
 			
 		</f-component>
 		
@@ -2741,7 +2783,13 @@
 			<depends on="toe-requests-certs"/>
 			<comp-lev> requires the TSF to be able to generate Certificate Request Messages and validate responses.</comp-lev>
 			<management>No specific management functions are identified.</management>
-			<audit>There are no auditable events foreseen.</audit>
+			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+				<h:ul>
+					<h:li>Certificate requested</h:li>
+					<h:li>Valid certificate received</h:li>
+					<h:li>Invalid certificate received</h:li>
+				</h:ul>
+			</audit>
 			<dependencies>
 				<no-link>FCS_CKM.1</no-link> Cryptographic Key Generation<h:br/>
 				FIA_X509_EXT.1 X.509 Certificate Validation<h:br/>
@@ -2840,7 +2888,18 @@
 				</aactivity>
 			</f-element>	
 			
-			<audit-event/>
+			<audit-event>
+				<audit-event-descr>Certificate requested</audit-event-descr>
+				<audit-event-info>Certificate to be signed</audit-event-info>
+			</audit-event>
+			<audit-event>
+				<audit-event-descr>Valid certificate received</audit-event-descr>
+				<audit-event-info>None</audit-event-info>
+			</audit-event>
+			<audit-event>
+				<audit-event-descr>Invalid certificate received</audit-event-descr>
+				<audit-event-info>Reason for failure</audit-event-info>
+			</audit-event>
 							
 		</f-component>
 		
@@ -2920,9 +2979,9 @@
 				</note>
 				<aactivity>
 					<no-tests>This SFR is evaluated through the dependent SFRs that are claimed based on the selections made 
-						(<no-link>FIA_X509_EXT.3</no-link> for certificate requests, <no-link>FDP_CER_EXT.1</no-link>/OLTLeaf and <no-link>FDP_CER_EXT.2</no-link> 
+						(FIA_X509_EXT.3 for certificate requests, <no-link>FDP_CER_EXT.1</no-link>/OLTLeaf and FDP_CER_EXT.2 
 						for obtaining certificates from its own CA,
-						and <no-link>FIA_X509_EXT.2</no-link> for the TOE's use of certificates).</no-tests>
+						and FIA_X509_EXT.2 for the TOE's use of certificates).</no-tests>
 				</aactivity>
 			</f-element>
 			

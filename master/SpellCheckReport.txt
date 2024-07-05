@@ -19,6 +19,7 @@ output/X509-release-linkable.html: OSCP
 output/X509-release-linkable.html: PCKS
 output/X509-release-linkable.html: Palo
 output/X509-release-linkable.html: RAs
+output/X509-release-linkable.html: RDN
 output/X509-release-linkable.html: RFC7030
 output/X509-release-linkable.html: SMR
 output/X509-release-linkable.html: STIP
@@ -65,6 +66,7 @@ output/X509-release-linkable.html: serverAuth
 output/X509-release-linkable.html: sha256WithRSAEncryption
 output/X509-release-linkable.html: signatureAlgorithm
 output/X509-release-linkable.html: subjectAltName
+output/X509-release-linkable.html: subjectAlternateName
 output/X509-release-linkable.html: subjectKeyIdentifier
 output/X509-release-linkable.html: subjectName
 output/X509-release-linkable.html: subjectPublicKeyInfo
@@ -98,6 +100,7 @@ output/X509-release.html: OSCP
 output/X509-release.html: PCKS
 output/X509-release.html: Palo
 output/X509-release.html: RAs
+output/X509-release.html: RDN
 output/X509-release.html: RFC7030
 output/X509-release.html: SMR
 output/X509-release.html: STIP
@@ -164,6 +167,7 @@ output/X509-release.html: signatureAlgorithm
 output/X509-release.html: stapling’
 output/X509-release.html: stores’
 output/X509-release.html: subjectAltName
+output/X509-release.html: subjectAlternateName
 output/X509-release.html: subjectKeyIdentifier
 output/X509-release.html: subjectName
 output/X509-release.html: subjectPublicKeyInfo
@@ -200,6 +204,7 @@ output/X509.html: OSCP
 output/X509.html: PCKS
 output/X509.html: Palo
 output/X509.html: RAs
+output/X509.html: RDN
 output/X509.html: RFC7030
 output/X509.html: SMR
 output/X509.html: STIP
@@ -265,6 +270,7 @@ output/X509.html: signatureAlgorithm
 output/X509.html: stapling’
 output/X509.html: stores’
 output/X509.html: subjectAltName
+output/X509.html: subjectAlternateName
 output/X509.html: subjectKeyIdentifier
 output/X509.html: subjectName
 output/X509.html: subjectPublicKeyInfo
