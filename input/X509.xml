@@ -2269,7 +2269,7 @@
 						</selectables> and certificate paths exceeding the maximum path length are invalid.</h:li>
 						<h:li>The current time is within the notBefore and notAfter values of all certificates in the certification path.</h:li>
 						<h:li>The certification path shall terminate at a trust anchor element appropriate for the supported function.</h:li>
-						<h:li>Certificates containing subjectUniqueID or issuerUniqueID fields are considered invalid</h:li>
+						<h:li>Certificates containing subjectUniqueID or issuerUniqueID fields are considered invalid.</h:li>
 						<h:li>Certificates are signed using cryptographic signatures and hashes in accordance with RFC 8603, and <selectables linebreak="yes">
 							<selectable><assignable>list of supported cryptographic algorithms</assignable></selectable>
 							<selectable>no other algorithms</selectable>
@@ -2282,10 +2282,9 @@
 								<selectable>no other algorithms</selectable></selectables>
 							and CRLs signed using other cryptographic algorithms are considered invalid;</selectable>
 						<selectable>
-						OCSP responses are signed using <selectables linebreak="yes">
-							<comment>Discuss OCSP gap in RFC 8603 with Crypto TC to determine how group constraints are 
+							OCSP responses are signed using <comment>Discuss OCSP gap in RFC 8603 with Crypto TC to determine how group constraints are 
 								captured.</comment><comment>Crypto TC review: Either add secp256r1 or add an application note 
-									regarding refining RFC 6960 to deprecate the algorithm</comment>
+									regarding refining RFC 6960 to deprecate the algorithm</comment><selectables linebreak="yes">
 							<selectable>sha256WithRSAEncryption in accordance with RFC 6960 with key size of 2048 bits or greater,</selectable>
 							<selectable>ecdsa-with-SHA384 using <selectables><selectable>secp384r1</selectable><selectable>secp521r1</selectable></selectables>,</selectable>
 							<selectable>ecdsa-with-SHA512 using <selectables><selectable>secp384r1</selectable><selectable>secp521r1</selectable></selectables>,</selectable></selectables> and <selectables>
