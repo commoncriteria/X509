@@ -2277,24 +2277,28 @@
 							and certificates signed using other cryptographic algorithms are considered invalid.</h:li>
 						<h:li> 
 							<selectables>
-							<selectable>CRLs are signed using cryptographic signatures and hashes in accordance with RFC 8603 and <selectables linebreak="yes">
-								<selectable><assignable>list of supported cryptographic algorithms</assignable></selectable>
-								<selectable>no other algorithms</selectable></selectables>
-							and CRLs signed using other cryptographic algorithms are considered invalid;</selectable>
-						<selectable>
-							OCSP responses are signed using <comment>Discuss OCSP gap in RFC 8603 with Crypto TC to determine how group constraints are 
-								captured.</comment><comment>Crypto TC review: Either add secp256r1 or add an application note 
-									regarding refining RFC 6960 to deprecate the algorithm</comment><selectables linebreak="yes">
-							<selectable>sha256WithRSAEncryption in accordance with RFC 6960 with key size of 2048 bits or greater,</selectable>
-							<selectable>ecdsa-with-SHA384 using <selectables><selectable>secp384r1</selectable><selectable>secp521r1</selectable></selectables>,</selectable>
-							<selectable>ecdsa-with-SHA512 using <selectables><selectable>secp384r1</selectable><selectable>secp521r1</selectable></selectables>,</selectable></selectables> and <selectables>
-								<selectable><assignable>list of other supported algorithms</assignable></selectable>
-								<selectable>no other algorithms</selectable>
-							</selectables>
-								requested using the preferredSignatureAlgorithm extension</selectable></selectables>
-								and OCSP responses are considered invalid if using other algorithms;</selectable></selectables></selectable>
-								<selectable>no other signature algorithm constraints.</selectable>
-						</selectables></h:li>
+								<selectable>CRLs are signed using cryptographic signatures and hashes in accordance with RFC 8603 and <selectables linebreak="yes">
+									<selectable><assignable>list of supported cryptographic algorithms</assignable></selectable>
+									<selectable>no other algorithms</selectable></selectables>
+									and CRLs signed using other cryptographic algorithms are considered invalid;</selectable>
+								<selectable>
+									OCSP responses are signed using <comment>Discuss OCSP gap in RFC 8603 with Crypto TC to determine how group constraints are 
+										captured.</comment><comment>Crypto TC review: Either add secp256r1 or add an application note 
+											regarding refining RFC 6960 to deprecate the algorithm</comment>
+									<selectables linebreak="yes">
+												<selectable>sha256WithRSAEncryption in accordance with RFC 6960 with key size of 2048 bits or greater,</selectable>
+												<selectable>ecdsa-with-SHA384 using 
+													<selectables><selectable>secp384r1</selectable><selectable>secp521r1</selectable></selectables>,</selectable>
+												<selectable>ecdsa-with-SHA512 using 
+                                                     <selectables><selectable>secp384r1</selectable><selectable>secp521r1</selectable></selectables>,
+												</selectable></selectables> and <selectables>
+													<selectable><assignable>list of other supported algorithms</assignable></selectable>
+													<selectable>no other algorithms</selectable>
+												</selectables>
+									requested using the preferredSignatureAlgorithm extension
+							and OCSP responses are considered invalid if using other algorithms;</selectable>
+							<selectable>no other signature algorithm constraints.</selectable>
+							</selectables></h:li>
 					</h:ul>		
 				</title>
 					<note role="application">
