@@ -2554,34 +2554,31 @@
 						<testlist>
 							<test id="invalid-cert-test">					
 							The evaluator shall demonstrate that validating a certificate without a valid certification path results
-							in the function failing, for each of the following reasons, in turn:					
+							in the function failing by performing the following:
+							<h:ul>
+								<h:li>[conditional] If the TSF imposes limits on certification path lengths, the evaluator shall demonstrate that the TSF rejects valid certificates whose certification path exceeds the supported length.</h:li>
+								<h:li>[conditional] If the TSF supports path length greater than 1 when the trust store element is a root CA certificate, or greater than 2 when the trust store element is a raw public key, then the evaluator shall  perform the following:
 							<h:ul>
 								<h:li>
-									Establishing a certification path in which one of the issuing certificates is not a CA certificate by
-									omitting the basicConstraints field in one of the issuing certificates
+									The evaluator shall establish a certification path in which one of the issuing certificates is not a CA certificate by
+									omitting the basicConstraints field in one of the issuing certificates and demonstrate that the TSF rejects the certificate.
 								</h:li>
 								<h:li>
-									Setting the basicConstraints field in an issuing certificate to have CA=False
+									The evaluator shall set the basicConstraints field in an issuing certificate to have CA=False and demonstrate that the TSF rejects the certificate.
 								</h:li>
 								<h:li>
-									Omitting the CA signing bit of the key usage field in an issuing certificate
+									The evaluator shall omit the CA signing bit of the key usage field in an issuing certificate and demonstrate that the TSF rejects the certificate.
 								</h:li>
 								<h:li>
-									Setting the path length field of a valid CA field to a value strictly less than the certification path
+									The evaluator shall set the path length field of a valid CA field to a value strictly less than the certification path and demonstrate that the TSF rejects the certificate.
 								</h:li>
 								<h:li>
-									Terminating the certification path with an untrusted public key
+									The evaluator shall establish a valid certificate path consisting of a leaf certificate and one or more valid CA certificates up to the limit of the certification path length supported (if finite), and terminating in a trust store element, and demonstrate that the TSF accepts the certification path as valid. The evaluator shall then modify a byte in the public key of an intermediate certificate in the certificate path that is not a trust store element and demonstrate that the TSF rejects the leaf certificate and its modified certification path.
 								</h:li>
 							</h:ul>
-						<h:p>
-							The evaluator shall then establish a valid certificate path consisting of a leaf certificate and multiple 
-							valid CA certificates, terminating in a trusted trust store element, and demonstrate that the function 
-							succeeds.
-						</h:p>
-						<h:p>
-							The evaluator shall then remove trust in the trust store element of the certification path and show that the 
-							function fails.
-						</h:p>
+								</h:li>
+								<h:li>The evaluator shall establish a certification path terminating at an untrusted public key, but which is otherwise valid, and demonstrate that the TSF rejects the certificate.</h:li>
+							</h:ul>
 						<h:p>
 							The evaluator then reinstate trust in the trust store element, but modify a byte in the public key of an 
 							intermediate certificate in the certificate path that is not a trust store element and show that the function 
@@ -2676,6 +2673,26 @@
 									<h:p>Note: This test is not performed if ‘pass context information to the supported function’ is the only 
 									method of certification path context processing claimed.</h:p>											
 							</test>
+							<test>
+								The evaluator shall establish a certificate with an empty subject field and not containing a subjectAlternateName extension, but which is otherwise valid and trusted by the TSF. The evaluator shall demonstrate that the TSF rejects the certificate.
+							</test>
+							<test>
+								[conditional]: If certificates with non-empty subject fields are validated and if either name constraints processing is supported or one or more reference ID checking rules are included in trust store context rules, then for each RDN supported, the evaluator shall configure the TOE to enforce a rule on the RDN value, establish a value for the RDN that matches the rule, and perform the following steps: <h:ul>
+									<h:li>The evaluator shall present a valid certificate containing a valid DN with the matching RDN value to the supported function and verify that the certificate is accepted.</h:li>
+									<h:li>The evaluator shall then present a second certificate where the RDN component does not match the rule, but which is otherwise valid and matches the first certificate. The evalatuator shall observe that certificate is rejected.</h:li>
+									<h:li>The evaluator shall present a third certificate, where the DN includes the RDN with non-matching value as in the second certificate, but which also includes a non-supported (or undefined) RDN term populated with the matching value for the original RDN, and which is otherwise valid and matches the first certificate and demonstrate that the modified certificate is rejected.</h:li>
+									<h:li>The evaluator shall present a fourth certificate, where the DN does not include the RDN, but which includes an unsupported (or undefined) RDN with the matching value for the original RDN as in the third certificate, but which is otherwise valid and demonstrate that the modified certificate is rejected.</h:li>
+									<h:li>The evaluator shall present a fifth certificate where the DN includes the RDN with a value containing the matching value as a substring of a longer, non-matching value, but which is otherwise valid and demonstrate that the modified certificate is rejected.</h:li>
+									<h:li>The evaluator shall present a sixth certificate where the DN includes the RDN as a multi-element RDN, where both elements contain matching values, but which is otherwise valid and observe that the certificate is rejected.</h:li>
+								</h:ul> 
+							</test>
+							<test>
+								[conditional]: If the subject_Alt_Name extension is supported and if the TSF either supports name constraints or reference ID matching as part of trust store context rules, then for each name type supported, the evaluator shall configure the TSF to enforce a rule to constrain the values of the name type, and generate a matching value that meets the constraints, and well as a non-matching value that does not meet the constraints. The evaluator shall then perform the following: <h:ul>
+									<h:li>The evaluator shall establish a valid certificate that includes the SAN name of the given type and matching value. The evaluator shall present the certificate to a supported function and demonstrate that the certificate is accepted.</h:li>
+									<h:li>The evaluator shall establish a second certificate that includes the SAN name of the given type and non-matching value. The evaluator shall present the certificate to a supported function and demonstrate that the certificate is rejected.</h:li>
+									<h:li>[conditional]: If the TSF also supports a CN in the subject field, the evaluator shall configure the TSF as necessary to prefer SAN entries over the CN and establish a valid certificate which contains both a subject field including the non-matching value as a CN entry, and the matching value as the SAN entry. The evaluator shall present the certificate to the supported function and demonstrate that the certificate is accepted. The evaluator shall then establish a certificate with the matching name in the CN, and the non-matching name in the SAN entry, but which is otherwise valid. The evaluator shall present the certificate to a supported function and demonstrate that the certificate is rejected.</h:li>
+								</h:ul>
+							</test>
 						</testlist>
 					</Tests>
 				</aactivity>				
@@ -2711,7 +2728,7 @@
 					 <selectables>
 						<selectable>invoke platform-provided functionality to validate</selectable>
 						<selectable>validate</selectable></selectables>
-					X.509v3 certificates in accordance with <xref to="fia-x509-ext-1"/> to support 
+					X.509v3 certificates in accordance with <xref to="fia-x509-ext-1"/> to support <assignable>supported functions</assignable> using 
 					 <selectables linebreak="yes">
 						<selectable> <selectables><selectable>TLS</selectable><selectable>DTLS</selectable><selectable>IPsec or IKE
 						</selectable><selectable>SMIME</selectable><selectable>SSH</selectable><selectable> <assignable>other 
@@ -2725,8 +2742,8 @@
 						</selectables>					
 				</title>
 				<note role="Application">
-					The ST author lists all protocols and services (applications) using certificates issued by a certification authority 
-					that chains to a trust store element associated with the application.
+					The ST author lists all supported functions that depend on identities associated with certificates in the assignment.  
+					protocols and services (applicationsused by the supported functions) that require certificates.
 				</note>
 			</f-element>
 			<f-element id="fia-x509-ext-2e2">
@@ -2737,7 +2754,8 @@
 						<selectable>determine</selectable></selectables> whether the
 					 <selectables>
 						<selectable>administrator is allowed to configure certificate acceptance</selectable>
-						<selectable>certificate is accepted</selectable>
+					 	<selectable>supported function determines acceptance via <assignable>method of determining acceptance</assignable></selectable>
+					 	<selectable>certificate is accepted</selectable>
 						<selectable>certificate is not accepted</selectable></selectables> 
 					when valid certificate revocation status information cannot be obtained from a source indicated in FIA_X509_EXT.1.3.
 				</title>
@@ -2745,13 +2763,13 @@
 					<h:p>
 					When multiple methods of revocation status information are available, it is expected that the aggregate reliability 
 					of supported methods will limit the use of exception processing. However, it is required that the TOE have a 
-					specified behavior in case all status information are either invalid or not available. This behavior may be specific 
-					to certain trust stores or applications. It is strongly encouraged that ‘certificate is accepted’ not be claimed for 
-					client authentication and more generally when reliable revocation status checks are available. In applications where 
+					specified behavior in case all status information options are either invalid or not available. This behavior may be specific 
+					to certain trust stores or supported functions. It is strongly encouraged that ‘certificate is accepted’ not be claimed for 
+					client authentication and more generally when reliable revocation status checks are available. For supported functions where 
 					external certificate revocation status information is not expected to be available such as firmware updates or 
 					initial network connections for the TSF that cannot establish a network connection, best practice is to use 
 					certificates that do not advertise CRL or OCSP locations, and instead support alternate revocation status verification 
-					methods.
+					methods.  The option ‘supported function determines acceptance’ is claimed when the supported function determines revocation status exceptions, for example, by presenting an option to the authorized user of the function, or when the function validates the status of intermediate CA or leaf certificates included in a trust store at times other than when used. In such cases, the ST author describes the methods used in the assignment.
 					</h:p>
 					<h:p>
 						The treatment of invalid revocation status information should not impact the validity of a certificate if other 
@@ -2766,7 +2784,7 @@
 							included.						
 					</TSS>
 				<Guidance>
-							The evaluator shall inspect the guidance documentation to ensure instructions for configuring 
+					[conditional]: If “administrator is allowed to configure certificate acceptance” is claimed, the evaluator shall inspect the guidance documentation to ensure instructions for configuring 
 							application-specific behavior for certificate validation is included.
 				</Guidance>
 				<Tests>
@@ -2821,7 +2839,8 @@
 						<selectable id="toe-uses-est">RFC 7030 as updated by RFC 8996 (EST)</selectable>
 						<selectable id="toe-uses-cmc">RFC 5272 as updated by RFC 6402 (CMC)</selectable>
 						<selectable>RFC 5272 as updated by RFC 8756 (CNSA CMC)</selectable>
-						<selectable id="toe-uses-cmp">RFC 4210 as updated by RFC 9481 (CMP)</selectable>
+						<selectable id="toe-uses-v2-cmp">RFC 4210 as updated by RFC 9481 (v2 CMP)</selectable>
+					 	<selectable id="toe-uses-v3-cmp">RFC 4210 as updated by RFC 9480 (v3 CMP)</selectable>
 						</selectables>
 					and be able to provide the following information in the request: public key, <selectables linebreak="yes">
 						<selectable>Subject DN</selectable>
@@ -2841,10 +2860,10 @@
 				</title>
 				<note role="Application">
 					The supported certificate request mechanisms are claimed in the first selection. PCKS-10 is claimed whether a manual 
-					request process is used or if the PKCS-10 request is posted to the certification authority (to include for embedded 
+					request process is used or if the PKCS-10 request is posted to the certification authority (for embedded 
 					CAs or as in ACME implementations). Other options embed the certificate request in a formalized certificate management 
 					protocol. If EST is claimed, FIA_ESTC_EXT.1 is also claimed; if CMC or CNSA CMC are claimed, FIA_CMCC_EXT.1 is also 
-					claimed; if CMP is claimed, FIA_CMPC_EXT.1 is also claimed.
+					claimed; if v2 or v3 CMP is claimed, FIA_CMPC_EXT.1 is also claimed.
 				</note>
 			</f-element>
 			<f-element id="fia-x509-ext-3e2">
@@ -2852,7 +2871,7 @@
 					 <selectables>
 						<selectable>invoke platform-provided functionality</selectable>
 						<selectable>provide functionality</selectable></selectables>
-					to validate the certificate path in accordance with <xref to="FIA-X509-EXT-1"/> upon receiving the CA Certificate 
+					to validate the certificate path in accordance with FIA_X509_EXT.1 upon receiving the CA Certificate 
 					Response, and validate that the certificate path of the response is consistent with the intended usage.
 				</title>
 				<note role="Application">
@@ -2985,17 +3004,20 @@
 						</selectables>.								
 				</title>
 				<note role="application">
+					<h:p>
 					The ST author claims the method for obtaining certificates and the source of certificates, and describes the 
 					functions represented and how the functions use certificates. The ST author claims ‘request certificates…’ if 
 					certificates are requested using standard request formats or protocols, and FIA_X509_EXT.3 is also claimed. If 
 					‘embedded CA’ is claimed in the sub-selection, then <no-link>FDP_CER_EXT.1</no-link>/OLTLeaf and FDP_CER_EXT.2 are also claimed. If ‘obtain 
 					certificates from an embedded certification authority’ is claimed, <no-link>FDP_CER_EXT.1</no-link>/OLTLeaf is claimed.
+					</h:p><h:p>
+						The use of embedded CAs is constrained to only locally trusted functions. That is, the relying party for a certificate issued by the embedded CA is limited to TOE functions. In practice, this limitation typically precludes privileged users from using certificates issued by an embedded CA, especially in environments where administrative access to systems (including both TOE functions and non-TOE functions) is governed by an identity management policy. So, while not mandatory, it is strongly recommended that ‘external’ CA is claimed, and that all functions that provide person-entity authentication to privileged TOE functions support certificate requests to an external CA.
+					</h:p>
 				</note>
 				<aactivity>
-					<no-tests>This SFR is evaluated through the dependent SFRs that are claimed based on the selections made 
-						(FIA_X509_EXT.3 for certificate requests, <no-link>FDP_CER_EXT.1</no-link>/OLTLeaf and FDP_CER_EXT.2 
-						for obtaining certificates from its own CA,
-						and FIA_X509_EXT.2 for the TOE's use of certificates).</no-tests>
+					<TSS>The evaluator shall review the ST and confirm that the methods for obtaining certificates for representing its supported functions are described.</TSS>
+					<Guidance>There are no guidance EAs for this component.</Guidance>
+					<Tests>There are no test EAs for this component.</Tests>
 				</aactivity>
 			</f-element>
 			

@@ -1764,9 +1764,7 @@
         </div>
         <div class="comp" id="FIA_CMPC_EXT.1">
             <h4>FIA_CMPC_EXT.1 CMP Certificate Enrollment</h4>
-            <div class="statustag">
-                <b><i>The inclusion of this selection-based component depends upon selection in <a href="#FIA_X509_EXT.3.1">FIA_X509_EXT.3.1</a>. </i></b>
-            </div>
+            <div class="statustag"></div>
             <div class="element">
                 <div class="reqid" id="FIA_CMPC_EXT.1.1">
                     <a href="#FIA_CMPC_EXT.1.1" class="abbr">FIA_CMPC_EXT.1.1</a>
@@ -2721,26 +2719,35 @@
                              The evaluator shall perform the following tests. The tests for the extendedKeyUsage rules, name constraints and policy constraints, if supported, are performed in conjunction with the uses that require those rules. <span class="testlist-">
                                 <ul>
                                     <li class="test-">
-                                        <a id="invalid-cert-test" class="defined" href="#invalid-cert-test">Test FIA_X509_EXT.1:1</a>: The evaluator shall demonstrate that validating a certificate without a valid certification path results in the function failing, for each of the following reasons, in turn: 
+                                        <a id="invalid-cert-test" class="defined" href="#invalid-cert-test">Test FIA_X509_EXT.1:1</a>: The evaluator shall demonstrate that validating a certificate without a valid certification path results in the function failing by performing the following: 
                                         <ul>
                                             <li>
-                                                 Establishing a certification path in which one of the issuing certificates is not a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate by omitting the basicConstraints field in one of the issuing certificates 
+                                                [conditional] If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> imposes limits on certification path lengths, the evaluator shall demonstrate that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> rejects valid certificates whose certification path exceeds the supported length.
                                             </li>
                                             <li>
-                                                 Setting the basicConstraints field in an issuing certificate to have <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>=False 
+                                                [conditional] If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports path length greater than 1 when the trust store element is a root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate, or greater than 2 when the trust store element is a raw public key, then the evaluator shall perform the following: 
+                                                <ul>
+                                                    <li>
+                                                         The evaluator shall establish a certification path in which one of the issuing certificates is not a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate by omitting the basicConstraints field in one of the issuing certificates and demonstrate that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> rejects the certificate. 
+                                                    </li>
+                                                    <li>
+                                                         The evaluator shall set the basicConstraints field in an issuing certificate to have <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>=False and demonstrate that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> rejects the certificate. 
+                                                    </li>
+                                                    <li>
+                                                         The evaluator shall omit the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> signing bit of the key usage field in an issuing certificate and demonstrate that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> rejects the certificate. 
+                                                    </li>
+                                                    <li>
+                                                         The evaluator shall set the path length field of a valid <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> field to a value strictly less than the certification path and demonstrate that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> rejects the certificate. 
+                                                    </li>
+                                                    <li>
+                                                         The evaluator shall establish a valid certificate path consisting of a leaf certificate and one or more valid <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates up to the limit of the certification path length supported (if finite), and terminating in a trust store element, and demonstrate that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> accepts the certification path as valid. The evaluator shall then modify a byte in the public key of an intermediate certificate in the certificate path that is not a trust store element and demonstrate that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> rejects the leaf certificate and its modified certification path. 
+                                                    </li>
+                                                </ul>
                                             </li>
                                             <li>
-                                                 Omitting the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> signing bit of the key usage field in an issuing certificate 
+                                                The evaluator shall establish a certification path terminating at an untrusted public key, but which is otherwise valid, and demonstrate that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> rejects the certificate.
                                             </li>
-                                            <li>
-                                                 Setting the path length field of a valid <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> field to a value strictly less than the certification path 
-                                            </li>
-                                            <li> Terminating the certification path with an untrusted public key </li>
                                         </ul>
-                                        <p>
-                                             The evaluator shall then establish a valid certificate path consisting of a leaf certificate and multiple valid <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates, terminating in a trusted trust store element, and demonstrate that the function succeeds. 
-                                        </p>
-                                        <p> The evaluator shall then remove trust in the trust store element of the certification path and show that the function fails. </p>
                                         <p> The evaluator then reinstate trust in the trust store element, but modify a byte in the public key of an intermediate certificate in the certificate path that is not a trust store element and show that the function fails. </p>
                                     </li>
                                     <li class="test-">
@@ -2818,6 +2825,44 @@
                                         </p>
                                         <p>Note: This test is not performed if &lsquo;pass context information to the supported function&rsquo; is the only method of certification path context processing claimed.</p>
                                     </li>
+                                    <li class="test-">
+                                        <a id="_t_44" class="defined" href="#_t_44">Test FIA_X509_EXT.1:14</a>: The evaluator shall establish a certificate with an empty subject field and not containing a subjectAlternateName extension, but which is otherwise valid and trusted by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. The evaluator shall demonstrate that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> rejects the certificate. 
+                                    </li>
+                                    <li class="test-">
+                                        <a id="_t_45" class="defined" href="#_t_45">Test FIA_X509_EXT.1:15</a>: [conditional]: If certificates with non-empty subject fields are validated and if either name constraints processing is supported or one or more reference ID checking rules are included in trust store context rules, then for each RDN supported, the evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to enforce a rule on the RDN value, establish a value for the RDN that matches the rule, and perform the following steps: 
+                                        <ul>
+                                            <li>
+                                                The evaluator shall present a valid certificate containing a valid <abbr class="dyn-abbr"><a href="#abbr_DN">DN</a></abbr> with the matching RDN value to the supported function and verify that the certificate is accepted.
+                                            </li>
+                                            <li>The evaluator shall then present a second certificate where the RDN component does not match the rule, but which is otherwise valid and matches the first certificate. The evalatuator shall observe that certificate is rejected.</li>
+                                            <li>
+                                                The evaluator shall present a third certificate, where the <abbr class="dyn-abbr"><a href="#abbr_DN">DN</a></abbr> includes the RDN with non-matching value as in the second certificate, but which also includes a non-supported (or undefined) RDN term populated with the matching value for the original RDN, and which is otherwise valid and matches the first certificate and demonstrate that the modified certificate is rejected.
+                                            </li>
+                                            <li>
+                                                The evaluator shall present a fourth certificate, where the <abbr class="dyn-abbr"><a href="#abbr_DN">DN</a></abbr> does not include the RDN, but which includes an unsupported (or undefined) RDN with the matching value for the original RDN as in the third certificate, but which is otherwise valid and demonstrate that the modified certificate is rejected.
+                                            </li>
+                                            <li>
+                                                The evaluator shall present a fifth certificate where the <abbr class="dyn-abbr"><a href="#abbr_DN">DN</a></abbr> includes the RDN with a value containing the matching value as a substring of a longer, non-matching value, but which is otherwise valid and demonstrate that the modified certificate is rejected.
+                                            </li>
+                                            <li>
+                                                The evaluator shall present a sixth certificate where the <abbr class="dyn-abbr"><a href="#abbr_DN">DN</a></abbr> includes the RDN as a multi-element RDN, where both elements contain matching values, but which is otherwise valid and observe that the certificate is rejected.
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="test-">
+                                        <a id="_t_46" class="defined" href="#_t_46">Test FIA_X509_EXT.1:16</a>: [conditional]: If the subject_Alt_Name extension is supported and if the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> either supports name constraints or reference ID matching as part of trust store context rules, then for each name type supported, the evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to enforce a rule to constrain the values of the name type, and generate a matching value that meets the constraints, and well as a non-matching value that does not meet the constraints. The evaluator shall then perform the following: 
+                                        <ul>
+                                            <li>
+                                                The evaluator shall establish a valid certificate that includes the <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> name of the given type and matching value. The evaluator shall present the certificate to a supported function and demonstrate that the certificate is accepted.
+                                            </li>
+                                            <li>
+                                                The evaluator shall establish a second certificate that includes the <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> name of the given type and non-matching value. The evaluator shall present the certificate to a supported function and demonstrate that the certificate is rejected.
+                                            </li>
+                                            <li>
+                                                [conditional]: If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> also supports a CN in the subject field, the evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> as necessary to prefer <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> entries over the CN and establish a valid certificate which contains both a subject field including the non-matching value as a CN entry, and the matching value as the <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> entry. The evaluator shall present the certificate to the supported function and demonstrate that the certificate is accepted. The evaluator shall then establish a certificate with the matching name in the CN, and the non-matching name in the <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> entry, but which is otherwise valid. The evaluator shall present the certificate to a supported function and demonstrate that the certificate is rejected.
+                                            </li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </span> 
                         </div>
@@ -2835,7 +2880,7 @@
                     <a href="#FIA_X509_EXT.2.1" class="abbr">FIA_X509_EXT.2.1</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_404">invoke platform-provided functionality to validate</span>, <span class="selectable-content" id="_s_405">validate</span>] X.509v3 certificates in accordance with <a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a> to support [<b>selection</b>: 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_404">invoke platform-provided functionality to validate</span>, <span class="selectable-content" id="_s_405">validate</span>] X.509v3 certificates in accordance with <a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a> to support [<b>assignment</b>: <span class="assignable-content">supported functions</span>] using [<b>selection</b>: 
                     <ul>
                         <li style="">
                             <span class="selectable-content" id="_s_406"> [<b>selection</b>: <span class="selectable-content" id="_s_407"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>, <span class="selectable-content" id="_s_408">DTLS</span>, <span class="selectable-content" id="_s_409">IPsec or IKE </span>, <span class="selectable-content" id="_s_410">SMIME</span>, <span class="selectable-content" id="_s_411">SSH</span>, <span class="selectable-content" id="_s_412"> [<b>assignment</b>: <span class="assignable-content">other authenticated communications protocol</span>]</span>] </span>
@@ -2846,7 +2891,7 @@
                     </ul>
                     ] 
                     <div class="appnote">
-                        <span class="note-header">Application Note: </span><span class="note"> The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author lists all protocols and services (applications) using certificates issued by a certification authority that chains to a trust store element associated with the application. </span>
+                        <span class="note-header">Application Note: </span><span class="note"> The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author lists all supported functions that depend on identities associated with certificates in the assignment. protocols and services (applicationsused by the supported functions) that require certificates. </span>
                     </div>
                 </div>
             </div>
@@ -2855,11 +2900,11 @@
                     <a href="#FIA_X509_EXT.2.2" class="abbr">FIA_X509_EXT.2.2</a>
                 </div>
                 <div class="reqdesc">
-                    <span style="" class="comment " id="Comment-32-">Previous name-constraints and policy constraint initialization are omitted (problem with optional elements) and covered generally in <a href="#FIA_X509_EXT.1.6">FIA_X509_EXT.1.6</a></span> For each function indicated in <a href="#FIA_X509_EXT.2.1">FIA_X509_EXT.2.1</a>, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_420">invoke the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform to determine</span>, <span class="selectable-content" id="_s_421">determine</span>] whether the [<b>selection</b>: <span class="selectable-content" id="_s_422">administrator is allowed to configure certificate acceptance</span>, <span class="selectable-content" id="_s_423">certificate is accepted</span>, <span class="selectable-content" id="_s_424">certificate is not accepted</span>] when valid certificate revocation status information cannot be obtained from a source indicated in <a href="#FIA_X509_EXT.1.3">FIA_X509_EXT.1.3</a>. 
+                    <span style="" class="comment " id="Comment-32-">Previous name-constraints and policy constraint initialization are omitted (problem with optional elements) and covered generally in <a href="#FIA_X509_EXT.1.6">FIA_X509_EXT.1.6</a></span> For each function indicated in <a href="#FIA_X509_EXT.2.1">FIA_X509_EXT.2.1</a>, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_420">invoke the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform to determine</span>, <span class="selectable-content" id="_s_421">determine</span>] whether the [<b>selection</b>: <span class="selectable-content" id="_s_422">administrator is allowed to configure certificate acceptance</span>, <span class="selectable-content" id="_s_423">supported function determines acceptance via [<b>assignment</b>: <span class="assignable-content">method of determining acceptance</span>]</span>, <span class="selectable-content" id="_s_424">certificate is accepted</span>, <span class="selectable-content" id="_s_425">certificate is not accepted</span>] when valid certificate revocation status information cannot be obtained from a source indicated in <a href="#FIA_X509_EXT.1.3">FIA_X509_EXT.1.3</a>. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note">
                             <p>
-                                 When multiple methods of revocation status information are available, it is expected that the aggregate reliability of supported methods will limit the use of exception processing. However, it is required that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> have a specified behavior in case all status information are either invalid or not available. This behavior may be specific to certain trust stores or applications. It is strongly encouraged that &lsquo;certificate is accepted&rsquo; not be claimed for client authentication and more generally when reliable revocation status checks are available. In applications where external certificate revocation status information is not expected to be available such as firmware updates or initial network connections for the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> that cannot establish a network connection, best practice is to use certificates that do not advertise <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> locations, and instead support alternate revocation status verification methods. 
+                                 When multiple methods of revocation status information are available, it is expected that the aggregate reliability of supported methods will limit the use of exception processing. However, it is required that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> have a specified behavior in case all status information options are either invalid or not available. This behavior may be specific to certain trust stores or supported functions. It is strongly encouraged that &lsquo;certificate is accepted&rsquo; not be claimed for client authentication and more generally when reliable revocation status checks are available. For supported functions where external certificate revocation status information is not expected to be available such as firmware updates or initial network connections for the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> that cannot establish a network connection, best practice is to use certificates that do not advertise <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> locations, and instead support alternate revocation status verification methods. The option &lsquo;supported function determines acceptance&rsquo; is claimed when the supported function determines revocation status exceptions, for example, by presenting an option to the authorized user of the function, or when the function validates the status of intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> or leaf certificates included in a trust store at times other than when used. In such cases, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author describes the methods used in the assignment. 
                             </p>
                             <p> The treatment of invalid revocation status information should not impact the validity of a certificate if other revocation status information is available. It is expected that processing invalid revocation status information is logged. </p>
                         </span>
@@ -2884,7 +2929,7 @@
                     </div>
                     <div class="eacategory">Guidance</div>
                     <div class="ea">
-                        <div class="ea"> The evaluator shall inspect the guidance documentation to ensure instructions for configuring application-specific behavior for certificate validation is included. </div>
+                        <div class="ea"> [conditional]: If &ldquo;administrator is allowed to configure certificate acceptance&rdquo; is claimed, the evaluator shall inspect the guidance documentation to ensure instructions for configuring application-specific behavior for certificate validation is included. </div>
                     </div>
                     <div class="eacategory">Tests</div>
                     <div class="ea">
@@ -2892,7 +2937,7 @@
                              <span class="testlist-">
                                 <ul>
                                     <li class="test-">
-                                        <a id="_t_44" class="defined" href="#_t_44">Test FIA_X509_EXT.2:1</a>: 
+                                        <a id="_t_47" class="defined" href="#_t_47">Test FIA_X509_EXT.2:1</a>: 
                                         <p>
                                              [conditional]: If application-specific default responses for inaccessible certificate status information are supported, then for each function supporting such defaults, the evaluator shall configure a default behavior as necessary for each such response, clear or disable all sources of revocation information available to the function, and establish a certification path that requires an external source for certificate status information. The evaluator shall demonstrate that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> exhibits the default behavior when presented with the certification path. 
                                         </p>
@@ -2917,10 +2962,10 @@
                     <a href="#FIA_X509_EXT.3.1" class="abbr">FIA_X509_EXT.3.1</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_425">invoke the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform to generate</span>, <span class="selectable-content" id="_s_426">generate</span>] Certificate Requests as specified by [<b>selection</b>: 
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_426">invoke the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform to generate</span>, <span class="selectable-content" id="_s_427">generate</span>] Certificate Requests as specified by [<b>selection</b>: 
                     <ul>
                         <li style="">
-                            <span class="selectable-content" id="_s_427"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 2986 (PKCS-10)</span>
+                            <span class="selectable-content" id="_s_428"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 2986 (PKCS-10)</span>
                         </li>
                         <li style="">
                             <span class="selectable-content" id="toe-uses-est"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8996 (<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>)</span>
@@ -2929,37 +2974,40 @@
                             <span class="selectable-content" id="toe-uses-cmc"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5272 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6402 (<abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr>)</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_430"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5272 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8756 (CNSA <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr>)</span>
+                            <span class="selectable-content" id="_s_431"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5272 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8756 (CNSA <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr>)</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="toe-uses-cmp"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 4210 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9481 (CMP)</span>
+                            <span class="selectable-content" id="toe-uses-v2-cmp"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 4210 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9481 (v2 CMP)</span>
+                        </li>
+                        <li style="">
+                            <span class="selectable-content" id="toe-uses-v3-cmp"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 4210 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9480 (v3 CMP)</span>
                         </li>
                     </ul>
                     ] and be able to provide the following information in the request: public key, [<b>selection</b>: 
                     <ul>
                         <li style="">
-                            <span class="selectable-content" id="_s_432">Subject <abbr class="dyn-abbr"><a href="#abbr_DN">DN</a></abbr></span>
+                            <span class="selectable-content" id="_s_434">Subject <abbr class="dyn-abbr"><a href="#abbr_DN">DN</a></abbr></span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_433">one or more of the following <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> types [<b>selection</b>: 
+                            <span class="selectable-content" id="_s_435">one or more of the following <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> types [<b>selection</b>: 
                                 <ul>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_434">rfc822Name</span>
+                                        <span class="selectable-content" id="_s_436">rfc822Name</span>
                                     </li>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_435">dNSName</span>
+                                        <span class="selectable-content" id="_s_437">dNSName</span>
                                     </li>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_436">directoryName</span>
+                                        <span class="selectable-content" id="_s_438">directoryName</span>
                                     </li>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_437">uniformResourceIdentifier</span>
+                                        <span class="selectable-content" id="_s_439">uniformResourceIdentifier</span>
                                     </li>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_438">iPAddress</span>
+                                        <span class="selectable-content" id="_s_440">iPAddress</span>
                                     </li>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_439"> [<b>assignment</b>: <span class="assignable-content">other <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> types</span>]</span>
+                                        <span class="selectable-content" id="_s_441"> [<b>assignment</b>: <span class="assignable-content">other <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> types</span>]</span>
                                     </li>
                                 </ul>
                                 ] </span>
@@ -2967,7 +3015,7 @@
                     </ul>
                     ] and [<b>assignment</b>: <span class="assignable-content">list of other certificate field and extension values</span>]. <span style="" class="comment " id="Comment-33-">TC: Please provide suggested values here to be used as selections</span><span style="" class="comment " id="Comment-34-">TC: We received no suggested selections. Please provide suggested values. Thank you!</span> 
                     <div class="appnote">
-                        <span class="note-header">Application Note: </span><span class="note"> The supported certificate request mechanisms are claimed in the first selection. PCKS-10 is claimed whether a manual request process is used or if the PKCS-10 request is posted to the certification authority (to include for embedded CAs or as in ACME implementations). Other options embed the certificate request in a formalized certificate management protocol. If <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> is claimed, <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> is also claimed; if <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> or CNSA <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> are claimed, <a href="#FIA_CMCC_EXT.1">FIA_CMCC_EXT.1</a> is also claimed; if CMP is claimed, <a href="#FIA_CMPC_EXT.1">FIA_CMPC_EXT.1</a> is also claimed. </span>
+                        <span class="note-header">Application Note: </span><span class="note"> The supported certificate request mechanisms are claimed in the first selection. PCKS-10 is claimed whether a manual request process is used or if the PKCS-10 request is posted to the certification authority (for embedded CAs or as in ACME implementations). Other options embed the certificate request in a formalized certificate management protocol. If <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> is claimed, <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> is also claimed; if <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> or CNSA <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> are claimed, <a href="#FIA_CMCC_EXT.1">FIA_CMCC_EXT.1</a> is also claimed; if v2 or v3 CMP is claimed, <a href="#FIA_CMPC_EXT.1">FIA_CMPC_EXT.1</a> is also claimed. </span>
                     </div>
                 </div>
             </div>
@@ -2976,7 +3024,7 @@
                     <a href="#FIA_X509_EXT.3.2" class="abbr">FIA_X509_EXT.3.2</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_440">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_441">provide functionality</span>] to validate the certificate path in accordance with <a href="#FIA-X509-EXT-1" class="dynref" data-format=""></a> upon receiving the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Certificate Response, and validate that the certificate path of the response is consistent with the intended usage. 
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_442">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_443">provide functionality</span>] to validate the certificate path in accordance with <a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a> upon receiving the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Certificate Response, and validate that the certificate path of the response is consistent with the intended usage. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> The certificate path returned should include the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> from which the certificate was requested as the issuing <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> and may include intermediate CAs, terminating at a trust store element. The context of the certificate path includes context specified by the trust store and refined by name constraint extensions, policy-related extensions, and other extensions present in the intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates, as well as the extensions in the requested certificate. Since the extensions in the Intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates are not specified in the request, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> should perform checks to ensure they do not modify or prohibit the intended use. Also, some extensions present in the requested certificate may be populated by the issuing <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> that were different than those requested (due to error, or by policy). The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> can identify those differences automatically, or present any questionable values for review by an authorized user before installing the certificate. </span>
                     </div>
@@ -3040,7 +3088,7 @@
                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: 
                     <ul>
                         <li style="">
-                            <span class="selectable-content" id="toe-requests-certs">request certificates from an [<b>selection</b>: <span class="selectable-content" id="_s_445">external</span>, <span class="selectable-content" id="toe-requests-certs-from-embedded-ca">embedded </span>] <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>,</span>
+                            <span class="selectable-content" id="toe-requests-certs">request certificates from an [<b>selection</b>: <span class="selectable-content" id="_s_447">external</span>, <span class="selectable-content" id="toe-requests-certs-from-embedded-ca">embedded </span>] <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>,</span>
                         </li>
                         <li style="">
                             <span class="selectable-content" id="toe-obtains-certs">obtain certificates from an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr></span>
@@ -3049,15 +3097,22 @@
                     ] to represent [<b>assignment</b>: <span class="assignable-content"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> functions </span>] for [<b>selection</b>: 
                     <ul>
                         <li style="">
-                            <span class="selectable-content" id="_s_448"> [<b>selection</b>: <span class="selectable-content" id="_s_449"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>, <span class="selectable-content" id="_s_450">DTLS</span>, <span class="selectable-content" id="_s_451">IPsec or IKE </span>, <span class="selectable-content" id="_s_452">SMIME</span>, <span class="selectable-content" id="_s_453">SSH</span>, <span class="selectable-content" id="_s_454"> [<b>assignment</b>: <span class="assignable-content">other authenticated communications protocol</span>]</span>] </span>
+                            <span class="selectable-content" id="_s_450"> [<b>selection</b>: <span class="selectable-content" id="_s_451"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>, <span class="selectable-content" id="_s_452">DTLS</span>, <span class="selectable-content" id="_s_453">IPsec or IKE </span>, <span class="selectable-content" id="_s_454">SMIME</span>, <span class="selectable-content" id="_s_455">SSH</span>, <span class="selectable-content" id="_s_456"> [<b>assignment</b>: <span class="assignable-content">other authenticated communications protocol</span>]</span>] </span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_455"> [<b>selection</b>: <span class="selectable-content" id="_s_456">code signing for system software updates</span>, <span class="selectable-content" id="_s_457">code signing for software integrity testing</span>, <span class="selectable-content" id="_s_458">integrity verification for <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> protected data</span>, <span class="selectable-content" id="_s_459">administrator authentication</span>, <span class="selectable-content" id="_s_460">user authentication</span>, <span class="selectable-content" id="_s_461"> [<b>assignment</b>: <span class="assignable-content">other uses</span>]</span>] </span>
+                            <span class="selectable-content" id="_s_457"> [<b>selection</b>: <span class="selectable-content" id="_s_458">code signing for system software updates</span>, <span class="selectable-content" id="_s_459">code signing for software integrity testing</span>, <span class="selectable-content" id="_s_460">integrity verification for <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> protected data</span>, <span class="selectable-content" id="_s_461">administrator authentication</span>, <span class="selectable-content" id="_s_462">user authentication</span>, <span class="selectable-content" id="_s_463"> [<b>assignment</b>: <span class="assignable-content">other uses</span>]</span>] </span>
                         </li>
                     </ul>
                     ]. 
                     <div class="appnote">
-                        <span class="note-header">Application Note: </span><span class="note"> The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims the method for obtaining certificates and the source of certificates, and describes the functions represented and how the functions use certificates. The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims &lsquo;request certificates&hellip;&rsquo; if certificates are requested using standard request formats or protocols, and <a href="#FIA_X509_EXT.3">FIA_X509_EXT.3</a> is also claimed. If &lsquo;embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>&rsquo; is claimed in the sub-selection, then <span class="no-link">FDP_CER_EXT.1</span>/OLTLeaf and <a href="#FDP_CER_EXT.2">FDP_CER_EXT.2</a> are also claimed. If &lsquo;obtain certificates from an embedded certification authority&rsquo; is claimed, <span class="no-link">FDP_CER_EXT.1</span>/OLTLeaf is claimed. </span>
+                        <span class="note-header">Application Note: </span><span class="note">
+                            <p>
+                                 The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims the method for obtaining certificates and the source of certificates, and describes the functions represented and how the functions use certificates. The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims &lsquo;request certificates&hellip;&rsquo; if certificates are requested using standard request formats or protocols, and <a href="#FIA_X509_EXT.3">FIA_X509_EXT.3</a> is also claimed. If &lsquo;embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>&rsquo; is claimed in the sub-selection, then <span class="no-link">FDP_CER_EXT.1</span>/OLTLeaf and <a href="#FDP_CER_EXT.2">FDP_CER_EXT.2</a> are also claimed. If &lsquo;obtain certificates from an embedded certification authority&rsquo; is claimed, <span class="no-link">FDP_CER_EXT.1</span>/OLTLeaf is claimed. 
+                            </p>
+                            <p>
+                                 The use of embedded CAs is constrained to only locally trusted functions. That is, the relying party for a certificate issued by the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> is limited to <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> functions. In practice, this limitation typically precludes privileged users from using certificates issued by an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>, especially in environments where administrative access to systems (including both <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> functions and non-TOE functions) is governed by an identity management policy. So, while not mandatory, it is strongly recommended that &lsquo;external&rsquo; <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> is claimed, and that all functions that provide person-entity authentication to privileged <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> functions support certificate requests to an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. 
+                            </p>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -3069,9 +3124,22 @@
                     <div class="component-activity-header">
                         <a href="#FIA_XCU_EXT.2">FIA_XCU_EXT.2</a>
                     </div>
-                     This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is evaluated through the dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> that are claimed based on the selections made (<a href="#FIA_X509_EXT.3">FIA_X509_EXT.3</a> for certificate requests, <span class="no-link">FDP_CER_EXT.1</span>/OLTLeaf and <a href="#FDP_CER_EXT.2">FDP_CER_EXT.2</a> for obtaining certificates from its own <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>, and <a href="#FIA_X509_EXT.2">FIA_X509_EXT.2</a> for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s use of certificates).
-                    <br>
-                    <br>
+                    <div class="eacategory">
+                        <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>
+                    </div>
+                    <div class="ea">
+                        <div class="ea">
+                            The evaluator shall review the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> and confirm that the methods for obtaining certificates for representing its supported functions are described.
+                        </div>
+                    </div>
+                    <div class="eacategory">Guidance</div>
+                    <div class="ea">
+                        <div class="ea">There are no guidance EAs for this component.</div>
+                    </div>
+                    <div class="eacategory">Tests</div>
+                    <div class="ea">
+                        <div class="ea">There are no test EAs for this component.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -3897,7 +3965,7 @@
                             </tr>
                         </table>
                         <h4 id="ext-comp-FIA_X509_EXT.2.1">FIA_X509_EXT.2.1</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_404">invoke platform-provided functionality to validate</span>, <span class="selectable-content" id="_s_405">validate</span>] X.509v3 certificates in accordance with <a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a> to support [<b>selection</b>: 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_404">invoke platform-provided functionality to validate</span>, <span class="selectable-content" id="_s_405">validate</span>] X.509v3 certificates in accordance with <a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a> to support [<b>assignment</b>: <span class="assignable-content">supported functions</span>] using [<b>selection</b>: 
                         <ul>
                             <li style="">
                                 <span class="selectable-content" id="_s_406"> [<b>selection</b>: <span class="selectable-content" id="_s_407"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>, <span class="selectable-content" id="_s_408">DTLS</span>, <span class="selectable-content" id="_s_409">IPsec or IKE </span>, <span class="selectable-content" id="_s_410">SMIME</span>, <span class="selectable-content" id="_s_411">SSH</span>, <span class="selectable-content" id="_s_412"> [<b>assignment</b>: <span class="assignable-content">other authenticated communications protocol</span>]</span>] </span>
@@ -3908,7 +3976,7 @@
                         </ul>
                         ] 
                         <h4 id="ext-comp-FIA_X509_EXT.2.2">FIA_X509_EXT.2.2</h4>
-                        <span style="" class="comment " id="Comment-32-">Previous name-constraints and policy constraint initialization are omitted (problem with optional elements) and covered generally in <a href="#FIA_X509_EXT.1.6">FIA_X509_EXT.1.6</a></span> For each function indicated in <a href="#FIA_X509_EXT.2.1">FIA_X509_EXT.2.1</a>, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_420">invoke the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform to determine</span>, <span class="selectable-content" id="_s_421">determine</span>] whether the [<b>selection</b>: <span class="selectable-content" id="_s_422">administrator is allowed to configure certificate acceptance</span>, <span class="selectable-content" id="_s_423">certificate is accepted</span>, <span class="selectable-content" id="_s_424">certificate is not accepted</span>] when valid certificate revocation status information cannot be obtained from a source indicated in <a href="#FIA_X509_EXT.1.3">FIA_X509_EXT.1.3</a>. 
+                        <span style="" class="comment " id="Comment-32-">Previous name-constraints and policy constraint initialization are omitted (problem with optional elements) and covered generally in <a href="#FIA_X509_EXT.1.6">FIA_X509_EXT.1.6</a></span> For each function indicated in <a href="#FIA_X509_EXT.2.1">FIA_X509_EXT.2.1</a>, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_420">invoke the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform to determine</span>, <span class="selectable-content" id="_s_421">determine</span>] whether the [<b>selection</b>: <span class="selectable-content" id="_s_422">administrator is allowed to configure certificate acceptance</span>, <span class="selectable-content" id="_s_423">supported function determines acceptance via [<b>assignment</b>: <span class="assignable-content">method of determining acceptance</span>]</span>, <span class="selectable-content" id="_s_424">certificate is accepted</span>, <span class="selectable-content" id="_s_425">certificate is not accepted</span>] when valid certificate revocation status information cannot be obtained from a source indicated in <a href="#FIA_X509_EXT.1.3">FIA_X509_EXT.1.3</a>. 
                     </div>
                     <h4>Management: FIA_X509_EXT.3</h4>
                     <p>No specific management functions are identified.</p>
@@ -3938,10 +4006,10 @@
                             </tr>
                         </table>
                         <h4 id="ext-comp-FIA_X509_EXT.3.1">FIA_X509_EXT.3.1</h4>
-                        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_425">invoke the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform to generate</span>, <span class="selectable-content" id="_s_426">generate</span>] Certificate Requests as specified by [<b>selection</b>: 
+                        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_426">invoke the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform to generate</span>, <span class="selectable-content" id="_s_427">generate</span>] Certificate Requests as specified by [<b>selection</b>: 
                         <ul>
                             <li style="">
-                                <span class="selectable-content" id="_s_427"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 2986 (PKCS-10)</span>
+                                <span class="selectable-content" id="_s_428"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 2986 (PKCS-10)</span>
                             </li>
                             <li style="">
                                 <span class="selectable-content" id="toe-uses-est"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8996 (<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>)</span>
@@ -3950,37 +4018,40 @@
                                 <span class="selectable-content" id="toe-uses-cmc"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5272 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6402 (<abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr>)</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_430"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5272 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8756 (CNSA <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr>)</span>
+                                <span class="selectable-content" id="_s_431"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5272 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8756 (CNSA <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr>)</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="toe-uses-cmp"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 4210 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9481 (CMP)</span>
+                                <span class="selectable-content" id="toe-uses-v2-cmp"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 4210 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9481 (v2 CMP)</span>
+                            </li>
+                            <li style="">
+                                <span class="selectable-content" id="toe-uses-v3-cmp"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 4210 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9480 (v3 CMP)</span>
                             </li>
                         </ul>
                         ] and be able to provide the following information in the request: public key, [<b>selection</b>: 
                         <ul>
                             <li style="">
-                                <span class="selectable-content" id="_s_432">Subject <abbr class="dyn-abbr"><a href="#abbr_DN">DN</a></abbr></span>
+                                <span class="selectable-content" id="_s_434">Subject <abbr class="dyn-abbr"><a href="#abbr_DN">DN</a></abbr></span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_433">one or more of the following <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> types [<b>selection</b>: 
+                                <span class="selectable-content" id="_s_435">one or more of the following <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> types [<b>selection</b>: 
                                     <ul>
                                         <li style="">
-                                            <span class="selectable-content" id="_s_434">rfc822Name</span>
+                                            <span class="selectable-content" id="_s_436">rfc822Name</span>
                                         </li>
                                         <li style="">
-                                            <span class="selectable-content" id="_s_435">dNSName</span>
+                                            <span class="selectable-content" id="_s_437">dNSName</span>
                                         </li>
                                         <li style="">
-                                            <span class="selectable-content" id="_s_436">directoryName</span>
+                                            <span class="selectable-content" id="_s_438">directoryName</span>
                                         </li>
                                         <li style="">
-                                            <span class="selectable-content" id="_s_437">uniformResourceIdentifier</span>
+                                            <span class="selectable-content" id="_s_439">uniformResourceIdentifier</span>
                                         </li>
                                         <li style="">
-                                            <span class="selectable-content" id="_s_438">iPAddress</span>
+                                            <span class="selectable-content" id="_s_440">iPAddress</span>
                                         </li>
                                         <li style="">
-                                            <span class="selectable-content" id="_s_439"> [<b>assignment</b>: <span class="assignable-content">other <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> types</span>]</span>
+                                            <span class="selectable-content" id="_s_441"> [<b>assignment</b>: <span class="assignable-content">other <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> types</span>]</span>
                                         </li>
                                     </ul>
                                     ] </span>
@@ -3988,7 +4059,7 @@
                         </ul>
                         ] and [<b>assignment</b>: <span class="assignable-content">list of other certificate field and extension values</span>]. <span style="" class="comment " id="Comment-33-">TC: Please provide suggested values here to be used as selections</span><span style="" class="comment " id="Comment-34-">TC: We received no suggested selections. Please provide suggested values. Thank you!</span> 
                         <h4 id="ext-comp-FIA_X509_EXT.3.2">FIA_X509_EXT.3.2</h4>
-                        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_440">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_441">provide functionality</span>] to validate the certificate path in accordance with <a href="#FIA-X509-EXT-1" class="dynref" data-format=""></a> upon receiving the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Certificate Response, and validate that the certificate path of the response is consistent with the intended usage. 
+                        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_442">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_443">provide functionality</span>] to validate the certificate path in accordance with <a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a> upon receiving the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Certificate Response, and validate that the certificate path of the response is consistent with the intended usage. 
                     </div>
                 </div>
                 <h3 id="ext-comp-FIA_XCU_EXT" class="indexable" data-level="4">C.2.1.9 FIA_XCU_EXT Certificate Utilization and Usage</h3>
@@ -4051,7 +4122,7 @@
                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: 
                         <ul>
                             <li style="">
-                                <span class="selectable-content" id="toe-requests-certs">request certificates from an [<b>selection</b>: <span class="selectable-content" id="_s_445">external</span>, <span class="selectable-content" id="toe-requests-certs-from-embedded-ca">embedded </span>] <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>,</span>
+                                <span class="selectable-content" id="toe-requests-certs">request certificates from an [<b>selection</b>: <span class="selectable-content" id="_s_447">external</span>, <span class="selectable-content" id="toe-requests-certs-from-embedded-ca">embedded </span>] <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>,</span>
                             </li>
                             <li style="">
                                 <span class="selectable-content" id="toe-obtains-certs">obtain certificates from an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr></span>
@@ -4060,10 +4131,10 @@
                         ] to represent [<b>assignment</b>: <span class="assignable-content"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> functions </span>] for [<b>selection</b>: 
                         <ul>
                             <li style="">
-                                <span class="selectable-content" id="_s_448"> [<b>selection</b>: <span class="selectable-content" id="_s_449"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>, <span class="selectable-content" id="_s_450">DTLS</span>, <span class="selectable-content" id="_s_451">IPsec or IKE </span>, <span class="selectable-content" id="_s_452">SMIME</span>, <span class="selectable-content" id="_s_453">SSH</span>, <span class="selectable-content" id="_s_454"> [<b>assignment</b>: <span class="assignable-content">other authenticated communications protocol</span>]</span>] </span>
+                                <span class="selectable-content" id="_s_450"> [<b>selection</b>: <span class="selectable-content" id="_s_451"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>, <span class="selectable-content" id="_s_452">DTLS</span>, <span class="selectable-content" id="_s_453">IPsec or IKE </span>, <span class="selectable-content" id="_s_454">SMIME</span>, <span class="selectable-content" id="_s_455">SSH</span>, <span class="selectable-content" id="_s_456"> [<b>assignment</b>: <span class="assignable-content">other authenticated communications protocol</span>]</span>] </span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_455"> [<b>selection</b>: <span class="selectable-content" id="_s_456">code signing for system software updates</span>, <span class="selectable-content" id="_s_457">code signing for software integrity testing</span>, <span class="selectable-content" id="_s_458">integrity verification for <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> protected data</span>, <span class="selectable-content" id="_s_459">administrator authentication</span>, <span class="selectable-content" id="_s_460">user authentication</span>, <span class="selectable-content" id="_s_461"> [<b>assignment</b>: <span class="assignable-content">other uses</span>]</span>] </span>
+                                <span class="selectable-content" id="_s_457"> [<b>selection</b>: <span class="selectable-content" id="_s_458">code signing for system software updates</span>, <span class="selectable-content" id="_s_459">code signing for software integrity testing</span>, <span class="selectable-content" id="_s_460">integrity verification for <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> protected data</span>, <span class="selectable-content" id="_s_461">administrator authentication</span>, <span class="selectable-content" id="_s_462">user authentication</span>, <span class="selectable-content" id="_s_463"> [<b>assignment</b>: <span class="assignable-content">other uses</span>]</span>] </span>
                             </li>
                         </ul>
                         ]. 
