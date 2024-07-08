@@ -100,14 +100,17 @@
     <sec:toes title="Compliant Targets of Evaluation">
     	    	
 		<h:p>
-			The Target of Evaluation (TOE) in this Functional Package (FP) a product that uses X.509 capabilities for certificates.  A certificate user that depends on the public key of a certificate is required to process certificates using the ‘verify’ capabilities included in this FP. Such certificate users verify certificates for a variety of TOE functions, including subject authentication,
+			The Target of Evaluation (TOE) in this Functional Package (FP) is a product that uses X.509 capabilities for certificates.  A certificate user that depends on the public key of a certificate is required to process certificates using the ‘verify’ capabilities included in this FP. Such certificate users verify certificates for a variety of TOE functions, including subject authentication,
 			trusted communications, validation of TOE software and firmware updates, or integrity verification as part of self-testing. 
 		</h:p><h:p>
-			A certificate user that is represented as the subject of a certificate depends on the ‘assert' capabilities included in this FP. TOE functions use certificates issued by a certification authority trusted by a relying party to convey a subject and context information associated with the certificate to the relying party. TOE functions that use certificates include external entity initiated communications with the TOE such as web services or email, and TOE-initiated communications with entities requiring client authentication. When all verifiers of a certificate are associated with TOE functions, it is permissible to use an embedded certification authority that is only trusted by the TOE (i.e., only locally trusted). When such functionality is provided, the TOE depends on the provider functionality of the FP. TOE functions that verify TOE provided certificates depend on the certificate status provider functionality in this FP; TOE functions that use TOE provided certificates depend on the certificate issuance functionality of this FP.
+			A certificate user that is represented as the subject of a certificate depends on the ‘assert' capabilities included in this FP. TOE functions use certificates issued by a certification authority that is trusted by a relying party to convey subject and context information associated with the certificate to the relying party. TOE functions that use certificates include external entity initiated communications with the TOE such as web services or email, and TOE-initiated communications with entities requiring client authentication. When all verifiers of a certificate are associated with TOE functions, it is permissible to use an embedded certification authority that is only trusted by the TOE (i.e., only locally trusted). When such functionality is provided, the TOE depends on the provider functionality of the FP. TOE functions that verify TOE provided certificates depend on the certificate status provider functionality in this FP; TOE functions that use TOE provided certificates depend on the certificate issuance functionality of this FP.
 		</h:p>
-			
+			<!--
+				<h:p>
 			The Target of Evaluation (TOE) in this Functional Package (FP) is a product that utilizes Public Key Infrastructure (PKI) capabilities
 			and optionally provides PKI services to authorized IT entities in the Operational Environment (OE).
+			</h:p>
+			-->
 			<!--
 			At minimum, a conformant TOE will include the ability to validate X.509 certificates presented to it, including:
 			<h:ul>
@@ -212,12 +215,18 @@
 	</sec:toes>
 	
 	<sec:Use_Cases>
-		The following use cases are distinct and may be combined for any given TOE. They include the TOE as a relying party verifying the identity of entities using certificates obtained from an external CA; the TOE asserting an identity in a certificate provided by an external CA and providing identity verification (authentication) to external relying parties; and the TOE acting as the sole relying party of entities issued certificates using an embedded CA. Combining the verify and subject use cases also includes authentication and verification between internal entities; Combining all three use cases allows external CAs to be used for both internal and external entities, but an internal embedded CA is only to be used for internal relying parties.<h:br/><h:br/>
+		The following use cases are distinct and may be combined for any given TOE. They include 
+		<h:ul>
+			<h:li>the TOE as a relying party verifying the identity of entities using certificates obtained from an external CA</h:li> 
+			<h:li>the TOE asserting an identity in a certificate provided by an external CA and providing identity verification (authentication) to external relying parties</h:li> 
+			<h:li>the TOE acting as the sole relying party of entities issued certificates using an embedded CA</h:li> 
+		</h:ul>
+		Combining the verify and subject use cases also includes authentication and verification between internal entities. Combining all three use cases allows external CAs to be used for both internal and external entities, but an internal embedded CA is only to be used for internal relying parties.<h:br/><h:br/>
 		Note: A TOE that provides general Certification Authority functionality for external entities should be validated against the Certification Authority Protection Profile instead of this FP. 
 		<h:br/><h:br/>
 		Note: TOEs that provide certification authority functionality as an embedded CA in support of TLS inspection should use the SSL/TLS Inspection Proxy (STIP) Protection Profile module instead of this FP. The ‘provide’ functionality in this FP is a generalization of the security requirements of the embedded CA functionality for STIP PP module, but this FP does not include the proxy and TLS processing requirements from the STIP PP module.
 		<h:br/><h:br/>
-		The following diagrams show each TOE use case(within the red box) with respect to its role in an overall system.
+		The following diagrams show each TOE use case (within the red box) with respect to its role in an overall system.
 		<usecases>
 			<usecase id="usecase1" title="TOE as a Relying Party">
 				<description>
