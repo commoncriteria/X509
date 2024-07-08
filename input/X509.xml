@@ -457,7 +457,7 @@
 					function, including IPsec/IKE if supported, are claimed. Other supported EKU values specific to supported functions 
 					are indicated in the assignment.
 					</h:p><h:p>
-						If “subjectAlternateName” is claimed as a supported extension, the ST author claims all RFC 5280 Name types supported and designates any other standard name types in the assignment, indicating the formatting and normalization standard used for each supported name types. Standards used to refine or provide alternate normalization for RFC 5280 name types are claimed via the assignment.
+						If “subjectAlternateName” is claimed as a supported extension, the ST author claims all RFC 5280 name types supported and designates any other standard name types in the assignment, indicating the formatting and normalization standard used for each supported name type. Standards used to refine or provide alternate normalization for RFC 5280 name types are claimed via the assignment.
 					</h:p>
 				</note>
 			</f-element>
@@ -552,10 +552,10 @@
 					</h:p><h:p>
 						In the first bullet, the ST author describes the name types indicated for each supported function (a subset of the supported name types indicated in <xref to="fdp-cer-ext-1e2-oltleaf"/>), how subjects 
 					of certificates are determined, and how the requested subject names are validated. Note that when multiple names are included in a request, 'validated' applies to all names populated in a certificate. When the subject of a certificate represents an entity external to the TOE or when an internal TOE entity supports it, a standard 
-					certificate request formatting or protocols is supported, and all certificate values requested by the entity are included in the request; the internal TOE function which exclusively trusts these external certificates 
+					certificate request formatting or protocol is supported, and all certificate values requested by the entity are included in the request; the internal TOE function which exclusively trusts these external certificates 
 					may act as a registration authority as specified in the claimed RFC. When the subject of the certificate is 
 					associated with an internal TOE function, the values in the populated certificate may use any method that is under 
-					the control of the subject. PKCS-10 is claimed when the supported function interfaces directly with an embedded CA to generate a certificate representing a TOE entity. When the EST, CMC, or CMP method is claimed, the ST author will claim the corresponding FDP_ESTS_EXT.1, FDP_CMCS_EXT.1, or FDP_CMPS_EXT.1, respectively.  
+					the control of the subject. PKCS-10 is claimed when the supported function interfaces directly with an embedded CA to generate a certificate representing a TOE entity. When the EST, CMC, or CMP method is claimed, the ST author will claim FDP_ESTS_EXT.1, FDP_CMCS_EXT.1, or FDP_CMPS_EXT.1, respectively.  
 					</h:p><h:p>
 					In the second bullet, the ST author indicates where the key pair is generated and how the embedded CA validates that the entity represented in the certificate is in possession of the associated private key.
 					</h:p><h:p>
@@ -608,7 +608,7 @@
 		</f-component>
 		
 		
-		<f-component name="Leaf Certificate Profiles" cc-id="fdp_cer_ext.1" id="fdp-cer-ext-1" status="invisible">
+		<f-component name="Leaf Certificate Profiles" cc-id="fdp_cer_ext.1" id="fdp-cer-ext-1-ecd" status="invisible">
 			<depends on="toe-uses-embedded-ca" also="toe-requests-certs" and="toe-requests-certs-from-embedded-ca"/>
 			
 			<comp-lev> requires the TSF to implement a TOE-trusted certificate profile function that conforms to profiles when acting as a CA.</comp-lev>
@@ -829,7 +829,7 @@
 				
 				It also says that it must be claimed if FDP_CER_EXT.1 is claimed and 'request certificates from an embedded CA' is claimed in FIA_XCU_EXT.2.1.
 				The first part of that condition will always apply if the second part applies though because the FIA_XCU_EXT.2.1 is also a trigger for 
-				claiming FDP_CER_EXT.1. So that part was left off. Also note however that FDP_CER_EXT.1 is referred to as FDP_CER_EXT.1/OLTLeaf; there is no 
+				claiming FDP_CER_EXT.1. So that part was left off. Also note however that FDP_CER_EXT.1 is referred to as FDP_CER_EXT.1/OLTleaf; there is no 
 				un-iterated "FDP_CER_EXT.1" so this part of the reference is ambiguous regardless.</comment>
 					The TSF shall <selectables>
 					<selectable>invoke platform-provided functionality</selectable>
@@ -1124,13 +1124,15 @@
 					FDP_CRL_EXT.1 must be claimed. If "the OCSP standard as defined by RFC 6960" is selected in FDP_OCSP_EXT.1.1, FDP_OCSP_EXT.1 must be claimed.
 					</h:p><h:p>
 					The ST author claims the supported methods for distributing generated certificate status information to the supported 
-					functions that are relying parties for the issued certificates. If CRLs are claimed in <xref to="fdp-csi-ext-1e1"/>, 
+					functions that are relying parties for the issued certificates. 
+					</h:p><h:p>
+					If CRLs are claimed in <xref to="fdp-csi-ext-1e1"/>, 
 					then ‘posting CRLs at… cRLDistributionPoints…’ is claimed in <xref to="fdp-csi-ext-1e3"/> and ‘cRLDistributionPoints’ 
 						is claimed in <xref to="fdp-cer-ext-1e2-oltleaf"/>. 
 					</h:p><h:p>
 						If the OCSP standard is selected in <xref to="fdp-csi-ext-1e1"/>, then FDP_OCSP_EXT.1 is also claimed and at 
 						least one of ‘OCSP mechanism…in the authorityInfoAccess…’ or ‘…OCSP stapling…’ is claimed in the selection for <xref to="fdp-csi-ext-1e3"/>.                     </h:p><h:p>
-						If ‘OCSP mechanism…in the authorityInfoAccess…’ is claimed in <xref to="fdp-csi-ext-1e3"/>, ‘authorityInfoAccess’ 
+						If ‘OCSP mechanism…in the authorityInfoAccess…’ is claimed in <xref to="fdp-csi-ext-1e3"/>, then ‘authorityInfoAccess’ 
 							must be claimed in <xref to="fdp-cer-ext-1e1-oltleaf"/>. 
 					</h:p><h:p>
 						If ‘…OCSP stapling’ is claimed, the ST author identifies the functions 
@@ -1160,7 +1162,11 @@
 					</Tests>				
 				</aactivity>
 			</f-element>
-			<audit-event/>
+			<audit-event>
+				<audit-event-descr>(conditional, if information is not provided via CRL or OCSP) Revocation</audit-event-descr>
+				<audit-event-info>Certificate identifier</audit-event-info>
+				<audit-event-info>Reason for revocation</audit-event-info>
+			</audit-event>
 				
 		</f-component>
 		
@@ -1665,7 +1671,7 @@
 				</selectables>.					
 				</title>
 				<note role="Application">
-					This SFR is claimed if the embedded CA supports CMP server functionality, as indicated in FDP_CER_EXT.1.4, and the claimed versions match the selections. If Registration Authority is supported, 
+					This SFR is claimed if the embedded CA supports CMP server functionality, as indicated in <xref to="fdp-cer-ext-1e4-oltleaf"/>, and the claimed versions match the selections. If Registration Authority is supported, 
 					the ST author describes entities that are issued RA roles. Authorized entities may be an administrative user, 
 					or a functional entity associated with a supported TOE function. If v3 CMC is also supported, certificates associated with such authorized 
 					entities have an extendedKeyUsage field that includes the id-kp-cmcRA purpose. Entities with an RA role are used to authenticate initial 
@@ -2151,7 +2157,7 @@
 						certificate path validation. OCSP certificates trusted by the TOE may also be considered trust store elements, 
 						and must be included in a trust store when revocation information is not provided directly by the issuing CA. Revocation 
 						status of <comment>Is this sufficient, or do we refine 6960 to require an explicit no-check flag and move this 
-							into an SFR element?</comment>local (associated with a locally configured OCSP responder) or ‘no-check’ (contains the extension id-pkix-ocsp-nocheck) OCSP certificates is verified in accordance with the options RFC 6960 section 4.2.2.2.1. 
+							into an SFR element?</comment>local (associated with a locally configured OCSP responder) or ‘no-check’ (contains the extension id-pkix-ocsp-nocheck) OCSP certificates are not verified in accordance with the options in RFC 6960 section 4.2.2.2.1. 
 					</h:p>
 					<h:p>
 						The ST author designates which trust stores or trust store elements are managed in the assignment (a subset of those indicated in FIA_X509_EXT.1.6) and specifies one or more options for 
@@ -2167,12 +2173,12 @@
 							context information provided by the function initialize certificate path processing rules.
 						</h:li>
 						<h:li>
-							The ‘Allowing administrators to manage the trusted…’ option is claimed if the TOE supports administrator 
+							The ‘Allowing the administrator to manage the trusted…’ option is claimed if the TOE supports administrator 
 							management of the public key associated to a trust store. The ST author specifies which trusted public keys 
 							are loaded. Local or 'no-check' OCSP certificates are claimed if OCSP certificates are loaded.
 						</h:li>
 						<h:li>
-							The ‘Allowing administrator to manage context rules of a trust store‘ option is claimed if the TOE supports 
+							The ‘Allowing the administrator to manage context rules of a trust store‘ option is claimed if the TOE supports 
 							administrator management of the context rules associated with a trust store. 
 						</h:li>
 						<h:li>
@@ -2185,7 +2191,7 @@
 						validation of the certificate path for these certificates is performed. 
 					</h:p>
 					<h:p>
-						The first option ‘Validating…’ is claimed if trust stores may include certificates other than root and OCSP (local or ‘no-check') certificates. For example, such trust store elements may include intermediate certificates to enhance performance or to refine the context for certification paths including these CA certificates. It is also common to designate leaf certificates associated with privileged users as trust store elements. If this option is claimed, the ST author also indicates when the revocation checks are performed. The first option ‘when installed…’ is claimed if ‘Allowing administrator to manage…’ is claimed. The ‘on-use’ option is claimed if such certificates are included in a trust store via other options (if ‘Using an update function’ or ‘Using … RFC 5934’ is claimed). The ‘on use’ option may also be claimed for installed certificates. In addition, the ST author indicates other times (if any) that the revocation status of such certificates is checked.
+						The first option ‘Validating…’ is claimed if trust stores may include certificates other than root and OCSP (local or ‘no-check') certificates. For example, such trust store elements may include intermediate certificates to enhance performance or to refine the context for certification paths including these CA certificates. It is also common to designate leaf certificates associated with privileged users as trust store elements. If this option is claimed, the ST author also indicates when the revocation checks are performed. The first option ‘when installed…’ is claimed if ‘Allowing the administrator to manage…’ is claimed. The ‘on-use’ option is claimed if such certificates are included in a trust store via other options (if ‘Using an update function’ or ‘Using … RFC 5934’ is claimed). The ‘on use’ option may also be claimed for installed certificates. In addition, the ST author indicates other times (if any) that the revocation status of such certificates is checked.
 					</h:p><h:p>
 						The second option, ‘Prohibit…’ is claimed otherwise – that is, if the managed trust stores do not contain certificates whose revocation status can change after the trust store is initialized.
 					</h:p>
@@ -2193,9 +2199,9 @@
 				<aactivity>
 					<TSS>
 						<h:p>
-						The evaluator shall review the TSS and verify that the description of each trust store includes a description of the management method, or methods, that meets the requirements, to include management methods of both pre-loaded and installed trust store elements if the methods differ.
+						The evaluator shall review the TSS and verify that the description of each trust store includes a description of the management methods that meet the requirements, to include management methods of both pre-loaded and installed trust store elements if the methods differ.
 						</h:p><h:p>
-						[conditional: if the TSF supports inclusion of certificates that are neither self-signed root CA certificates not OCSP certificates without revocation status, the evaluator shall review the TSS and verify that the description indicates when such certificates are checked for revocation status and that the description meets the requirements.
+						[conditional]: If the TSF supports inclusion of certificates that are neither self-signed root CA certificates not OCSP certificates without revocation status, the evaluator shall review the TSS and verify that the description indicates when such certificates are checked for revocation status and that the description meets the requirements.
 						</h:p>
 					</TSS>
 					<Guidance>
@@ -2225,12 +2231,12 @@
 								TSF prevents the installation of each such supported certificate type if the certificate is revoked prior 
 								to installation.
 							</h:p><h:p>								
-								Note: such certificate types can include leaf certificates associated with context specific to the leaf, 
+								Note: Such certificate types can include leaf certificates associated with context specific to the leaf, 
 								or intermediate CA certificates.
 							</h:p>								
 							</test>
 							<test>
-								[conditional]: If the TSF supports the inclusion of certificates that are neither self-signed root CA certificates not OCSP certificates without revocation status and claims revocation status checks other than “when installed…” the evaluator shall demonstrate for each such certificate type, and for each event that checks revocation status, that a certificate of the indicated type that is revoked prior to the indicated event is not considered valid.
+								[conditional]: If the TSF supports the inclusion of certificates that are neither self-signed root CA certificates nor OCSP certificates without revocation status and claims revocation status checks other than “when installed…” the evaluator shall demonstrate for each such certificate type, and for each event that checks revocation status, that a certificate of the indicated type that is revoked prior to the indicated event is not considered valid.
 							</test>
 						</testlist>
 					</Tests>
@@ -2300,13 +2306,13 @@
 													<selectables><selectable>secp384r1</selectable><selectable>secp521r1</selectable></selectables>,</selectable>
 												<selectable>ecdsa-with-SHA512 using 
                                                      <selectables><selectable>secp384r1</selectable><selectable>secp521r1</selectable></selectables>,
-												</selectable></selectables> and <selectables>
+												</selectable></selectables> and <selectables linebreak="yes">
 													<selectable><assignable>list of other supported algorithms</assignable></selectable>
 													<selectable>no other algorithms</selectable>
 												</selectables>
 									requested using the preferredSignatureAlgorithm extension
 							and OCSP responses are considered invalid if using other algorithms;</selectable>
-							<selectable>no other signature algorithm constraints.</selectable>
+							<selectable>no other algorithm constraints</selectable>
 							</selectables></h:li>
 					</h:ul>		
 				</title>
@@ -2390,7 +2396,7 @@
 							<selectable>Based on validity period: Certificates expiring within <assignable>time less than 24 hours</assignable> of the current 
 								time are considered valid when no other valid revocation status information is available</selectable>
 							<selectable>Administrative notification of revocation: <assignable>administrative action upon notification</assignable> using <assignable>
-								method to invalidate use of certificate(s) in supported functions</assignable> when the certificate is revoked.</selectable>
+								method to invalidate use of certificates in supported functions</assignable> when the certificate is revoked.</selectable>
 							<selectable>Direct association with Certification Authority: <assignable>direct revocation status information 
 								implementations</assignable></selectable>
 						</selectables>.
@@ -2399,7 +2405,7 @@
 						<h:p>
 						The ST author claims the type of revocation status information supported. It is preferred that OCSP and CRL are 
 						supported when certificate validation supports multiple functions as indicated in FIA_X509_EXT.2. However, 
-						some functions require alternative approaches to revocation status validation and CAs supporting these functions may not provide OCSP or CRL sources. Certificates supporting these functions utilize alternative revocation status validation methods.
+						some functions require alternative approaches to revocation status validation and CAs supporting these functions may not provide OCSP or CRL sources. Certificates supporting these functions use alternative revocation status validation methods.
 						</h:p><h:p>
 						The option ‘Based on validity period…’ is claimed if certificates supporting a function are only valid for 
 						less than 24 hours and issued under a certificate policy that allows 24 hours or longer to process revocation 
@@ -2429,7 +2435,7 @@
 			<f-element id="fia-x509-ext-1e4">
 				<title>
 					The TSF shall  <selectables>
-						<selectable>not obtain revocation status information by the TSF by reason of <selectables>
+						<selectable>not obtain revocation status information by the TSF due to <selectables>
 							<selectable>determining that the certificate expires within <assignable>time less than 24 hours</assignable></selectable>
 							<selectable>determining that the <assignable>supported function</assignable> validates revocation status using <assignable>methods supported by the function</assignable></selectable>
 						</selectables> 
@@ -2456,15 +2462,15 @@
 					<h:p>
 						The ST author claims the supported options the TSF uses to ensure that supported functions obtain revocation status information. These options must be consistent with the rules for revocation status checking claimed in FIA_X509_EXT.1.1. It is preferred, but not 
 						required, that multiple methods are claimed to ensure valid revocation is available when a supported function 
-						requires it. If the option to not obtain revocation status information by reason that the TSF determines that supported functions performs revocation checking is claimed, the ST author specifies the specific function(s) from FIA_X509_EXT.2 that perform revocation status checking and the methods used by the function, including the relevant SFR references). It is required that at least one option is supported for each supported function indicated in 
+						requires it. If the option to not obtain revocation status information due to the TSF determining that supported functions performs revocation checking is claimed, the ST author specifies the specific functions from FIA_X509_EXT.2 that perform revocation status checking and the methods used by the function, including the relevant SFR references). It is required that at least one option is supported for each supported function indicated in 
 						FIA_X509_EXT.2. 
 					</h:p>
 						<h:p>
-						Network connection is claimed if the TOE supports retrieving revocation status information from external sources, 
-						to include direct information from a CA that might not be via a CRL or OCSP. The selection indicates the types of 
+						'Network connection...' is claimed if the TOE supports retrieving revocation status information from external sources, 
+						to include direct information from a CA, even when the information might not be in the form of a CRL or OCSP. The selection indicates the types of 
 						sources for which external revocation status is supported. 
 					</h:p><h:p>
-						Local status information is claimed if the TOE maintains revocation status information. The type of status 
+						'Local revocation status information...' is claimed if the TOE maintains revocation status information. The type of status 
 						information maintained locally is claimed in the selection for this option. If ‘embedded CA repository’ is 
 						claimed, FDP_CER_EXT.1/OLTleaf and FDP_CSIR_EXT.1 are also claimed. When a default status value is configured for when all other 
 						sources are not available, the ST author claims local revocation status information and administrator 
@@ -2482,7 +2488,7 @@
 						<selectable>invoke platform-provided functionality</selectable>
 						<selectable>implement functionality</selectable>
 						<selectable>pass context information to the supported function</selectable></selectables> to validate that the 
-							context of the certificate path and trust store element is consistent with the function use via
+							context of the certificate path and trust store element is consistent with the supported function use via
 							 <selectables linebreak="yes">
 							 	<selectable>processing 
 							 		<selectables linebreak="yes">
@@ -2574,7 +2580,7 @@
 							in the function failing by performing the following:
 							<h:ul>
 								<h:li>[conditional] If the TSF imposes limits on certification path lengths, the evaluator shall demonstrate that the TSF rejects valid certificates whose certification path exceeds the supported length.</h:li>
-								<h:li>[conditional] If the TSF supports path length greater than 1 when the trust store element is a root CA certificate, or greater than 2 when the trust store element is a raw public key, then the evaluator shall  perform the following:
+								<h:li>[conditional] If the TSF supports a path length greater than one when the trust store element is a root CA certificate, or greater than two when the trust store element is a raw public key, then the evaluator shall  perform the following:
 							<h:ul>
 								<h:li>
 									The evaluator shall establish a certification path in which one of the issuing certificates is not a CA certificate by
@@ -2590,7 +2596,7 @@
 									The evaluator shall set the path length field of a valid CA field to a value strictly less than the certification path and demonstrate that the TSF rejects the certificate.
 								</h:li>
 								<h:li>
-									The evaluator shall establish a valid certificate path consisting of a leaf certificate and one or more valid CA certificates up to the limit of the certification path length supported (if finite), and terminating in a trust store element, and demonstrate that the TSF accepts the certification path as valid. The evaluator shall then modify a byte in the public key of an intermediate certificate in the certificate path that is not a trust store element and demonstrate that the TSF rejects the leaf certificate and its modified certification path.
+									The evaluator shall establish a valid certification path consisting of a leaf certificate and one or more valid CA certificates up to the limit of the certification path length supported (if finite), and terminating in a trust store element, and demonstrate that the TSF accepts the certification path as valid. The evaluator shall then modify a byte in the public key of an intermediate certificate in the certificate path that is not a trust store element and demonstrate that the TSF rejects the leaf certificate and its modified certification path.
 								</h:li>
 							</h:ul>
 								</h:li>
@@ -2696,15 +2702,15 @@
 							<test>
 								[conditional]: If certificates with non-empty subject fields are validated and if either name constraints processing is supported or one or more reference ID checking rules are included in trust store context rules, then for each RDN supported, the evaluator shall configure the TOE to enforce a rule on the RDN value, establish a value for the RDN that matches the rule, and perform the following steps: <h:ul>
 									<h:li>The evaluator shall present a valid certificate containing a valid DN with the matching RDN value to the supported function and verify that the certificate is accepted.</h:li>
-									<h:li>The evaluator shall then present a second certificate where the RDN component does not match the rule, but which is otherwise valid and matches the first certificate. The evalatuator shall observe that certificate is rejected.</h:li>
-									<h:li>The evaluator shall present a third certificate, where the DN includes the RDN with non-matching value as in the second certificate, but which also includes a non-supported (or undefined) RDN term populated with the matching value for the original RDN, and which is otherwise valid and matches the first certificate and demonstrate that the modified certificate is rejected.</h:li>
+									<h:li>The evaluator shall then present a second certificate where the RDN component does not match the rule, but which is otherwise valid and matches the first certificate. The evalatuator shall observe that the certificate is rejected.</h:li>
+									<h:li>The evaluator shall present a third certificate, where the DN includes the RDN with a non-matching value as in the second certificate, but which also includes a non-supported (or undefined) RDN term populated with the matching value for the original RDN, and which is otherwise valid and matches the first certificate and demonstrate that the modified certificate is rejected.</h:li>
 									<h:li>The evaluator shall present a fourth certificate, where the DN does not include the RDN, but which includes an unsupported (or undefined) RDN with the matching value for the original RDN as in the third certificate, but which is otherwise valid and demonstrate that the modified certificate is rejected.</h:li>
 									<h:li>The evaluator shall present a fifth certificate where the DN includes the RDN with a value containing the matching value as a substring of a longer, non-matching value, but which is otherwise valid and demonstrate that the modified certificate is rejected.</h:li>
 									<h:li>The evaluator shall present a sixth certificate where the DN includes the RDN as a multi-element RDN, where both elements contain matching values, but which is otherwise valid and observe that the certificate is rejected.</h:li>
 								</h:ul> 
 							</test>
 							<test>
-								[conditional]: If the subject_Alt_Name extension is supported and if the TSF either supports name constraints or reference ID matching as part of trust store context rules, then for each name type supported, the evaluator shall configure the TSF to enforce a rule to constrain the values of the name type, and generate a matching value that meets the constraints, and well as a non-matching value that does not meet the constraints. The evaluator shall then perform the following: <h:ul>
+								[conditional]: If the subject_Alt_Name extension is supported and if the TSF either supports name constraints or reference ID matching as part of trust store context rules, then for each name type supported, the evaluator shall configure the TSF to enforce a rule to constrain the values of the name type, and generate a matching value that meets the constraints, as well as a non-matching value that does not meet the constraints. The evaluator shall then perform the following: <h:ul>
 									<h:li>The evaluator shall establish a valid certificate that includes the SAN name of the given type and matching value. The evaluator shall present the certificate to a supported function and demonstrate that the certificate is accepted.</h:li>
 									<h:li>The evaluator shall establish a second certificate that includes the SAN name of the given type and non-matching value. The evaluator shall present the certificate to a supported function and demonstrate that the certificate is rejected.</h:li>
 									<h:li>[conditional]: If the TSF also supports a CN in the subject field, the evaluator shall configure the TSF as necessary to prefer SAN entries over the CN and establish a valid certificate which contains both a subject field including the non-matching value as a CN entry, and the matching value as the SAN entry. The evaluator shall present the certificate to the supported function and demonstrate that the certificate is accepted. The evaluator shall then establish a certificate with the matching name in the CN, and the non-matching name in the SAN entry, but which is otherwise valid. The evaluator shall present the certificate to a supported function and demonstrate that the certificate is rejected.</h:li>
@@ -2760,7 +2766,7 @@
 				</title>
 				<note role="Application">
 					The ST author lists all supported functions that depend on identities associated with certificates in the assignment.  
-					protocols and services (applicationsused by the supported functions) that require certificates.
+					For each such function, the ST author claims the protocols and services used by the supported functions that require certificates.
 				</note>
 			</f-element>
 			<f-element id="fia-x509-ext-2e2">
@@ -2786,7 +2792,7 @@
 					external certificate revocation status information is not expected to be available such as firmware updates or 
 					initial network connections for the TSF that cannot establish a network connection, best practice is to use 
 					certificates that do not advertise CRL or OCSP locations, and instead support alternate revocation status verification 
-					methods.  The option ‘supported function determines acceptance’ is claimed when the supported function determines revocation status exceptions, for example, by presenting an option to the authorized user of the function, or when the function validates the status of intermediate CA or leaf certificates included in a trust store at times other than when used. In such cases, the ST author describes the methods used in the assignment.
+					methods.  The option ‘supported function determines acceptance...’ is claimed when the supported function determines revocation status exceptions, for example, by presenting an option to the authorized user of the function, or when the function validates the status of intermediate CA or leaf certificates included in a trust store at times other than when used. In such cases, the ST author describes the methods used in the assignment.
 					</h:p>
 					<h:p>
 						The treatment of invalid revocation status information should not impact the validity of a certificate if other 
@@ -3025,8 +3031,8 @@
 					The ST author claims the method for obtaining certificates and the source of certificates, and describes the 
 					functions represented and how the functions use certificates. The ST author claims ‘request certificates…’ if 
 					certificates are requested using standard request formats or protocols, and FIA_X509_EXT.3 is also claimed. If 
-					‘embedded CA’ is claimed in the sub-selection, then <no-link>FDP_CER_EXT.1</no-link>/OLTLeaf and FDP_CER_EXT.2 are also claimed. If ‘obtain 
-					certificates from an embedded certification authority’ is claimed, <no-link>FDP_CER_EXT.1</no-link>/OLTLeaf is claimed.
+					‘embedded CA’ is claimed in the sub-selection, then <no-link>FDP_CER_EXT.1</no-link>/OLTleaf and FDP_CER_EXT.2 are also claimed. If ‘obtain 
+					certificates from an embedded certification authority’ is claimed, <no-link>FDP_CER_EXT.1</no-link>/OLTleaf is claimed.
 					</h:p><h:p>
 						The use of embedded CAs is constrained to only locally trusted functions. That is, the relying party for a certificate issued by the embedded CA is limited to TOE functions. In practice, this limitation typically precludes privileged users from using certificates issued by an embedded CA, especially in environments where administrative access to systems (including both TOE functions and non-TOE functions) is governed by an identity management policy. So, while not mandatory, it is strongly recommended that ‘external’ CA is claimed, and that all functions that provide person-entity authentication to privileged TOE functions support certificate requests to an external CA.
 					</h:p>
