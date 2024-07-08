@@ -682,6 +682,10 @@
 								<selectable> <assignable>positive length of time</assignable></selectable>
 							</selectables></h:li>
 						<h:li>The issuer field is populated with the name of the embedded CA issuing the certificate.</h:li>
+						<h:li>The signature field and the algorithm specification in the subjectPublicKeyInfo signature field agree and <selectables>
+							<selectable>are in accordance with RFC 8603</selectable>
+							<selectable>use <assignable>list of supported functions</assignable></selectable>
+						</selectables></h:li>
 						<h:li>The following extensions are supported as described:
 							<h:ul>
 								<h:li>authorityKeyIdentifier  <selectables>
