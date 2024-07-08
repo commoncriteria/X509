@@ -12,8 +12,6 @@ output/X509-release-linkable.html: FCS
 output/X509-release-linkable.html: FMT
 output/X509-release-linkable.html: FPs
 output/X509-release-linkable.html: IOT
-output/X509-release-linkable.html: OLTLeaf
-output/X509-release-linkable.html: OLTleafFDP
 output/X509-release-linkable.html: OSCP
 output/X509-release-linkable.html: PCKS
 output/X509-release-linkable.html: Palo
@@ -24,7 +22,6 @@ output/X509-release-linkable.html: SMR
 output/X509-release-linkable.html: STIP
 output/X509-release-linkable.html: STM
 output/X509-release-linkable.html: anyPurpose
-output/X509-release-linkable.html: applicationsused
 output/X509-release-linkable.html: authorityInfoAccess
 output/X509-release-linkable.html: authorityInformationAccess
 output/X509-release-linkable.html: authorityKeyIdentifier
@@ -96,8 +93,6 @@ output/X509-release.html: FCS
 output/X509-release.html: FMT
 output/X509-release.html: FPs
 output/X509-release.html: IOT
-output/X509-release.html: OLTLeaf
-output/X509-release.html: OLTleafFDP
 output/X509-release.html: OSCP
 output/X509-release.html: PCKS
 output/X509-release.html: Palo
@@ -107,11 +102,9 @@ output/X509-release.html: RFC7030
 output/X509-release.html: SMR
 output/X509-release.html: STIP
 output/X509-release.html: STM
-output/X509-release.html: acceptance’
 output/X509-release.html: accepted’
 output/X509-release.html: administrator’
 output/X509-release.html: anyPurpose’
-output/X509-release.html: applicationsused
 output/X509-release.html: assertion’
 output/X509-release.html: authorityInfoAccess
 output/X509-release.html: authorityInfoAccess’
@@ -205,8 +198,6 @@ output/X509.html: FCS
 output/X509.html: FMT
 output/X509.html: FPs
 output/X509.html: IOT
-output/X509.html: OLTLeaf
-output/X509.html: OLTleafFDP
 output/X509.html: OSCP
 output/X509.html: PCKS
 output/X509.html: Palo
@@ -216,11 +207,9 @@ output/X509.html: RFC7030
 output/X509.html: SMR
 output/X509.html: STIP
 output/X509.html: STM
-output/X509.html: acceptance’
 output/X509.html: accepted’
 output/X509.html: administrator’
 output/X509.html: anyPurpose’
-output/X509.html: applicationsused
 output/X509.html: assertion’
 output/X509.html: authorityInfoAccess
 output/X509.html: authorityInfoAccess’

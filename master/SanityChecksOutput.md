@@ -6,8 +6,6 @@
 * Error: Detected multiple elements with an id of 'fig-usecase1'.
 * Error: Detected multiple elements with an id of 'fig-usecase1'.
 * Error: Detected multiple elements with an id of 'fig-usecase1'.
-* Error: Detected multiple elements with an id of 'fdp-cer-ext-1'.
-* Error: Detected multiple elements with an id of 'fdp-cer-ext-1'.
  Failed to find a reference to bibCEM.
  Failed to find a reference to fia-ests-ext.1e1.
 * Warning: Since FDP_CER_EXT.2.2 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.
