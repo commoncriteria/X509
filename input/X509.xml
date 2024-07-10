@@ -2325,7 +2325,7 @@
 						root CA certificate or public key. A specific formatting of trust anchors is not required, but see RFC 5914 for 
 						further discussion.
 					</h:p><h:p>
-						The restriction on uniqueSubjectID and uniqueIssuerID refines RFC 5280, which only requires the extensions be 
+						This SFR element refines RFC 5280. All requirements indicated with a “MUST” in RFC 5280 are implied. In addition, this element requires support for the authorityKeyIdentifier, subjectKeyIdentifier, and keyUsage extensions even though RFC 5280 describes them as optional. The selections in this SFR may imply that additional optional requirements from RFC 5280 are required. For example, basicConstraints, including both the CA and CA values, is required when the TSF supports path lengths greater than 2; cRLDistributionPoints is required if CRLs are supported; and AIA is required if OCSP is supported. Other selections may imply additional extensions must be processed. A restriction on uniqueSubjectID and uniqueIssuerID also refines RFC 5280, which only requires the extensions be 
 						ignored.
 					</h:p><h:p>
 						For the selection on certificate signing rules, the ST author claims one of the certificate signature algorithm 
@@ -2522,7 +2522,7 @@
 					he ST author claims whether the TSF processes trust store rules or passes context to the supported function. If the TSF processes trust store context rules, the ST author describes the application context for each supported trust store, if any. Such rules include the interpretation of extensions in a root CA certificate used as a trust store element, the interpretation of required extensions in intermediate CA certificates, and required extensions in the leaf certificate, with interpretations (referenced RFC and/or refined use) on how such extensions and their values limit the applicability of a certification path, any initial name constraints (including reference IDs processed as part of path validation), expected certificate policies, etc. 
 				</h:p><h:p>
 					The ST author claims "extendedKeyUsage field..." if context depends on the value of the EKU in leaf certificates. This selection is required if the TSF supports the listed functions (Code integrity, OCSP, TLS, DTLS, SMIME), as claimed in 
-					FIA_X509_EXT.2.1 or as required in other SFRs in this package. It is preferred, but not required that each function using certificates indicated in 
+					FIA_X509_EXT.2.1 or as required in other SFRs in this package. For example, RA purpose is required if FDP_CER_EXT.1/OLTleaf is claimed and a supported certificate request protocol (EST, CMC, or v3 CMP) uses the RA EKU purpose to determine RA privileges associated with a supported function. It is preferred, but not required that each function using certificates indicated in 
 					FIA_X509_EXT.2.1 is associated with an EKU. While RFC 5280 generally allows the use of ‘anyPurpose’ it indicates that 
 					applications may require explicit values. This element clarifies the requirement that certificates without an EKU field or with the ‘anyPurpose’ OID in lieu of 
 					the required explicit value are considered invalid if used for applications for which an explicit EKU value is 
@@ -2531,7 +2531,7 @@
 					The ST author claims ‘pass context information to the supported function’ and the final option in the last selection 
 					to describe certification path context information passed to the supported function. Context information can be the 
 					entire certification path used, or specific context (name constraints, policy constraints etc.) made available to the 
-					function for its own suitability decision. Any context information derived from certification path processing by the TSF that is passed to the supported function, to include the certification path processing and the resulting context, should be included in the assignment. The option to pass information is not to be claimed in lieu of processing the required extendedKeyUsage fields for supported functions unless the ST of the function supported includes the required context processing.
+					function for its own suitability decision. Any context information derived from certification path processing by the TSF that is passed to the supported function, to include the certification path processing and the resulting context, is described in the assignment. The option to pass information is not to be claimed in lieu of processing the required extendedKeyUsage fields for supported functions unless the ST of the function supported includes the required context processing.
 				</h:p>
 				</note>	
 			</f-element>
