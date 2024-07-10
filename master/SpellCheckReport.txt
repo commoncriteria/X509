@@ -72,6 +72,7 @@ output/X509-release-linkable.html: subjectPublicKeyInfo
 output/X509-release-linkable.html: subjectUniqueID
 output/X509-release-linkable.html: substring
 output/X509-release-linkable.html: thisUpdate
+output/X509-release-linkable.html: trsuted
 output/X509-release-linkable.html: un
 output/X509-release-linkable.html: uniformResourceIdentifier
 output/X509-release-linkable.html: uniqueIssuerID
@@ -106,6 +107,7 @@ output/X509-release.html: accepted’
 output/X509-release.html: administrator’
 output/X509-release.html: anyPurpose’
 output/X509-release.html: assertion’
+output/X509-release.html: assert’
 output/X509-release.html: authorityInfoAccess
 output/X509-release.html: authorityInfoAccess’
 output/X509-release.html: authorityInformationAccess
@@ -174,6 +176,7 @@ output/X509-release.html: subjectPublicKeyInfo
 output/X509-release.html: subjectUniqueID
 output/X509-release.html: substring
 output/X509-release.html: thisUpdate
+output/X509-release.html: trsuted
 output/X509-release.html: un
 output/X509-release.html: uniformResourceIdentifier
 output/X509-release.html: uniqueIssuerID
@@ -211,6 +214,7 @@ output/X509.html: accepted’
 output/X509.html: administrator’
 output/X509.html: anyPurpose’
 output/X509.html: assertion’
+output/X509.html: assert’
 output/X509.html: authorityInfoAccess
 output/X509.html: authorityInfoAccess’
 output/X509.html: authorityInformationAccess
@@ -278,6 +282,7 @@ output/X509.html: subjectPublicKeyInfo
 output/X509.html: subjectUniqueID
 output/X509.html: substring
 output/X509.html: thisUpdate
+output/X509.html: trsuted
 output/X509.html: un
 output/X509.html: uniformResourceIdentifier
 output/X509.html: uniqueIssuerID
