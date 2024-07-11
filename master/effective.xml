@@ -9,7 +9,7 @@
       <PPTitle>Functional Package for X.509</PPTitle>
       <PPVersion>1.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2024-07-05</PPPubDate>
+      <PPPubDate>2024-07-19</PPPubDate>
       <Keywords>X.509; certificates; PKI</Keywords>
     </ReferenceTable>
   </PPReference>
@@ -17,7 +17,7 @@
   <RevisionHistory>
   	<entry>
       <version>1.0</version>
-      <date>2024-07-05</date>
+      <date>2024-07-19</date>
       <subject>Initial draft.</subject>
   	</entry>
   </RevisionHistory>
@@ -992,8 +992,8 @@
 				certificates issued by the TOE.</fam-behavior>
 		</ext-comp-def>
 		
-		<f-component name="Certificate Status Information Required" cc-id="fdp_csir_ext.1" id="fdp-csir-ext-1">
-			<!-- 	<depends on="toe-obtains-certs"></depends>  -->
+		<f-component name="Certificate Status Information Required" cc-id="fdp_csir_ext.1" id="fdp-csir-ext-1" status="sel-based">
+			 	<depends on="toe-obtains-certs"/>  
 			<comp-lev> requires the TSF to maintain certificate status information for its issued certificates, ensure any certificates it 
 				issues are valid for a sufficient period of time, supply a repository with status information, or identify a method to
 				invalidate trust that has been revoked.</comp-lev>
@@ -2511,7 +2511,7 @@
 				</title>
 				<note role="application">
 				<h:p>
-					he ST author claims whether the TSF processes trust store rules or passes context to the supported function. If the TSF processes trust store context rules, the ST author describes the application context for each supported trust store, if any. Such rules include the interpretation of extensions in a root CA certificate used as a trust store element, the interpretation of required extensions in intermediate CA certificates, and required extensions in the leaf certificate, with interpretations (referenced RFC and/or refined use) on how such extensions and their values limit the applicability of a certification path, any initial name constraints (including reference IDs processed as part of path validation), expected certificate policies, etc. 
+					The ST author claims whether the TSF processes trust store rules or passes context to the supported function. If the TSF processes trust store context rules, the ST author describes the application context for each supported trust store, if any. Such rules include the interpretation of extensions in a root CA certificate used as a trust store element, the interpretation of required extensions in intermediate CA certificates, and required extensions in the leaf certificate, with interpretations (referenced RFC and/or refined use) on how such extensions and their values limit the applicability of a certification path, any initial name constraints (including reference IDs processed as part of path validation), expected certificate policies, etc. 
 				</h:p><h:p>
 					The ST author claims "extendedKeyUsage field..." if context depends on the value of the EKU in leaf certificates. This selection is required if the TSF supports the listed functions (Code integrity, OCSP, TLS, DTLS, SMIME), as claimed in 
 					FIA_X509_EXT.2.1 or as required in other SFRs in this package. For example, RA purpose is required if FDP_CER_EXT.1/OLTleaf is claimed and a supported certificate request protocol (EST, CMC, or v3 CMP) uses the RA EKU purpose to determine RA privileges associated with a supported function. It is preferred, but not required that each function using certificates indicated in 

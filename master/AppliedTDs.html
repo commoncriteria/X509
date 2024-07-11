@@ -630,8 +630,8 @@ function showTarget(id){
 
           }
     </style></head><body onLoad="init()"><div id="commmentbox-"><a href="#Comment-1-">Comment: Comment-1-</a><br/><a href="#Comment-2-">Comment: Comment-2-</a><br/><a href="#Comment-3-">Comment: Comment-3-</a><br/><a href="#Comment-4-">Comment: Comment-4-</a><br/><a href="#Comment-5-">Comment: Comment-5-</a><br/><a href="#Comment-6-">Comment: Comment-6-</a><br/><a href="#Comment-7-">Comment: Comment-7-</a><br/><a href="#Comment-8-">Comment: Comment-8-</a><br/><a href="#Comment-9-">Comment: Comment-9-</a><br/><a href="#Comment-10-">Comment: Comment-10-</a><br/><a href="#Comment-11-">Comment: Comment-11-</a><br/><a href="#Comment-12-">Comment: Comment-12-</a><br/><a href="#Comment-13-">Comment: Comment-13-</a><br/><a href="#Comment-14-">Comment: Comment-14-</a><br/><a href="#Comment-15-">Comment: Comment-15-</a><br/><a href="#Comment-16-">Comment: Comment-16-</a><br/><a href="#Comment-17-">Comment: Comment-17-</a><br/><a href="#Comment-18-">Comment: Comment-18-</a><br/><a href="#Comment-19-">Comment: Comment-19-</a><br/><a href="#Comment-20-">Comment: Comment-20-</a><br/><a href="#Comment-21-">Comment: Comment-21-</a><br/><a href="#Comment-22-">Comment: Comment-22-</a><br/><a href="#Comment-23-">Comment: Comment-23-</a><br/><a href="#Comment-24-">Comment: Comment-24-</a><br/><a href="#Comment-25-">Comment: Comment-25-</a><br/><a href="#Comment-26-">Comment: Comment-26-</a><br/><a href="#Comment-27-">Comment: Comment-27-</a><br/><a href="#Comment-28-">Comment: Comment-28-</a><br/><a href="#Comment-29-">Comment: Comment-29-</a><br/><a href="#Comment-30-">Comment: Comment-30-</a><br/><a href="#Comment-31-">Comment: Comment-31-</a><br/><a href="#Comment-32-">Comment: Comment-32-</a><br/><a href="#Comment-33-">Comment: Comment-33-</a><br/><a href="#Comment-34-">Comment: Comment-34-</a><br/></div><h1 class="title" style="page-break-before:auto;">Functional Package for X.509</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
-      Version: 1.0<br/>2024-07-05<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>1.0</td><td>2024-07-05</td><td>Initial draft.</td></tr>
-</table><h3>TDs Applied</h3><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#toes" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#Use_Cases" style="text-indent:10px">1.4<span>Use Cases</span></a><a href="#Conformance_Claims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Functional_Requirements" style="text-indent:0px">3<span>Security Functional Requirements</span></a><a href="#ss-audit-table" style="text-indent:10px">3.1<span>Auditable Events for Mandatory SFRs</span></a><a href="#fdp" style="text-indent:10px">3.2<span>User Data Protection (FDP)</span></a><a href="#fia" style="text-indent:10px">3.3<span>Identification and Authentication (FIA)</span></a><a href="#opt-app" style="text-indent:0px">Appendix A - <span>Optional Requirements</span></a><a href="#optional-reqs" style="text-indent:10px">A.1<span>Strictly Optional  Requirements
+      Version: 1.0<br/>2024-07-19<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>1.0</td><td>2024-07-19</td><td>Initial draft.</td></tr>
+</table><h3>TDs Applied</h3><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#toes" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#Use_Cases" style="text-indent:10px">1.4<span>Use Cases</span></a><a href="#Conformance_Claims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Functional_Requirements" style="text-indent:0px">3<span>Security Functional Requirements</span></a><a href="#ss-audit-table" style="text-indent:10px">3.1<span>Auditable Events for Mandatory SFRs</span></a><a href="#fia" style="text-indent:10px">3.2<span>Identification and Authentication (FIA)</span></a><a href="#opt-app" style="text-indent:0px">Appendix A - <span>Optional Requirements</span></a><a href="#optional-reqs" style="text-indent:10px">A.1<span>Strictly Optional  Requirements
     </span></a><a href="#objective-reqs" style="text-indent:10px">A.2<span>Objective  Requirements
     </span></a><a href="#feat-based-reqs" style="text-indent:10px">A.3<span>Implementation-dependent  Requirements
     </span></a><a href="#sel-based-reqs" style="text-indent:0px">Appendix B - <span>Selection-based  Requirements
@@ -848,98 +848,18 @@ The following sections list Common Criteria and technology terms used in this do
 			if the incorporating <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr>, or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> supports audit event reporting through FAU_GEN.1,
 			and if all other criteria in the incorporating <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> are met.
 		</p>
-		<table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="at-man-audit" data-counter-type="ct-Table" id="at-man-audit">Table <span class="counter">2</span></span>: Auditable Events for Mandatory Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FDP_CSIR_EXT.1"><td rowspan="2"><a href="#FDP_CSIR_EXT.1">FDP_CSIR_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CSIR_EXT.1#"><td></td></tr><tr data-sortkey="FDP_CSIR_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FIA_XCU_EXT.1"><td rowspan="2"><a href="#FIA_XCU_EXT.1">FIA_XCU_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_XCU_EXT.1#"><td></td></tr><tr data-sortkey="FIA_XCU_EXT.1.1"><td>No events specified</td><td>N/A</td></tr></table>
+		<table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="at-man-audit" data-counter-type="ct-Table" id="at-man-audit">Table <span class="counter">2</span></span>: Auditable Events for Mandatory Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FIA_XCU_EXT.1"><td rowspan="2"><a href="#FIA_XCU_EXT.1">FIA_XCU_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_XCU_EXT.1#"><td></td></tr><tr data-sortkey="FIA_XCU_EXT.1.1"><td>No events specified</td><td>N/A</td></tr></table>
 	
 	
 	
 	
 	
-	<h2 id="fdp" class="indexable" data-level="2">3.2 User Data Protection (FDP)</h2>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		<div class="comp" id="FDP_CSIR_EXT.1"><h4>FDP_CSIR_EXT.1 Certificate Status Information Required</h4>
-			
-			
-			
-			
-			
-			<div class="element"><div class="reqid" id="FDP_CSIR_EXT.1.1"><a href="#FDP_CSIR_EXT.1.1" class="abbr">FDP_CSIR_EXT.1.1</a></div><div class="reqdesc"> <span style="" class="comment " id="Comment-12-">from CCPPD: The trigger for this is indicated as "This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is claimed if FDP_CER_EXT.1 is claimed." As there is no selection
-				triggering this, it should be categorized as an implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. Is that ok?</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="toe-generates-cert-status">generate certificate status information</span>, <span class="selectable-content" id="_s_208">only issue certificates with a validity period of less than [<b>assignment</b>: 
-     <span class="assignable-content">time not to exceed 
-						24 hours</span>]</span>, <span class="selectable-content" id="_s_209">provide access to [<b>assignment</b>: 
-     <span class="assignable-content">a certificate repository including status information</span>]
-					</span>, <span class="selectable-content" id="_s_210">depend on [<b>assignment</b>: 
-     <span class="assignable-content">method to invalidate trust in certificates revoked by the supported function</span>]</span>].					
-				<div class="appnote"><span class="note-header">Application
-      Note:
-    </span><span class="note">
-					Certificates issued by an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> that is only trusted by supported <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> functions may be revoked via notification 
-					from a supported function, or via administrative actions. When revoked, certificate status information must become 
-					available to all internal <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> functions that may use the impacted certificate when the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> is so notified. 
-					The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may use general methods such as issuance of CRLs or via an <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responder when one of the supported <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> 
-					functions expects such methods, or the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may provide direct access to a certificate repository managed by the 
-					embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> that includes status information. Distribution of Certificate status information is not required if 
-					certificates expire before notification is required, or if the issued certificates are only trusted by a single <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> 
-					function that manages the validity of certificates. If general methods are supported, the ‘generate certificate status 
-					information’ option is claimed and <a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a> is claimed. If certificates are issued for a sufficiently small 
-					validity period, which is less than the time that is typically allowed to process revocation requests, revocation 
-					information is not required and the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author assigns the maximum validity period allowed by the certificate profile, 
-					as indicated in <a href="#FDP_CER_EXT.1/OLTleaf">FDP_CER_EXT.1/OLTleaf</a>. If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> provides access to a certificate repository, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author 
-					claims ‘provide access …’ and identifies the repository and methods of access in the assignment. If each supported 
-					function manages the validity of the certificates it uses without depending on the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims 
-					‘depend on…’ and describes the method used by each such function. <span style="" class="comment " id="Comment-13-">from CCPPD2: proposed
-					resolution to the original comment here listed below at the end of the app note. Comment kept here to preserve
-					numbering of other comments.</span> In this case, the embedded function takes 
-					on traditional functionality of a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. Depending on the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> that this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> is used with, certain requirements of 
-					that <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> would then apply to the functionality described here as well, such as authorized administration to configure
-					the function.
-				</span></div></div></div>
-			
-		<div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FDP_CSIR_EXT.1">FDP_CSIR_EXT.1</a></div>
-					
-					
-					
-				<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
-						<p>The evaluator shall review the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and verify that the description of the decision processes used by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to 
-						invalidate certificates issued by the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> is included, and meets the requirements.</p>
-					</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
-						<p>The evaluator shall review AGD documentation to verify instructions to configure the ability of the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> 
-						to issue certificate status information is described, if required.</p>
-						<p>If the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> indicates the maximum validity period of certificates issued by the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> is configurable, the 
-						evaluator shall ensure that the instructions describe how to configure the validity period so that issuance 
-						certificate status information is not required.</p>	
-					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-						None.
-					</div></div></div></div></div>
-		
-		
-		
-		
-		
-		
-		
-				
 	
 	
 	
 	
 	
-	<h2 id="fia" class="indexable" data-level="2">3.3 Identification and Authentication (FIA)</h2>
+	<h2 id="fia" class="indexable" data-level="2">3.2 Identification and Authentication (FIA)</h2>
 		
 		
 		
@@ -1054,7 +974,7 @@ The following sections list Common Criteria and technology terms used in this do
          <table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="t-audit-sel-based" data-counter-type="ct-Table" id="t-audit-sel-based">Table <span class="counter">3</span></span>: Auditable Events for Selection-based Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FDP_CER_EXT.1/OLTleaf"><td rowspan="2"><a href="#FDP_CER_EXT.1/OLTleaf">FDP_CER_EXT.1/OLTleaf</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CER_EXT.1/OLTleaf#"><td></td></tr><tr data-sortkey="FDP_CER_EXT.1/OLTleaf.5"><td>Certificate generation</td><td>Success: [<b>selection</b>: <span class="selectable-content" id="_s_94">Certificate value</span>, <span class="selectable-content" id="_s_95">Certificate object identifier</span>]</td></tr><tr data-sortkey="FDP_CER_EXT.2"><td rowspan="2"><a href="#FDP_CER_EXT.2">FDP_CER_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CER_EXT.2#"><td></td></tr><tr data-sortkey="FDP_CER_EXT.2.7"><td>Linking of certificate to certificate request</td><td><ul><li>Success:[<b>selection</b>: <span class="selectable-content" id="_s_199">Certificate value</span>, <span class="selectable-content" id="_s_200">Certificate object identifier</span>],
 					[<b>selection</b>: <span class="selectable-content" id="_s_201">Certificate request</span>, <span class="selectable-content" id="_s_202">Link to certificate request object identifier</span>]
 				</li><li>Failure: Reason for failure, [<b>selection</b>: <span class="selectable-content" id="_s_203">Certificate request</span>, <span class="selectable-content" id="_s_204">Link to certificate request object identifier</span>]
-				</li></ul></td></tr><tr data-sortkey="FDP_CRL_EXT.1"><td rowspan="2"><a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CRL_EXT.1#"><td></td></tr><tr data-sortkey="FDP_CRL_EXT.1.6"><td>Failure to generate <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr></td><td>N/A</td></tr><tr data-sortkey="FDP_CSI_EXT.1"><td rowspan="2"><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CSI_EXT.1#"><td></td></tr><tr data-sortkey="FDP_CSI_EXT.1.8"><td>(conditional, if information is not provided via <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr>) Revocation</td><td><ul><li>Certificate identifier</li><li>Reason for revocation</li></ul></td></tr><tr data-sortkey="FDP_OCSP_EXT.1"><td rowspan="2"><a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_OCSP_EXT.1#"><td></td></tr><tr data-sortkey="FDP_OCSP_EXT.1.6"><td>Failure to generate certificate status information</td><td>N/A</td></tr><tr data-sortkey="FIA_CMCC_EXT.1"><td rowspan="3"><a href="#FIA_CMCC_EXT.1">FIA_CMCC_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_CMCC_EXT.1#"><td></td></tr><tr data-sortkey="FIA_CMCC_EXT.1.7"><td><abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> certificate or revocation requests</td><td>None</td></tr><tr data-sortkey="FIA_CMCC_EXT.1.8"><td><abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> responses issued</td><td>Any signed response</td></tr><tr data-sortkey="FIA_CMCS_EXT.1"><td rowspan="3"><a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_CMCS_EXT.1#"><td></td></tr><tr data-sortkey="FIA_CMCS_EXT.1.10"><td><abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> messages received containing certificate or revocation requests</td><td><ul><li>Identifiers for all entities authenticating the request, including the entity providing client 
+				</li></ul></td></tr><tr data-sortkey="FDP_CRL_EXT.1"><td rowspan="2"><a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CRL_EXT.1#"><td></td></tr><tr data-sortkey="FDP_CRL_EXT.1.6"><td>Failure to generate <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr></td><td>N/A</td></tr><tr data-sortkey="FDP_CSIR_EXT.1"><td rowspan="2"><a href="#FDP_CSIR_EXT.1">FDP_CSIR_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CSIR_EXT.1#"><td></td></tr><tr data-sortkey="FDP_CSIR_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_CSI_EXT.1"><td rowspan="2"><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CSI_EXT.1#"><td></td></tr><tr data-sortkey="FDP_CSI_EXT.1.8"><td>(conditional, if information is not provided via <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr>) Revocation</td><td><ul><li>Certificate identifier</li><li>Reason for revocation</li></ul></td></tr><tr data-sortkey="FDP_OCSP_EXT.1"><td rowspan="2"><a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_OCSP_EXT.1#"><td></td></tr><tr data-sortkey="FDP_OCSP_EXT.1.6"><td>Failure to generate certificate status information</td><td>N/A</td></tr><tr data-sortkey="FIA_CMCC_EXT.1"><td rowspan="3"><a href="#FIA_CMCC_EXT.1">FIA_CMCC_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_CMCC_EXT.1#"><td></td></tr><tr data-sortkey="FIA_CMCC_EXT.1.7"><td><abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> certificate or revocation requests</td><td>None</td></tr><tr data-sortkey="FIA_CMCC_EXT.1.8"><td><abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> responses issued</td><td>Any signed response</td></tr><tr data-sortkey="FIA_CMCS_EXT.1"><td rowspan="3"><a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_CMCS_EXT.1#"><td></td></tr><tr data-sortkey="FIA_CMCS_EXT.1.10"><td><abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> messages received containing certificate or revocation requests</td><td><ul><li>Identifiers for all entities authenticating the request, including the entity providing client 
 					authentication for the <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> transport (if any)</li><li>The request received</li></ul></td></tr><tr data-sortkey="FIA_CMCS_EXT.1.11"><td><abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> responses issued</td><td>Any signed response</td></tr><tr data-sortkey="FIA_CMPC_EXT.1"><td rowspan="2"><a href="#FIA_CMPC_EXT.1">FIA_CMPC_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_CMPC_EXT.1#"><td></td></tr><tr data-sortkey="FIA_CMPC_EXT.1.7"><td>CMP certificate or revocation requests</td><td>None</td></tr><tr data-sortkey="FIA_CMPS_EXT.1"><td rowspan="3"><a href="#FIA_CMPS_EXT.1">FIA_CMPS_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_CMPS_EXT.1#"><td></td></tr><tr data-sortkey="FIA_CMPS_EXT.1.10"><td><abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> response issued</td><td>None</td></tr><tr data-sortkey="FIA_CMPS_EXT.1.9"><td>CMP messages-received containing certificate or revocation requests</td><td><ul><li>Identifiers for all entities authenticating the request, including the entity providing client 
 					authentication for the <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> transport (if any)</li><li>The request received</li></ul></td></tr><tr data-sortkey="FIA_ESTC_EXT.1"><td rowspan="2"><a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_ESTC_EXT.1#"><td></td></tr><tr data-sortkey="FIA_ESTC_EXT.1.11"><td><abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> certificate or revocation requests</td><td>None</td></tr><tr data-sortkey="FIA_ESTS_EXT.1"><td rowspan="3"><a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_ESTS_EXT.1#"><td></td></tr><tr data-sortkey="FIA_ESTS_EXT.1.10"><td><abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> responses issued</td><td>Any signed response</td></tr><tr data-sortkey="FIA_ESTS_EXT.1.9"><td><abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> messages received containing certificate or revocation requests</td><td><ul><li>Identifiers for all entities authenticating the request, including the entity providing client 
 					authentication for the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> transport (if any)</li><li>The received request</li></ul></td></tr><tr data-sortkey="FIA_TSM_EXT.1"><td rowspan="2"><a href="#FIA_TSM_EXT.1">FIA_TSM_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_TSM_EXT.1#"><td></td></tr><tr data-sortkey="FIA_TSM_EXT.1.6"><td>Any addition, replacement, or removal of trust anchors in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s trust store</td><td>Identification of trust store element and modification made (add, remove, change)</td></tr><tr data-sortkey="FIA_X509_EXT.1"><td rowspan="2"><a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_X509_EXT.1#"><td></td></tr><tr data-sortkey="FIA_X509_EXT.1.11"><td>Unsuccessful attempt to validate a certificate</td><td>Reason for failure of certificate validation</td></tr><tr data-sortkey="FIA_X509_EXT.2"><td rowspan="2"><a href="#FIA_X509_EXT.2">FIA_X509_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_X509_EXT.2#"><td></td></tr><tr data-sortkey="FIA_X509_EXT.2.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FIA_X509_EXT.3"><td rowspan="4"><a href="#FIA_X509_EXT.3">FIA_X509_EXT.3</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_X509_EXT.3#"><td></td></tr><tr data-sortkey="FIA_X509_EXT.3.7"><td>Certificate requested</td><td>Certificate to be signed</td></tr><tr data-sortkey="FIA_X509_EXT.3.8"><td>Valid certificate received</td><td>None</td></tr><tr data-sortkey="FIA_X509_EXT.3.9"><td>Invalid certificate received</td><td>Reason for failure</td></tr><tr data-sortkey="FIA_XCU_EXT.2"><td rowspan="2"><a href="#FIA_XCU_EXT.2">FIA_XCU_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_XCU_EXT.2#"><td></td></tr><tr data-sortkey="FIA_XCU_EXT.2.1"><td>No events specified</td><td>N/A</td></tr></table><h2 id="-sel-based" class="indexable" data-level="2">B.2 User Data Protection (FDP)</h2><div class="comp" id="FDP_CER_EXT.1/OLTleaf"><h4>FDP_CER_EXT.1/OLTleaf Leaf Certificate Profiles (Only Locally Trusted)</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
@@ -1381,6 +1301,62 @@ The following sections list Common Criteria and technology terms used in this do
 							the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> meets the criteria of this requirement.
 							</li>
 						</ul></span>
+					</div></div></div></div></div><div class="comp" id="FDP_CSIR_EXT.1"><h4>FDP_CSIR_EXT.1 Certificate Status Information Required</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
+           <a href="#FIA_XCU_EXT.2.1">FIA_XCU_EXT.2.1</a>.
+           </i></b></div>
+			 	  
+			
+			
+			
+			
+			<div class="element"><div class="reqid" id="FDP_CSIR_EXT.1.1"><a href="#FDP_CSIR_EXT.1.1" class="abbr">FDP_CSIR_EXT.1.1</a></div><div class="reqdesc"> <span style="" class="comment " id="Comment-12-">from CCPPD: The trigger for this is indicated as "This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is claimed if FDP_CER_EXT.1 is claimed." As there is no selection
+				triggering this, it should be categorized as an implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. Is that ok?</span>
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="toe-generates-cert-status">generate certificate status information</span>, <span class="selectable-content" id="_s_208">only issue certificates with a validity period of less than [<b>assignment</b>: 
+     <span class="assignable-content">time not to exceed 
+						24 hours</span>]</span>, <span class="selectable-content" id="_s_209">provide access to [<b>assignment</b>: 
+     <span class="assignable-content">a certificate repository including status information</span>]
+					</span>, <span class="selectable-content" id="_s_210">depend on [<b>assignment</b>: 
+     <span class="assignable-content">method to invalidate trust in certificates revoked by the supported function</span>]</span>].					
+				<div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+					Certificates issued by an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> that is only trusted by supported <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> functions may be revoked via notification 
+					from a supported function, or via administrative actions. When revoked, certificate status information must become 
+					available to all internal <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> functions that may use the impacted certificate when the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> is so notified. 
+					The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may use general methods such as issuance of CRLs or via an <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responder when one of the supported <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> 
+					functions expects such methods, or the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may provide direct access to a certificate repository managed by the 
+					embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> that includes status information. Distribution of Certificate status information is not required if 
+					certificates expire before notification is required, or if the issued certificates are only trusted by a single <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> 
+					function that manages the validity of certificates. If general methods are supported, the ‘generate certificate status 
+					information’ option is claimed and <a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a> is claimed. If certificates are issued for a sufficiently small 
+					validity period, which is less than the time that is typically allowed to process revocation requests, revocation 
+					information is not required and the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author assigns the maximum validity period allowed by the certificate profile, 
+					as indicated in <a href="#FDP_CER_EXT.1/OLTleaf">FDP_CER_EXT.1/OLTleaf</a>. If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> provides access to a certificate repository, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author 
+					claims ‘provide access …’ and identifies the repository and methods of access in the assignment. If each supported 
+					function manages the validity of the certificates it uses without depending on the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims 
+					‘depend on…’ and describes the method used by each such function. <span style="" class="comment " id="Comment-13-">from CCPPD2: proposed
+					resolution to the original comment here listed below at the end of the app note. Comment kept here to preserve
+					numbering of other comments.</span> In this case, the embedded function takes 
+					on traditional functionality of a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. Depending on the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> that this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> is used with, certain requirements of 
+					that <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> would then apply to the functionality described here as well, such as authorized administration to configure
+					the function.
+				</span></div></div></div>
+			
+		<div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FDP_CSIR_EXT.1">FDP_CSIR_EXT.1</a></div>
+					
+					
+					
+				<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
+						<p>The evaluator shall review the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and verify that the description of the decision processes used by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to 
+						invalidate certificates issued by the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> is included, and meets the requirements.</p>
+					</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
+						<p>The evaluator shall review AGD documentation to verify instructions to configure the ability of the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> 
+						to issue certificate status information is described, if required.</p>
+						<p>If the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> indicates the maximum validity period of certificates issued by the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> is configurable, the 
+						evaluator shall ensure that the instructions describe how to configure the validity period so that issuance 
+						certificate status information is not required.</p>	
+					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+						None.
 					</div></div></div></div></div><div class="comp" id="FDP_CSI_EXT.1"><h4>FDP_CSI_EXT.1 Certificate Status Information Generation</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
            <a href="#FDP_CSIR_EXT.1.1">FDP_CSIR_EXT.1.1</a>.
            </i></b></div>
@@ -2406,7 +2382,7 @@ The following sections list Common Criteria and technology terms used in this do
       Note:
     </span><span class="note">
 				<p>
-					he <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims whether the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> processes trust store rules or passes context to the supported function. If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> processes trust store context rules, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author describes the application context for each supported trust store, if any. Such rules include the interpretation of extensions in a root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate used as a trust store element, the interpretation of required extensions in intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates, and required extensions in the leaf certificate, with interpretations (referenced <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> and/or refined use) on how such extensions and their values limit the applicability of a certification path, any initial name constraints (including reference IDs processed as part of path validation), expected certificate policies, etc. 
+					The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims whether the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> processes trust store rules or passes context to the supported function. If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> processes trust store context rules, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author describes the application context for each supported trust store, if any. Such rules include the interpretation of extensions in a root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate used as a trust store element, the interpretation of required extensions in intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates, and required extensions in the leaf certificate, with interpretations (referenced <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> and/or refined use) on how such extensions and their values limit the applicability of a certification path, any initial name constraints (including reference IDs processed as part of path validation), expected certificate policies, etc. 
 				</p><p>
 					The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims "extendedKeyUsage field..." if context depends on the value of the <abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr> in leaf certificates. This selection is required if the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports the listed functions (Code integrity, <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>, DTLS, SMIME), as claimed in 
 					<a href="#FIA_X509_EXT.2.1">FIA_X509_EXT.2.1</a> or as required in other <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> in this package. For example, <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> purpose is required if <a href="#FDP_CER_EXT.1/OLTleaf">FDP_CER_EXT.1/OLTleaf</a> is claimed and a supported certificate request protocol (<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr>, or v3 CMP) uses the <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr> purpose to determine <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> privileges associated with a supported function. It is preferred, but not required that each function using certificates indicated in 
