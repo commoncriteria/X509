@@ -1,4 +1,3 @@
-* Warning: This document still has at least one comment.
 * Error: Detected dangling id-reference to toe-issues-ocsp from attribute
         also/Package[1]""/sec:Security_Functional_Requirements[1]""/sec:fdp[1]""/f-component[7]""/depends[1]""/also[1]""
 * Error: Detected dangling id-reference to toe-uses-cmp from attribute

@@ -629,7 +629,7 @@ function showTarget(id){
 	            img[src="images/collapsed.png"] { display:none;}
 
           }
-    </style></head><body onLoad="init()"><div id="commmentbox-"><a href="#Comment-1-">Comment: Comment-1-</a><br/><a href="#Comment-2-">Comment: Comment-2-</a><br/><a href="#Comment-3-">Comment: Comment-3-</a><br/><a href="#Comment-4-">Comment: Comment-4-</a><br/><a href="#Comment-5-">Comment: Comment-5-</a><br/><a href="#Comment-6-">Comment: Comment-6-</a><br/><a href="#Comment-7-">Comment: Comment-7-</a><br/><a href="#Comment-8-">Comment: Comment-8-</a><br/><a href="#Comment-9-">Comment: Comment-9-</a><br/><a href="#Comment-10-">Comment: Comment-10-</a><br/><a href="#Comment-11-">Comment: Comment-11-</a><br/><a href="#Comment-12-">Comment: Comment-12-</a><br/><a href="#Comment-13-">Comment: Comment-13-</a><br/><a href="#Comment-14-">Comment: Comment-14-</a><br/><a href="#Comment-15-">Comment: Comment-15-</a><br/><a href="#Comment-16-">Comment: Comment-16-</a><br/><a href="#Comment-17-">Comment: Comment-17-</a><br/><a href="#Comment-18-">Comment: Comment-18-</a><br/><a href="#Comment-19-">Comment: Comment-19-</a><br/><a href="#Comment-20-">Comment: Comment-20-</a><br/><a href="#Comment-21-">Comment: Comment-21-</a><br/><a href="#Comment-22-">Comment: Comment-22-</a><br/><a href="#Comment-23-">Comment: Comment-23-</a><br/><a href="#Comment-24-">Comment: Comment-24-</a><br/><a href="#Comment-25-">Comment: Comment-25-</a><br/><a href="#Comment-26-">Comment: Comment-26-</a><br/><a href="#Comment-27-">Comment: Comment-27-</a><br/><a href="#Comment-28-">Comment: Comment-28-</a><br/><a href="#Comment-29-">Comment: Comment-29-</a><br/><a href="#Comment-30-">Comment: Comment-30-</a><br/><a href="#Comment-31-">Comment: Comment-31-</a><br/><a href="#Comment-32-">Comment: Comment-32-</a><br/><a href="#Comment-33-">Comment: Comment-33-</a><br/><a href="#Comment-34-">Comment: Comment-34-</a><br/></div><h1 class="title" style="page-break-before:auto;">Functional Package for X.509</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
+    </style></head><body onLoad="init()"><h1 class="title" style="page-break-before:auto;">Functional Package for X.509</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
       Version: 1.0<br/>2024-07-19<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>1.0</td><td>2024-07-19</td><td>Initial draft.</td></tr>
 </table><h3>TDs Applied</h3><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#toes" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#Use_Cases" style="text-indent:10px">1.4<span>Use Cases</span></a><a href="#Conformance_Claims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Functional_Requirements" style="text-indent:0px">3<span>Security Functional Requirements</span></a><a href="#ss-audit-table" style="text-indent:10px">3.1<span>Auditable Events for Mandatory SFRs</span></a><a href="#fia" style="text-indent:10px">3.2<span>Identification and Authentication (FIA)</span></a><a href="#opt-app" style="text-indent:0px">Appendix A - <span>Optional Requirements</span></a><a href="#optional-reqs" style="text-indent:10px">A.1<span>Strictly Optional  Requirements
     </span></a><a href="#objective-reqs" style="text-indent:10px">A.2<span>Objective  Requirements
@@ -983,20 +983,8 @@ The following sections list Common Criteria and technology terms used in this do
 			
 			
 		<div class="element"><div class="reqid" id="FDP_CER_EXT.1.1/OLTleaf"><a href="#FDP_CER_EXT.1.1/OLTleaf" class="abbr">FDP_CER_EXT.1.1/OLTleaf</a></div><div class="reqdesc">
-				<span style="" class="comment " id="Comment-1-">This (only locally trusted) iteration for leaf certificates is more general than that in STIP, but does not include the 
-					STIP use case. The general case should be modeled after that in the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>. Here, certificates are supporting any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function, 
-					but are only trusted by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function, whereas for STIP, the issued certificates are trusted by external clients or servers.
-				</span>
-				<span style="" class="comment " id="Comment-2-">from CCPPD: This is also supposed to be triggered if "a designated trust store specified in <a href="#FIA_X509_EXT.1.6">FIA_X509_EXT.1.6</a> is associated with an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>"
-				but there is no way to depict that via selection without changing <a href="#FIA_X509_EXT.1.6">FIA_X509_EXT.1.6</a>. The condition being written in this manner
-				implies an implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> but an <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> can't simultaneously be implementation-dependent and selection-based.</span>
-				<br/><br/>
-				<span style="" class="comment " id="Comment-3-">from CCPPD: It's unclear why this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is defined with an iteration when a non-iterated version of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is never used.</span>
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement a certificate profile function for certificates issued by a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> embedded within the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, 
-				supporting <span style="" class="comment " id="Comment-4-">The subsequent reference to supported functions go beyond how they use certificates, so a more detailed 
-					list is required, separately from how they use the issued certificates. Also, it’s necessary to allow internal <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> 
-					support of a function using <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>, while also allowing other functions using <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> to depend on an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. The 
-					profiles are dependent on the selection below, so it should be retained.</span>
+				supporting 
 				[<b>assignment</b>: 
      <span class="assignable-content">list of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> functions</span>], using certificates in support of: [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_1"> [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_2"> [<b>selection</b>: <span class="selectable-content" id="_s_3"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>, <span class="selectable-content" id="_s_4">DTLS</span>]
 							 [<b>selection</b>: <span class="selectable-content" id="_s_5">client authentication</span>, <span class="selectable-content" id="_s_6">server authentication</span>]</span></li><li style=""><span class="selectable-content" id="_s_7">IPsec and IKE peer authentication</span></li><li style=""><span class="selectable-content" id="_s_8">SMIME subject authentication</span></li><li style=""><span class="selectable-content" id="_s_9"> [<b>assignment</b>: 
@@ -1176,19 +1164,11 @@ The following sections list Common Criteria and technology terms used in this do
 			
 			
 			
-			<div class="element"><div class="reqid" id="FDP_CER_EXT.2.1"><a href="#FDP_CER_EXT.2.1" class="abbr">FDP_CER_EXT.2.1</a></div><div class="reqdesc"><span style="" class="comment " id="Comment-9-">CCPPD2: The note on when this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is claims also says "It may be claimed if ‘obtain certificates from an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’ is claimed in <a href="#FIA_XCU_EXT.2">FIA_XCU_EXT.2</a> when the interaction between the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> and the supported function includes a request event that is logged."
-				This would be an implementation-dependent trigger but an <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> can't simultaneously be selection-based and implementation-based.
-				
-				It also says that it must be claimed if FDP_CER_EXT.1 is claimed and 'request certificates from an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>' is claimed in <a href="#FIA_XCU_EXT.2.1">FIA_XCU_EXT.2.1</a>.
-				The first part of that condition will always apply if the second part applies though because the <a href="#FIA_XCU_EXT.2.1">FIA_XCU_EXT.2.1</a> is also a trigger for 
-				claiming FDP_CER_EXT.1. So that part was left off. Also note however that FDP_CER_EXT.1 is referred to as <a href="#FDP_CER_EXT.1/OLTleaf">FDP_CER_EXT.1/OLTleaf</a>; there is no 
-				un-iterated "FDP_CER_EXT.1" so this part of the reference is ambiguous regardless.</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_189">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_190">provide functionality</span>]
+			<div class="element"><div class="reqid" id="FDP_CER_EXT.2.1"><a href="#FDP_CER_EXT.2.1" class="abbr">FDP_CER_EXT.2.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_189">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_190">provide functionality</span>]
 					to establish a linkage from certificate requests from a supported <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function to issued certificates and [<b>selection</b>: <span class="selectable-content" id="_s_191">issue an alert</span>, <span class="selectable-content" id="_s_192">provide a search capability</span>]
 					to allow administrators to associate certificates with the request.
 				</div></div>
-			<div class="element"><div class="reqid" id="FDP_CER_EXT.2.2"><a href="#FDP_CER_EXT.2.2" class="abbr">FDP_CER_EXT.2.2</a></div><div class="reqdesc"><span style="" class="comment " id="Comment-10-">This generalizes requirements in other FDP_CER requirements from the STIP <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> module.</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_193">revoke</span>, <span class="selectable-content" id="_s_194">not issue</span>]
+			<div class="element"><div class="reqid" id="FDP_CER_EXT.2.2"><a href="#FDP_CER_EXT.2.2" class="abbr">FDP_CER_EXT.2.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_193">revoke</span>, <span class="selectable-content" id="_s_194">not issue</span>]
 					certificates that cannot be associated with [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_195">A PKCS-10 request validated in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 2986</span></li><li style=""><span class="selectable-content" id="toe-enforces-est">An <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> request processed in accordance with <a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a></span></li><li style=""><span class="selectable-content" id="toe-enforces-cmc">A <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> request processed in accordance with <a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a></span></li><li style=""><span class="selectable-content" id="toe-enforces-cmp">A CMP request processed in accordance with <a href="#FIA_CMPS_EXT.1">FIA_CMPS_EXT.1</a></span></li></ul>] 
 					from a supported <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function.		
 				<div class="appnote"><span class="note-header">Application
@@ -1254,8 +1234,7 @@ The following sections list Common Criteria and technology terms used in this do
 						</li>
 						<li>
 							The signature and signatureAlgorithm fields shall contain the <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> for a digital signature algorithm in 
-							accordance with <a href="#FCS_COP.1">FCS_COP.1</a> in the base <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>. <span style="" class="comment " id="Comment-11-">from CCPPD: proposed updates here and in app note
-							(comment kept to preserve numbering of other comments)</span>
+							accordance with <a href="#FCS_COP.1">FCS_COP.1</a> in the base <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.
 						</li>
 						<li>
 							The thisUpdate field shall indicate the issue date of the <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>.
@@ -1309,9 +1288,7 @@ The following sections list Common Criteria and technology terms used in this do
 			
 			
 			
-			<div class="element"><div class="reqid" id="FDP_CSIR_EXT.1.1"><a href="#FDP_CSIR_EXT.1.1" class="abbr">FDP_CSIR_EXT.1.1</a></div><div class="reqdesc"> <span style="" class="comment " id="Comment-12-">from CCPPD: The trigger for this is indicated as "This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is claimed if FDP_CER_EXT.1 is claimed." As there is no selection
-				triggering this, it should be categorized as an implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. Is that ok?</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="toe-generates-cert-status">generate certificate status information</span>, <span class="selectable-content" id="_s_208">only issue certificates with a validity period of less than [<b>assignment</b>: 
+			<div class="element"><div class="reqid" id="FDP_CSIR_EXT.1.1"><a href="#FDP_CSIR_EXT.1.1" class="abbr">FDP_CSIR_EXT.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="toe-generates-cert-status">generate certificate status information</span>, <span class="selectable-content" id="_s_208">only issue certificates with a validity period of less than [<b>assignment</b>: 
      <span class="assignable-content">time not to exceed 
 						24 hours</span>]</span>, <span class="selectable-content" id="_s_209">provide access to [<b>assignment</b>: 
      <span class="assignable-content">a certificate repository including status information</span>]
@@ -1334,9 +1311,7 @@ The following sections list Common Criteria and technology terms used in this do
 					as indicated in <a href="#FDP_CER_EXT.1/OLTleaf">FDP_CER_EXT.1/OLTleaf</a>. If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> provides access to a certificate repository, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author 
 					claims ‘provide access …’ and identifies the repository and methods of access in the assignment. If each supported 
 					function manages the validity of the certificates it uses without depending on the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims 
-					‘depend on…’ and describes the method used by each such function. <span style="" class="comment " id="Comment-13-">from CCPPD2: proposed
-					resolution to the original comment here listed below at the end of the app note. Comment kept here to preserve
-					numbering of other comments.</span> In this case, the embedded function takes 
+					‘depend on…’ and describes the method used by each such function. In this case, the embedded function takes 
 					on traditional functionality of a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. Depending on the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> that this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> is used with, certain requirements of 
 					that <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> would then apply to the functionality described here as well, such as authorized administration to configure
 					the function.
@@ -1366,7 +1341,7 @@ The following sections list Common Criteria and technology terms used in this do
 			
 			
 			<div class="element"><div class="reqid" id="FDP_CSI_EXT.1.1"><a href="#FDP_CSI_EXT.1.1" class="abbr">FDP_CSI_EXT.1.1</a></div><div class="reqdesc">
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate certificate status information whose format complies with [<b>selection</b>: <span class="selectable-content" id="toe-supports-crl"><abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr> Recommendation X.509v2 <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr></span>, <span class="selectable-content" id="_s_212"><abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr> Recommendation X.509v2 <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> as refined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8603 <span style="" class="comment " id="Comment-14-">from CCPPD: should this also trigger <a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a>? Right now it doesn't</span></span>, <span class="selectable-content" id="toe-supports-ocsp">the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> standard as defined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960</span>].
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate certificate status information whose format complies with [<b>selection</b>: <span class="selectable-content" id="toe-supports-crl"><abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr> Recommendation X.509v2 <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr></span>, <span class="selectable-content" id="_s_212"><abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr> Recommendation X.509v2 <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> as refined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8603 </span>, <span class="selectable-content" id="toe-supports-ocsp">the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> standard as defined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960</span>].
 				<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -1444,8 +1419,7 @@ The following sections list Common Criteria and technology terms used in this do
 			
 			
 			
-			<div class="element"><div class="reqid" id="FDP_OCSP_EXT.1.1"><a href="#FDP_OCSP_EXT.1.1" class="abbr">FDP_OCSP_EXT.1.1</a></div><div class="reqdesc"><span style="" class="comment " id="Comment-15-">Significant difference from existing <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> in STIP</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall ensure that all mandatory fields in the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> basic response contain values in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 
+			<div class="element"><div class="reqid" id="FDP_OCSP_EXT.1.1"><a href="#FDP_OCSP_EXT.1.1" class="abbr">FDP_OCSP_EXT.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall ensure that all mandatory fields in the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> basic response contain values in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 
 					6960 which meet the following rules.
 					<ul>
 						<li>
@@ -1453,8 +1427,7 @@ The following sections list Common Criteria and technology terms used in this do
 						</li>
 						<li>
 							The signatureAlgorithm field shall contain the object identifier (<abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr>) for a digital signature algorithm in 
-							accordance with [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_219">sha256WithRSAEncryption in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960 with key size of 2048 bits or greater</span></li><li style=""><span class="selectable-content" id="_s_220"> [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_221">sha384WithRSAEncryption with key size of 3072 bits or greater</span></li><li style=""><span class="selectable-content" id="_s_222">ecdsa-with-SHA384 using <span style="" class="comment " id="Comment-16-">Crypto TC review required – add secp256r1 or indicate in 
-										an application note that secp256r1 is deprecated – refining <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960</span>
+							accordance with [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_219">sha256WithRSAEncryption in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960 with key size of 2048 bits or greater</span></li><li style=""><span class="selectable-content" id="_s_220"> [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_221">sha384WithRSAEncryption with key size of 3072 bits or greater</span></li><li style=""><span class="selectable-content" id="_s_222">ecdsa-with-SHA384 using
 										[<b>selection</b>: <span class="selectable-content" id="_s_223">secp384r1</span>, <span class="selectable-content" id="_s_224">secp521r1</span>]</span></li></ul>]</span></li></ul>]
 						</li>
 						<li>
@@ -1562,8 +1535,7 @@ The following sections list Common Criteria and technology terms used in this do
 			
 			
 			
-			<div class="element"><div class="reqid" id="FIA_CMCS_EXT.1.1"><a href="#FIA_CMCS_EXT.1.1" class="abbr">FIA_CMCS_EXT.1.1</a></div><div class="reqdesc"><span style="" class="comment " id="Comment-17-">Based on <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> selected in <a href="#FIA_X509_EXT.3">FIA_X509_EXT.3</a> and what else?</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to accept and process <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> [<b>selection</b>: <span class="selectable-content" id="_s_237">full requests</span>, <span class="selectable-content" id="_s_238">simple requests</span>]
+			<div class="element"><div class="reqid" id="FIA_CMCS_EXT.1.1"><a href="#FIA_CMCS_EXT.1.1" class="abbr">FIA_CMCS_EXT.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to accept and process <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> [<b>selection</b>: <span class="selectable-content" id="_s_237">full requests</span>, <span class="selectable-content" id="_s_238">simple requests</span>]
 					meeting the profile specified in [<b>selection</b>: <span class="selectable-content" id="_s_239"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8756</span>, <span class="selectable-content" id="_s_240"> [<b>assignment</b>: 
      <span class="assignable-content"><abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> profile supported</span>]</span>]
 					in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5272, <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5273, and <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5274, as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6402.				
@@ -1576,8 +1548,6 @@ The following sections list Common Criteria and technology terms used in this do
 					Cryptographic functions used in the <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> profile are limited to those specified in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> which claims conformance 
 					to this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>. The mechanism that implements these functions (e.g., whether it is part of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> or invoked from its platform) 
 					is specified in <a href="#FIA_CMCS_EXT.1.4">FIA_CMCS_EXT.1.4</a>. 
-					<span style="" class="comment " id="Comment-18-">from CCPPD: update made here to address original comment. This comment kept to preserve numbering of the other comments.
-					See also proposed updates to <a href="#FIA_CMCS_EXT.1.4">FIA_CMCS_EXT.1.4</a> below.</span> 
 				</span></div></div></div>
 			
 			<div class="element"><div class="reqid" id="FIA_CMCS_EXT.1.2"><a href="#FIA_CMCS_EXT.1.2" class="abbr">FIA_CMCS_EXT.1.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to generate <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> simple responses and [<b>selection</b>: <span class="selectable-content" id="_s_241"><abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> full responses</span>, <span class="selectable-content" id="_s_242">no other</span>] 
@@ -1701,8 +1671,7 @@ The following sections list Common Criteria and technology terms used in this do
 			
 			
 			
-			<div class="element"><div class="reqid" id="FIA_CMPC_EXT.1.1"><a href="#FIA_CMPC_EXT.1.1" class="abbr">FIA_CMPC_EXT.1.1</a></div><div class="reqdesc"> <span style="" class="comment " id="Comment-19-">Should this include a selection for <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9482 in support of IOT devices?</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
+			<div class="element"><div class="reqid" id="FIA_CMPC_EXT.1.1"><a href="#FIA_CMPC_EXT.1.1" class="abbr">FIA_CMPC_EXT.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
 					 [<b>selection</b>: <span class="selectable-content" id="_s_252">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_253">provide functionality</span>]
 					to generate CMP requests
 					 [<b>selection</b>: <span class="selectable-content" id="_s_254">in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 4210 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6712 and <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9481 (CMP version 2)</span>, <span class="selectable-content" id="_s_255">in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 4210 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6712 and <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9480 (CMP version 3)</span>],
@@ -1712,9 +1681,7 @@ The following sections list Common Criteria and technology terms used in this do
 			<div class="element"><div class="reqid" id="FIA_CMPC_EXT.1.2"><a href="#FIA_CMPC_EXT.1.2" class="abbr">FIA_CMPC_EXT.1.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
 					 [<b>selection</b>: <span class="selectable-content" id="_s_256">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_257">provide functionality</span>]
 					to 
-					 [<b>selection</b>: <span class="selectable-content" id="_s_258">export CMP requests and import CMP responses under the control of an administrator</span>, <span class="selectable-content" id="_s_259">transport CMP messages over <span style="" class="comment " id="Comment-20-"><abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> is recommended for external CAs, but other options are 
-					 		acceptable for embedded CAs or when CMP message protection mechanisms are used. If needed, include other 
-					 		options in a selection</span> <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6712, with all renewal requests using mutual authentication</span>, <span class="selectable-content" id="_s_260">transport CMP messages over <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9480 (CMP version 3) with all renewal requests using mutual authentication</span>].
+					 [<b>selection</b>: <span class="selectable-content" id="_s_258">export CMP requests and import CMP responses under the control of an administrator</span>, <span class="selectable-content" id="_s_259">transport CMP messages over <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6712, with all renewal requests using mutual authentication</span>, <span class="selectable-content" id="_s_260">transport CMP messages over <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9480 (CMP version 3) with all renewal requests using mutual authentication</span>].
 				<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -1772,9 +1739,7 @@ The following sections list Common Criteria and technology terms used in this do
 
 			<div class="element"><div class="reqid" id="FIA_CMPS_EXT.1.2"><a href="#FIA_CMPS_EXT.1.2" class="abbr">FIA_CMPS_EXT.1.2</a></div><div class="reqdesc">
 					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_265">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_266">provide functionality</span>]
-					to authenticate CMP subjects and end-entities for re-enrollment via <span style="" class="comment " id="Comment-21-"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> (<abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr>) with mutual authentication is 
-						recommended for external clients, but other mechanisms for local subjects/end entities are acceptable. Consider 
-						adding options in a selection,</span> certificate-based authentication and
+					to authenticate CMP subjects and end-entities for re-enrollment via certificate-based authentication and
 					 [<b>selection</b>: <span class="selectable-content" id="_s_267"><abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> assertion</span>, <span class="selectable-content" id="_s_268">no other method</span>].
 				<div class="appnote"><span class="note-header">Application
       Note:
@@ -1827,8 +1792,6 @@ The following sections list Common Criteria and technology terms used in this do
 						<p>The evaluator shall examine AGD documentation and verifies that any configurable features of the CMP server 
 						functionality required to meet the requirements are included.</p>
 					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-						<span style="" class="comment " id="Comment-22-">Supported functions and options for CMP services by an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> will require testing. Details for AA may 
-							need to be updated based on TC discussion regarding the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>.</span>
 						The evaluator shall perform the following tests.
 						<span class="testlist-"><ul>
 							<li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test FIA_CMPS_EXT.1:1</a>:
@@ -1952,7 +1915,6 @@ The following sections list Common Criteria and technology terms used in this do
 				<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
-					<span style="" class="comment " id="Comment-23-">So based on selection of <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> in <a href="#FIA_X509_EXT.3">FIA_X509_EXT.3</a> AND what else?</span>
 					This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is claimed if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server associated with an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> to process enrollment requests; 
 					the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> is referred to as the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> in the <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr>.  Updates to <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 indicated in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8996 applies to all 
 					references to <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 in this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. If Registration Authority (<abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr>) functionality is supported, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author 
@@ -2075,9 +2037,7 @@ The following sections list Common Criteria and technology terms used in this do
 			
 			
 			
-			<div class="element"><div class="reqid" id="FIA_TSM_EXT.1.1"><a href="#FIA_TSM_EXT.1.1" class="abbr">FIA_TSM_EXT.1.1</a></div><div class="reqdesc">(managing trust store elements)
-					<span style="" class="comment " id="Comment-24-">Integrate allowance for platform managed trust store (see Palo Alto comment 5) – also impacts test 13</span> 
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
+			<div class="element"><div class="reqid" id="FIA_TSM_EXT.1.1"><a href="#FIA_TSM_EXT.1.1" class="abbr">FIA_TSM_EXT.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
 					 [<b>selection</b>: <span class="selectable-content" id="_s_308">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_309">implement functionality</span>]
 					to manage [<b>assignment</b>: 
      <span class="assignable-content">designated trust store or individual trust store elements</span>] by
@@ -2087,9 +2047,7 @@ The following sections list Common Criteria and technology terms used in this do
 						of a trust store’s elements</span></li><li style=""><span class="selectable-content" id="_s_317">Allowing the administrator to manage context rules of a trust store</span></li><li style=""><span class="selectable-content" id="_s_318">Using methods in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5934</span></li></ul>]
 					and 
 					 [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_319">Validating the certification path of any certificate that is neither a self-signed root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>
-							certificate nor an <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> certificate, [<b>selection</b>: <span class="selectable-content" id="_s_320"><span style="" class="comment " id="Comment-25-">This depends 
-								on selection (which administrator). See Palo Alto comment 10. Also impacts test 13. Added selection to 
-								require one of when installed, when used and added no other to original selection</span> when installed 
+							certificate nor an <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> certificate, [<b>selection</b>: <span class="selectable-content" id="_s_320">when installed 
 								by an administrator as a trust store element</span>, <span class="selectable-content" id="_s_321">on use</span>] and
 							 [<b>selection</b>: <span class="selectable-content" id="_s_322">on demand</span>, <span class="selectable-content" id="_s_323">during [<b>assignment</b>: 
      <span class="assignable-content">defined events</span>]</span>, <span class="selectable-content" id="_s_324">periodically every [<b>assignment</b>: 
@@ -2104,8 +2062,7 @@ The following sections list Common Criteria and technology terms used in this do
 						trusted public keys. Trust store elements are single trusted public keys using the context of the trust store for 
 						certificate path validation. <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> certificates trusted by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may also be considered trust store elements, 
 						and must be included in a trust store when revocation information is not provided directly by the issuing <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. Revocation 
-						status of <span style="" class="comment " id="Comment-26-">Is this sufficient, or do we refine 6960 to require an explicit no-check flag and move this 
-							into an <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> element?</span>local (associated with a locally configured <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responder) or ‘no-check’ (contains the extension id-pkix-ocsp-nocheck) <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> certificates are not verified in accordance with the options in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960 section 4.2.2.2.1. 
+						status of local (associated with a locally configured <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responder) or ‘no-check’ (contains the extension id-pkix-ocsp-nocheck) <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> certificates are not verified in accordance with the options in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960 section 4.2.2.2.1. 
 					</p>
 					<p>
 						The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author designates which trust stores or trust store elements are managed in the assignment (a subset of those indicated in <a href="#FIA_X509_EXT.1.6">FIA_X509_EXT.1.6</a>) and specifies one or more options for 
@@ -2218,9 +2175,7 @@ The following sections list Common Criteria and technology terms used in this do
 							[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_333">CRLs are signed using cryptographic signatures and hashes in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8603 and [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_334">[<b>assignment</b>: 
      <span class="assignable-content">list of supported cryptographic algorithms</span>]</span></li><li style=""><span class="selectable-content" id="_s_335">no other algorithms</span></li></ul>]
 									and CRLs signed using other cryptographic algorithms are considered invalid;</span></li><li style=""><span class="selectable-content" id="_s_336">
-									<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responses are signed using <span style="" class="comment " id="Comment-27-">Discuss <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> gap in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8603 with Crypto TC to determine how group constraints are 
-										captured.</span><span style="" class="comment " id="Comment-28-">Crypto TC review: Either add secp256r1 or add an application note 
-											regarding refining <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960 to deprecate the algorithm</span>
+									<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responses are signed using 
 									[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_337">sha256WithRSAEncryption in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960 with key size of 2048 bits or greater,</span></li><li style=""><span class="selectable-content" id="_s_338">ecdsa-with-SHA384 using 
 													[<b>selection</b>: <span class="selectable-content" id="_s_339">secp384r1</span>, <span class="selectable-content" id="_s_340">secp521r1</span>],</span></li><li style=""><span class="selectable-content" id="_s_341">ecdsa-with-SHA512 using 
                                                      [<b>selection</b>: <span class="selectable-content" id="_s_342">secp384r1</span>, <span class="selectable-content" id="_s_343">secp521r1</span>],
@@ -2359,8 +2314,7 @@ The following sections list Common Criteria and technology terms used in this do
 						<abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or DTLS.
 					</p>
 					</span></div></div></div>
-			<div class="element"><div class="reqid" id="FIA_X509_EXT.1.5"><a href="#FIA_X509_EXT.1.5" class="abbr">FIA_X509_EXT.1.5</a></div><div class="reqdesc"> <span style="" class="comment " id="Comment-29-">Palo Alto comment</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall  [<b>selection</b>: <span class="selectable-content" id="_s_390">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_391">implement functionality</span>, <span class="selectable-content" id="_s_392">pass context information to the supported function</span>] to validate that the 
+			<div class="element"><div class="reqid" id="FIA_X509_EXT.1.5"><a href="#FIA_X509_EXT.1.5" class="abbr">FIA_X509_EXT.1.5</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall  [<b>selection</b>: <span class="selectable-content" id="_s_390">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_391">implement functionality</span>, <span class="selectable-content" id="_s_392">pass context information to the supported function</span>] to validate that the 
 							context of the certificate path and trust store element is consistent with the supported function use via
 							 [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_393">processing 
 							 		[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_394">[<b>assignment</b>: 
@@ -2397,9 +2351,7 @@ The following sections list Common Criteria and technology terms used in this do
 					function for its own suitability decision. Any context information derived from certification path processing by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> that is passed to the supported function, to include the certification path processing and the resulting context, is described in the assignment. The option to pass information is not to be claimed in lieu of processing the required extendedKeyUsage fields for supported functions unless the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> of the function supported includes the required context processing.
 				</p>
 				</span></div></div></div>
-			<div class="element"><div class="reqid" id="FIA_X509_EXT.1.6"><a href="#FIA_X509_EXT.1.6" class="abbr">FIA_X509_EXT.1.6</a></div><div class="reqdesc">
-					<span style="" class="comment " id="Comment-30-">Integrate allowance for platform managed trust store  (see Palo Alto comment 5) 
-						– also impacts test 13</span> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall  [<b>selection</b>: <span class="selectable-content" id="toe-manages-trust-stores">manage trust stores</span>, <span class="selectable-content" id="_s_412">use platform-managed trust stores</span>]
+			<div class="element"><div class="reqid" id="FIA_X509_EXT.1.6"><a href="#FIA_X509_EXT.1.6" class="abbr">FIA_X509_EXT.1.6</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall  [<b>selection</b>: <span class="selectable-content" id="toe-manages-trust-stores">manage trust stores</span>, <span class="selectable-content" id="_s_412">use platform-managed trust stores</span>]
 					used for certification path validation.
 				<div class="appnote"><span class="note-header">Application
       Note:
@@ -2559,7 +2511,7 @@ The following sections list Common Criteria and technology terms used in this do
 							</li>
 							<li class="test-"><a id="_t_43" class="defined" href="#_t_43">Test FIA_X509_EXT.1:13</a>:
       
-								<span style="" class="comment " id="Comment-31-">Conditional based on update of <a href="#FIA_X509_EXT.1.5">FIA_X509_EXT.1.5</a>.</span> <p>[conditional: If a function in 
+								<p>[conditional: If a function in 
 									<a href="#FIA_X509_EXT.2">FIA_X509_EXT.2</a> requires <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> processing of context information for path validation] For each supported 
 									function requiring <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> processing context information, and for each supported certificate context and 
 									usage constraint claimed, the evaluator shall demonstrate that a certification path that does not meet 
@@ -2622,8 +2574,7 @@ The following sections list Common Criteria and technology terms used in this do
 					The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author lists all supported functions that depend on identities associated with certificates in the assignment.  
 					For each such function, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims the protocols and services used by the supported functions that require certificates.
 				</span></div></div></div>
-			<div class="element"><div class="reqid" id="FIA_X509_EXT.2.2"><a href="#FIA_X509_EXT.2.2" class="abbr">FIA_X509_EXT.2.2</a></div><div class="reqdesc"><span style="" class="comment " id="Comment-32-">Previous name-constraints and policy constraint initialization are omitted (problem with optional elements) 
-					and covered generally in <a href="#FIA_X509_EXT.1.6">FIA_X509_EXT.1.6</a></span> For each function indicated in <a href="#FIA_X509_EXT.2.1">FIA_X509_EXT.2.1</a>, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
+			<div class="element"><div class="reqid" id="FIA_X509_EXT.2.2"><a href="#FIA_X509_EXT.2.2" class="abbr">FIA_X509_EXT.2.2</a></div><div class="reqdesc">For each function indicated in <a href="#FIA_X509_EXT.2.1">FIA_X509_EXT.2.1</a>, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
 					 [<b>selection</b>: <span class="selectable-content" id="_s_429">invoke the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform to determine</span>, <span class="selectable-content" id="_s_430">determine</span>] whether the
 					 [<b>selection</b>: <span class="selectable-content" id="_s_431">administrator is allowed to configure certificate acceptance</span>, <span class="selectable-content" id="_s_432">supported function determines acceptance via [<b>assignment</b>: 
      <span class="assignable-content">method of determining acceptance</span>]</span>, <span class="selectable-content" id="_s_433">certificate is accepted</span>, <span class="selectable-content" id="_s_434">certificate is not accepted</span>] 
@@ -2695,9 +2646,7 @@ The following sections list Common Criteria and technology terms used in this do
      <span class="assignable-content">other <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> types</span>]</span></li></ul>]
 						</span></li></ul>]
 					and [<b>assignment</b>: 
-     <span class="assignable-content">list of other certificate field and extension values</span>]. <span style="" class="comment " id="Comment-33-">TC: Please provide suggested 
-						values here to be used as selections</span><span style="" class="comment " id="Comment-34-">TC: We received no suggested selections. Please provide 
-							suggested values. Thank you!</span>
+     <span class="assignable-content">list of other certificate field and extension values</span>].
 				<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -2857,8 +2806,7 @@ The following sections list Common Criteria and technology terms used in this do
 				<span class="no-link">FTP_PRO.2</span> Trusted Channel Establishment<br/>
 				<span class="no-link">FTP_PRO.3</span> Trusted Channel Data Protection<br/>
 				<span class="no-link">FTP_ITC.1</span> Inter-TSF Trusted Channel
-			</td></tr></table><h4 id="ext-comp-FIA_CMCS_EXT.1.1">FIA_CMCS_EXT.1.1</h4><span style="" class="comment " id="Comment-17-">Based on <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> selected in <a href="#FIA_X509_EXT.3">FIA_X509_EXT.3</a> and what else?</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to accept and process <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> [<b>selection</b>: <span class="selectable-content" id="_s_237">full requests</span>, <span class="selectable-content" id="_s_238">simple requests</span>]
+			</td></tr></table><h4 id="ext-comp-FIA_CMCS_EXT.1.1">FIA_CMCS_EXT.1.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to accept and process <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> [<b>selection</b>: <span class="selectable-content" id="_s_237">full requests</span>, <span class="selectable-content" id="_s_238">simple requests</span>]
 					meeting the profile specified in [<b>selection</b>: <span class="selectable-content" id="_s_239"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8756</span>, <span class="selectable-content" id="_s_240"> [<b>assignment</b>: 
      <span class="assignable-content"><abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> profile supported</span>]</span>]
 					in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5272, <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5273, and <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5274, as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6402.				
@@ -2896,8 +2844,7 @@ The following sections list Common Criteria and technology terms used in this do
 				<span class="no-link">FTP_PRO.2</span> Trusted Channel Establishment<br/>
 				<span class="no-link">FTP_PRO.3</span> Trusted Channel Data Protection<br/>
 				<span class="no-link">FTP_ITC.1</span> Inter-TSF Trusted Channel
-			</td></tr></table><h4 id="ext-comp-FIA_CMPC_EXT.1.1">FIA_CMPC_EXT.1.1</h4> <span style="" class="comment " id="Comment-19-">Should this include a selection for <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9482 in support of IOT devices?</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
+			</td></tr></table><h4 id="ext-comp-FIA_CMPC_EXT.1.1">FIA_CMPC_EXT.1.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
 					 [<b>selection</b>: <span class="selectable-content" id="_s_252">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_253">provide functionality</span>]
 					to generate CMP requests
 					 [<b>selection</b>: <span class="selectable-content" id="_s_254">in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 4210 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6712 and <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9481 (CMP version 2)</span>, <span class="selectable-content" id="_s_255">in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 4210 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6712 and <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9480 (CMP version 3)</span>],
@@ -2905,9 +2852,7 @@ The following sections list Common Criteria and technology terms used in this do
 				<h4 id="ext-comp-FIA_CMPC_EXT.1.2">FIA_CMPC_EXT.1.2</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
 					 [<b>selection</b>: <span class="selectable-content" id="_s_256">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_257">provide functionality</span>]
 					to 
-					 [<b>selection</b>: <span class="selectable-content" id="_s_258">export CMP requests and import CMP responses under the control of an administrator</span>, <span class="selectable-content" id="_s_259">transport CMP messages over <span style="" class="comment " id="Comment-20-"><abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> is recommended for external CAs, but other options are 
-					 		acceptable for embedded CAs or when CMP message protection mechanisms are used. If needed, include other 
-					 		options in a selection</span> <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6712, with all renewal requests using mutual authentication</span>, <span class="selectable-content" id="_s_260">transport CMP messages over <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9480 (CMP version 3) with all renewal requests using mutual authentication</span>].
+					 [<b>selection</b>: <span class="selectable-content" id="_s_258">export CMP requests and import CMP responses under the control of an administrator</span>, <span class="selectable-content" id="_s_259">transport CMP messages over <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6712, with all renewal requests using mutual authentication</span>, <span class="selectable-content" id="_s_260">transport CMP messages over <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9480 (CMP version 3) with all renewal requests using mutual authentication</span>].
 				</div></div><h3 id="ext-comp-FIA_CMPS_EXT" class="indexable" data-level="4">C.2.1.4 FIA_CMPS_EXT Certificate Management Protocol (CMP) Server</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to authenticate CMP requests.</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FIA_CMPS_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FIA_CMPS_EXT.1">FIA_CMPS_EXT.1</a>,
              Certificate Management Protocol (CMP) Server,
               requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to receive, process, and respond to CMP requests from authorized clients and RAs.</p><h4>Management: FIA_CMPS_EXT.1</h4><p>No specific management functions are identified.</p><h4>Audit: FIA_CMPS_EXT.1</h4><p>The following actions should be auditable if FAU_GEN Security audit data generation is included in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:
@@ -2928,9 +2873,7 @@ The following sections list Common Criteria and technology terms used in this do
      <span class="assignable-content">entities authorized as registration authorities</span>]</span>, <span class="selectable-content" id="_s_264">no other entity</span>].					
 				<h4 id="ext-comp-FIA_CMPS_EXT.1.2">FIA_CMPS_EXT.1.2</h4>
 					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_265">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_266">provide functionality</span>]
-					to authenticate CMP subjects and end-entities for re-enrollment via <span style="" class="comment " id="Comment-21-"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> (<abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr>) with mutual authentication is 
-						recommended for external clients, but other mechanisms for local subjects/end entities are acceptable. Consider 
-						adding options in a selection,</span> certificate-based authentication and
+					to authenticate CMP subjects and end-entities for re-enrollment via certificate-based authentication and
 					 [<b>selection</b>: <span class="selectable-content" id="_s_267"><abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> assertion</span>, <span class="selectable-content" id="_s_268">no other method</span>].
 				<h4 id="ext-comp-FIA_CMPS_EXT.1.3">FIA_CMPS_EXT.1.3</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_269">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_270">provide functionality</span>]
 					to authenticate CMP subjects and end-entities for initial enrollment via the CMP basic authenticated scheme using
@@ -3075,20 +3018,8 @@ The following sections list Common Criteria and technology terms used in this do
 				<span class="no-link">FCS_COP.1</span> Cryptographic Operation<br/>
 				<span class="no-link">FMT_SMR.1</span> Security Roles
 			</td></tr></table><h4 id="ext-comp-FDP_CER_EXT.1.1">FDP_CER_EXT.1.1</h4>
-					<span style="" class="comment " id="Comment-5-">This (only locally trusted) iteration for leaf certificates is more general than that in STIP, but does not include the 
-						STIP use case. The general case should be modeled after that in the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>. Here, certificates are supporting any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function, 
-						but are only trusted by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function, whereas for STIP, the issued certificates are trusted by external clients or servers.
-					</span>
-					<span style="" class="comment " id="Comment-6-">from CCPPD: This is also supposed to be triggered if "a designated trust store specified in <a href="#FIA_X509_EXT.1.6">FIA_X509_EXT.1.6</a> is associated with an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>"
-						but there is no way to depict that via selection without changing <a href="#FIA_X509_EXT.1.6">FIA_X509_EXT.1.6</a>. The condition being written in this manner
-						implies an implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> but an <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> can't simultaneously be implementation-dependent and selection-based.</span>
-					<br/><br/>
-					<span style="" class="comment " id="Comment-7-">from CCPPD: It's unclear why this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is defined with an iteration when a non-iterated version of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is never used.</span>
 					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement a certificate profile function for certificates issued by a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> embedded within the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, 
-					supporting <span style="" class="comment " id="Comment-8-">The subsequent reference to supported functions go beyond how they use certificates, so a more detailed 
-						list is required, separately from how they use the issued certificates. Also, it’s necessary to allow internal <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> 
-						support of a function using <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>, while also allowing other functions using <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> to depend on an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. The 
-						profiles are dependent on the selection below, so it should be retained.</span>
+					supporting 
 					[<b>assignment</b>: 
      <span class="assignable-content">list of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> functions</span>], using certificates in support of: [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_96"> [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_97"> [<b>selection</b>: <span class="selectable-content" id="_s_98"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>, <span class="selectable-content" id="_s_99">DTLS</span>]
 								[<b>selection</b>: <span class="selectable-content" id="_s_100">client authentication</span>, <span class="selectable-content" id="_s_101">server authentication</span>]</span></li><li style=""><span class="selectable-content" id="_s_102">IPsec and IKE peer authentication</span></li><li style=""><span class="selectable-content" id="_s_103">SMIME subject authentication</span></li><li style=""><span class="selectable-content" id="_s_104"> [<b>assignment</b>: 
@@ -3167,18 +3098,10 @@ The following sections list Common Criteria and technology terms used in this do
 				FDP_CER_EXT.1 Leaf Certificate Profiles<br/>
 				[<a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a> Enrollment Over Secure Transport (<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>) Server OR <a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a> Certificate Management Over <abbr class="dyn-abbr"><a href="#abbr_CMS">CMS</a></abbr> (<abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr>) Server
 				OR <a href="#FIA_CMPS_EXT.1">FIA_CMPS_EXT.1</a> Certificate Management Protocol (CMP) Server]
-			</td></tr></table><h4 id="ext-comp-FDP_CER_EXT.2.1">FDP_CER_EXT.2.1</h4><span style="" class="comment " id="Comment-9-">CCPPD2: The note on when this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is claims also says "It may be claimed if ‘obtain certificates from an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’ is claimed in <a href="#FIA_XCU_EXT.2">FIA_XCU_EXT.2</a> when the interaction between the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> and the supported function includes a request event that is logged."
-				This would be an implementation-dependent trigger but an <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> can't simultaneously be selection-based and implementation-based.
-				
-				It also says that it must be claimed if FDP_CER_EXT.1 is claimed and 'request certificates from an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>' is claimed in <a href="#FIA_XCU_EXT.2.1">FIA_XCU_EXT.2.1</a>.
-				The first part of that condition will always apply if the second part applies though because the <a href="#FIA_XCU_EXT.2.1">FIA_XCU_EXT.2.1</a> is also a trigger for 
-				claiming FDP_CER_EXT.1. So that part was left off. Also note however that FDP_CER_EXT.1 is referred to as <a href="#FDP_CER_EXT.1/OLTleaf">FDP_CER_EXT.1/OLTleaf</a>; there is no 
-				un-iterated "FDP_CER_EXT.1" so this part of the reference is ambiguous regardless.</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_189">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_190">provide functionality</span>]
+			</td></tr></table><h4 id="ext-comp-FDP_CER_EXT.2.1">FDP_CER_EXT.2.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_189">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_190">provide functionality</span>]
 					to establish a linkage from certificate requests from a supported <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function to issued certificates and [<b>selection</b>: <span class="selectable-content" id="_s_191">issue an alert</span>, <span class="selectable-content" id="_s_192">provide a search capability</span>]
 					to allow administrators to associate certificates with the request.
-				<h4 id="ext-comp-FDP_CER_EXT.2.2">FDP_CER_EXT.2.2</h4><span style="" class="comment " id="Comment-10-">This generalizes requirements in other FDP_CER requirements from the STIP <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> module.</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_193">revoke</span>, <span class="selectable-content" id="_s_194">not issue</span>]
+				<h4 id="ext-comp-FDP_CER_EXT.2.2">FDP_CER_EXT.2.2</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_193">revoke</span>, <span class="selectable-content" id="_s_194">not issue</span>]
 					certificates that cannot be associated with [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_195">A PKCS-10 request validated in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 2986</span></li><li style=""><span class="selectable-content" id="toe-enforces-est">An <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> request processed in accordance with <a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a></span></li><li style=""><span class="selectable-content" id="toe-enforces-cmc">A <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> request processed in accordance with <a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a></span></li><li style=""><span class="selectable-content" id="toe-enforces-cmp">A CMP request processed in accordance with <a href="#FIA_CMPS_EXT.1">FIA_CMPS_EXT.1</a></span></li></ul>] 
 					from a supported <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function.		
 				</div><h4>Management: FDP_CRL_EXT.1</h4><p>No specific management functions are identified.</p><h4>Audit: FDP_CRL_EXT.1</h4><p>The following actions should be auditable if FAU_GEN Security audit data generation is included in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:
@@ -3205,8 +3128,7 @@ The following sections list Common Criteria and technology terms used in this do
 						</li>
 						<li>
 							The signature and signatureAlgorithm fields shall contain the <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> for a digital signature algorithm in 
-							accordance with <a href="#FCS_COP.1">FCS_COP.1</a> in the base <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>. <span style="" class="comment " id="Comment-11-">from CCPPD: proposed updates here and in app note
-							(comment kept to preserve numbering of other comments)</span>
+							accordance with <a href="#FCS_COP.1">FCS_COP.1</a> in the base <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.
 						</li>
 						<li>
 							The thisUpdate field shall indicate the issue date of the <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>.
@@ -3216,9 +3138,7 @@ The following sections list Common Criteria and technology terms used in this do
 							thisUpdate field.
 						</li>
 					</ul>										
-				</div><h4>Management: FDP_CSIR_EXT.1</h4><p>No specific management functions are identified.</p><h4>Audit: FDP_CSIR_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FDP_CSIR_EXT.1 Certificate Status Information Required</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td></td></tr></table><h4 id="ext-comp-FDP_CSIR_EXT.1.1">FDP_CSIR_EXT.1.1</h4> <span style="" class="comment " id="Comment-12-">from CCPPD: The trigger for this is indicated as "This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is claimed if FDP_CER_EXT.1 is claimed." As there is no selection
-				triggering this, it should be categorized as an implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. Is that ok?</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="toe-generates-cert-status">generate certificate status information</span>, <span class="selectable-content" id="_s_208">only issue certificates with a validity period of less than [<b>assignment</b>: 
+				</div><h4>Management: FDP_CSIR_EXT.1</h4><p>No specific management functions are identified.</p><h4>Audit: FDP_CSIR_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FDP_CSIR_EXT.1 Certificate Status Information Required</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td></td></tr></table><h4 id="ext-comp-FDP_CSIR_EXT.1.1">FDP_CSIR_EXT.1.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="toe-generates-cert-status">generate certificate status information</span>, <span class="selectable-content" id="_s_208">only issue certificates with a validity period of less than [<b>assignment</b>: 
      <span class="assignable-content">time not to exceed 
 						24 hours</span>]</span>, <span class="selectable-content" id="_s_209">provide access to [<b>assignment</b>: 
      <span class="assignable-content">a certificate repository including status information</span>]
@@ -3228,7 +3148,7 @@ The following sections list Common Criteria and technology terms used in this do
 				[<a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a> Certificate Revocation List Generation OR <a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> Basic Response Generation]<br/>
 				FMT_SMR.1 Security Roles			
 			</td></tr></table><h4 id="ext-comp-FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</h4>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate certificate status information whose format complies with [<b>selection</b>: <span class="selectable-content" id="toe-supports-crl"><abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr> Recommendation X.509v2 <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr></span>, <span class="selectable-content" id="_s_212"><abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr> Recommendation X.509v2 <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> as refined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8603 <span style="" class="comment " id="Comment-14-">from CCPPD: should this also trigger <a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a>? Right now it doesn't</span></span>, <span class="selectable-content" id="toe-supports-ocsp">the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> standard as defined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960</span>].
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate certificate status information whose format complies with [<b>selection</b>: <span class="selectable-content" id="toe-supports-crl"><abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr> Recommendation X.509v2 <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr></span>, <span class="selectable-content" id="_s_212"><abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr> Recommendation X.509v2 <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> as refined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8603 </span>, <span class="selectable-content" id="toe-supports-ocsp">the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> standard as defined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960</span>].
 				<h4 id="ext-comp-FDP_CSI_EXT.1.2">FDP_CSI_EXT.1.2</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support changes to the status of a certificate by [<b>selection</b>: <span class="selectable-content" id="_s_214">administrative action</span>, <span class="selectable-content" id="_s_215"> [<b>assignment</b>: 
      <span class="assignable-content">input from a supported function</span>]</span>].
 				<h4 id="ext-comp-FDP_CSI_EXT.1.3">FDP_CSI_EXT.1.3</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide certificate status information generated in accordance with <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a> via
@@ -3244,8 +3164,7 @@ The following sections list Common Criteria and technology terms used in this do
 			</p><h4>FDP_OCSP_EXT.1 OCSP Basic Response Generation</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
 				<span class="no-link">FCS_COP.1</span> Cryptographic Operation<br/>
 				<span class="no-link">FPT_STM.1</span> Reliable Time Stamps
-			</td></tr></table><h4 id="ext-comp-FDP_OCSP_EXT.1.1">FDP_OCSP_EXT.1.1</h4><span style="" class="comment " id="Comment-15-">Significant difference from existing <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> in STIP</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall ensure that all mandatory fields in the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> basic response contain values in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 
+			</td></tr></table><h4 id="ext-comp-FDP_OCSP_EXT.1.1">FDP_OCSP_EXT.1.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall ensure that all mandatory fields in the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> basic response contain values in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 
 					6960 which meet the following rules.
 					<ul>
 						<li>
@@ -3253,8 +3172,7 @@ The following sections list Common Criteria and technology terms used in this do
 						</li>
 						<li>
 							The signatureAlgorithm field shall contain the object identifier (<abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr>) for a digital signature algorithm in 
-							accordance with [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_219">sha256WithRSAEncryption in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960 with key size of 2048 bits or greater</span></li><li style=""><span class="selectable-content" id="_s_220"> [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_221">sha384WithRSAEncryption with key size of 3072 bits or greater</span></li><li style=""><span class="selectable-content" id="_s_222">ecdsa-with-SHA384 using <span style="" class="comment " id="Comment-16-">Crypto TC review required – add secp256r1 or indicate in 
-										an application note that secp256r1 is deprecated – refining <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960</span>
+							accordance with [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_219">sha256WithRSAEncryption in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960 with key size of 2048 bits or greater</span></li><li style=""><span class="selectable-content" id="_s_220"> [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_221">sha384WithRSAEncryption with key size of 3072 bits or greater</span></li><li style=""><span class="selectable-content" id="_s_222">ecdsa-with-SHA384 using
 										[<b>selection</b>: <span class="selectable-content" id="_s_223">secp384r1</span>, <span class="selectable-content" id="_s_224">secp521r1</span>]</span></li></ul>]</span></li></ul>]
 						</li>
 						<li>
@@ -3307,8 +3225,7 @@ The following sections list Common Criteria and technology terms used in this do
 				<span class="no-link">FTP_PRO.2</span> Trusted Channel Establishment<br/>
 				<span class="no-link">FTP_PRO.3</span> Trusted Channel Data Protection<br/>
 				<span class="no-link">FTP_ITC.1</span> Inter-TSF Trusted Channel
-			</td></tr></table><h4 id="ext-comp-FIA_CMCS_EXT.1.1">FIA_CMCS_EXT.1.1</h4><span style="" class="comment " id="Comment-17-">Based on <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> selected in <a href="#FIA_X509_EXT.3">FIA_X509_EXT.3</a> and what else?</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to accept and process <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> [<b>selection</b>: <span class="selectable-content" id="_s_237">full requests</span>, <span class="selectable-content" id="_s_238">simple requests</span>]
+			</td></tr></table><h4 id="ext-comp-FIA_CMCS_EXT.1.1">FIA_CMCS_EXT.1.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to accept and process <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> [<b>selection</b>: <span class="selectable-content" id="_s_237">full requests</span>, <span class="selectable-content" id="_s_238">simple requests</span>]
 					meeting the profile specified in [<b>selection</b>: <span class="selectable-content" id="_s_239"><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8756</span>, <span class="selectable-content" id="_s_240"> [<b>assignment</b>: 
      <span class="assignable-content"><abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> profile supported</span>]</span>]
 					in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5272, <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5273, and <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5274, as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6402.				
@@ -3343,8 +3260,7 @@ The following sections list Common Criteria and technology terms used in this do
 				<span class="no-link">FTP_PRO.2</span> Trusted Channel Establishment<br/>
 				<span class="no-link">FTP_PRO.3</span> Trusted Channel Data Protection<br/>
 				<span class="no-link">FTP_ITC.1</span> Inter-TSF Trusted Channel
-			</td></tr></table><h4 id="ext-comp-FIA_CMPC_EXT.1.1">FIA_CMPC_EXT.1.1</h4> <span style="" class="comment " id="Comment-19-">Should this include a selection for <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9482 in support of IOT devices?</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
+			</td></tr></table><h4 id="ext-comp-FIA_CMPC_EXT.1.1">FIA_CMPC_EXT.1.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
 					 [<b>selection</b>: <span class="selectable-content" id="_s_252">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_253">provide functionality</span>]
 					to generate CMP requests
 					 [<b>selection</b>: <span class="selectable-content" id="_s_254">in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 4210 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6712 and <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9481 (CMP version 2)</span>, <span class="selectable-content" id="_s_255">in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 4210 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6712 and <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9480 (CMP version 3)</span>],
@@ -3352,9 +3268,7 @@ The following sections list Common Criteria and technology terms used in this do
 				<h4 id="ext-comp-FIA_CMPC_EXT.1.2">FIA_CMPC_EXT.1.2</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
 					 [<b>selection</b>: <span class="selectable-content" id="_s_256">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_257">provide functionality</span>]
 					to 
-					 [<b>selection</b>: <span class="selectable-content" id="_s_258">export CMP requests and import CMP responses under the control of an administrator</span>, <span class="selectable-content" id="_s_259">transport CMP messages over <span style="" class="comment " id="Comment-20-"><abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> is recommended for external CAs, but other options are 
-					 		acceptable for embedded CAs or when CMP message protection mechanisms are used. If needed, include other 
-					 		options in a selection</span> <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6712, with all renewal requests using mutual authentication</span>, <span class="selectable-content" id="_s_260">transport CMP messages over <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9480 (CMP version 3) with all renewal requests using mutual authentication</span>].
+					 [<b>selection</b>: <span class="selectable-content" id="_s_258">export CMP requests and import CMP responses under the control of an administrator</span>, <span class="selectable-content" id="_s_259">transport CMP messages over <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6712, with all renewal requests using mutual authentication</span>, <span class="selectable-content" id="_s_260">transport CMP messages over <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9480 (CMP version 3) with all renewal requests using mutual authentication</span>].
 				</div><h4>Management: FIA_CMPS_EXT.1</h4><p>No specific management functions are identified.</p><h4>Audit: FIA_CMPS_EXT.1</h4><p>The following actions should be auditable if FAU_GEN Security audit data generation is included in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:
 				<ul>
 					<li><abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> messages received containing certificate or revocation requests</li>
@@ -3373,9 +3287,7 @@ The following sections list Common Criteria and technology terms used in this do
      <span class="assignable-content">entities authorized as registration authorities</span>]</span>, <span class="selectable-content" id="_s_264">no other entity</span>].					
 				<h4 id="ext-comp-FIA_CMPS_EXT.1.2">FIA_CMPS_EXT.1.2</h4>
 					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_265">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_266">provide functionality</span>]
-					to authenticate CMP subjects and end-entities for re-enrollment via <span style="" class="comment " id="Comment-21-"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> (<abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr>) with mutual authentication is 
-						recommended for external clients, but other mechanisms for local subjects/end entities are acceptable. Consider 
-						adding options in a selection,</span> certificate-based authentication and
+					to authenticate CMP subjects and end-entities for re-enrollment via certificate-based authentication and
 					 [<b>selection</b>: <span class="selectable-content" id="_s_267"><abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> assertion</span>, <span class="selectable-content" id="_s_268">no other method</span>].
 				<h4 id="ext-comp-FIA_CMPS_EXT.1.3">FIA_CMPS_EXT.1.3</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_269">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_270">provide functionality</span>]
 					to authenticate CMP subjects and end-entities for initial enrollment via the CMP basic authenticated scheme using
@@ -3465,9 +3377,7 @@ The following sections list Common Criteria and technology terms used in this do
 			</p><h4>FIA_TSM_EXT.1 Trust Store Management</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
 				<span class="no-link">FMT_SMF.1</span> Specification of Management Functions<br/>
 				<span class="no-link">FMT_SMR.1</span> Security Roles
-			</td></tr></table><h4 id="ext-comp-FIA_TSM_EXT.1.1">FIA_TSM_EXT.1.1</h4>(managing trust store elements)
-					<span style="" class="comment " id="Comment-24-">Integrate allowance for platform managed trust store (see Palo Alto comment 5) – also impacts test 13</span> 
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
+			</td></tr></table><h4 id="ext-comp-FIA_TSM_EXT.1.1">FIA_TSM_EXT.1.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
 					 [<b>selection</b>: <span class="selectable-content" id="_s_308">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_309">implement functionality</span>]
 					to manage [<b>assignment</b>: 
      <span class="assignable-content">designated trust store or individual trust store elements</span>] by
@@ -3477,9 +3387,7 @@ The following sections list Common Criteria and technology terms used in this do
 						of a trust store’s elements</span></li><li style=""><span class="selectable-content" id="_s_317">Allowing the administrator to manage context rules of a trust store</span></li><li style=""><span class="selectable-content" id="_s_318">Using methods in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5934</span></li></ul>]
 					and 
 					 [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_319">Validating the certification path of any certificate that is neither a self-signed root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>
-							certificate nor an <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> certificate, [<b>selection</b>: <span class="selectable-content" id="_s_320"><span style="" class="comment " id="Comment-25-">This depends 
-								on selection (which administrator). See Palo Alto comment 10. Also impacts test 13. Added selection to 
-								require one of when installed, when used and added no other to original selection</span> when installed 
+							certificate nor an <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> certificate, [<b>selection</b>: <span class="selectable-content" id="_s_320">when installed 
 								by an administrator as a trust store element</span>, <span class="selectable-content" id="_s_321">on use</span>] and
 							 [<b>selection</b>: <span class="selectable-content" id="_s_322">on demand</span>, <span class="selectable-content" id="_s_323">during [<b>assignment</b>: 
      <span class="assignable-content">defined events</span>]</span>, <span class="selectable-content" id="_s_324">periodically every [<b>assignment</b>: 
@@ -3508,9 +3416,7 @@ The following sections list Common Criteria and technology terms used in this do
 							[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_333">CRLs are signed using cryptographic signatures and hashes in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8603 and [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_334">[<b>assignment</b>: 
      <span class="assignable-content">list of supported cryptographic algorithms</span>]</span></li><li style=""><span class="selectable-content" id="_s_335">no other algorithms</span></li></ul>]
 									and CRLs signed using other cryptographic algorithms are considered invalid;</span></li><li style=""><span class="selectable-content" id="_s_336">
-									<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responses are signed using <span style="" class="comment " id="Comment-27-">Discuss <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> gap in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8603 with Crypto TC to determine how group constraints are 
-										captured.</span><span style="" class="comment " id="Comment-28-">Crypto TC review: Either add secp256r1 or add an application note 
-											regarding refining <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960 to deprecate the algorithm</span>
+									<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responses are signed using 
 									[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_337">sha256WithRSAEncryption in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960 with key size of 2048 bits or greater,</span></li><li style=""><span class="selectable-content" id="_s_338">ecdsa-with-SHA384 using 
 													[<b>selection</b>: <span class="selectable-content" id="_s_339">secp384r1</span>, <span class="selectable-content" id="_s_340">secp521r1</span>],</span></li><li style=""><span class="selectable-content" id="_s_341">ecdsa-with-SHA512 using 
                                                      [<b>selection</b>: <span class="selectable-content" id="_s_342">secp384r1</span>, <span class="selectable-content" id="_s_343">secp521r1</span>],
@@ -3551,8 +3457,7 @@ The following sections list Common Criteria and technology terms used in this do
      <span class="assignable-content">alternate sources
 									</span>]</span>]</span></li><li style=""><span class="selectable-content" id="_s_383">Local revocation status information from [<b>selection</b>: <span class="selectable-content" id="_s_384">cached <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr></span>, <span class="selectable-content" id="toe-uses-embedded-ca">embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> repository</span>, <span class="selectable-content" id="_s_386">local <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responder</span>, <span class="selectable-content" id="_s_387">administrator configuration</span>]</span></li><li style=""><span class="selectable-content" id="_s_388">An <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> Status Request Extension (<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> stapling) as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6066,</span></li><li style=""><span class="selectable-content" id="_s_389">An <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> Multiple Certificate Status Request Extension (<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> multi-stapling as specified
 								in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6961</span></li></ul>]
-				<h4 id="ext-comp-FIA_X509_EXT.1.5">FIA_X509_EXT.1.5</h4> <span style="" class="comment " id="Comment-29-">Palo Alto comment</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall  [<b>selection</b>: <span class="selectable-content" id="_s_390">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_391">implement functionality</span>, <span class="selectable-content" id="_s_392">pass context information to the supported function</span>] to validate that the 
+				<h4 id="ext-comp-FIA_X509_EXT.1.5">FIA_X509_EXT.1.5</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall  [<b>selection</b>: <span class="selectable-content" id="_s_390">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_391">implement functionality</span>, <span class="selectable-content" id="_s_392">pass context information to the supported function</span>] to validate that the 
 							context of the certificate path and trust store element is consistent with the supported function use via
 							 [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_393">processing 
 							 		[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_394">[<b>assignment</b>: 
@@ -3570,9 +3475,7 @@ The following sections list Common Criteria and technology terms used in this do
      <span class="assignable-content">other <abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr> values required by supported functions</span>]</span></li></ul>]</span></li></ul>] and rejects the certificate if the context requirements are not met,</span></li></ul>] </span></li><li style=""><span class="selectable-content" id="_s_408">passing [<b>selection</b>: <span class="selectable-content" id="_s_409">certification path</span>, <span class="selectable-content" id="_s_410">[<b>assignment</b>: 
      <span class="assignable-content">context from 
 										certification path processing</span>] passed to the supported function</span>]</span></li></ul>].									
-				<h4 id="ext-comp-FIA_X509_EXT.1.6">FIA_X509_EXT.1.6</h4>
-					<span style="" class="comment " id="Comment-30-">Integrate allowance for platform managed trust store  (see Palo Alto comment 5) 
-						– also impacts test 13</span> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall  [<b>selection</b>: <span class="selectable-content" id="toe-manages-trust-stores">manage trust stores</span>, <span class="selectable-content" id="_s_412">use platform-managed trust stores</span>]
+				<h4 id="ext-comp-FIA_X509_EXT.1.6">FIA_X509_EXT.1.6</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall  [<b>selection</b>: <span class="selectable-content" id="toe-manages-trust-stores">manage trust stores</span>, <span class="selectable-content" id="_s_412">use platform-managed trust stores</span>]
 					used for certification path validation.
 				</div><h4>Management: FIA_X509_EXT.2</h4><p>No specific management functions are identified.</p><h4>Audit: FIA_X509_EXT.2</h4><p>There are no audit events foreseen.</p><h4>FIA_X509_EXT.2 X.509 Certificate Support for Functions</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
 				<a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a> X.509 Certificate Validation<br/>
@@ -3591,8 +3494,7 @@ The following sections list Common Criteria and technology terms used in this do
 								data</span>, <span class="selectable-content" id="_s_426">administrator authentication</span>, <span class="selectable-content" id="_s_427">user authentication 
 								</span>, <span class="selectable-content" id="_s_428"> [<b>assignment</b>: 
      <span class="assignable-content">other uses</span>]</span>]</span></li></ul>]					
-				<h4 id="ext-comp-FIA_X509_EXT.2.2">FIA_X509_EXT.2.2</h4><span style="" class="comment " id="Comment-32-">Previous name-constraints and policy constraint initialization are omitted (problem with optional elements) 
-					and covered generally in <a href="#FIA_X509_EXT.1.6">FIA_X509_EXT.1.6</a></span> For each function indicated in <a href="#FIA_X509_EXT.2.1">FIA_X509_EXT.2.1</a>, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
+				<h4 id="ext-comp-FIA_X509_EXT.2.2">FIA_X509_EXT.2.2</h4>For each function indicated in <a href="#FIA_X509_EXT.2.1">FIA_X509_EXT.2.1</a>, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
 					 [<b>selection</b>: <span class="selectable-content" id="_s_429">invoke the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform to determine</span>, <span class="selectable-content" id="_s_430">determine</span>] whether the
 					 [<b>selection</b>: <span class="selectable-content" id="_s_431">administrator is allowed to configure certificate acceptance</span>, <span class="selectable-content" id="_s_432">supported function determines acceptance via [<b>assignment</b>: 
      <span class="assignable-content">method of determining acceptance</span>]</span>, <span class="selectable-content" id="_s_433">certificate is accepted</span>, <span class="selectable-content" id="_s_434">certificate is not accepted</span>] 
@@ -3616,9 +3518,7 @@ The following sections list Common Criteria and technology terms used in this do
      <span class="assignable-content">other <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> types</span>]</span></li></ul>]
 						</span></li></ul>]
 					and [<b>assignment</b>: 
-     <span class="assignable-content">list of other certificate field and extension values</span>]. <span style="" class="comment " id="Comment-33-">TC: Please provide suggested 
-						values here to be used as selections</span><span style="" class="comment " id="Comment-34-">TC: We received no suggested selections. Please provide 
-							suggested values. Thank you!</span>
+     <span class="assignable-content">list of other certificate field and extension values</span>].
 				<h4 id="ext-comp-FIA_X509_EXT.3.2">FIA_X509_EXT.3.2</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
 					 [<b>selection</b>: <span class="selectable-content" id="_s_451">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_452">provide functionality</span>]
 					to validate the certificate path in accordance with <a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a> upon receiving the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Certificate 
@@ -3675,9 +3575,7 @@ The following sections list Common Criteria and technology terms used in this do
 							[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_333">CRLs are signed using cryptographic signatures and hashes in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8603 and [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_334">[<b>assignment</b>: 
      <span class="assignable-content">list of supported cryptographic algorithms</span>]</span></li><li style=""><span class="selectable-content" id="_s_335">no other algorithms</span></li></ul>]
 									and CRLs signed using other cryptographic algorithms are considered invalid;</span></li><li style=""><span class="selectable-content" id="_s_336">
-									<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responses are signed using <span style="" class="comment " id="Comment-27-">Discuss <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> gap in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8603 with Crypto TC to determine how group constraints are 
-										captured.</span><span style="" class="comment " id="Comment-28-">Crypto TC review: Either add secp256r1 or add an application note 
-											regarding refining <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960 to deprecate the algorithm</span>
+									<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responses are signed using 
 									[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_337">sha256WithRSAEncryption in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960 with key size of 2048 bits or greater,</span></li><li style=""><span class="selectable-content" id="_s_338">ecdsa-with-SHA384 using 
 													[<b>selection</b>: <span class="selectable-content" id="_s_339">secp384r1</span>, <span class="selectable-content" id="_s_340">secp521r1</span>],</span></li><li style=""><span class="selectable-content" id="_s_341">ecdsa-with-SHA512 using 
                                                      [<b>selection</b>: <span class="selectable-content" id="_s_342">secp384r1</span>, <span class="selectable-content" id="_s_343">secp521r1</span>],
@@ -3718,8 +3616,7 @@ The following sections list Common Criteria and technology terms used in this do
      <span class="assignable-content">alternate sources
 									</span>]</span>]</span></li><li style=""><span class="selectable-content" id="_s_383">Local revocation status information from [<b>selection</b>: <span class="selectable-content" id="_s_384">cached <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr></span>, <span class="selectable-content" id="toe-uses-embedded-ca">embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> repository</span>, <span class="selectable-content" id="_s_386">local <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responder</span>, <span class="selectable-content" id="_s_387">administrator configuration</span>]</span></li><li style=""><span class="selectable-content" id="_s_388">An <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> Status Request Extension (<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> stapling) as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6066,</span></li><li style=""><span class="selectable-content" id="_s_389">An <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> Multiple Certificate Status Request Extension (<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> multi-stapling as specified
 								in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6961</span></li></ul>]
-				<h4 id="ext-comp-FIA_X509_EXT.1.5">FIA_X509_EXT.1.5</h4> <span style="" class="comment " id="Comment-29-">Palo Alto comment</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall  [<b>selection</b>: <span class="selectable-content" id="_s_390">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_391">implement functionality</span>, <span class="selectable-content" id="_s_392">pass context information to the supported function</span>] to validate that the 
+				<h4 id="ext-comp-FIA_X509_EXT.1.5">FIA_X509_EXT.1.5</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall  [<b>selection</b>: <span class="selectable-content" id="_s_390">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_391">implement functionality</span>, <span class="selectable-content" id="_s_392">pass context information to the supported function</span>] to validate that the 
 							context of the certificate path and trust store element is consistent with the supported function use via
 							 [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_393">processing 
 							 		[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_394">[<b>assignment</b>: 
@@ -3737,9 +3634,7 @@ The following sections list Common Criteria and technology terms used in this do
      <span class="assignable-content">other <abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr> values required by supported functions</span>]</span></li></ul>]</span></li></ul>] and rejects the certificate if the context requirements are not met,</span></li></ul>] </span></li><li style=""><span class="selectable-content" id="_s_408">passing [<b>selection</b>: <span class="selectable-content" id="_s_409">certification path</span>, <span class="selectable-content" id="_s_410">[<b>assignment</b>: 
      <span class="assignable-content">context from 
 										certification path processing</span>] passed to the supported function</span>]</span></li></ul>].									
-				<h4 id="ext-comp-FIA_X509_EXT.1.6">FIA_X509_EXT.1.6</h4>
-					<span style="" class="comment " id="Comment-30-">Integrate allowance for platform managed trust store  (see Palo Alto comment 5) 
-						– also impacts test 13</span> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall  [<b>selection</b>: <span class="selectable-content" id="toe-manages-trust-stores">manage trust stores</span>, <span class="selectable-content" id="_s_412">use platform-managed trust stores</span>]
+				<h4 id="ext-comp-FIA_X509_EXT.1.6">FIA_X509_EXT.1.6</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall  [<b>selection</b>: <span class="selectable-content" id="toe-manages-trust-stores">manage trust stores</span>, <span class="selectable-content" id="_s_412">use platform-managed trust stores</span>]
 					used for certification path validation.
 				</div><h4>Management: FIA_X509_EXT.2</h4><p>No specific management functions are identified.</p><h4>Audit: FIA_X509_EXT.2</h4><p>There are no audit events foreseen.</p><h4>FIA_X509_EXT.2 X.509 Certificate Support for Functions</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
 				<a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a> X.509 Certificate Validation<br/>
@@ -3758,8 +3653,7 @@ The following sections list Common Criteria and technology terms used in this do
 								data</span>, <span class="selectable-content" id="_s_426">administrator authentication</span>, <span class="selectable-content" id="_s_427">user authentication 
 								</span>, <span class="selectable-content" id="_s_428"> [<b>assignment</b>: 
      <span class="assignable-content">other uses</span>]</span>]</span></li></ul>]					
-				<h4 id="ext-comp-FIA_X509_EXT.2.2">FIA_X509_EXT.2.2</h4><span style="" class="comment " id="Comment-32-">Previous name-constraints and policy constraint initialization are omitted (problem with optional elements) 
-					and covered generally in <a href="#FIA_X509_EXT.1.6">FIA_X509_EXT.1.6</a></span> For each function indicated in <a href="#FIA_X509_EXT.2.1">FIA_X509_EXT.2.1</a>, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
+				<h4 id="ext-comp-FIA_X509_EXT.2.2">FIA_X509_EXT.2.2</h4>For each function indicated in <a href="#FIA_X509_EXT.2.1">FIA_X509_EXT.2.1</a>, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
 					 [<b>selection</b>: <span class="selectable-content" id="_s_429">invoke the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform to determine</span>, <span class="selectable-content" id="_s_430">determine</span>] whether the
 					 [<b>selection</b>: <span class="selectable-content" id="_s_431">administrator is allowed to configure certificate acceptance</span>, <span class="selectable-content" id="_s_432">supported function determines acceptance via [<b>assignment</b>: 
      <span class="assignable-content">method of determining acceptance</span>]</span>, <span class="selectable-content" id="_s_433">certificate is accepted</span>, <span class="selectable-content" id="_s_434">certificate is not accepted</span>] 
@@ -3783,9 +3677,7 @@ The following sections list Common Criteria and technology terms used in this do
      <span class="assignable-content">other <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> types</span>]</span></li></ul>]
 						</span></li></ul>]
 					and [<b>assignment</b>: 
-     <span class="assignable-content">list of other certificate field and extension values</span>]. <span style="" class="comment " id="Comment-33-">TC: Please provide suggested 
-						values here to be used as selections</span><span style="" class="comment " id="Comment-34-">TC: We received no suggested selections. Please provide 
-							suggested values. Thank you!</span>
+     <span class="assignable-content">list of other certificate field and extension values</span>].
 				<h4 id="ext-comp-FIA_X509_EXT.3.2">FIA_X509_EXT.3.2</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
 					 [<b>selection</b>: <span class="selectable-content" id="_s_451">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_452">provide functionality</span>]
 					to validate the certificate path in accordance with <a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a> upon receiving the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Certificate 
@@ -3830,20 +3722,8 @@ The following sections list Common Criteria and technology terms used in this do
 				<span class="no-link">FCS_COP.1</span> Cryptographic Operation<br/>
 				<span class="no-link">FMT_SMR.1</span> Security Roles
 			</td></tr></table><h4 id="ext-comp-FDP_CER_EXT.1.1">FDP_CER_EXT.1.1</h4>
-					<span style="" class="comment " id="Comment-5-">This (only locally trusted) iteration for leaf certificates is more general than that in STIP, but does not include the 
-						STIP use case. The general case should be modeled after that in the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>. Here, certificates are supporting any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function, 
-						but are only trusted by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function, whereas for STIP, the issued certificates are trusted by external clients or servers.
-					</span>
-					<span style="" class="comment " id="Comment-6-">from CCPPD: This is also supposed to be triggered if "a designated trust store specified in <a href="#FIA_X509_EXT.1.6">FIA_X509_EXT.1.6</a> is associated with an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>"
-						but there is no way to depict that via selection without changing <a href="#FIA_X509_EXT.1.6">FIA_X509_EXT.1.6</a>. The condition being written in this manner
-						implies an implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> but an <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> can't simultaneously be implementation-dependent and selection-based.</span>
-					<br/><br/>
-					<span style="" class="comment " id="Comment-7-">from CCPPD: It's unclear why this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is defined with an iteration when a non-iterated version of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is never used.</span>
 					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement a certificate profile function for certificates issued by a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> embedded within the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, 
-					supporting <span style="" class="comment " id="Comment-8-">The subsequent reference to supported functions go beyond how they use certificates, so a more detailed 
-						list is required, separately from how they use the issued certificates. Also, it’s necessary to allow internal <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> 
-						support of a function using <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>, while also allowing other functions using <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> to depend on an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. The 
-						profiles are dependent on the selection below, so it should be retained.</span>
+					supporting 
 					[<b>assignment</b>: 
      <span class="assignable-content">list of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> functions</span>], using certificates in support of: [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_96"> [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_97"> [<b>selection</b>: <span class="selectable-content" id="_s_98"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>, <span class="selectable-content" id="_s_99">DTLS</span>]
 								[<b>selection</b>: <span class="selectable-content" id="_s_100">client authentication</span>, <span class="selectable-content" id="_s_101">server authentication</span>]</span></li><li style=""><span class="selectable-content" id="_s_102">IPsec and IKE peer authentication</span></li><li style=""><span class="selectable-content" id="_s_103">SMIME subject authentication</span></li><li style=""><span class="selectable-content" id="_s_104"> [<b>assignment</b>: 
@@ -3922,18 +3802,10 @@ The following sections list Common Criteria and technology terms used in this do
 				FDP_CER_EXT.1 Leaf Certificate Profiles<br/>
 				[<a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a> Enrollment Over Secure Transport (<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>) Server OR <a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a> Certificate Management Over <abbr class="dyn-abbr"><a href="#abbr_CMS">CMS</a></abbr> (<abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr>) Server
 				OR <a href="#FIA_CMPS_EXT.1">FIA_CMPS_EXT.1</a> Certificate Management Protocol (CMP) Server]
-			</td></tr></table><h4 id="ext-comp-FDP_CER_EXT.2.1">FDP_CER_EXT.2.1</h4><span style="" class="comment " id="Comment-9-">CCPPD2: The note on when this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is claims also says "It may be claimed if ‘obtain certificates from an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’ is claimed in <a href="#FIA_XCU_EXT.2">FIA_XCU_EXT.2</a> when the interaction between the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> and the supported function includes a request event that is logged."
-				This would be an implementation-dependent trigger but an <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> can't simultaneously be selection-based and implementation-based.
-				
-				It also says that it must be claimed if FDP_CER_EXT.1 is claimed and 'request certificates from an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>' is claimed in <a href="#FIA_XCU_EXT.2.1">FIA_XCU_EXT.2.1</a>.
-				The first part of that condition will always apply if the second part applies though because the <a href="#FIA_XCU_EXT.2.1">FIA_XCU_EXT.2.1</a> is also a trigger for 
-				claiming FDP_CER_EXT.1. So that part was left off. Also note however that FDP_CER_EXT.1 is referred to as <a href="#FDP_CER_EXT.1/OLTleaf">FDP_CER_EXT.1/OLTleaf</a>; there is no 
-				un-iterated "FDP_CER_EXT.1" so this part of the reference is ambiguous regardless.</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_189">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_190">provide functionality</span>]
+			</td></tr></table><h4 id="ext-comp-FDP_CER_EXT.2.1">FDP_CER_EXT.2.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_189">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_190">provide functionality</span>]
 					to establish a linkage from certificate requests from a supported <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function to issued certificates and [<b>selection</b>: <span class="selectable-content" id="_s_191">issue an alert</span>, <span class="selectable-content" id="_s_192">provide a search capability</span>]
 					to allow administrators to associate certificates with the request.
-				<h4 id="ext-comp-FDP_CER_EXT.2.2">FDP_CER_EXT.2.2</h4><span style="" class="comment " id="Comment-10-">This generalizes requirements in other FDP_CER requirements from the STIP <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> module.</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_193">revoke</span>, <span class="selectable-content" id="_s_194">not issue</span>]
+				<h4 id="ext-comp-FDP_CER_EXT.2.2">FDP_CER_EXT.2.2</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_193">revoke</span>, <span class="selectable-content" id="_s_194">not issue</span>]
 					certificates that cannot be associated with [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_195">A PKCS-10 request validated in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 2986</span></li><li style=""><span class="selectable-content" id="toe-enforces-est">An <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> request processed in accordance with <a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a></span></li><li style=""><span class="selectable-content" id="toe-enforces-cmc">A <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> request processed in accordance with <a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a></span></li><li style=""><span class="selectable-content" id="toe-enforces-cmp">A CMP request processed in accordance with <a href="#FIA_CMPS_EXT.1">FIA_CMPS_EXT.1</a></span></li></ul>] 
 					from a supported <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function.		
 				</div></div><h3 id="ext-comp-FDP_CRL_EXT" class="indexable" data-level="4">C.2.2.2 FDP_CRL_EXT Certificate Revocation List Generation</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for the usage of certificate revocation lists (CRLs) as a method of
@@ -3963,8 +3835,7 @@ The following sections list Common Criteria and technology terms used in this do
 						</li>
 						<li>
 							The signature and signatureAlgorithm fields shall contain the <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> for a digital signature algorithm in 
-							accordance with <a href="#FCS_COP.1">FCS_COP.1</a> in the base <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>. <span style="" class="comment " id="Comment-11-">from CCPPD: proposed updates here and in app note
-							(comment kept to preserve numbering of other comments)</span>
+							accordance with <a href="#FCS_COP.1">FCS_COP.1</a> in the base <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.
 						</li>
 						<li>
 							The thisUpdate field shall indicate the issue date of the <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>.
@@ -3979,9 +3850,7 @@ The following sections list Common Criteria and technology terms used in this do
              Certificate Status Information Required,
               requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to maintain certificate status information for its issued certificates, ensure any certificates it 
 				issues are valid for a sufficient period of time, supply a repository with status information, or identify a method to
-				invalidate trust that has been revoked.</p><h4>Management: FDP_CSIR_EXT.1</h4><p>No specific management functions are identified.</p><h4>Audit: FDP_CSIR_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FDP_CSIR_EXT.1 Certificate Status Information Required</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td></td></tr></table><h4 id="ext-comp-FDP_CSIR_EXT.1.1">FDP_CSIR_EXT.1.1</h4> <span style="" class="comment " id="Comment-12-">from CCPPD: The trigger for this is indicated as "This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is claimed if FDP_CER_EXT.1 is claimed." As there is no selection
-				triggering this, it should be categorized as an implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. Is that ok?</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="toe-generates-cert-status">generate certificate status information</span>, <span class="selectable-content" id="_s_208">only issue certificates with a validity period of less than [<b>assignment</b>: 
+				invalidate trust that has been revoked.</p><h4>Management: FDP_CSIR_EXT.1</h4><p>No specific management functions are identified.</p><h4>Audit: FDP_CSIR_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FDP_CSIR_EXT.1 Certificate Status Information Required</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td></td></tr></table><h4 id="ext-comp-FDP_CSIR_EXT.1.1">FDP_CSIR_EXT.1.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="toe-generates-cert-status">generate certificate status information</span>, <span class="selectable-content" id="_s_208">only issue certificates with a validity period of less than [<b>assignment</b>: 
      <span class="assignable-content">time not to exceed 
 						24 hours</span>]</span>, <span class="selectable-content" id="_s_209">provide access to [<b>assignment</b>: 
      <span class="assignable-content">a certificate repository including status information</span>]
@@ -3995,7 +3864,7 @@ The following sections list Common Criteria and technology terms used in this do
 				[<a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a> Certificate Revocation List Generation OR <a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> Basic Response Generation]<br/>
 				FMT_SMR.1 Security Roles			
 			</td></tr></table><h4 id="ext-comp-FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</h4>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate certificate status information whose format complies with [<b>selection</b>: <span class="selectable-content" id="toe-supports-crl"><abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr> Recommendation X.509v2 <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr></span>, <span class="selectable-content" id="_s_212"><abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr> Recommendation X.509v2 <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> as refined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8603 <span style="" class="comment " id="Comment-14-">from CCPPD: should this also trigger <a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a>? Right now it doesn't</span></span>, <span class="selectable-content" id="toe-supports-ocsp">the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> standard as defined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960</span>].
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate certificate status information whose format complies with [<b>selection</b>: <span class="selectable-content" id="toe-supports-crl"><abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr> Recommendation X.509v2 <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr></span>, <span class="selectable-content" id="_s_212"><abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr> Recommendation X.509v2 <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> as refined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8603 </span>, <span class="selectable-content" id="toe-supports-ocsp">the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> standard as defined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960</span>].
 				<h4 id="ext-comp-FDP_CSI_EXT.1.2">FDP_CSI_EXT.1.2</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support changes to the status of a certificate by [<b>selection</b>: <span class="selectable-content" id="_s_214">administrative action</span>, <span class="selectable-content" id="_s_215"> [<b>assignment</b>: 
      <span class="assignable-content">input from a supported function</span>]</span>].
 				<h4 id="ext-comp-FDP_CSI_EXT.1.3">FDP_CSI_EXT.1.3</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide certificate status information generated in accordance with <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a> via
@@ -4014,8 +3883,7 @@ The following sections list Common Criteria and technology terms used in this do
 			</p><h4>FDP_OCSP_EXT.1 OCSP Basic Response Generation</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
 				<span class="no-link">FCS_COP.1</span> Cryptographic Operation<br/>
 				<span class="no-link">FPT_STM.1</span> Reliable Time Stamps
-			</td></tr></table><h4 id="ext-comp-FDP_OCSP_EXT.1.1">FDP_OCSP_EXT.1.1</h4><span style="" class="comment " id="Comment-15-">Significant difference from existing <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> in STIP</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall ensure that all mandatory fields in the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> basic response contain values in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 
+			</td></tr></table><h4 id="ext-comp-FDP_OCSP_EXT.1.1">FDP_OCSP_EXT.1.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall ensure that all mandatory fields in the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> basic response contain values in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 
 					6960 which meet the following rules.
 					<ul>
 						<li>
@@ -4023,8 +3891,7 @@ The following sections list Common Criteria and technology terms used in this do
 						</li>
 						<li>
 							The signatureAlgorithm field shall contain the object identifier (<abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr>) for a digital signature algorithm in 
-							accordance with [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_219">sha256WithRSAEncryption in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960 with key size of 2048 bits or greater</span></li><li style=""><span class="selectable-content" id="_s_220"> [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_221">sha384WithRSAEncryption with key size of 3072 bits or greater</span></li><li style=""><span class="selectable-content" id="_s_222">ecdsa-with-SHA384 using <span style="" class="comment " id="Comment-16-">Crypto TC review required – add secp256r1 or indicate in 
-										an application note that secp256r1 is deprecated – refining <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960</span>
+							accordance with [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_219">sha256WithRSAEncryption in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960 with key size of 2048 bits or greater</span></li><li style=""><span class="selectable-content" id="_s_220"> [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_221">sha384WithRSAEncryption with key size of 3072 bits or greater</span></li><li style=""><span class="selectable-content" id="_s_222">ecdsa-with-SHA384 using
 										[<b>selection</b>: <span class="selectable-content" id="_s_223">secp384r1</span>, <span class="selectable-content" id="_s_224">secp521r1</span>]</span></li></ul>]</span></li></ul>]
 						</li>
 						<li>

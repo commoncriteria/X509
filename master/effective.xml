@@ -293,20 +293,8 @@
 			
 		<f-element id="fdp-cer-ext-1e1-oltleaf">
 			<title>
-				<comment>This (only locally trusted) iteration for leaf certificates is more general than that in STIP, but does not include the 
-					STIP use case. The general case should be modeled after that in the CA PP. Here, certificates are supporting any TOE function, 
-					but are only trusted by the TOE function, whereas for STIP, the issued certificates are trusted by external clients or servers.
-				</comment>
-				<comment>from CCPPD: This is also supposed to be triggered if "a designated trust store specified in FIA_X509_EXT.1.6 is associated with an embedded CA"
-				but there is no way to depict that via selection without changing FIA_X509_EXT.1.6. The condition being written in this manner
-				implies an implementation-dependent SFR but an SFR can't simultaneously be implementation-dependent and selection-based.</comment>
-				<h:br/><h:br/>
-				<comment>from CCPPD: It's unclear why this SFR is defined with an iteration when a non-iterated version of the SFR is never used.</comment>
 				The TSF shall implement a certificate profile function for certificates issued by a CA embedded within the TOE, 
-				supporting <comment>The subsequent reference to supported functions go beyond how they use certificates, so a more detailed 
-					list is required, separately from how they use the issued certificates. Also, it’s necessary to allow internal CA 
-					support of a function using TLS, while also allowing other functions using TLS to depend on an external CA. The 
-					profiles are dependent on the selection below, so it should be retained.</comment>
+				supporting 
 				<assignable>list of TOE functions</assignable>, using certificates in support of: <selectables>
 					<selectable> <selectables linebreak="yes">
 						<selectable> <selectables>
@@ -599,20 +587,8 @@
 			
 			<f-element id="fdp-cer-ext-1e1">
 				<title>
-					<comment>This (only locally trusted) iteration for leaf certificates is more general than that in STIP, but does not include the 
-						STIP use case. The general case should be modeled after that in the CA PP. Here, certificates are supporting any TOE function, 
-						but are only trusted by the TOE function, whereas for STIP, the issued certificates are trusted by external clients or servers.
-					</comment>
-					<comment>from CCPPD: This is also supposed to be triggered if "a designated trust store specified in FIA_X509_EXT.1.6 is associated with an embedded CA"
-						but there is no way to depict that via selection without changing FIA_X509_EXT.1.6. The condition being written in this manner
-						implies an implementation-dependent SFR but an SFR can't simultaneously be implementation-dependent and selection-based.</comment>
-					<h:br/><h:br/>
-					<comment>from CCPPD: It's unclear why this SFR is defined with an iteration when a non-iterated version of the SFR is never used.</comment>
 					The TSF shall implement a certificate profile function for certificates issued by a CA embedded within the TOE, 
-					supporting <comment>The subsequent reference to supported functions go beyond how they use certificates, so a more detailed 
-						list is required, separately from how they use the issued certificates. Also, it’s necessary to allow internal CA 
-						support of a function using TLS, while also allowing other functions using TLS to depend on an external CA. The 
-						profiles are dependent on the selection below, so it should be retained.</comment>
+					supporting 
 					<assignable>list of TOE functions</assignable>, using certificates in support of: <selectables>
 						<selectable> <selectables linebreak="yes">
 							<selectable> <selectables>
@@ -811,14 +787,7 @@
 				OR FIA_CMPS_EXT.1 Certificate Management Protocol (CMP) Server]
 			</dependencies>
 			<f-element id="fdp-cer-ext-2e1">
-				<title><comment>CCPPD2: The note on when this SFR is claims also says "It may be claimed if ‘obtain certificates from an embedded CA’ is claimed in FIA_XCU_EXT.2 when the interaction between the embedded CA and the supported function includes a request event that is logged."
-				This would be an implementation-dependent trigger but an SFR can't simultaneously be selection-based and implementation-based.
-				
-				It also says that it must be claimed if FDP_CER_EXT.1 is claimed and 'request certificates from an embedded CA' is claimed in FIA_XCU_EXT.2.1.
-				The first part of that condition will always apply if the second part applies though because the FIA_XCU_EXT.2.1 is also a trigger for 
-				claiming FDP_CER_EXT.1. So that part was left off. Also note however that FDP_CER_EXT.1 is referred to as FDP_CER_EXT.1/OLTleaf; there is no 
-				un-iterated "FDP_CER_EXT.1" so this part of the reference is ambiguous regardless.</comment>
-					The TSF shall <selectables>
+				<title>The TSF shall <selectables>
 					<selectable>invoke platform-provided functionality</selectable>
 					<selectable>provide functionality</selectable>
 					</selectables>
@@ -830,8 +799,7 @@
 				</title>
 			</f-element>
 			<f-element id="fdp-cer-ext-2e2">
-				<title><comment>This generalizes requirements in other FDP_CER requirements from the STIP PP module.</comment>
-					The TSF shall <selectables>
+				<title>The TSF shall <selectables>
 					<selectable>revoke</selectable>
 					<selectable>not issue</selectable>
 				</selectables>
@@ -935,8 +903,7 @@
 						</h:li>
 						<h:li>
 							The signature and signatureAlgorithm fields shall contain the OID for a digital signature algorithm in 
-							accordance with FCS_COP.1 in the base PP. <comment>from CCPPD: proposed updates here and in app note
-							(comment kept to preserve numbering of other comments)</comment>
+							accordance with FCS_COP.1 in the base PP.
 						</h:li>
 						<h:li>
 							The thisUpdate field shall indicate the issue date of the CRL.
@@ -1001,9 +968,7 @@
 			<audit>There are no auditable events foreseen.</audit>
 			<dependencies/>
 			<f-element id="fdp-csir-ext-1e1">
-				<title> <comment>from CCPPD: The trigger for this is indicated as "This SFR is claimed if FDP_CER_EXT.1 is claimed." As there is no selection
-				triggering this, it should be categorized as an implementation-dependent SFR. Is that ok?</comment>
-					The TSF shall <selectables>
+				<title>The TSF shall <selectables>
 					<selectable id="toe-generates-cert-status">generate certificate status information</selectable>
 					<selectable>only issue certificates with a validity period of less than <assignable>time not to exceed 
 						24 hours</assignable></selectable>
@@ -1026,9 +991,7 @@
 					as indicated in <xref to="fdp-cer-ext-1"/>. If the TSF provides access to a certificate repository, the ST author 
 					claims ‘provide access …’ and identifies the repository and methods of access in the assignment. If each supported 
 					function manages the validity of the certificates it uses without depending on the embedded CA, the ST author claims 
-					‘depend on…’ and describes the method used by each such function. <comment>from CCPPD2: proposed
-					resolution to the original comment here listed below at the end of the app note. Comment kept here to preserve
-					numbering of other comments.</comment> In this case, the embedded function takes 
+					‘depend on…’ and describes the method used by each such function. In this case, the embedded function takes 
 					on traditional functionality of a CA. Depending on the PP or PP-Module that this FP is used with, certain requirements of 
 					that PP or PP-Module would then apply to the functionality described here as well, such as authorized administration to configure
 					the function.
@@ -1072,7 +1035,7 @@
 				<title>
 					The TSF shall generate certificate status information whose format complies with <selectables>
 						<selectable id="toe-supports-crl">ITU-T Recommendation X.509v2 CRL</selectable>
-						<selectable>ITU-T Recommendation X.509v2 CRL as refined by RFC 8603 <comment>from CCPPD: should this also trigger FDP_CRL_EXT.1? Right now it doesn't</comment></selectable>
+						<selectable>ITU-T Recommendation X.509v2 CRL as refined by RFC 8603 </selectable>
 						<selectable id="toe-supports-ocsp">the OCSP standard as defined by RFC 6960</selectable>
 					</selectables>.
 				</title>
@@ -1176,8 +1139,7 @@
 				<no-link>FPT_STM.1</no-link> Reliable Time Stamps
 			</dependencies>
 			<f-element id="fdp-ocsp-ext-1e1">
-				<title><comment>Significant difference from existing SFR in STIP</comment>
-					The TSF shall ensure that all mandatory fields in the OCSP basic response contain values in accordance with RFC 
+				<title>The TSF shall ensure that all mandatory fields in the OCSP basic response contain values in accordance with RFC 
 					6960 which meet the following rules.
 					<h:ul>
 						<h:li>
@@ -1189,8 +1151,7 @@
 								<selectable>sha256WithRSAEncryption in accordance with RFC 6960 with key size of 2048 bits or greater</selectable>
 								<selectable> <selectables linebreak="yes">
 									<selectable>sha384WithRSAEncryption with key size of 3072 bits or greater</selectable>
-									<selectable>ecdsa-with-SHA384 using <comment>Crypto TC review required – add secp256r1 or indicate in 
-										an application note that secp256r1 is deprecated – refining RFC 6960</comment>
+									<selectable>ecdsa-with-SHA384 using
 										<selectables>
 										<selectable>secp384r1</selectable>
 										<selectable>secp521r1</selectable>
@@ -1373,8 +1334,7 @@
 				<no-link>FTP_ITC.1</no-link> Inter-TSF Trusted Channel
 			</dependencies>
 			<f-element id="fia-cmcs-ext-1e1">
-				<title><comment>Based on CMC selected in FIA_X509_EXT.3 and what else?</comment>
-					The TSF shall be able to accept and process CMC <selectables>
+				<title>The TSF shall be able to accept and process CMC <selectables>
 					<selectable>full requests</selectable>
 					<selectable>simple requests</selectable>
 				</selectables>
@@ -1391,8 +1351,6 @@
 					Cryptographic functions used in the CMC profile are limited to those specified in the PP or PP-Module which claims conformance 
 					to this FP. The mechanism that implements these functions (e.g., whether it is part of the TSF or invoked from its platform) 
 					is specified in <xref to="fia-cmcs-ext-1e4"/>. 
-					<comment>from CCPPD: update made here to address original comment. This comment kept to preserve numbering of the other comments.
-					See also proposed updates to FIA_CMCS_EXT.1.4 below.</comment> 
 				</note>
 			</f-element>
 			
@@ -1557,8 +1515,7 @@
 				<no-link>FTP_ITC.1</no-link> Inter-TSF Trusted Channel
 			</dependencies>
 			<f-element id="fia-cmpc-ext-1e1">
-				<title> <comment>Should this include a selection for RFC 9482 in support of IOT devices?</comment>
-					The TSF shall
+				<title>The TSF shall
 					 <selectables>
 						<selectable>invoke platform-provided functionality</selectable>
 						<selectable>provide functionality</selectable>
@@ -1581,9 +1538,7 @@
 					to 
 					 <selectables>
 						<selectable>export CMP requests and import CMP responses under the control of an administrator</selectable>
-					 	<selectable>transport CMP messages over <comment>HTTPS is recommended for external CAs, but other options are 
-					 		acceptable for embedded CAs or when CMP message protection mechanisms are used. If needed, include other 
-					 		options in a selection</comment> HTTPS in accordance with RFC 6712, with all renewal requests using mutual authentication</selectable>
+					 	<selectable>transport CMP messages over HTTPS in accordance with RFC 6712, with all renewal requests using mutual authentication</selectable>
 						<selectable>transport CMP messages over HTTPS in accordance with RFC 9480 (CMP version 3) with all renewal requests using mutual authentication</selectable>
 					</selectables>.
 				</title>
@@ -1672,9 +1627,7 @@
 						<selectable>invoke platform-provided functionality</selectable>
 						<selectable>provide functionality</selectable>
 					</selectables>
-					to authenticate CMP subjects and end-entities for re-enrollment via <comment>TLS (HTTPS) with mutual authentication is 
-						recommended for external clients, but other mechanisms for local subjects/end entities are acceptable. Consider 
-						adding options in a selection,</comment> certificate-based authentication and
+					to authenticate CMP subjects and end-entities for re-enrollment via certificate-based authentication and
 					 <selectables>
 						<selectable>RA assertion</selectable>
 						<selectable>no other method</selectable>
@@ -1734,8 +1687,6 @@
 						functionality required to meet the requirements are included.</h:p>
 					</Guidance>
 					<Tests>
-						<comment>Supported functions and options for CMP services by an embedded CA will require testing. Details for AA may 
-							need to be updated based on TC discussion regarding the SFR.</comment>
 						The evaluator shall perform the following tests.
 						<testlist>
 							<test>
@@ -1951,7 +1902,6 @@
 					</selectables>.
 				</title>
 				<note role="Application">
-					<comment>So based on selection of EST in FIA_X509_EXT.3 AND what else?</comment>
 					This SFR is claimed if the TOE supports an EST server associated with an embedded CA to process enrollment requests; 
 					the embedded CA is referred to as the EST CA in the RFC.  Updates to RFC 7030 indicated in RFC 8996 applies to all 
 					references to RFC 7030 in this SFR. If Registration Authority (RA) functionality is supported, the ST author 
@@ -2106,9 +2056,7 @@
 				<no-link>FMT_SMR.1</no-link> Security Roles
 			</dependencies>
 			<f-element id="fia-tsm-ext-1e1">
-				<title>(managing trust store elements)
-					<comment>Integrate allowance for platform managed trust store (see Palo Alto comment 5) – also impacts test 13</comment> 
-					The TSF shall
+				<title>The TSF shall
 					 <selectables>
 						<selectable>invoke platform-provided functionality</selectable>
 						<selectable>implement functionality</selectable></selectables>
@@ -2126,9 +2074,7 @@
 					and 
 					 <selectables linebreak="yes">
 						<selectable>Validating the certification path of any certificate that is neither a self-signed root CA
-							certificate nor an OCSP certificate, <selectables><selectable><comment>This depends 
-								on selection (which administrator). See Palo Alto comment 10. Also impacts test 13. Added selection to 
-								require one of when installed, when used and added no other to original selection</comment> when installed 
+							certificate nor an OCSP certificate, <selectables><selectable>when installed 
 								by an administrator as a trust store element</selectable><selectable>on use</selectable></selectables> and
 							 <selectables><selectable>on demand</selectable><selectable>during <assignable>defined events</assignable></selectable>
 							 	<selectable>periodically every <assignable>time</assignable></selectable><selectable>no other time
@@ -2143,8 +2089,7 @@
 						trusted public keys. Trust store elements are single trusted public keys using the context of the trust store for 
 						certificate path validation. OCSP certificates trusted by the TOE may also be considered trust store elements, 
 						and must be included in a trust store when revocation information is not provided directly by the issuing CA. Revocation 
-						status of <comment>Is this sufficient, or do we refine 6960 to require an explicit no-check flag and move this 
-							into an SFR element?</comment>local (associated with a locally configured OCSP responder) or ‘no-check’ (contains the extension id-pkix-ocsp-nocheck) OCSP certificates are not verified in accordance with the options in RFC 6960 section 4.2.2.2.1. 
+						status of local (associated with a locally configured OCSP responder) or ‘no-check’ (contains the extension id-pkix-ocsp-nocheck) OCSP certificates are not verified in accordance with the options in RFC 6960 section 4.2.2.2.1. 
 					</h:p>
 					<h:p>
 						The ST author designates which trust stores or trust store elements are managed in the assignment (a subset of those indicated in FIA_X509_EXT.1.6) and specifies one or more options for 
@@ -2284,9 +2229,7 @@
 									<selectable>no other algorithms</selectable></selectables>
 									and CRLs signed using other cryptographic algorithms are considered invalid;</selectable>
 								<selectable>
-									OCSP responses are signed using <comment>Discuss OCSP gap in RFC 8603 with Crypto TC to determine how group constraints are 
-										captured.</comment><comment>Crypto TC review: Either add secp256r1 or add an application note 
-											regarding refining RFC 6960 to deprecate the algorithm</comment>
+									OCSP responses are signed using 
 									<selectables linebreak="yes">
 												<selectable>sha256WithRSAEncryption in accordance with RFC 6960 with key size of 2048 bits or greater,</selectable>
 												<selectable>ecdsa-with-SHA384 using 
@@ -2470,8 +2413,7 @@
 					</note>	
 			</f-element>
 			<f-element id="fia-x509-ext-1e5">
-				<title> <comment>Palo Alto comment</comment>
-					The TSF shall  <selectables>
+				<title>The TSF shall  <selectables>
 						<selectable>invoke platform-provided functionality</selectable>
 						<selectable>implement functionality</selectable>
 						<selectable>pass context information to the supported function</selectable></selectables> to validate that the 
@@ -2528,9 +2470,7 @@
 				</note>	
 			</f-element>
 			<f-element id="fia-x509-ext-1e6">
-				<title>
-					<comment>Integrate allowance for platform managed trust store  (see Palo Alto comment 5) 
-						– also impacts test 13</comment> The TSF shall  <selectables>
+				<title>The TSF shall  <selectables>
 						<selectable id="toe-manages-trust-stores">manage trust stores</selectable>
 						<selectable>use platform-managed trust stores</selectable></selectables>
 					used for certification path validation.
@@ -2674,7 +2614,7 @@
 								information.</h:p>								
 							</test>
 							<test>
-								<comment>Conditional based on update of FIA_X509_EXT.1.5.</comment> <h:p>[conditional: If a function in 
+								<h:p>[conditional: If a function in 
 									FIA_X509_EXT.2 requires TSF processing of context information for path validation] For each supported 
 									function requiring TSF processing context information, and for each supported certificate context and 
 									usage constraint claimed, the evaluator shall demonstrate that a certification path that does not meet 
@@ -2757,8 +2697,7 @@
 				</note>
 			</f-element>
 			<f-element id="fia-x509-ext-2e2">
-				<title><comment>Previous name-constraints and policy constraint initialization are omitted (problem with optional elements) 
-					and covered generally in FIA_X509_EXT.1.6</comment> For each function indicated in FIA_X509_EXT.2.1, the TSF shall
+				<title>For each function indicated in FIA_X509_EXT.2.1, the TSF shall
 					 <selectables>
 						<selectable>invoke the TOE platform to determine</selectable>
 						<selectable>determine</selectable></selectables> whether the
@@ -2864,9 +2803,7 @@
 						</selectables>
 						</selectable>
 					</selectables>
-					and <assignable>list of other certificate field and extension values</assignable>. <comment>TC: Please provide suggested 
-						values here to be used as selections</comment><comment>TC: We received no suggested selections. Please provide 
-							suggested values. Thank you!</comment>
+					and <assignable>list of other certificate field and extension values</assignable>.
 				</title>
 				<note role="Application">
 					The supported certificate request mechanisms are claimed in the first selection. PCKS-10 is claimed whether a manual 
