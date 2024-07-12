@@ -1497,7 +1497,7 @@
 		</ext-comp-def>
 
 		<f-component name="CMP Certificate Enrollment" cc-id="fia_cmpc_ext.1" id="fia-cmpc-ext-1" status="sel-based">
-			<depends on="toe-uses-cmp"/>
+			<depends on="toe-enforces-cmp"/>
 			<comp-lev> requires the TSF to generate, export, import, and transport CMP requests that meet subject and end-entity compliance
 				requirements.</comp-lev>
 			<management>No specific management functions are identified.</management>
