@@ -1126,7 +1126,7 @@
 		</ext-comp-def>
 		
 		<f-component name="OCSP Basic Response Generation" cc-id="fdp_ocsp_ext.1" id="fdp-ocsp-ext-1" status="sel-based">
-			<depends on="toe-supports-ocsp" also="toe-issues-ocsp"/>
+			<depends on="toe-supports-ocsp"/>
 			<comp-lev> requires the TSF to include specific information in any OCSP response that it creates.</comp-lev>
 			<management>No specific management functions are identified.</management>
 			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
