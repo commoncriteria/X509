@@ -199,12 +199,12 @@
                 <tr>
                     <td>
                         <div id="Online_Certificate_Status_Protocol">Online Certificate Status Protocol (OCSP)</div>
-                    </td><td>A method by which a CA has the ability to communicate that a certificate it issued has been revoked and should no longer be trusted, originally secribed in RFC 6960.</td>
+                    </td><td>A method by which a CA has the ability to communicate that a certificate it issued has been revoked and should no longer be trusted, originally described in RFC 6960.</td>
                 </tr>
                 <tr>
                     <td>
                         <div id="Public_Key_Infrastructure">Public Key Infrastructure (PKI)</div>
-                    </td><td>The practice of associating subjects with public keys for the purpose of trsuted communications, and the physical, logical, and personnel mechanisms used in support of implementing this.</td>
+                    </td><td>The practice of associating subjects with public keys for the purpose of trusted communications, and the physical, logical, and personnel mechanisms used in support of implementing this.</td>
                 </tr>
                 <tr>
                     <td>
@@ -1168,7 +1168,7 @@
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note">
                             <p>
-                                 This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is claimed when certifiate requests to an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> are supported. It ensures that administrators of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> are able to associate any issued certificate to a request from an authorized entity associated with a supported function, and identify certificates issued in response to requests from unauthorized entities, as the result of the misuse of access to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
+                                 This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is claimed when certificate requests to an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> are supported. It ensures that administrators of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> are able to associate any issued certificate to a request from an authorized entity associated with a supported function, and identify certificates issued in response to requests from unauthorized entities, as the result of the misuse of access to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
                             </p>
                             <p>
                                  If the association in <a href="#FDP_CER_EXT.2">FDP_CER_EXT.2</a> is performed as a condition of issuance, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims &lsquo;not issue&rsquo;; if the association is performed after issuance, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims &lsquo;revoke&rsquo;. Revoke should be claimed only if one or more of &lsquo;generate certificate status information&rsquo; or &lsquo;provide access to&hellip;&rsquo; is claimed in <a href="#FDP_CSIR_EXT.1.1">FDP_CSIR_EXT.1.1</a>. The method of validating a request is specific to the request method. If &lsquo;An <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> request&hellip;&rsquo; is claimed, <a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a> is also claimed; If &lsquo;A <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> request&hellip;&rsquo; is claimed, <a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a> is also claimed. If &lsquo;A CMP request&hellip;&rsquo; is claimed, <a href="#FIA_CMPS_EXT.1">FIA_CMPS_EXT.1</a> is also claimed. It is preferred, but not required that the request identifiers, certificate identifiers and the binding is retained in searchable audit records for the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>, but other mechanisms of establishing a binding are acceptable. 
@@ -1395,7 +1395,7 @@
                             <span class="selectable-content" id="_s_217">an <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> mechanism indicated in the authorityInfoAccess extension of the issued certificate in accordance with <a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a></span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_218">an OSCP response provided to [<b>assignment</b>: <span class="assignable-content">a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function using certificates issued by the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> in support of <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or DTLS server functionality</span>] for <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> stapling</span>
+                            <span class="selectable-content" id="_s_218">an <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> response provided to [<b>assignment</b>: <span class="assignable-content">a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function using certificates issued by the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> in support of <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or DTLS server functionality</span>] for <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> stapling</span>
                         </li>
                     </ul>
                     ]. 
@@ -2848,7 +2848,7 @@
                                             <li>
                                                 The evaluator shall present a valid certificate containing a valid <abbr class="dyn-abbr"><a href="#abbr_DN">DN</a></abbr> with the matching RDN value to the supported function and verify that the certificate is accepted.
                                             </li>
-                                            <li>The evaluator shall then present a second certificate where the RDN component does not match the rule, but which is otherwise valid and matches the first certificate. The evalatuator shall observe that the certificate is rejected.</li>
+                                            <li>The evaluator shall then present a second certificate where the RDN component does not match the rule, but which is otherwise valid and matches the first certificate. The evaluator shall observe that the certificate is rejected.</li>
                                             <li>
                                                 The evaluator shall present a third certificate, where the <abbr class="dyn-abbr"><a href="#abbr_DN">DN</a></abbr> includes the RDN with a non-matching value as in the second certificate, but which also includes a non-supported (or undefined) RDN term populated with the matching value for the original RDN, and which is otherwise valid and matches the first certificate and demonstrate that the modified certificate is rejected.
                                             </li>
@@ -3029,7 +3029,7 @@
                     </ul>
                     ] and [<b>assignment</b>: <span class="assignable-content">list of other certificate field and extension values</span>]. 
                     <div class="appnote">
-                        <span class="note-header">Application Note: </span><span class="note"> The supported certificate request mechanisms are claimed in the first selection. PCKS-10 is claimed whether a manual request process is used or if the PKCS-10 request is posted to the certification authority (for embedded CAs or as in ACME implementations). Other options embed the certificate request in a formalized certificate management protocol. If <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> is claimed, <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> is also claimed; if <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> or CNSA <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> are claimed, <a href="#FIA_CMCC_EXT.1">FIA_CMCC_EXT.1</a> is also claimed; if v2 or v3 CMP is claimed, <a href="#FIA_CMPC_EXT.1">FIA_CMPC_EXT.1</a> is also claimed. </span>
+                        <span class="note-header">Application Note: </span><span class="note"> The supported certificate request mechanisms are claimed in the first selection. PKCS-10 is claimed whether a manual request process is used or if the PKCS-10 request is posted to the certification authority (for embedded CAs or as in ACME implementations). Other options embed the certificate request in a formalized certificate management protocol. If <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> is claimed, <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> is also claimed; if <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> or CNSA <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> are claimed, <a href="#FIA_CMCC_EXT.1">FIA_CMCC_EXT.1</a> is also claimed; if v2 or v3 CMP is claimed, <a href="#FIA_CMPC_EXT.1">FIA_CMPC_EXT.1</a> is also claimed. </span>
                     </div>
                 </div>
             </div>
@@ -4140,7 +4140,7 @@
                                 <span class="selectable-content" id="_s_217">an <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> mechanism indicated in the authorityInfoAccess extension of the issued certificate in accordance with <a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a></span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_218">an OSCP response provided to [<b>assignment</b>: <span class="assignable-content">a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function using certificates issued by the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> in support of <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or DTLS server functionality</span>] for <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> stapling</span>
+                                <span class="selectable-content" id="_s_218">an <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> response provided to [<b>assignment</b>: <span class="assignable-content">a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function using certificates issued by the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> in support of <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or DTLS server functionality</span>] for <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> stapling</span>
                             </li>
                         </ul>
                         ]. 
@@ -5958,7 +5958,7 @@
                                 <span class="selectable-content" id="_s_217">an <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> mechanism indicated in the authorityInfoAccess extension of the issued certificate in accordance with <a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a></span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_218">an OSCP response provided to [<b>assignment</b>: <span class="assignable-content">a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function using certificates issued by the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> in support of <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or DTLS server functionality</span>] for <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> stapling</span>
+                                <span class="selectable-content" id="_s_218">an <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> response provided to [<b>assignment</b>: <span class="assignable-content">a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function using certificates issued by the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> in support of <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or DTLS server functionality</span>] for <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> stapling</span>
                             </li>
                         </ul>
                         ]. 

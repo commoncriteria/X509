@@ -8,8 +8,6 @@ output/X509-release-linkable.html: CNSA
 output/X509-release-linkable.html: FCS
 output/X509-release-linkable.html: FMT
 output/X509-release-linkable.html: FPs
-output/X509-release-linkable.html: OSCP
-output/X509-release-linkable.html: PCKS
 output/X509-release-linkable.html: RAs
 output/X509-release-linkable.html: RDN
 output/X509-release-linkable.html: RFC7030
@@ -21,7 +19,6 @@ output/X509-release-linkable.html: authorityInfoAccess
 output/X509-release-linkable.html: authorityInformationAccess
 output/X509-release-linkable.html: authorityKeyIdentifier
 output/X509-release-linkable.html: cRLDistributionPoints
-output/X509-release-linkable.html: certifiate
 output/X509-release-linkable.html: certificatePolicies
 output/X509-release-linkable.html: certificationRequestInfo
 output/X509-release-linkable.html: clientAuth
@@ -29,7 +26,6 @@ output/X509-release-linkable.html: codeSigning
 output/X509-release-linkable.html: dNSName
 output/X509-release-linkable.html: directoryName
 output/X509-release-linkable.html: emailProtection
-output/X509-release-linkable.html: evalatuator
 output/X509-release-linkable.html: expectedPolicy
 output/X509-release-linkable.html: hashAlg
 output/X509-release-linkable.html: iPAddress
@@ -52,7 +48,6 @@ output/X509-release-linkable.html: producedAt
 output/X509-release-linkable.html: rfc822Name
 output/X509-release-linkable.html: secp384r1
 output/X509-release-linkable.html: secp521r1
-output/X509-release-linkable.html: secribed
 output/X509-release-linkable.html: serverAuth
 output/X509-release-linkable.html: sha256WithRSAEncryption
 output/X509-release-linkable.html: signatureAlgorithm
@@ -64,7 +59,6 @@ output/X509-release-linkable.html: subjectPublicKeyInfo
 output/X509-release-linkable.html: subjectUniqueID
 output/X509-release-linkable.html: substring
 output/X509-release-linkable.html: thisUpdate
-output/X509-release-linkable.html: trsuted
 output/X509-release-linkable.html: uniformResourceIdentifier
 output/X509-release-linkable.html: uniqueIssuerID
 output/X509-release-linkable.html: uniqueSubjectID
@@ -81,8 +75,6 @@ output/X509-release.html: CNSA
 output/X509-release.html: FCS
 output/X509-release.html: FMT
 output/X509-release.html: FPs
-output/X509-release.html: OSCP
-output/X509-release.html: PCKS
 output/X509-release.html: RAs
 output/X509-release.html: RDN
 output/X509-release.html: RFC7030
@@ -101,7 +93,6 @@ output/X509-release.html: authorityKeyIdentifier
 output/X509-release.html: authority’
 output/X509-release.html: cRLDistributionPoints
 output/X509-release.html: cRLDistributionPoints’
-output/X509-release.html: certifiate
 output/X509-release.html: certificatePolicies
 output/X509-release.html: certificationRequestInfo
 output/X509-release.html: check’
@@ -111,7 +102,6 @@ output/X509-release.html: constraints’
 output/X509-release.html: dNSName
 output/X509-release.html: directoryName
 output/X509-release.html: emailProtection
-output/X509-release.html: evalatuator
 output/X509-release.html: expectedPolicy
 output/X509-release.html: external’
 output/X509-release.html: function’
@@ -145,7 +135,6 @@ output/X509-release.html: revoke’
 output/X509-release.html: rfc822Name
 output/X509-release.html: secp384r1
 output/X509-release.html: secp521r1
-output/X509-release.html: secribed
 output/X509-release.html: serverAuth
 output/X509-release.html: sha256WithRSAEncryption
 output/X509-release.html: signatureAlgorithm
@@ -159,7 +148,6 @@ output/X509-release.html: subjectPublicKeyInfo
 output/X509-release.html: subjectUniqueID
 output/X509-release.html: substring
 output/X509-release.html: thisUpdate
-output/X509-release.html: trsuted
 output/X509-release.html: uniformResourceIdentifier
 output/X509-release.html: uniqueIssuerID
 output/X509-release.html: uniqueSubjectID
@@ -179,8 +167,6 @@ output/X509.html: CNSA
 output/X509.html: FCS
 output/X509.html: FMT
 output/X509.html: FPs
-output/X509.html: OSCP
-output/X509.html: PCKS
 output/X509.html: RAs
 output/X509.html: RDN
 output/X509.html: RFC7030
@@ -199,7 +185,6 @@ output/X509.html: authorityKeyIdentifier
 output/X509.html: authority’
 output/X509.html: cRLDistributionPoints
 output/X509.html: cRLDistributionPoints’
-output/X509.html: certifiate
 output/X509.html: certificatePolicies
 output/X509.html: certificationRequestInfo
 output/X509.html: check’
@@ -209,7 +194,6 @@ output/X509.html: constraints’
 output/X509.html: dNSName
 output/X509.html: directoryName
 output/X509.html: emailProtection
-output/X509.html: evalatuator
 output/X509.html: expectedPolicy
 output/X509.html: external’
 output/X509.html: function’
@@ -242,7 +226,6 @@ output/X509.html: revoke’
 output/X509.html: rfc822Name
 output/X509.html: secp384r1
 output/X509.html: secp521r1
-output/X509.html: secribed
 output/X509.html: serverAuth
 output/X509.html: sha256WithRSAEncryption
 output/X509.html: signatureAlgorithm
@@ -256,7 +239,6 @@ output/X509.html: subjectPublicKeyInfo
 output/X509.html: subjectUniqueID
 output/X509.html: substring
 output/X509.html: thisUpdate
-output/X509.html: trsuted
 output/X509.html: uniformResourceIdentifier
 output/X509.html: uniqueIssuerID
 output/X509.html: uniqueSubjectID
