@@ -86,7 +86,7 @@
    	<term abbr="HTTPS" full="Hypertext Transfer Protocol Secure"></term>
    	<term abbr="ITU-T" full="International Telecommunication Union Telecommunication Standardization Sector"></term>
    	<term abbr="OCSP" full="Online Certificate Status Protocol">A method by which a CA has the ability to communicate that a certificate it issued
-   		has been revoked and should no longer be trusted, originally secribed in RFC 6960.</term>
+   		has been revoked and should no longer be trusted, originally described in RFC 6960.</term>
    	<term full="OCSP Stapling">An expedited version of OCSP where the CA includes an assertion of a leaf certificate's validity as 
    		part of a connection handshake.</term>
    	<term full="OCSP Multi-Stapling">An expedited version of OCSP where the CA includes an assertion of a leaf certificate's validity, 
@@ -94,7 +94,7 @@
    	<term abbr="OID" full="Object Identifier">A numeric string that uniquely represents object types in certificates.</term>
    	<term abbr="OS" full="Operating System"></term>
    	<term full="pathLen">An attribute of CA certificates that specifies the maximum length of a certificate chain that terminates with that certificate.</term>
-   	<term abbr="PKI" full="Public Key Infrastructure">The practice of associating subjects with public keys for the purpose of trsuted communications, and the physical, logical, and personnel mechanisms used in support of implementing this.</term>
+   	<term abbr="PKI" full="Public Key Infrastructure">The practice of associating subjects with public keys for the purpose of trusted communications, and the physical, logical, and personnel mechanisms used in support of implementing this.</term>
    	<term abbr="RA" full="Registration Authority">An optional component of public key infrastructure to which a CA can delegate certain management functions.</term>
    	<term abbr="RBG" full="Random Bit Generator"></term>
    	<term abbr="RFC" full="Request for Comment"></term>
@@ -821,7 +821,7 @@
 				</title>
 				<note role="Application">
 				<h:p>
-					This SFR is claimed when certifiate requests to an embedded CA are supported. It ensures that administrators of the TSF are able to associate any issued certificate to a request from an authorized entity associated with a supported function, and identify certificates issued in response to requests from unauthorized entities, as the result of the misuse of access to the TOE.
+					This SFR is claimed when certificate requests to an embedded CA are supported. It ensures that administrators of the TSF are able to associate any issued certificate to a request from an authorized entity associated with a supported function, and identify certificates issued in response to requests from unauthorized entities, as the result of the misuse of access to the TOE.
 				</h:p><h:p>
 					If the association in <xref to="fdp-cer-ext-2"/> is performed as a condition of issuance, the ST author claims 
 					‘not issue’; if the association is performed after issuance, the ST author claims ‘revoke’. Revoke should be claimed 
@@ -1071,7 +1071,7 @@
 						<selectable>posting CRLs at the location specified in the cRLDistributionPoints of the issued certificate</selectable>
 						<selectable>an OCSP mechanism indicated in the authorityInfoAccess extension of the issued certificate in accordance 
 							with <xref to="fdp-ocsp-ext-1"/></selectable>
-						<selectable>an OSCP response provided to <assignable>a TOE function using certificates issued by the embedded CA in 
+						<selectable>an OCSP response provided to <assignable>a TOE function using certificates issued by the embedded CA in 
 							support of TLS or DTLS server functionality</assignable> 
 							for OCSP stapling</selectable>
 					</selectables>.					
@@ -2637,7 +2637,7 @@
 							<test>
 								[conditional]: If certificates with non-empty subject fields are validated and if either name constraints processing is supported or one or more reference ID checking rules are included in trust store context rules, then for each RDN supported, the evaluator shall configure the TOE to enforce a rule on the RDN value, establish a value for the RDN that matches the rule, and perform the following steps: <h:ul>
 									<h:li>The evaluator shall present a valid certificate containing a valid DN with the matching RDN value to the supported function and verify that the certificate is accepted.</h:li>
-									<h:li>The evaluator shall then present a second certificate where the RDN component does not match the rule, but which is otherwise valid and matches the first certificate. The evalatuator shall observe that the certificate is rejected.</h:li>
+									<h:li>The evaluator shall then present a second certificate where the RDN component does not match the rule, but which is otherwise valid and matches the first certificate. The evaluator shall observe that the certificate is rejected.</h:li>
 									<h:li>The evaluator shall present a third certificate, where the DN includes the RDN with a non-matching value as in the second certificate, but which also includes a non-supported (or undefined) RDN term populated with the matching value for the original RDN, and which is otherwise valid and matches the first certificate and demonstrate that the modified certificate is rejected.</h:li>
 									<h:li>The evaluator shall present a fourth certificate, where the DN does not include the RDN, but which includes an unsupported (or undefined) RDN with the matching value for the original RDN as in the third certificate, but which is otherwise valid and demonstrate that the modified certificate is rejected.</h:li>
 									<h:li>The evaluator shall present a fifth certificate where the DN includes the RDN with a value containing the matching value as a substring of a longer, non-matching value, but which is otherwise valid and demonstrate that the modified certificate is rejected.</h:li>
@@ -2814,7 +2814,7 @@
 					and <assignable>list of other certificate field and extension values</assignable>.
 				</title>
 				<note role="Application">
-					The supported certificate request mechanisms are claimed in the first selection. PCKS-10 is claimed whether a manual 
+					The supported certificate request mechanisms are claimed in the first selection. PKCS-10 is claimed whether a manual 
 					request process is used or if the PKCS-10 request is posted to the certification authority (for embedded 
 					CAs or as in ACME implementations). Other options embed the certificate request in a formalized certificate management 
 					protocol. If EST is claimed, FIA_ESTC_EXT.1 is also claimed; if CMC or CNSA CMC are claimed, FIA_CMCC_EXT.1 is also 
