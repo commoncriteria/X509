@@ -216,12 +216,12 @@
 			</usecase>
 			<usecase id="usecase2" title="TOE Asserting an Identity Using Certificates">
 				<description>
-					<figure entity="images/usecase2.png" title="Use Case 2: TOE Asserting an Identity Using Certificates" id="fig-usecase1"/>
+					<figure entity="images/usecase2.png" title="Use Case 2: TOE Asserting an Identity Using Certificates" id="fig-usecase2"/>
 				</description>
 			</usecase>
 			<usecase id="usecase3" title="TOE as the Sole Relying Party of a Certificate Issued by an Embedded CA">
 				<description>
-					<figure entity="images/usecase3.png" title="Use Case 3: TOE as the Sole Relying Party of a Certificate Issued by an Embedded CA" id="fig-usecase1"/>
+					<figure entity="images/usecase3.png" title="Use Case 3: TOE as the Sole Relying Party of a Certificate Issued by an Embedded CA" id="fig-usecase3"/>
 				</description>
 			</usecase>
 		</usecases>
@@ -236,7 +236,7 @@
 		<cclaim name="Conformance Statement">
 			<description>An ST must claim exact conformance to this FP.
 				<h:br/><h:br/>
-				The evaluation methods used for evaluating the TOE are a combination of the workunits defined in <xref to="bibCEM"/>, as well as the
+				The evaluation methods used for evaluating the TOE are a combination of the workunits defined in [CEM], as well as the
 				EAs for ensuring that individual SFRs have a sufficient level of supporting evidence in the ST and 
 				guidance documentation, and have been sufficiently tested by the laboratory as part of completing ATE_IND.1.
 			</description>
@@ -1945,7 +1945,7 @@
 					claimed in the base cryptographic support functions. Either of the HTTP authentication methods are included in an 
 					HTTPS secure connection with an EST client. Requirements associated with server-authenticated HTTPS are included in 
 					the base PP. If RA functionality is supported, as indicated in <xref to="fia-ests-ext-1e1"/> the ‘TLS 
-					certificate-based…’ method is claimed for authorized RA entity identified in <xref to="fia-ests-ext.1e1"/>. 
+					certificate-based…’ method is claimed for authorized RA entity identified in <xref to="fia-ests-ext-1e1"/>. 
 					If claimed, requirements associated with mutually authenticated TLS as a server are included in the base.
 				</note>
 			</f-element>
