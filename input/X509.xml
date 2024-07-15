@@ -1939,7 +1939,7 @@
 					<selectable>provide functionality</selectable>
 				</selectables>
 					to authenticate EST clients for initial enrollment and for supplemental authentication via <selectables linebreak="yes">
-						<selectable>HTTP basic authentication in accordance with RFC7030 section 3.2.3</selectable>
+						<selectable>HTTP basic authentication in accordance with RFC 7030 section 3.2.3</selectable>
 						<selectable>HTTP digest authentication using a cryptographic hash algorithm in accordance with RFC 7030 section 
 							3.2.3</selectable>
 						<selectable>TLS certificate-based mutual authentication using a client certificate associated with an authorized 
