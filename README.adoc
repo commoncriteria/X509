@@ -29,7 +29,7 @@ X.509.
 
 === Draft Version
 
-* https://commoncriteria.github.io/x509/master/x509-release.html[Functional Package for X.509] (html)
+* https://commoncriteria.github.io/X509/master/X509-release.html[Functional Package for X.509] (html)
 
 === Release Version
 
