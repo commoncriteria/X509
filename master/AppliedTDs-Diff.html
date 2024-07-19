@@ -1502,7 +1502,7 @@
                         <li>
                              The producedAt field shall indicate the time at which the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responder signed the response. 
                         </li>
-                        <li> The time specified in the nextUpdate field (if populated) shall not precede the time specified in the thisUpdate field. </li>
+                        <li> If the nextUpdate field is populated, the time specified shall not precede the time specified in the thisUpdate field. </li>
                     </ul>
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> This requirement should be claimed if 'the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> standard as defined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6960' is selected in <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a> </span>
@@ -1953,7 +1953,7 @@
             </div>
         </div>
         <div class="comp" id="FIA_ESTC_EXT.1">
-            <h4>FIA_ESTC_EXT.1 EST Certificate Enrollment</h4>
+            <h4>FIA_ESTC_EXT.1 EST Client Certificate Enrollment</h4>
             <div class="statustag">
                 <b><i>The inclusion of this selection-based component depends upon selection in <a href="#FIA_X509_EXT.3.1">FIA_X509_EXT.3.1</a>. </i></b>
             </div>
@@ -3468,7 +3468,7 @@
                         <line x1="152" y1="17" x2="231" y2="17" stroke="black"></line>
                     </svg>
                     <p>
-                        <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a>, <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> Certificate Enrollment, defines the ability of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to perform Enrollment over Secure Transport (<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>) as a client connecting to an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>.
+                        <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a>, <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> Client Certificate Enrollment, defines the ability of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to perform Enrollment over Secure Transport (<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>) as a client connecting to an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>.
                     </p>
                     <h4>Management: FIA_ESTC_EXT.1</h4>
                     <p>No specific management functions are identified.</p>
@@ -3481,7 +3481,7 @@
                             </li>
                         </ul>
                     </p>
-                    <h4>FIA_ESTC_EXT.1 EST Certificate Enrollment</h4>
+                    <h4>FIA_ESTC_EXT.1 EST Client Certificate Enrollment</h4>
                     <div style="margin-left: 1em;">
                         <table class="ecd_heir_dep" style="width: 100%">
                             <tr>
@@ -3700,7 +3700,7 @@
                         <a href="#FIA_CMPS_EXT.1">FIA_CMPS_EXT.1</a>, Certificate Management Protocol (CMP) Server, requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to receive, process, and respond to CMP requests from authorized clients and RAs.
                     </p>
                     <p>
-                        <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a>, <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> Certificate Enrollment, defines the ability of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to perform Enrollment over Secure Transport (<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>) as a client connecting to an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>.
+                        <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a>, <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> Client Certificate Enrollment, defines the ability of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to perform Enrollment over Secure Transport (<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>) as a client connecting to an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>.
                     </p>
                     <p>
                         <a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a>, Enrollment over Secure Transport (<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>) Server, defines the ability of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to perform Enrollment over Secure Transport (<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>) as a server connecting to an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>.
@@ -4195,7 +4195,7 @@
                             <li>
                                  The producedAt field shall indicate the time at which the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responder signed the response. 
                             </li>
-                            <li> The time specified in the nextUpdate field (if populated) shall not precede the time specified in the thisUpdate field. </li>
+                            <li> If the nextUpdate field is populated, the time specified shall not precede the time specified in the thisUpdate field. </li>
                         </ul>
                     </div>
                     <h4>Management: FIA_CMCC_EXT.1</h4>
@@ -4383,7 +4383,7 @@
                             </li>
                         </ul>
                     </p>
-                    <h4>FIA_ESTC_EXT.1 EST Certificate Enrollment</h4>
+                    <h4>FIA_ESTC_EXT.1 EST Client Certificate Enrollment</h4>
                     <div style="margin-left: 1em;">
                         <table class="ecd_heir_dep" style="width: 100%">
                             <tr>
@@ -6031,7 +6031,7 @@
                             <li>
                                  The producedAt field shall indicate the time at which the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responder signed the response. 
                             </li>
-                            <li> The time specified in the nextUpdate field (if populated) shall not precede the time specified in the thisUpdate field. </li>
+                            <li> If the nextUpdate field is populated, the time specified shall not precede the time specified in the thisUpdate field. </li>
                         </ul>
                     </div>
                 </div>

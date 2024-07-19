@@ -1166,7 +1166,7 @@
 							The producedAt field shall indicate the time at which the OCSP responder signed the response.
 						</h:li>
 						<h:li>
-							The time specified in the nextUpdate field (if populated) shall not precede the time specified in the 
+							If the nextUpdate field is populated, the time specified shall not precede the time specified in the 
 							thisUpdate field.
 						</h:li>
 					</h:ul>
@@ -1738,7 +1738,7 @@
 				obtain certificates from an external CA.</fam-behavior>
 		</ext-comp-def>
 		
-		<f-component name="EST Certificate Enrollment" cc-id="fia_estc_ext.1" id="fia-estc-ext-1" status="sel-based">
+		<f-component name="EST Client Certificate Enrollment" cc-id="fia_estc_ext.1" id="fia-estc-ext-1" status="sel-based">
 			<depends on="toe-uses-est"/>
 			<comp-lev> defines the ability of the TSF to perform Enrollment over Secure Transport (EST) as a client connecting to an
 				external CA.</comp-lev>
