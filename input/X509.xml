@@ -331,7 +331,7 @@
 				The ST author claims the TOE functions that will rely on the certificates issued by the embedded CA. A TOE may support 
 				different certificate profiles, each associated with unique embedded CA supporting a subset of the supported functions 
 				or the TOE may support a common profile that uses the key usage and extended key usage extensions to differentiate the 
-				intended use of a certificate. When a single CA supports multiple functions, the extendedKeyUsage extension is claimed 
+				intended use of a certificate. When a single CA supports multiple functions requiring explicit EKU values, the extendedKeyUsage extension is claimed 
 				in <xref to="fdp-cer-ext-1e2-oltleaf"/> to distinguish which functions are supported by the certificate.
 			</note>
 		</f-element>
@@ -363,7 +363,17 @@
 								<selectable> <assignable>an identifier associated with a trust store element corresponding to the issuing 
 									CA</assignable></selectable> 
 								</selectables></h:li>
-							<h:li>keyUsage is present, and is not empty</h:li>
+							<h:li>keyUsage is present with bit positions set for<selectables>
+								<selectable>digitalSignature (0)</selectable>
+								<selectable>contentCommitment (1)</selectable>
+								<selectable>keyEncipherment (2)</selectable>
+								<selectable>dataEncipherment (3)</selectable>
+								<selectable>keyAgreement (4)</selectable>
+								<selectable>encipherOnly (7)</selectable>
+								<selectable>decipherOnly (8)</selectable>
+							</selectables>
+								and no other usage indicators.
+							</h:li>
 							<h:li> <selectables linebreak="yes">
 								<selectable>subjectKeyIdentifier is populated</selectable>
 								<selectable>extendedKeyUsage is present and is populated with  <selectables linebreak="yes">
@@ -373,8 +383,9 @@
 									<selectable>ipsecIKE {OID: 1.3.6.1.5.5.7.3.17}</selectable>
 									<selectable>codeSigning {OID: 1.3.6.1.5.5.7.3.3}</selectable>
 									<selectable> <assignable>other values</assignable></selectable>
-								</selectables></selectable>
-								<selectable>subjectAltName with name of type  <selectables linebreak="yes">
+								</selectables>
+									consistent with the keyUsage value.</selectable>
+									<selectable>subjectAltName with name of type  <selectables linebreak="yes">
 									<selectable>rfc822Name</selectable>
 									<selectable>dNSName</selectable>
 									<selectable>directoryName</selectable>
@@ -382,7 +393,10 @@
 									<selectable>iPAddress</selectable>
 									<selectable> <assignable>other name</assignable></selectable>
 								</selectables></selectable>
-							<selectable>basicConstraints is populated with CA flag equal to false</selectable>
+							<selectable>basicConstraints is populated with<selectables>
+								<selectable>no CA flag</selectable>
+								<selectable>CA flag equal to false</selectable>
+							</selectables></selectable>
 							<selectable>cRLDistributionPoints indicating an access location for CRLs <selectables>
 								<selectable>configured by an administrator</selectable>
 								<selectable>determined by the TSF</selectable></selectables></selectable>
@@ -420,11 +434,14 @@
 					certificates. 
 					</h:p><h:p>	
 					The ST author describes each extension supported and how values for the extension are determined. It is recommended 
-					that the extendedKeyUsage is claimed and populated with specific EKU purposes; it is required that the 
-					extendedKeyUsage field is claimed when the embedded CA supports code signing or integrity functions. It is expected 
-					that if a single embedded CA issues certificates supporting multiple functions, the explicit EKU purposes for each 
-					function, including IPsec/IKE if supported, are claimed. Other supported EKU values specific to supported functions 
-					are indicated in the assignment.
+					that the extendedKeyUsage is claimed and populated with specific EKU purposes when the supported functions expect explicit EKU 
+					values; it is required that the extendedKeyUsage field is claimed when the embedded CA supports code signing or integrity
+					functions. It is expected that if a single embedded CA issues certificates supporting multiple functions requiring explicit EKU
+					values, the explicit EKU purposes for each function, including IPsec/IKE if supported, are claimed. Other supported EKU values
+					specific to supported functions are indicated in the assignment. Any supported EKU values are consistent with the KU usage
+					indicators claimed. For example, "codeSigning" is claimed only if "digitalSignature" is claimed for keyUsage, and TLS key
+					usages "serverAuth" or "clientAuth" are claimed only when "digitalSignature," "keyEncipherment," or "keyAgreement" are supported
+					according to the supported TLS function's version and ciphersuite capabilities.
 					</h:p><h:p>
 						If “subjectAlternateName” is claimed as a supported extension, the ST author claims all RFC 5280 name types supported and designates any other standard name types in the assignment, indicating the formatting and normalization standard used for each supported name type. Standards used to refine or provide alternate normalization for RFC 5280 name types are claimed via the assignment.
 					</h:p>
@@ -890,14 +907,8 @@
 				<no-link>FCS_COP.1 </no-link> Cryptographic Operation
 			</dependencies>
 			<f-element id="fdp-crl-ext-1e1">
-				<title>The TSF shall generate CRLs in accordance with ITU-T Recommendation X.509 which meets the following rules.
+				<title>The TSF shall generate CRLs in accordance with ITU-T Recommendation X.509 refined by:
 					<h:ul>
-						<h:li>
-							If the version field is present, then it shall contain a 1.
-						</h:li>
-						<h:li>
-							If the CRL contains any critical extensions, then the version field shall be present and contain the integer 1.
-						</h:li>
 						<h:li>
 							The <selectables>
 								<selectable>issuer</selectable>
@@ -906,20 +917,18 @@
 							fields shall indicate the configured name of the CA.
 						</h:li>
 						<h:li>
-							If the issuer field contains a null Name (e.g., a sequence of zero relative distinguished names), then the 
-							CRL shall contain a critical issuerAltName extension.
-						</h:li>
-						<h:li>
 							The signature and signatureAlgorithm fields shall contain the OID for a digital signature algorithm in 
 							accordance with FCS_COP.1 in the base PP.
 						</h:li>
 						<h:li>
-							The thisUpdate field shall indicate the issue date of the CRL.
+							The thisUpdate field shall indicate the issue date of the CRL.							
 						</h:li>
-						<h:li>
-							The time specified in the nextUpdate field (if populated) shall not precede the time specified in the 
-							thisUpdate field.
-						</h:li>
+						and <selectables>
+							<selectable>The nextUpdate field is populated with a value that does not precede the time specified in the 
+								thisUpdate field.</selectable>
+							<selectable>The version field is present with value 1.</selectable>
+							<selectable>The issuerAltName extension is marked critical.</selectable>
+						</selectables>						
 					</h:ul>										
 				</title>
 				<note role="Application">
@@ -931,6 +940,11 @@
 					requirement of the PP or PP-Module that conforms to this package. For example, a name like "FCS_COP.1/SigGen" is typical.
 					It is expected that the supported signatures are limited to 2048-bit RSA or higher, or ECDSA using NIST P-256, P-384, or P-521,
 					based on the signature requirements in the PPs and PP-Modules with which this FP is intended for use.
+					</h:p>
+					<h:p>
+					The ST author claims the optional refinements to ITU-T Recommendation X.509v2 CRL supported. If "issuerAltName" is
+					claimed in the first refinement, then "The version field...", and "The issuerAltName..." entries in the optional
+					refinements selection are claimed.
 					</h:p>
 				</note>
 				<aactivity>
@@ -1007,14 +1021,16 @@
 				<aactivity>
 					<TSS>
 						<h:p>The evaluator shall review the TSS and verify that the description of the decision processes used by the TOE to 
-						invalidate certificates issued by the embedded CA is included, and meets the requirements.</h:p>
+						invalidate certificates issued by the embedded CA is included and any threshold for issuing revocation information
+						is described.</h:p>
 					</TSS>
 					<Guidance>
 						<h:p>The evaluator shall review AGD documentation to verify instructions to configure the ability of the embedded CA 
 						to issue certificate status information is described, if required.</h:p>
-						<h:p>If the TSS indicates the maximum validity period of certificates issued by the embedded CA is configurable, the 
-						evaluator shall ensure that the instructions describe how to configure the validity period so that issuance 
-						certificate status information is not required.</h:p>	
+						<h:p>If the TSS indicates that revocation status information is not provided for certificates having a validity period
+							shorter than a threshold that is less than that indicated in the TSS for <xref to="fdp-cer-ext-1e4-oltleaf"/>, the
+							evaluator shall ensure that the instructions describe how to configure the validity period so that issuance certificate status
+						information is not required.</h:p>	
 					</Guidance>
 					<Tests>
 						None.
@@ -1101,7 +1117,8 @@
 				<aactivity>
 					<TSS>
 						<h:p>The evaluator shall examine the TSS and verify that the description of the revocation function meets the 
-							requirements.</h:p>
+							requirements of the referenced RFI, how revocation status updates are initiated, and how each supported
+							function receives status updates.</h:p>
 					</TSS>
 					<Guidance>
 						<h:p>The evaluator shall examine the AGD documentation and verify that instructions for revoking certificates issued 
@@ -1115,6 +1132,13 @@
 								For each revocation method claimed, the evaluator shall attempt to cause the supported function to revoke an 
 								issued certificate. The evaluator shall demonstrate that the function no longer accepts the revoked 
 								certificate.
+							</test>
+							<test id="reinstate-suspend-test">
+								[conditional:] If status changes allow reinstatement of suspended certificates, then for each method supporting
+								reinstatement, the evaluator shall suspend a certificate, demonstrate that it is not trusted, then reinstate
+								the certificate and demonstrate that TSF allows subsequent use of the certificate. If the certificate is used
+								for persistent signatures, then the evaluator shall also demonstrate that a signature applied by a suspended
+								certificate prior to reinstatement is not trusted after the certificate is reinstated.
 							</test>
 						</testlist>						
 					</Tests>				
@@ -1274,18 +1298,22 @@
 								<selectable>as updated by RFC 6402</selectable>
 								<selectable>as refined by RFC 8996</selectable>
 								</selectables>
-								with all renewal requests using mutual authentication
+								with all renewal or re-key requests using mutual authentication
 								</selectable>
 							 </selectables>.
 				</title>
 				<note role="application">
 					The ST author claims the methods for exchanging CMC messages. If CMC transport over HTTPS is claimed, the HTTPS (with 
-					mutual authentication for re-key requests) uses compliant cryptography.
+					mutual authentication for renewal or re-key requests) uses compliant cryptography with a certificate supporting TLS with
+					EKU value clientAuth. If the certificate being renewed does not support TLS client authentication, the TSF uses a
+					valid certificate suitable for TLS with client authentication having the same issuerName, subjectName, and subjectAltName
+					as the certificate being renewed. If the TSF does not support such a certificate, this option is not claimed.
 				</note>
 				<aactivity>
 					<TSS>
-						<h:p>The evaluator shall examine the TSS to ensure that it describes how CMC client support is provided and complies 
-						with the requirements.</h:p>
+						<h:p>The evaluator shall examine the TSS to ensure that it describes how CMC client support is provided, the supported
+							messages for each profile supported, and each optional feature from the RFI, and verify that the description 
+							complies with the requirements.</h:p>
 					</TSS>
 					<Guidance>
 						<h:p>The evaluator shall examine AGD guidance to ensure instructions are provided to configure CMC client functionality 
@@ -1294,8 +1322,8 @@
 					<Tests>
 						<testlist>
 							<test id="valid-cmcc-test">
-								<h:p>In conjunction with <xref to="cert-request-test"/>, the evaluator shall observe that the CMC messages are 
-									compliant with the requirements.</h:p>
+								<h:p>In conjunction with <xref to="cert-request-test"/>, the evaluator shall observe that each CMC message
+									sent by the TSF is compliant with the requirements.</h:p>
 							</test>
 							<test>
 								<h:p>[conditional]: If HTTPS transport of CMC is supported, the evaluator will observe that CMC messages are 
@@ -1384,7 +1412,9 @@
 						<selectable>invoke platform-provided functionality to require</selectable>
 						<selectable>require</selectable>
 					</selectables> 
-					CMC transport over HTTPS for CMC messages from external entities in accordance with RFC 5273 as updated by RFC 6402. 
+						<assignable>transfer of CMC files to entities as authorized by the supported functions</assignable>					
+					CMC transport over HTTPS for CMC messages from <assignable>external entities as authorized by the supported function</assignable>
+					in accordance with RFC 5273 as updated by RFC 6402.  
 					For CMC requests containing certificate requests other than initial certificate requests authenticated using shared 
 					secrets, the TSF shall require HTTPS with client authentication, shall ensure the authenticating entity is the same 
 					as the entity signing the CMC request and any subject indicated in the requested certificates are the same as the 
@@ -1394,7 +1424,12 @@
 					</selectables>.
 				</title>
 				<note role="Application">
-					Cryptographic support is specified in the CMC profile.
+					<h:p>Cryptographic support is specified in the CMC profile.</h:p>
+					<h:p>The ST author claims the supported transport of CMC requests from a supported function and responses to the
+						supported function making the request. If CMC file transport is used, the ST author claims the first option and
+						describes the method for transferring the files to and from each entity as authorized by the supported function
+						in the assignment. If the TSF supports CMC transport to external entities via HTTPS, the second option is claimed,
+						and the ST indicates which entities are authorized to request certificates.</h:p>
 				</note>
 			</f-element>
 			
@@ -1545,14 +1580,23 @@
 					</selectables>
 					to 
 					 <selectables>
-						<selectable>export CMP requests and import CMP responses under the control of an administrator</selectable>
+						<selectable>export CMP requests and import CMP responses under the control of <selectables>
+							<selectable>an administrator</selectable>
+							<selectable><assignable>supported function capabilities</assignable></selectable>
+						</selectables></selectable>
 					 	<selectable>transport CMP messages over HTTPS in accordance with RFC 6712, with all renewal requests using mutual authentication</selectable>
-						<selectable>transport CMP messages over HTTPS in accordance with RFC 9480 (CMP version 3) with all renewal requests using mutual authentication</selectable>
+						<selectable>transport CMP messages over HTTPS in accordance with RFC 9480 (CMP version 3) with all renewal or re-key requests using mutual authentication</selectable>
 					</selectables>.
 				</title>
 				<note role="application">
-					The ST author claims the methods for exchanging CMP messages. If CMP transport over HTTPS is claimed, the HTTPS (with 
-					mutual authentication for re-key requests) uses compliant cryptographic functions in accordance with base SFR.
+					The ST author claims the methods for exchanging CMP messages. If CMP request and response files are transported, the ST
+					author claims the first option and indicates how the files are transferred to the CMP server. If the TSF includes an
+					embedded CA that accepts CMP requests under the control or authorization of a supported function, the ST author describes
+					the transport mechanism and any authorization decisions in the assignment. If CMP transport over HTTPS is claimed, the
+					HTTPS (with mutual authentication for renewal or re-key requests) uses compliant cryptographic functions in accordance
+					with the base SFR. When HTTPS is claimed, the certificate used to authenticate the session meets the requirements in 
+					this FP for a TLS client certificate and has the same subjectName and subjectAlternateName as the certificate being
+					renewed; if the TSF does not possess such a certificate, this option is not claimed. 
 				</note>
 				<aactivity>
 					<TSS>
@@ -2139,30 +2183,45 @@
 				<aactivity>
 					<TSS>
 						<h:p>
-						The evaluator shall review the TSS and verify that the description of each trust store includes a description of the management methods that meet the requirements, to include management methods of both pre-loaded and installed trust store elements if the methods differ.
-						</h:p><h:p>
-						[conditional]: If the TSF supports inclusion of certificates that are neither self-signed root CA certificates nor OCSP certificates without revocation status, the evaluator shall review the TSS and verify that the description indicates when such certificates are checked for revocation status and that the description meets the requirements.
+						The evaluator shall review the TSS and verify that the description of each trust store includes a description of the
+						management methods that meet the requirements, to include management methods of both pre-loaded and installed trust
+						store elements if the methods differ. The evaluator shall also ensure the ST states the method used to invalidate a
+						trust store element.
 						</h:p>
+						<h:p>
+						[conditional]: If the TSF supports inclusion of certificates that are neither self-signed root CA certificates nor
+						OCSP certificates without revocation status, the evaluator shall review the TSS and verify that the description
+						indicates when such certificates are checked for revocation status and that the description meets the requirements.
+						</h:p>						
 					</TSS>
 					<Guidance>
 						<h:p>
-						The evaluator shall review the operational guidance to verify that instructions for all configurable features, if any, of the TSF are included.
-						</h:p><h:p>
-						[conditional] If administrative management of trust stores (public keys or context) is supported, the evaluator shall review the operational guidance and verify that instructions for managing all trust store elements in all administrator-managed trust stores is included. 
+						The evaluator shall review the operational guidance to verify that instructions for all configurable features, if
+						any, of the TSF are included.
+						</h:p>
+						<h:p>
+						The evaluator shall examine the operational guidance to verify it contains instructions on how to use each supported method to
+						invalidate a trust store element.
+						</h:p>
+						<h:p>
+						[conditional] If administrative management of trust stores (public keys or context) is supported, the evaluator
+						shall review the operational guidance and verify that instructions for managing all trust store elements in all
+						administrator-managed trust stores is included. 
 						</h:p>
 					</Guidance>
 					<Tests>
 						The evaluator shall perform one or more of the following tests:
 						<testlist>
 							<test>
-									<h:p>
-									For each supported method for managing a trust store element, the evaluator shall exercise the method 
-									to invalidate a trust store element and demonstrate that a certification path terminating in the 
-									invalidated element results in the function failing.
-									</h:p><h:p>
-									Note: This repeats part of <xref to="invalid-cert-test"/>. It is not necessary to repeat the method used to 
-									invalidate the trust anchor element that was previously tested.
-									</h:p>
+							<h:p>
+								For each supported method for managing a trust store element, the evaluator shall exercise the method 
+								to invalidate a trust store element and demonstrate that a certification path terminating in the 
+								invalidated element results in the function failing.
+							</h:p>
+							<h:p>
+								Note: This repeats part of <xref to="invalid-cert-test"/>. It is not necessary to repeat the method used to 
+								invalidate the trust anchor element that was previously tested.
+							</h:p>
 							</test>
 							<test>
 							<h:p>
@@ -2170,9 +2229,12 @@
 								certificates nor OCSP certificates without revocation status, the evaluator shall demonstrate that the 
 								TSF prevents the installation of each such supported certificate type if the certificate is revoked prior 
 								to installation.
-							</h:p><h:p>								
+							</h:p>
+							<h:p>								
 								Note: Such certificate types can include leaf certificates associated with context specific to the leaf, 
-								or intermediate CA certificates.
+								or intermediate CA certificates. Checking during installation is not claimed for certificates in which the
+								required connection is not available during loading, or if other exemptions for revocation checking apply,
+								such certificates are checked on use.
 							</h:p>								
 							</test>
 							<test>
@@ -2220,7 +2282,7 @@
 					<h:ul> 
 						<h:li>Certification path validation meets requirements of RFC 5280 for certificate paths of <selectables>
 							<selectable>unlimited path length</selectable>
-							<selectable>maximum path length of <assignable>positive integer</assignable> certificates</selectable>
+							<selectable>maximum path length of <assignable>number greater than or equal to 0</assignable> certificates</selectable>
 						</selectables> and certificate paths exceeding the maximum path length are invalid.</h:li>
 						<h:li>The current time is within the notBefore and notAfter values of all certificates in the certification path.</h:li>
 						<h:li>The certification path shall terminate at a trust anchor element appropriate for the supported function.</h:li>
@@ -2406,15 +2468,16 @@
 						<h:p>
 						'Network connection...' is claimed if the TOE supports retrieving revocation status information from external sources, 
 						to include direct information from a CA, even when the information might not be in the form of a CRL or OCSP. The selection indicates the types of 
-						sources for which external revocation status is supported. 
+						sources for which external revocation status is supported. This method must be claimed if certificates are obtained
+						from external CAs.
 					</h:p><h:p>
-						'Local revocation status information...' is claimed if the TOE maintains revocation status information. The type of status 
-						information maintained locally is claimed in the selection for this option. If ‘embedded CA repository’ is 
-						claimed, FDP_CER_EXT.1/OLTleaf and FDP_CSIR_EXT.1 are also claimed. When a default status value is configured for when all other 
-						sources are not available, the ST author claims local revocation status information and administrator 
-						configuration.
+						'Local revocation status information...' is only claimed if the TOE maintains revocation status information available to
+						all supported functions using the certificates.. The type of status information maintained locally is claimed in the
+						selection for this option. If ‘embedded CA repository’ is claimed, FDP_CER_EXT.1/OLTleaf and FDP_CSIR_EXT.1 are also
+						claimed. When a default status value is configured for when all other sources are not available, the ST author
+						claims local revocation status information and administrator configuration.
 					</h:p><h:p>
-						OCSP stapling or OCSP multi-stapling are claimed for TLS certificates supporting the appropriate extensions 
+						OCSP stapling or OCSP multi-stapling are claimed for TLS server certificates supporting the appropriate extensions 
 						when OCSP is supported, as described in the referenced RFC and may be claimed if FIA_X509_EXT.2 indicates support 
 						TLS or DTLS.
 					</h:p>
@@ -2560,8 +2623,9 @@
 								</h:p>
 							</test>
 							<test>								
-								<h:p>The evaluator shall demonstrate that validating an expired certificate results in the function 
-								failing.</h:p>								
+								<h:p>The evaluator shall demonstrate that validating a certificate after its validity period's "notAfter" time
+								results in the function failing. The evaluator shall demonstrate that validating a certificate prior to its
+								validity period's "notBefore" time results in the function failing.</h:p>								
 							</test>
 							<test>								
 								<h:p>[conditional]: If the TSF supports certificate policies, the evaluator configures the TSF to 
@@ -2585,14 +2649,16 @@
 							</test>
 							<test>								
 								<h:p>The evaluator demonstrates that a certification path with a critical extension that is not supported 
-								by the TSF results in the function failing.</h:p>								
+								by the TSF results in the function failing.</h:p>	
+								<h:p>Note: The extension used in this test need not be registered in IANA TLS Security extensions (Transport
+									Layer Security (TLS) Extensions (iana.org))</h:p>
 							</test>							
 							<test>
 								<h:p>The evaluator shall test that the TOE can properly handle supported methods for revoked certificates. 
 								The evaluator demonstrates that when all supported methods indicate that each certificate in the 
 								certification path is valid, the function succeeds. Then, for each supported method, the evaluator 
 								demonstrates that when the method indicates a certificate in the certification path is revoked, the 
-								function fails.</h:p>								
+								function fails. The evaluator shall repeat this test on intermediate, non-trust store elements.</h:p>								
 							</test>
 							<test>								
 								<h:p>[conditional]: If the TSF supports OCSP or CRL, the evaluator shall demonstrate that the TSF does not 
@@ -2800,7 +2866,13 @@
 					 	<selectable id="toe-uses-v3-cmp">RFC 4210 as updated by RFC 6712 and RFC 9480 (v3 CMP)</selectable>
 						</selectables>
 					and be able to provide the following information in the request: public key, <selectables linebreak="yes">
-						<selectable>Subject DN</selectable>
+						<selectable>Subject DN consisting of values for <selectables>
+							<selectable>U</selectable>
+							<selectable>O</selectable>
+							<selectable>OU</selectable>
+							<selectable>CN</selectable>
+							<selectable><assignable>other subject attributes</assignable></selectable>
+						</selectables></selectable>
 						<selectable>one or more of the following SAN types <selectables linebreak="yes">
 							<selectable>rfc822Name</selectable>
 							<selectable>dNSName</selectable>
@@ -2811,7 +2883,11 @@
 						</selectables>
 						</selectable>
 					</selectables>
-					and <assignable>list of other certificate field and extension values</assignable>.
+					and <selectables>
+						<selectable><assignable>list of other certificate field and extension values</assignable>.</selectable>
+						<selectable><assignable>list of identifying information</assignable></selectable>
+						<selectable>no other information.</selectable>
+					</selectables>
 				</title>
 				<note role="Application">
 					The supported certificate request mechanisms are claimed in the first selection. PKCS-10 is claimed whether a manual 
