@@ -363,7 +363,7 @@
 								<selectable> <assignable>an identifier associated with a trust store element corresponding to the issuing 
 									CA</assignable></selectable> 
 								</selectables></h:li>
-							<h:li>keyUsage is present with bit positions set for<selectables>
+							<h:li>keyUsage is present with bit positions set for <selectables linebreak="yes">
 								<selectable>digitalSignature (0)</selectable>
 								<selectable>contentCommitment (1)</selectable>
 								<selectable>keyEncipherment (2)</selectable>
@@ -393,7 +393,7 @@
 									<selectable>iPAddress</selectable>
 									<selectable> <assignable>other name</assignable></selectable>
 								</selectables></selectable>
-							<selectable>basicConstraints is populated with<selectables>
+							<selectable>basicConstraints is populated with <selectables>
 								<selectable>no CA flag</selectable>
 								<selectable>CA flag equal to false</selectable>
 							</selectables></selectable>
@@ -923,7 +923,7 @@
 						<h:li>
 							The thisUpdate field shall indicate the issue date of the CRL.							
 						</h:li>
-						and <selectables>
+						and <selectables linebreak="yes">
 							<selectable>The nextUpdate field is populated with a value that does not precede the time specified in the 
 								thisUpdate field.</selectable>
 							<selectable>The version field is present with value 1.</selectable>
@@ -942,8 +942,8 @@
 					based on the signature requirements in the PPs and PP-Modules with which this FP is intended for use.
 					</h:p>
 					<h:p>
-					The ST author claims the optional refinements to ITU-T Recommendation X.509v2 CRL supported. If "issuerAltName" is
-					claimed in the first refinement, then "The version field...", and "The issuerAltName..." entries in the optional
+					The ST author claims the optional refinements to ITU-T Recommendation X.509v2 CRL are supported. If "issuerAltName" is
+					claimed in the first refinement, then "The version field..." and "The issuerAltName..." entries in the optional
 					refinements selection are claimed.
 					</h:p>
 				</note>
@@ -1304,8 +1304,7 @@
 				</title>
 				<note role="application">
 					The ST author claims the methods for exchanging CMC messages. If CMC transport over HTTPS is claimed, the HTTPS (with 
-					mutual authentication for renewal or re-key requests) uses compliant cryptography with a certificate supporting TLS with
-					EKU value clientAuth. If the certificate being renewed does not support TLS client authentication, the TSF uses a
+					mutual authentication for renewal or re-key requests) is in accordance with FCS_HTTPS_EXT.1. If the certificate being renewed does not support TLS client authentication, the TSF uses a
 					valid certificate suitable for TLS with client authentication having the same issuerName, subjectName, and subjectAltName
 					as the certificate being renewed. If the TSF does not support such a certificate, this option is not claimed.
 				</note>
@@ -1327,8 +1326,8 @@
 							</test>
 							<test>
 								<h:p>[conditional]: If HTTPS transport of CMC is supported, the evaluator will observe that CMC messages are 
-								transported over a compliant HTTPS session with the CA. If re-key is supported, the evaluator shall attempt 
-								to re-key a certificate obtained in <xref to="valid-cmcc-test"/>, and verify that compliant mutually authenticated HTTPS is 
+								transported over a compliant HTTPS session with the CA. If renewal or re-key is supported, the evaluator shall attempt 
+								to renew or re-key a certificate obtained in <xref to="valid-cmcc-test"/>, and verify that compliant mutually authenticated HTTPS is 
 								established with the CA.</h:p>
 							</test>
 						</testlist>
@@ -1410,10 +1409,11 @@
 				<title>
 					The TSF shall <selectables>
 						<selectable>invoke platform-provided functionality to require</selectable>
-						<selectable>require</selectable>
-					</selectables> 
-						<assignable>transfer of CMC files to entities as authorized by the supported functions</assignable>					
-					CMC transport over HTTPS for CMC messages from <assignable>external entities as authorized by the supported function</assignable>
+						<selectable>require</selectable></selectables>
+						<selectables>
+							<selectable><assignable>transfer of CMC files to entities as authorized by the supported functions</assignable></selectable>
+							<selectable>CMC transport over HTTPS for CMC messages from <assignable>external entities as authorized by the supported function</assignable></selectable>
+						</selectables>
 					in accordance with RFC 5273 as updated by RFC 6402.  
 					For CMC requests containing certificate requests other than initial certificate requests authenticated using shared 
 					secrets, the TSF shall require HTTPS with client authentication, shall ensure the authenticating entity is the same 
@@ -1424,12 +1424,12 @@
 					</selectables>.
 				</title>
 				<note role="Application">
-					<h:p>Cryptographic support is specified in the CMC profile.</h:p>
 					<h:p>The ST author claims the supported transport of CMC requests from a supported function and responses to the
 						supported function making the request. If CMC file transport is used, the ST author claims the first option and
 						describes the method for transferring the files to and from each entity as authorized by the supported function
 						in the assignment. If the TSF supports CMC transport to external entities via HTTPS, the second option is claimed,
 						and the ST indicates which entities are authorized to request certificates.</h:p>
+					<h:p>Cryptographic support is specified in the CMC profile.</h:p>
 				</note>
 			</f-element>
 			
@@ -1584,19 +1584,29 @@
 							<selectable>an administrator</selectable>
 							<selectable><assignable>supported function capabilities</assignable></selectable>
 						</selectables></selectable>
-					 	<selectable>transport CMP messages over HTTPS in accordance with RFC 6712, with all renewal requests using mutual authentication</selectable>
+					 	<selectable>transport CMP messages over HTTPS in accordance with RFC 6712, with all renewal or re-key requests using mutual authentication</selectable>
 						<selectable>transport CMP messages over HTTPS in accordance with RFC 9480 (CMP version 3) with all renewal or re-key requests using mutual authentication</selectable>
 					</selectables>.
 				</title>
 				<note role="application">
-					The ST author claims the methods for exchanging CMP messages. If CMP request and response files are transported, the ST
-					author claims the first option and indicates how the files are transferred to the CMP server. If the TSF includes an
-					embedded CA that accepts CMP requests under the control or authorization of a supported function, the ST author describes
-					the transport mechanism and any authorization decisions in the assignment. If CMP transport over HTTPS is claimed, the
-					HTTPS (with mutual authentication for renewal or re-key requests) uses compliant cryptographic functions in accordance
-					with the base SFR. When HTTPS is claimed, the certificate used to authenticate the session meets the requirements in 
-					this FP for a TLS client certificate and has the same subjectName and subjectAlternateName as the certificate being
-					renewed; if the TSF does not possess such a certificate, this option is not claimed. 
+					<h:p>
+						The ST author claims the methods for exchanging CMP messages.
+					</h:p>
+					<h:p>
+						If CMP request and response files are transported, the ST author claims the first option and indicates how the files
+						are transferred to the CMP server.</h:p>
+						<h:p>
+							If the TSF includes an embedded CA that accepts CMP requests under the control or authorization of a supported
+							function, the ST author describes the transport mechanism and any authorization decisions in the assignment.
+						</h:p>
+						<h:p>
+							If CMP transport over HTTPS is claimed, the HTTPS (with mutual authentication for renewal or re-key requests) is
+							in accordance with FCS_HTTPS_EXT.1.
+						</h:p>	
+						<h:p>When HTTPS is claimed, the certificate used to authenticate the session meets the requirements in this FP for a
+							TLS client certificate and has the same subjectName and subjectAlternateName as the certificate being renewed; if
+							the TSF does not possess such a certificate, this option is not claimed.
+						</h:p>
 				</note>
 				<aactivity>
 					<TSS>
@@ -1615,8 +1625,8 @@
 							</test>
 							<test>
 								<h:p>[conditional]: if HTTPS transport of CMP is supported, the evaluator shall observe that CMP messages are 
-								transported over a compliant HTTPS session with the CA. If re-key is supported, the evaluator shall attempt 
-								to re-key a certificate obtained in <xref to="valid-cmpc-test"/>, and verify that compliant mutually authenticated HTTPS is 
+								transported over a compliant HTTPS session with the CA. If renewal or re-key is supported, the evaluator shall attempt 
+								to renew or re-key a certificate obtained in <xref to="valid-cmpc-test"/>, and verify that compliant mutually authenticated HTTPS is 
 								established with the CA.</h:p>
 							</test>
 						</testlist>
@@ -2883,8 +2893,8 @@
 						</selectables>
 						</selectable>
 					</selectables>
-					and <selectables>
-						<selectable><assignable>list of other certificate field and extension values</assignable>.</selectable>
+					and <selectables linebreak="yes">
+						<selectable><assignable>list of other certificate field and extension values</assignable></selectable>
 						<selectable><assignable>list of identifying information</assignable></selectable>
 						<selectable>no other information.</selectable>
 					</selectables>
