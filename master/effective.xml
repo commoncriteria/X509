@@ -2474,7 +2474,7 @@
 						from external CAs.
 					</h:p><h:p>
 						'Local revocation status information...' is only claimed if the TOE maintains revocation status information available to
-						all supported functions using the certificates.. The type of status information maintained locally is claimed in the
+						all supported functions using the certificates. The type of status information maintained locally is claimed in the
 						selection for this option. If ‘embedded CA repository’ is claimed, FDP_CER_EXT.1/OLTleaf and FDP_CSIR_EXT.1 are also
 						claimed. When a default status value is configured for when all other sources are not available, the ST author
 						claims local revocation status information and administrator configuration.
@@ -2868,7 +2868,7 @@
 					 	<selectable id="toe-uses-v3-cmp">RFC 4210 as updated by RFC 6712 and RFC 9480 (v3 CMP)</selectable>
 						</selectables>
 					and be able to provide the following information in the request: public key, <selectables linebreak="yes">
-						<selectable>Subject DN consisting of values for <selectables>
+						<selectable>Subject DN consisting of values for <selectables linebreak="yes">
 							<selectable>U</selectable>
 							<selectable>O</selectable>
 							<selectable>OU</selectable>

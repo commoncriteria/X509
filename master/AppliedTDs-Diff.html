@@ -2672,7 +2672,7 @@
                                  'Network connection...' is claimed if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports retrieving revocation status information from external sources, to include direct information from a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>, even when the information might not be in the form of a <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr>. The selection indicates the types of sources for which external revocation status is supported. This method must be claimed if certificates are obtained from external CAs. 
                             </p>
                             <p>
-                                 'Local revocation status information...' is only claimed if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> maintains revocation status information available to all supported functions using the certificates.. The type of status information maintained locally is claimed in the selection for this option. If &lsquo;embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> repository&rsquo; is claimed, <a href="#FDP_CER_EXT.1/OLTleaf">FDP_CER_EXT.1/OLTleaf</a> and <a href="#FDP_CSIR_EXT.1">FDP_CSIR_EXT.1</a> are also claimed. When a default status value is configured for when all other sources are not available, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims local revocation status information and administrator configuration. 
+                                 'Local revocation status information...' is only claimed if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> maintains revocation status information available to all supported functions using the certificates. The type of status information maintained locally is claimed in the selection for this option. If &lsquo;embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> repository&rsquo; is claimed, <a href="#FDP_CER_EXT.1/OLTleaf">FDP_CER_EXT.1/OLTleaf</a> and <a href="#FDP_CSIR_EXT.1">FDP_CSIR_EXT.1</a> are also claimed. When a default status value is configured for when all other sources are not available, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims local revocation status information and administrator configuration. 
                             </p>
                             <p>
                                  <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> stapling or <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> multi-stapling are claimed for <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> server certificates supporting the appropriate extensions when <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> is supported, as described in the referenced <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> and may be claimed if <a href="#FIA_X509_EXT.2">FIA_X509_EXT.2</a> indicates support <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or DTLS. 
@@ -3076,7 +3076,25 @@
                     ] and be able to provide the following information in the request: public key, [<b>selection</b>: 
                     <ul>
                         <li style="">
-                            <span class="selectable-content" id="_s_459">Subject <abbr class="dyn-abbr"><a href="#abbr_DN">DN</a></abbr> consisting of values for [<b>selection</b>: <span class="selectable-content" id="_s_460">U</span>, <span class="selectable-content" id="_s_461">O</span>, <span class="selectable-content" id="_s_462">OU</span>, <span class="selectable-content" id="_s_463">CN</span>, <span class="selectable-content" id="_s_464">[<b>assignment</b>: <span class="assignable-content">other subject attributes</span>]</span>]</span>
+                            <span class="selectable-content" id="_s_459">Subject <abbr class="dyn-abbr"><a href="#abbr_DN">DN</a></abbr> consisting of values for [<b>selection</b>: 
+                                <ul>
+                                    <li style="">
+                                        <span class="selectable-content" id="_s_460">U</span>
+                                    </li>
+                                    <li style="">
+                                        <span class="selectable-content" id="_s_461">O</span>
+                                    </li>
+                                    <li style="">
+                                        <span class="selectable-content" id="_s_462">OU</span>
+                                    </li>
+                                    <li style="">
+                                        <span class="selectable-content" id="_s_463">CN</span>
+                                    </li>
+                                    <li style="">
+                                        <span class="selectable-content" id="_s_464">[<b>assignment</b>: <span class="assignable-content">other subject attributes</span>]</span>
+                                    </li>
+                                </ul>
+                                ]</span>
                         </li>
                         <li style="">
                             <span class="selectable-content" id="_s_465">one or more of the following <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> types [<b>selection</b>: 
@@ -5006,7 +5024,25 @@
                         ] and be able to provide the following information in the request: public key, [<b>selection</b>: 
                         <ul>
                             <li style="">
-                                <span class="selectable-content" id="_s_459">Subject <abbr class="dyn-abbr"><a href="#abbr_DN">DN</a></abbr> consisting of values for [<b>selection</b>: <span class="selectable-content" id="_s_460">U</span>, <span class="selectable-content" id="_s_461">O</span>, <span class="selectable-content" id="_s_462">OU</span>, <span class="selectable-content" id="_s_463">CN</span>, <span class="selectable-content" id="_s_464">[<b>assignment</b>: <span class="assignable-content">other subject attributes</span>]</span>]</span>
+                                <span class="selectable-content" id="_s_459">Subject <abbr class="dyn-abbr"><a href="#abbr_DN">DN</a></abbr> consisting of values for [<b>selection</b>: 
+                                    <ul>
+                                        <li style="">
+                                            <span class="selectable-content" id="_s_460">U</span>
+                                        </li>
+                                        <li style="">
+                                            <span class="selectable-content" id="_s_461">O</span>
+                                        </li>
+                                        <li style="">
+                                            <span class="selectable-content" id="_s_462">OU</span>
+                                        </li>
+                                        <li style="">
+                                            <span class="selectable-content" id="_s_463">CN</span>
+                                        </li>
+                                        <li style="">
+                                            <span class="selectable-content" id="_s_464">[<b>assignment</b>: <span class="assignable-content">other subject attributes</span>]</span>
+                                        </li>
+                                    </ul>
+                                    ]</span>
                             </li>
                             <li style="">
                                 <span class="selectable-content" id="_s_465">one or more of the following <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> types [<b>selection</b>: 
@@ -5482,7 +5518,25 @@
                         ] and be able to provide the following information in the request: public key, [<b>selection</b>: 
                         <ul>
                             <li style="">
-                                <span class="selectable-content" id="_s_459">Subject <abbr class="dyn-abbr"><a href="#abbr_DN">DN</a></abbr> consisting of values for [<b>selection</b>: <span class="selectable-content" id="_s_460">U</span>, <span class="selectable-content" id="_s_461">O</span>, <span class="selectable-content" id="_s_462">OU</span>, <span class="selectable-content" id="_s_463">CN</span>, <span class="selectable-content" id="_s_464">[<b>assignment</b>: <span class="assignable-content">other subject attributes</span>]</span>]</span>
+                                <span class="selectable-content" id="_s_459">Subject <abbr class="dyn-abbr"><a href="#abbr_DN">DN</a></abbr> consisting of values for [<b>selection</b>: 
+                                    <ul>
+                                        <li style="">
+                                            <span class="selectable-content" id="_s_460">U</span>
+                                        </li>
+                                        <li style="">
+                                            <span class="selectable-content" id="_s_461">O</span>
+                                        </li>
+                                        <li style="">
+                                            <span class="selectable-content" id="_s_462">OU</span>
+                                        </li>
+                                        <li style="">
+                                            <span class="selectable-content" id="_s_463">CN</span>
+                                        </li>
+                                        <li style="">
+                                            <span class="selectable-content" id="_s_464">[<b>assignment</b>: <span class="assignable-content">other subject attributes</span>]</span>
+                                        </li>
+                                    </ul>
+                                    ]</span>
                             </li>
                             <li style="">
                                 <span class="selectable-content" id="_s_465">one or more of the following <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> types [<b>selection</b>: 
