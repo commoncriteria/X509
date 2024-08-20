@@ -766,7 +766,7 @@ The following sections list Common Criteria and technology terms used in this do
 					To support the cryptography needed for X.509 validation, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include <a href="#FCS_COP.1">FCS_COP.1</a> 
 					(iterating as needed) to specify appropriate digital signature validation and hash algorithms for the
 					X.509 certificates presented to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
-				<br/></td></tr><tr><td class="componentneeded" id="FCS_HTTPS_EXT.1"><a href="#FCS_HTTPS_EXT.1">FCS_HTTPS_EXT.1</a></td><td>To support <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> when claimed, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include 
+				<br/></td></tr><tr><td class="componentneeded" id="FCS_HTTPS_EXT.1"><a href="#FCS_HTTPS_EXT.1">FCS_HTTPS_EXT.1</a></td><td>To support <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> when claimed, or when <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> using <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> is claimed, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include 
 					an <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> for <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> communications. Note that support for <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> is not mandatory.
 				<br/></td></tr><tr><td class="componentneeded" id="FCS_RBG.1"><a href="#FCS_RBG.1">FCS_RBG.1</a></td><td>To support the Random Bit Generation (<abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr>) needed for public and private key pair generation,
 					the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include <a href="#FCS_RBG.1">FCS_RBG.1</a> or an extended <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> that defines comparable functionality.<br/></td></tr><tr><td class="componentneeded" id="FPT_STM.1"><a href="#FPT_STM.1">FPT_STM.1</a></td><td>To support validating whether a presented X.509 certificate is expired, 
@@ -1230,7 +1230,7 @@ The following sections list Common Criteria and technology terms used in this do
 						</li>
 						<li>
 							The signature and signatureAlgorithm fields shall contain the <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> for a digital signature algorithm in 
-							accordance with <a href="#FCS_COP.1">FCS_COP.1</a> in the base <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.
+							accordance with <span class="no-link">FCS_COP.1</span> in the base <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.
 						</li>
 						<li>
 							The thisUpdate field shall indicate the issue date of the <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>.							
@@ -1245,8 +1245,8 @@ The following sections list Common Criteria and technology terms used in this do
 					This requirement should be claimed if '<abbr class="dyn-abbr"><a href="#abbr_ITU-T">ITU-T</a></abbr> Recommendation X.509v2 <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>' is selected in <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a>.
 					</p>
 					<p>
-					The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author is expected to refine the <a href="#FCS_COP.1">FCS_COP.1</a> reference to include an iteration name that is appropriate for the digital signature
-					requirement of the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> that conforms to this package. For example, a name like "<a href="#FCS_COP.1">FCS_COP.1</a>/SigGen" is typical.
+						The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author is expected to refine the <span class="no-link">FCS_COP.1</span> reference to include an iteration name that is appropriate for the digital signature
+						requirement of the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> that conforms to this package. For example, a name like "<span class="no-link">FCS_COP.1</span>/SigGen" is typical.
 					It is expected that the supported signatures are limited to 2048-bit RSA or higher, or ECDSA using NIST P-256, P-384, or P-521,
 					based on the signature requirements in the <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules with which this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> is intended for use.
 					</p>
@@ -1507,7 +1507,7 @@ The following sections list Common Criteria and technology terms used in this do
       Note:
     </span><span class="note">
 					The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims the methods for exchanging <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> messages. If <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> transport over <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> is claimed, the <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> (with 
-					mutual authentication for renewal or re-key requests) is in accordance with <a href="#FCS_HTTPS_EXT.1">FCS_HTTPS_EXT.1</a>. If the certificate being renewed does not support <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> client authentication, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> uses a
+					mutual authentication for renewal or re-key requests) is in accordance with <span class="no-link">FCS_HTTPS_EXT.1</span>. If the certificate being renewed does not support <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> client authentication, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> uses a
 					valid certificate suitable for <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> with client authentication having the same issuerName, subjectName, and subjectAltName
 					as the certificate being renewed. If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> does not support such a certificate, this option is not claimed.
 				</span></div></div></div>	
@@ -1721,7 +1721,7 @@ The following sections list Common Criteria and technology terms used in this do
 						</p>
 						<p>
 							If CMP transport over <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> is claimed, the <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> (with mutual authentication for renewal or re-key requests) is
-							in accordance with <a href="#FCS_HTTPS_EXT.1">FCS_HTTPS_EXT.1</a>.
+							in accordance with <span class="no-link">FCS_HTTPS_EXT.1</span>.
 						</p>	
 						<p>When <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> is claimed, the certificate used to authenticate the session meets the requirements in this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> for a
 							<abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> client certificate and has the same subjectName and subjectAlternateName as the certificate being renewed; if
@@ -3186,7 +3186,7 @@ The following sections list Common Criteria and technology terms used in this do
 						</li>
 						<li>
 							The signature and signatureAlgorithm fields shall contain the <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> for a digital signature algorithm in 
-							accordance with <a href="#FCS_COP.1">FCS_COP.1</a> in the base <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.
+							accordance with <span class="no-link">FCS_COP.1</span> in the base <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.
 						</li>
 						<li>
 							The thisUpdate field shall indicate the issue date of the <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>.							
@@ -3889,7 +3889,7 @@ The following sections list Common Criteria and technology terms used in this do
 						</li>
 						<li>
 							The signature and signatureAlgorithm fields shall contain the <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> for a digital signature algorithm in 
-							accordance with <a href="#FCS_COP.1">FCS_COP.1</a> in the base <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.
+							accordance with <span class="no-link">FCS_COP.1</span> in the base <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.
 						</li>
 						<li>
 							The thisUpdate field shall indicate the issue date of the <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>.							
