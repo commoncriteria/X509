@@ -915,13 +915,13 @@
 						<h:li>
 							The thisUpdate field shall indicate the issue date of the CRL.							
 						</h:li>
-						and <selectables linebreak="yes">
+						And <selectables linebreak="yes">
 							<selectable>The nextUpdate field is populated with a value that does not precede the time specified in the 
 								thisUpdate field.</selectable>
 							<selectable>The version field is present with value 1.</selectable>
 							<selectable>The issuerAltName extension is marked critical.</selectable>
 						</selectables>						
-					</h:ul>										
+					</h:ul>.										
 				</title>
 				<note role="Application">
 					<h:p>
@@ -934,7 +934,7 @@
 					based on the signature requirements in the PPs and PP-Modules with which this FP is intended for use.
 					</h:p>
 					<h:p>
-					The ST author claims the optional refinements to ITU-T Recommendation X.509v2 CRL are supported. If "issuerAltName" is
+					The ST author claims the optional refinements to ITU-T Recommendation X.509v2 CRL that are supported. If "issuerAltName" is
 					claimed in the first refinement, then "The version field..." and "The issuerAltName..." entries in the optional
 					refinements selection are claimed.
 					</h:p>
