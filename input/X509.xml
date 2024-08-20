@@ -171,7 +171,7 @@
 			it is not _directly_ depended upon by this Package.-->
 			<componentneeded>
 				<componentid>FCS_HTTPS_EXT.1</componentid>
-				<notes>To support EST when claimed, the PP or PP-Module must include 
+				<notes>To support EST when claimed, or when CMC using HTTPS is claimed, the PP or PP-Module must include 
 					an SFR for HTTPS communications. Note that support for EST is not mandatory.
 				</notes>
 			</componentneeded>
@@ -918,7 +918,7 @@
 						</h:li>
 						<h:li>
 							The signature and signatureAlgorithm fields shall contain the OID for a digital signature algorithm in 
-							accordance with FCS_COP.1 in the base PP.
+							accordance with <no-link>FCS_COP.1</no-link> in the base PP.
 						</h:li>
 						<h:li>
 							The thisUpdate field shall indicate the issue date of the CRL.							
@@ -936,8 +936,8 @@
 					This requirement should be claimed if 'ITU-T Recommendation X.509v2 CRL' is selected in <xref to="fdp-csi-ext-1e1"/>.
 					</h:p>
 					<h:p>
-					The ST author is expected to refine the FCS_COP.1 reference to include an iteration name that is appropriate for the digital signature
-					requirement of the PP or PP-Module that conforms to this package. For example, a name like "FCS_COP.1/SigGen" is typical.
+						The ST author is expected to refine the <no-link>FCS_COP.1</no-link> reference to include an iteration name that is appropriate for the digital signature
+						requirement of the PP or PP-Module that conforms to this package. For example, a name like "<no-link>FCS_COP.1</no-link>/SigGen" is typical.
 					It is expected that the supported signatures are limited to 2048-bit RSA or higher, or ECDSA using NIST P-256, P-384, or P-521,
 					based on the signature requirements in the PPs and PP-Modules with which this FP is intended for use.
 					</h:p>
@@ -1304,7 +1304,7 @@
 				</title>
 				<note role="application">
 					The ST author claims the methods for exchanging CMC messages. If CMC transport over HTTPS is claimed, the HTTPS (with 
-					mutual authentication for renewal or re-key requests) is in accordance with FCS_HTTPS_EXT.1. If the certificate being renewed does not support TLS client authentication, the TSF uses a
+					mutual authentication for renewal or re-key requests) is in accordance with <no-link>FCS_HTTPS_EXT.1</no-link>. If the certificate being renewed does not support TLS client authentication, the TSF uses a
 					valid certificate suitable for TLS with client authentication having the same issuerName, subjectName, and subjectAltName
 					as the certificate being renewed. If the TSF does not support such a certificate, this option is not claimed.
 				</note>
@@ -1601,7 +1601,7 @@
 						</h:p>
 						<h:p>
 							If CMP transport over HTTPS is claimed, the HTTPS (with mutual authentication for renewal or re-key requests) is
-							in accordance with FCS_HTTPS_EXT.1.
+							in accordance with <no-link>FCS_HTTPS_EXT.1</no-link>.
 						</h:p>	
 						<h:p>When HTTPS is claimed, the certificate used to authenticate the session meets the requirements in this FP for a
 							TLS client certificate and has the same subjectName and subjectAlternateName as the certificate being renewed; if
