@@ -2243,7 +2243,7 @@
 							<h:p>								
 								Note: Such certificate types can include leaf certificates associated with context specific to the leaf, 
 								or intermediate CA certificates. Checking during installation is not claimed for certificates in which the
-								required connection is not available during loading, or if other exemptions for revocation checking apply,
+								required connection is not available during loading, or if other exemptions for revocation checking apply;
 								such certificates are checked on use.
 							</h:p>								
 							</test>
@@ -2644,7 +2644,7 @@
 								a policy that maps to it) results in the function failing.</h:p>								
 							</test>
 							<test>
-								<h:p>conditional]: If the TSF supports certificate policies and policy mapping, the evaluator configures 
+								<h:p>[conditional]: If the TSF supports certificate policies and policy mapping, the evaluator configures 
 								the TSF to require a specific policy OID that is mapped to an expected policy. The evaluator 
 								demonstrates that a valid certification path that asserts the policy OID and includes the mapping to 
 								the expected policy results in the function succeeding, and that a certification path that asserts 
