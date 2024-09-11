@@ -2465,7 +2465,7 @@
 									<selectable id="toe-uses-embedded-ca">embedded CA repository</selectable><selectable>local OCSP responder</selectable>
 									<selectable>administrator configuration</selectable></selectables></selectable>
 								<selectable>An OCSP TLS Status Request Extension (OCSP stapling) as specified in RFC 6066,</selectable>
-								<selectable>An OCSP TLS Multiple Certificate Status Request Extension (OCSP multi-stapling as specified
+								<selectable>An OCSP TLS Multiple Certificate Status Request Extension (OCSP multi-stapling) as specified
 								in RFC 6961</selectable></selectables>
 				</title>
 					<note role="application">
