@@ -297,37 +297,47 @@
                 <th>Component</th><th>Explanation</th>
             </tr>
             <tr>
-                <td class="componentneeded" id="FCS_CKM.1"><a href="#FCS_CKM.1">FCS_CKM.1</a></td><td>To support public and private key pair generation for creating an X.509 <abbr class="dyn-abbr"><a href="#abbr_CSR">CSR</a></abbr>, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include <a href="#FCS_CKM.1">FCS_CKM.1</a> and specify the corresponding algorithms.
+                <td class="componentneeded" id="FCS_CKM.1"><span class="no-link">FCS_CKM.1</span></td><td>To support public and private key pair generation for creating an X.509 <abbr class="dyn-abbr"><a href="#abbr_CSR">CSR</a></abbr>, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include <a href="#FCS_CKM.1">FCS_CKM.1</a> and specify the corresponding algorithms.
                     <br>
                 </td>
             </tr>
             <tr>
-                <td class="componentneeded" id="FCS_COP.1"><a href="#FCS_COP.1">FCS_COP.1</a></td><td> To support the cryptography needed for X.509 validation, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include <a href="#FCS_COP.1">FCS_COP.1</a> (iterating as needed) to specify appropriate digital signature validation and hash algorithms for the X.509 certificates presented to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
+                <td class="componentneeded" id="FCS_COP.1"><span class="no-link">FCS_COP.1</span></td><td> To support the cryptography needed for X.509 validation, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include <a href="#FCS_COP.1">FCS_COP.1</a> (iterating as needed) to specify appropriate digital signature validation and hash algorithms for the X.509 certificates presented to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
                     <br>
                 </td>
             </tr>
             <tr>
-                <td class="componentneeded" id="FCS_HTTPS_EXT.1"><a href="#FCS_HTTPS_EXT.1">FCS_HTTPS_EXT.1</a></td><td>To support <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> when claimed, or when <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> using <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> is claimed, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include an <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> for <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> communications. Note that support for <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> is not mandatory. 
+                <td class="componentneeded" id="FCS_HTTPS_EXT.1"><span class="no-link">FCS_HTTPS_EXT.1</span></td><td>To support <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> when claimed, or when <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> using <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> is claimed, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include an <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> for <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> communications. Note that support for <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> is not mandatory. 
                     <br>
                 </td>
             </tr>
             <tr>
-                <td class="componentneeded" id="FCS_RBG.1"><a href="#FCS_RBG.1">FCS_RBG.1</a></td><td>To support the Random Bit Generation (<abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr>) needed for public and private key pair generation, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include <a href="#FCS_RBG.1">FCS_RBG.1</a> or an extended <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> that defines comparable functionality.
+                <td class="componentneeded" id="FCS_RBG.1"><span class="no-link">FCS_RBG.1</span></td><td>To support the Random Bit Generation (<abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr>) needed for public and private key pair generation, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include <a href="#FCS_RBG.1">FCS_RBG.1</a> or an extended <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> that defines comparable functionality.
                     <br>
                 </td>
             </tr>
             <tr>
-                <td class="componentneeded" id="FPT_STM.1"><a href="#FPT_STM.1">FPT_STM.1</a></td><td>To support validating whether a presented X.509 certificate is expired, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include <a href="#FPT_STM.1">FPT_STM.1</a> or some other requirement that ensures reliable system time. 
+                <td class="componentneeded" id="FCS_TLSC_EXT.1"><span class="no-link">FCS_TLSC_EXT.1</span></td><td>To support <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> when claimed, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include an <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> for <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> client communications. Note that support for <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> is not mandatory. 
                     <br>
                 </td>
             </tr>
             <tr>
-                <td class="componentneeded" id="FCS_TLSC_EXT.1"><a href="#FCS_TLSC_EXT.1">FCS_TLSC_EXT.1</a></td><td>To support <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> when claimed, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include an <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> for <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> client communications. Note that support for <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> is not mandatory. 
+                <td class="componentneeded" id="FPT_KST_EXT.1"><span class="no-link">FPT_KST_EXT.1</span></td><td>To support <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> signing keys, whether the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> is using a certificate or the corresponding public key is loaded into the relying party&rsquo;s trust store, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include <a href="#FPT_KST_EXT.1">FPT_KST_EXT.1</a> to protect the private keys used. 
                     <br>
                 </td>
             </tr>
             <tr>
-                <td class="componentneeded" id="FTP_ITC.1"><a href="#FTP_ITC.1">FTP_ITC.1</a></td><td>To support <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> when claimed, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include <a href="#FTP_ITC.1">FTP_ITC.1</a> to define a trusted channel between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and a trusted <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. Note that support for <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> is not mandatory. 
+                <td class="componentneeded" id="FPT_KST_EXT.2"><span class="no-link">FPT_KST_EXT.2</span></td><td>To support <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> signing keys, whether the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> is using a certificate or the corresponding public key is loaded into the relying party&rsquo;s trust store, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include <a href="#FPT_KST_EXT.2">FPT_KST_EXT.2</a> to protect the private keys used. 
+                    <br>
+                </td>
+            </tr>
+            <tr>
+                <td class="componentneeded" id="FPT_STM.1"><span class="no-link">FPT_STM.1</span></td><td>To support validating whether a presented X.509 certificate is expired, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include <a href="#FPT_STM.1">FPT_STM.1</a> or some other requirement that ensures reliable system time. 
+                    <br>
+                </td>
+            </tr>
+            <tr>
+                <td class="componentneeded" id="FTP_ITC.1"><span class="no-link">FTP_ITC.1</span></td><td>To support <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> when claimed, the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> must include <a href="#FTP_ITC.1">FTP_ITC.1</a> to define a trusted channel between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and a trusted <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. Note that support for <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> is not mandatory. 
                     <br>
                 </td>
             </tr>
@@ -510,7 +520,7 @@
          The second type, defined in Appendix <a href="#objective-reqs" class="dynref">A.2 Objective Requirements</a>, are objective requirements. These describe security functionality that is not yet widely available in commercial technology. Objective requirements are not currently mandated by this Functional Package, but will be mandated in the future. Adoption by vendors is encouraged, but claiming these <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> is not required in order to conform to this Functional Package.
         <br>
         <br>
-         The third type, defined in Appendix <a href="#feat-based-reqs" class="dynref">A.3 Implementation-dependent Requirements</a>, are Implementation-dependent requirements. If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements the product features associated with the listed <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>, either the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> must be claimed or the product features must be disabled in the evaluated ocnfiguration. 
+         The third type, defined in Appendix <a href="#feat-based-reqs" class="dynref">A.3 Implementation-dependent Requirements</a>, are Implementation-dependent requirements. If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements the product features associated with the listed <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>, either the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> must be claimed or the product features must be disabled in the evaluated configuration. 
         <h2 id="optional-reqs" class="indexable" data-level="2">A.1 Strictly Optional Requirements </h2>
         <p>This Functional Package does not define any Strictly Optional requirements.</p>
         <h2 id="objective-reqs" class="indexable" data-level="2">A.2 Objective Requirements </h2>
@@ -2754,7 +2764,7 @@
                                  The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims whether the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> processes trust store rules or passes context to the supported function. If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> processes trust store context rules, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author describes the application context for each supported trust store, if any. Such rules include the interpretation of extensions in a root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate used as a trust store element, the interpretation of required extensions in intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates, and required extensions in the leaf certificate, with interpretations (referenced <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> and/or refined use) on how such extensions and their values limit the applicability of a certification path, any initial name constraints (including reference IDs processed as part of path validation), expected certificate policies, etc. 
                             </p>
                             <p>
-                                 The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims "extendedKeyUsage field..." if context depends on the value of the <abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr> in leaf certificates. This selection is required if the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports the listed functions (Code integrity, <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>, DTLS, SMIME), as claimed in <a href="#FIA_X509_EXT.2.1">FIA_X509_EXT.2.1</a> or as required in other <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> in this package. For example, <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> purpose is required if <a href="#FDP_CER_EXT.1/OLTleaf">FDP_CER_EXT.1/OLTleaf</a> is claimed and a supported certificate request protocol (<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr>, or v3 CMP) uses the <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr> purpose to determine <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> privileges associated with a supported function. It is preferred, but not required that each function using certificates indicated in <a href="#FIA_X509_EXT.2.1">FIA_X509_EXT.2.1</a> is associated with an <abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr>. While <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5280 generally allows the use of &lsquo;anyPurpose&rsquo; it indicates that applications may require explicit values. This element clarifies the requirement that certificates without an <abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr> field or with the &lsquo;anyPurpose&rsquo; <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> in lieu of the required explicit value are considered invalid if used for applications for which an explicit <abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr> value is required. 
+                                 The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims "extendedKeyUsage field..." if context depends on the value of the <abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr> in leaf certificates. This selection is required if the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports the listed functions (Code integrity, <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>, DTLS, SMIME), as claimed in <a href="#FIA_X509_EXT.2.1">FIA_X509_EXT.2.1</a> or as required in other <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> in this package. For example, <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> purpose is required if <a href="#FDP_CER_EXT.1/OLTleaf">FDP_CER_EXT.1/OLTleaf</a> is claimed and a supported certificate request protocol (<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr>, or v3 CMP) uses the <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr> purpose to determine <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> privileges associated with a supported function. It is preferred, but not required that each function using certificates indicated in <a href="#FIA_X509_EXT.2.1">FIA_X509_EXT.2.1</a> include context information that distinguishes certificates intended for use by the function. While <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5280 generally allows the use of &lsquo;anyPurpose&rsquo; it indicates that applications may require explicit values. This element clarifies the requirement that certificates without an <abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr> field or with the &lsquo;anyPurpose&rsquo; <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> in lieu of the required explicit value are considered invalid if used for applications for which an explicit <abbr class="dyn-abbr"><a href="#abbr_EKU">EKU</a></abbr> value is required. 
                             </p>
                             <p>
                                  The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims &lsquo;pass context information to the supported function&rsquo; and the final option in the last selection to describe certification path context information passed to the supported function. Context information can be the entire certification path used, or specific context (name constraints, policy constraints etc.) made available to the function for its own suitability decision. Any context information derived from certification path processing by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> that is passed to the supported function, to include the certification path processing and the resulting context, is described in the assignment. The option to pass information is not to be claimed in lieu of processing the required extendedKeyUsage fields for supported functions unless the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> of the function supported includes the required context processing. 
@@ -2860,11 +2870,17 @@
                                         <p>
                                             [conditional]: If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports certificate policies, the evaluator configures the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to require a specific policy <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr>, and demonstrates that a valid certificate path asserting the policy <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> results in the function succeeding, and a valid certification path not asserting that policy (or a policy that maps to it) results in the function failing.
                                         </p>
+                                        <p>
+                                            <b>Note:</b> The policy <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> used in the test need not be associated with specific practices of any <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> - only the processing and matching of the OIDs is required.
+                                        </p>
                                     </li>
                                     <li class="test-">
                                         <a id="_t_37" class="defined" href="#_t_37">Test FIA_X509_EXT.1:6</a>: 
                                         <p>
                                             [conditional]: If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports certificate policies and policy mapping, the evaluator configures the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to require a specific policy <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> that is mapped to an expected policy. The evaluator demonstrates that a valid certification path that asserts the policy <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> and includes the mapping to the expected policy results in the function succeeding, and that a certification path that asserts the policy <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr>, but not the proper mapping results in the function failing.
+                                        </p>
+                                        <p>
+                                            <b>Note:</b> The policy <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> used in the test need not be associated with specific practices of any <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> - only the processing and matching of the OIDs is required.
                                         </p>
                                     </li>
                                     <li class="test-">
@@ -5015,28 +5031,13 @@
                 <td><span id="bibCC">[<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]</span></td><td><span class="description">Common Criteria for Information Technology Security Evaluation - 
                         <ul>
                             <li>
-                                <a href="https://www.commoncriteriaportal.org/files/ccfiles/CC2022PART1R1.pdf">Part 1: Introduction and general model</a>, CCMB-2022-11-001, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.
+                                <a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R5.pdf">Part 1: Introduction and General Model</a>, CCMB-2017-04-001, Version 3.1 Revision 5, April 2017.
                             </li>
                             <li>
-                                <a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART2R1.pdf">Part 2: Security functional requirements</a>, CCMB-2022-11-002, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.
+                                <a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R5.pdf">Part 2: Security Functional Components</a>, CCMB-2017-04-002, Version 3.1 Revision 5, April 2017.
                             </li>
                             <li>
-                                <a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART3R1.pdf">Part 3: Security assurance requirements</a>, CCMB-2022-11-003, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.
-                            </li>
-                            <li>
-                                <a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART4R1.pdf">Part 4: Framework for the specification of evaluation methods and activities</a>, CCMB-2022-11-004, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.
-                            </li>
-                            <li>
-                                <a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART5R1.pdf">Part 5: Pre-defined packages of security requirements</a>, CCMB-2022-11-005, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.
-                            </li>
-                        </ul>
-                    </span></td>
-            </tr>
-            <tr>
-                <td><span id="bibCEM">[<abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr>]</span></td><td><span class="description">Common Methodology for Information Technology Security Evaluation - 
-                        <ul>
-                            <li>
-                                <a href="http://www.commoncriteriaportal.org/files/ccfiles/CEM2022R1.pdf"> Evaluation methodology</a>, CCMB-2022-11-006, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.
+                                <a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R5.pdf">Part 3: Security Assurance Components</a>, CCMB-2017-04-003, Version 3.1 Revision 5, April 2017.
                             </li>
                         </ul>
                     </span></td>

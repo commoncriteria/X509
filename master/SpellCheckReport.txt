@@ -8,7 +8,9 @@ output/X509-release-linkable.html: CNSA
 output/X509-release-linkable.html: FCS
 output/X509-release-linkable.html: FMT
 output/X509-release-linkable.html: FPs
+output/X509-release-linkable.html: KST
 output/X509-release-linkable.html: KU
+output/X509-release-linkable.html: OIDs
 output/X509-release-linkable.html: OU
 output/X509-release-linkable.html: RAs
 output/X509-release-linkable.html: RDN
@@ -47,7 +49,6 @@ output/X509-release-linkable.html: nextUpdate
 output/X509-release-linkable.html: nocheck
 output/X509-release-linkable.html: notAfter
 output/X509-release-linkable.html: notBefore
-output/X509-release-linkable.html: ocnfiguration
 output/X509-release-linkable.html: ocsp
 output/X509-release-linkable.html: pathLen
 output/X509-release-linkable.html: pkix
@@ -85,7 +86,9 @@ output/X509-release.html: CNSA
 output/X509-release.html: FCS
 output/X509-release.html: FMT
 output/X509-release.html: FPs
+output/X509-release.html: KST
 output/X509-release.html: KU
+output/X509-release.html: OIDs
 output/X509-release.html: OU
 output/X509-release.html: RAs
 output/X509-release.html: RDN
@@ -140,7 +143,6 @@ output/X509-release.html: nextUpdate
 output/X509-release.html: nocheck
 output/X509-release.html: notAfter
 output/X509-release.html: notBefore
-output/X509-release.html: ocnfiguration
 output/X509-release.html: ocsp
 output/X509-release.html: pathLen
 output/X509-release.html: pkix
@@ -187,7 +189,9 @@ output/X509.html: CNSA
 output/X509.html: FCS
 output/X509.html: FMT
 output/X509.html: FPs
+output/X509.html: KST
 output/X509.html: KU
+output/X509.html: OIDs
 output/X509.html: OU
 output/X509.html: RAs
 output/X509.html: RDN

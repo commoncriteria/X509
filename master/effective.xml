@@ -173,16 +173,28 @@
 					the PP or PP-Module must include FCS_RBG.1 or an extended SFR that defines comparable functionality.</notes>
 			</componentneeded>
 			<componentneeded>
-			<componentid>FPT_STM.1</componentid>
-				<notes>To support validating whether a presented X.509 certificate is expired, 
-					the PP or PP-Module must include FPT_STM.1 or some other requirement that ensures reliable system time.  
-					</notes>
-			</componentneeded>
-			<componentneeded>
 				<componentid>FCS_TLSC_EXT.1</componentid>
 				<notes>To support EST when claimed, the PP or PP-Module must include 
 					an SFR for TLS client communications. Note that support for EST is not mandatory.
 				</notes>
+			</componentneeded>
+			
+			<componentneeded>
+				<componentid>FPT_KST_EXT.1</componentid>
+				<notes>To support CA signing keys, whether the CA is using a certificate or the corresponding public key is loaded into the relying party’s trust store, the PP or PP-Module must include FPT_KST_EXT.1 to protect the private keys used.
+				</notes>
+			</componentneeded>
+			<componentneeded>
+				<componentid>FPT_KST_EXT.2</componentid>
+				<notes>To support CA signing keys, whether the CA is using a certificate or the corresponding public key is loaded into the relying party’s trust store, the PP or PP-Module must include FPT_KST_EXT.2 to protect the private keys used.
+				</notes>
+			</componentneeded>
+			
+			<componentneeded>
+			<componentid>FPT_STM.1</componentid>
+				<notes>To support validating whether a presented X.509 certificate is expired, 
+					the PP or PP-Module must include FPT_STM.1 or some other requirement that ensures reliable system time.  
+					</notes>
 			</componentneeded>
 			<componentneeded>
 				<componentid>FTP_ITC.1</componentid>
@@ -2514,7 +2526,7 @@
 				</h:p><h:p>
 					The ST author claims "extendedKeyUsage field..." if context depends on the value of the EKU in leaf certificates. This selection is required if the TSF supports the listed functions (Code integrity, OCSP, TLS, DTLS, SMIME), as claimed in 
 					FIA_X509_EXT.2.1 or as required in other SFRs in this package. For example, RA purpose is required if FDP_CER_EXT.1/OLTleaf is claimed and a supported certificate request protocol (EST, CMC, or v3 CMP) uses the RA EKU purpose to determine RA privileges associated with a supported function. It is preferred, but not required that each function using certificates indicated in 
-					FIA_X509_EXT.2.1 is associated with an EKU. While RFC 5280 generally allows the use of ‘anyPurpose’ it indicates that 
+					FIA_X509_EXT.2.1 include context information that distinguishes certificates intended for use by the function. While RFC 5280 generally allows the use of ‘anyPurpose’ it indicates that 
 					applications may require explicit values. This element clarifies the requirement that certificates without an EKU field or with the ‘anyPurpose’ OID in lieu of 
 					the required explicit value are considered invalid if used for applications for which an explicit EKU value is 
 					required.
@@ -2617,7 +2629,8 @@
 								<h:p>[conditional]: If the TSF supports certificate policies, the evaluator configures the TSF to 
 								require a specific policy OID, and demonstrates that a valid certificate path asserting the policy 
 								OID results in the function succeeding, and a valid certification path not asserting that policy (or 
-								a policy that maps to it) results in the function failing.</h:p>								
+								a policy that maps to it) results in the function failing.</h:p>
+								<h:p><h:b>Note:</h:b> The policy OID used in the test need not be associated with specific practices of any CA - only the processing and matching of the OIDs is required.</h:p>
 							</test>
 							<test>
 								<h:p>[conditional]: If the TSF supports certificate policies and policy mapping, the evaluator configures 
@@ -2625,6 +2638,7 @@
 								demonstrates that a valid certification path that asserts the policy OID and includes the mapping to 
 								the expected policy results in the function succeeding, and that a certification path that asserts 
 								the policy OID, but not the proper mapping results in the function failing.</h:p>
+								<h:p><h:b>Note:</h:b> The policy OID used in the test need not be associated with specific practices of any CA - only the processing and matching of the OIDs is required.</h:p>
 							</test>
 							<test>
 								<h:p>[conditional]: If the TSF supports other extensions, for each supported extension, the evaluator 
