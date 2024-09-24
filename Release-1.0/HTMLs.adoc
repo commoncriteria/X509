@@ -1,6 +1,0 @@
-* https://commoncriteria.github.io/X509/Release-1.0/AppliedTDs-Diff.html[AppliedTDs-Diff.html]
-* https://commoncriteria.github.io/X509/Release-1.0/AppliedTDs.html[AppliedTDs.html]
-* https://commoncriteria.github.io/X509/Release-1.0/X509-release-linkable.html[X509-release-linkable.html]
-* https://commoncriteria.github.io/X509/Release-1.0/X509-release.html[X509-release.html]
-* https://commoncriteria.github.io/X509/Release-1.0/X509.html[X509.html]
-* https://commoncriteria.github.io/X509/Release-1.0/diff-v1.0.html[diff-v1.0.html]
