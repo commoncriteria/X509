@@ -950,7 +950,7 @@
 					<h:p>
 						The ST author is expected to refine the <no-link>FCS_COP.1</no-link> reference to include an iteration name that is appropriate for the digital signature
 						requirement of the PP or PP-Module that conforms to this package. For example, a name like "<no-link>FCS_COP.1</no-link>/SigGen" is typical.
-					It is expected that the supported signatures are limited to 2048-bit RSA or higher, or ECDSA using NIST P-256, P-384, or P-521,
+					It is expected that the supported signatures are limited to 3072-bit RSA or higher, or ECDSA using NIST P-384 or P-521,
 					based on the signature requirements in the PPs and PP-Modules with which this FP is intended for use.
 					</h:p>
 					<h:p>
