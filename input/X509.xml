@@ -1200,6 +1200,11 @@
 										<selectable>secp384r1</selectable>
 										<selectable>secp521r1</selectable>
 									</selectables></selectable>
+									<selectable>ecdsa-with-SHA512 using
+										<selectables>
+										<selectable>secp384r1</selectable>
+										<selectable>secp521r1</selectable>
+									</selectables></selectable>
 								</selectables></selectable>															
 							</selectables>
 						</h:li>
@@ -2308,6 +2313,7 @@
 									OCSP responses are signed using 
 									<selectables linebreak="yes">
 												<selectable>sha256WithRSAEncryption in accordance with RFC 6960 with key size of 2048 bits or greater,</selectable>
+												<selectable>sha384WithRSAEncryption with key size of 3072 bits or greater,</selectable>
 												<selectable>ecdsa-with-SHA384 using 
 													<selectables><selectable>secp384r1</selectable><selectable>secp521r1</selectable></selectables>,</selectable>
 												<selectable>ecdsa-with-SHA512 using 
