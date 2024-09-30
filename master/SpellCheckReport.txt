@@ -60,7 +60,6 @@ output/X509-release-linkable.html: rfc822Name
 output/X509-release-linkable.html: secp384r1
 output/X509-release-linkable.html: secp521r1
 output/X509-release-linkable.html: serverAuth
-output/X509-release-linkable.html: sha256WithRSAEncryption
 output/X509-release-linkable.html: signatureAlgorithm
 output/X509-release-linkable.html: subjectAltName
 output/X509-release-linkable.html: subjectAlternateName
@@ -158,7 +157,6 @@ output/X509-release.html: rfc822Name
 output/X509-release.html: secp384r1
 output/X509-release.html: secp521r1
 output/X509-release.html: serverAuth
-output/X509-release.html: sha256WithRSAEncryption
 output/X509-release.html: signatureAlgorithm
 output/X509-release.html: stapling’
 output/X509-release.html: stores’
@@ -261,7 +259,6 @@ output/X509.html: rfc822Name
 output/X509.html: secp384r1
 output/X509.html: secp521r1
 output/X509.html: serverAuth
-output/X509.html: sha256WithRSAEncryption
 output/X509.html: signatureAlgorithm
 output/X509.html: stapling’
 output/X509.html: stores’
