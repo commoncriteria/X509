@@ -2549,7 +2549,7 @@
 				<note role="application">
 					The ST author claims ‘manage trust stores’ if the TSF provides a management capability for trust stores that 
 					terminate the certification paths used by TOE functions, regardless of whether or not the TSF uses platform 
-					functionality to perform the management. .1 is included in this case. If all management of trust stores 
+					functionality to perform the management. FIA_TSM_EXT.1 is included in this case. If all management of trust stores 
 					is performed by the platform, the ST author claims ‘use platform-managed trust stores.’ 
 				</note>	
 			<aactivity>
