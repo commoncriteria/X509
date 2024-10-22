@@ -1,0 +1,19 @@
+[cols="1,1,1,1,1,1,1,1"]
+|===
+8+|X509 
+| https://github.com/commoncriteria/X509/tree/release-1.0[release-1.0] 
+a| https://commoncriteria.github.io/X509/release-1.0/X509-release.html[📄]
+a|[link=https://github.com/commoncriteria/X509/blob/gh-pages/release-1.0/ValidationReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/X509/gh-pages/release-1.0/validation.svg[Validation]
+a|[link=https://github.com/commoncriteria/X509/blob/gh-pages/release-1.0/SanityChecksOutput.md]
+image::https://raw.githubusercontent.com/commoncriteria/X509/gh-pages/release-1.0/warnings.svg[SanityChecks]
+a|[link=https://github.com/commoncriteria/X509/blob/gh-pages/release-1.0/SpellCheckReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/X509/gh-pages/release-1.0/spell-badge.svg[SpellCheck]
+a|[link=https://github.com/commoncriteria/X509/blob/gh-pages/release-1.0/TDValidationReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/X509/gh-pages/release-1.0/tds.svg[TDs]
+a|image::https://raw.githubusercontent.com/commoncriteria/X509/gh-pages/release-1.0/transforms.svg[transforms,150]
+a| [link=https://github.com/commoncriteria/X509/blob/gh-pages/release-1.0/HTMLs.adoc]
+image::https://raw.githubusercontent.com/commoncriteria/X509/gh-pages/release-1.0/html_count.svg[HTML Count]
+[link=https://github.com/commoncriteria/X509/blob/gh-pages/release-1.0/PDFs.adoc]
+image::https://raw.githubusercontent.com/commoncriteria/X509/gh-pages/release-1.0/pdf_count.svg[PDF Count]
+|===
