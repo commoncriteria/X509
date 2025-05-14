@@ -1,1 +1,1 @@
-/home/runner/work/X509/X509/transforms/schemas/CCPackage.rng:138:49: error: reference to undefined pattern "usecases-section"
+/home/runner/work/X509/X509/input/X509.xml:633:113: error: value of attribute "status" is invalid; must be equal to "feat-based", "objective", "optional" or "sel-based"
