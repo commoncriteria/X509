@@ -7,7 +7,6 @@ output/X509-release-linkable.html: CMP
 output/X509-release-linkable.html: CNSA
 output/X509-release-linkable.html: FCS
 output/X509-release-linkable.html: FMT
-output/X509-release-linkable.html: FPs
 output/X509-release-linkable.html: KST
 output/X509-release-linkable.html: KU
 output/X509-release-linkable.html: OIDs
@@ -84,7 +83,6 @@ output/X509-release.html: CMP
 output/X509-release.html: CNSA
 output/X509-release.html: FCS
 output/X509-release.html: FMT
-output/X509-release.html: FPs
 output/X509-release.html: KST
 output/X509-release.html: KU
 output/X509-release.html: OIDs
@@ -186,7 +184,6 @@ output/X509.html: CMP
 output/X509.html: CNSA
 output/X509.html: FCS
 output/X509.html: FMT
-output/X509.html: FPs
 output/X509.html: KST
 output/X509.html: KU
 output/X509.html: OIDs
