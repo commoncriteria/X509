@@ -623,7 +623,7 @@
 		
 		
 		<f-component name="Leaf Certificate Profiles" cc-id="fdp_cer_ext.1" id="fdp-cer-ext-1-ecd" status="invisible">
-			<depends on="toe-uses-embedded-ca" also="toe-requests-certs" and="toe-requests-certs-from-embedded-ca"/>
+<!--			<depends on="toe-uses-embedded-ca" also="toe-requests-certs" and="toe-requests-certs-from-embedded-ca"/> -->
 			
 			<comp-lev> requires the TSF to implement a TOE-trusted certificate profile function that conforms to profiles when acting as a CA.</comp-lev>
 			<management>No specific management functions are identified.</management>

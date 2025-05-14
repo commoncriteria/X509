@@ -1,1 +1,0 @@
-/home/runner/work/X509/X509/output/effective.xml:626:108: error: element "depends" not allowed here; expected the element end-tag or element "audit", "audit-event", "audit-table", "comp-lev", "consistency-rationale", "dependencies", "description", "f-element", "management" or "note"
