@@ -778,16 +778,29 @@ The following sections list Common Criteria and technology terms used in this do
 	<h2 class="indexable" data-level="2" id="Use_Cases">1.4 Use Cases</h2>
 		The following use cases are distinct and may be combined for any given <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. They include 
 		<ul>
-			<li>the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> as a relying party verifying the identity of entities using certificates obtained from an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr></li> 
-			<li>the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> asserting an identity in a certificate provided by an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> and providing identity verification (authentication) to external relying parties</li> 
-			<li>the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> acting as the sole relying party of entities issued certificates using an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr></li> 
+			<li>the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> as a relying party verifying the identity of entities using certificates 
+				obtained from an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr></li> 
+			<li>the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> asserting an identity in a certificate provided by an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> and
+				providing identity verification (authentication) to external relying parties</li> 
+			<li>the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> acting as the sole relying party of entities issued certificates using an 
+				embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr></li> 
 		</ul>
-		Combining the verify and subject use cases also includes authentication and verification between internal entities. Combining all three use cases allows external CAs to be used for both internal and external entities, but an internal embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> is only to be used for internal relying parties.<br/><br/>
-		Note: A <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that provides general Certification Authority functionality for external entities should be validated against the Certification Authority Protection Profile instead of this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>. 
+		Combining the verify and subject use cases also includes authentication and verification 
+		between internal entities. Combining all three use cases allows external CAs to be used for
+		both internal and external entities, but an internal embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> is only to be used for
+		internal relying parties.<br/><br/>
+		Note: A <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that provides general Certification Authority functionality for external entities 
+		should be validated against the Certification Authority Protection Profile instead of
+		this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>. 
 		<br/><br/>
-		Note: <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> that provide certification authority functionality as an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> in support of <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> inspection should use the SSL/<abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> Inspection Proxy (STIP) Protection Profile module instead of this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>. The ‘provide’ functionality in this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> is a generalization of the security requirements of the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> functionality for STIP <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> module, but this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> does not include the proxy and <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> processing requirements from the STIP <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> module.
+		Note: <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> that provide certification authority functionality as an embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> in support 
+		of <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> inspection should use the SSL/<abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> Inspection Proxy (STIP) Protection Profile module
+		instead of this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>. The ‘provide’ functionality in this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> is a generalization of the security 
+		requirements of the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> functionality for STIP <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> module, but this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> does not include
+		the proxy and <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> processing requirements from the STIP <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> module.
 		<br/><br/>
-		The following diagrams show each <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> use case (within the red box) with respect to its role in an overall system.
+		The following diagrams show each <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> use case (within the red box) with respect to its role 
+		in an overall system.
 		<dl><dt id="usecase1"> [USE CASE 1] TOE as a Relying Party</dt><dd><span class="description">
 					<div class="figure" id="figure-fig-usecase1"><img id="fig-usecase1" src="images/usecase1.png" width="" height=""></img><br/><span class="ctr" data-myid="fig-usecase1" data-counter-type="ct-figure">Figure <span class="counter">1</span></span>:
       Use Case 1: <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> as a Relying Party</div>
