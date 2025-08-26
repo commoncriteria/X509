@@ -7,6 +7,7 @@ output/X509-release-linkable.html: CMP
 output/X509-release-linkable.html: CNSA
 output/X509-release-linkable.html: FCS
 output/X509-release-linkable.html: FMT
+output/X509-release-linkable.html: IPAddress
 output/X509-release-linkable.html: KST
 output/X509-release-linkable.html: KU
 output/X509-release-linkable.html: OIDs
@@ -35,7 +36,6 @@ output/X509-release-linkable.html: emailProtection
 output/X509-release-linkable.html: encipherOnly
 output/X509-release-linkable.html: expectedPolicy
 output/X509-release-linkable.html: hashAlg
-output/X509-release-linkable.html: iPAddress
 output/X509-release-linkable.html: iana
 output/X509-release-linkable.html: ipsecIKE
 output/X509-release-linkable.html: issuerAltName
@@ -83,6 +83,7 @@ output/X509-release.html: CMP
 output/X509-release.html: CNSA
 output/X509-release.html: FCS
 output/X509-release.html: FMT
+output/X509-release.html: IPAddress
 output/X509-release.html: KST
 output/X509-release.html: KU
 output/X509-release.html: OIDs
@@ -123,7 +124,6 @@ output/X509-release.html: external’
 output/X509-release.html: function’
 output/X509-release.html: generation’
 output/X509-release.html: hashAlg
-output/X509-release.html: iPAddress
 output/X509-release.html: iana
 output/X509-release.html: information’
 output/X509-release.html: ipsecIKE
@@ -184,6 +184,7 @@ output/X509.html: CMP
 output/X509.html: CNSA
 output/X509.html: FCS
 output/X509.html: FMT
+output/X509.html: IPAddress
 output/X509.html: KST
 output/X509.html: KU
 output/X509.html: OIDs
@@ -224,7 +225,6 @@ output/X509.html: external’
 output/X509.html: function’
 output/X509.html: generation’
 output/X509.html: hashAlg
-output/X509.html: iPAddress
 output/X509.html: iana
 output/X509.html: information’
 output/X509.html: ipsecIKE
