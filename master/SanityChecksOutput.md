@@ -4,6 +4,8 @@
                        
 * Warning: Since FDP_CSI_EXT.1.1 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.
                        
+* Warning: Since FIA_X509_EXT.1.3 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.
+                       
 * Warning: Since FIA_X509_EXT.1.4 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.
                        
 * Warning: Since FIA_X509_EXT.1.6 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.
