@@ -20,7 +20,6 @@ output/X509-release-linkable.html: STIP
 output/X509-release-linkable.html: STM
 output/X509-release-linkable.html: anyPurpose
 output/X509-release-linkable.html: authorityInfoAccess
-output/X509-release-linkable.html: authorityInformationAccess
 output/X509-release-linkable.html: authorityKeyIdentifier
 output/X509-release-linkable.html: cRLDistributionPoints
 output/X509-release-linkable.html: certificatePolicies
@@ -61,7 +60,6 @@ output/X509-release-linkable.html: secp521r1
 output/X509-release-linkable.html: serverAuth
 output/X509-release-linkable.html: signatureAlgorithm
 output/X509-release-linkable.html: subjectAltName
-output/X509-release-linkable.html: subjectAlternateName
 output/X509-release-linkable.html: subjectKeyIdentifier
 output/X509-release-linkable.html: subjectName
 output/X509-release-linkable.html: subjectPublicKeyInfo
@@ -101,7 +99,6 @@ output/X509-release.html: assertion’
 output/X509-release.html: assert’
 output/X509-release.html: authorityInfoAccess
 output/X509-release.html: authorityInfoAccess’
-output/X509-release.html: authorityInformationAccess
 output/X509-release.html: authorityKeyIdentifier
 output/X509-release.html: authority’
 output/X509-release.html: cRLDistributionPoints
@@ -159,7 +156,6 @@ output/X509-release.html: signatureAlgorithm
 output/X509-release.html: stapling’
 output/X509-release.html: stores’
 output/X509-release.html: subjectAltName
-output/X509-release.html: subjectAlternateName
 output/X509-release.html: subjectKeyIdentifier
 output/X509-release.html: subjectName
 output/X509-release.html: subjectPublicKeyInfo
@@ -202,7 +198,6 @@ output/X509.html: assertion’
 output/X509.html: assert’
 output/X509.html: authorityInfoAccess
 output/X509.html: authorityInfoAccess’
-output/X509.html: authorityInformationAccess
 output/X509.html: authorityKeyIdentifier
 output/X509.html: authority’
 output/X509.html: cRLDistributionPoints
@@ -260,7 +255,6 @@ output/X509.html: signatureAlgorithm
 output/X509.html: stapling’
 output/X509.html: stores’
 output/X509.html: subjectAltName
-output/X509.html: subjectAlternateName
 output/X509.html: subjectKeyIdentifier
 output/X509.html: subjectName
 output/X509.html: subjectPublicKeyInfo
