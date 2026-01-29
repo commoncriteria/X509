@@ -132,7 +132,7 @@
     		FP.
       <h:br/>
       <h:br/>
-      <h:div>
+      <h:div class="table-caption">
         <ctr ctr-type="Table" id="dependencies">: Dependent Components Required for Package Functionality</ctr>
       </h:div>
       <componentsneeded>
