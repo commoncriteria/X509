@@ -20,7 +20,6 @@ output/X509-release-linkable.html: STIP
 output/X509-release-linkable.html: STM
 output/X509-release-linkable.html: anyPurpose
 output/X509-release-linkable.html: authorityInfoAccess
-output/X509-release-linkable.html: authorityInformationAccess
 output/X509-release-linkable.html: authorityKeyIdentifier
 output/X509-release-linkable.html: cRLDistributionPoints
 output/X509-release-linkable.html: certificatePolicies
@@ -55,13 +54,13 @@ output/X509-release-linkable.html: policyConstraints
 output/X509-release-linkable.html: policyMapping
 output/X509-release-linkable.html: preferredSignatureAlgorithm
 output/X509-release-linkable.html: producedAt
+output/X509-release-linkable.html: requestLink
 output/X509-release-linkable.html: rfc822Name
 output/X509-release-linkable.html: secp384r1
 output/X509-release-linkable.html: secp521r1
 output/X509-release-linkable.html: serverAuth
 output/X509-release-linkable.html: signatureAlgorithm
 output/X509-release-linkable.html: subjectAltName
-output/X509-release-linkable.html: subjectAlternateName
 output/X509-release-linkable.html: subjectKeyIdentifier
 output/X509-release-linkable.html: subjectName
 output/X509-release-linkable.html: subjectPublicKeyInfo
@@ -72,6 +71,7 @@ output/X509-release-linkable.html: uniformResourceIdentifier
 output/X509-release-linkable.html: uniqueIssuerID
 output/X509-release-linkable.html: uniqueSubjectID
 output/X509-release-linkable.html: v2
+output/X509-release-linkable.html: valueCertificate
 output/X509-release.html: 509v2
 output/X509-release.html: 5934’
 output/X509-release.html: 8603’
@@ -101,7 +101,6 @@ output/X509-release.html: assertion’
 output/X509-release.html: assert’
 output/X509-release.html: authorityInfoAccess
 output/X509-release.html: authorityInfoAccess’
-output/X509-release.html: authorityInformationAccess
 output/X509-release.html: authorityKeyIdentifier
 output/X509-release.html: authority’
 output/X509-release.html: cRLDistributionPoints
@@ -150,6 +149,7 @@ output/X509-release.html: producedAt
 output/X509-release.html: provide’
 output/X509-release.html: raw’
 output/X509-release.html: repository’
+output/X509-release.html: requestLink
 output/X509-release.html: revoke’
 output/X509-release.html: rfc822Name
 output/X509-release.html: secp384r1
@@ -159,7 +159,6 @@ output/X509-release.html: signatureAlgorithm
 output/X509-release.html: stapling’
 output/X509-release.html: stores’
 output/X509-release.html: subjectAltName
-output/X509-release.html: subjectAlternateName
 output/X509-release.html: subjectKeyIdentifier
 output/X509-release.html: subjectName
 output/X509-release.html: subjectPublicKeyInfo
@@ -171,6 +170,7 @@ output/X509-release.html: uniqueIssuerID
 output/X509-release.html: uniqueSubjectID
 output/X509-release.html: use’
 output/X509-release.html: v2
+output/X509-release.html: valueCertificate
 output/X509-release.html: verify’
 output/X509-release.html: ’
 output/X509.html: 509v2
@@ -202,7 +202,6 @@ output/X509.html: assertion’
 output/X509.html: assert’
 output/X509.html: authorityInfoAccess
 output/X509.html: authorityInfoAccess’
-output/X509.html: authorityInformationAccess
 output/X509.html: authorityKeyIdentifier
 output/X509.html: authority’
 output/X509.html: cRLDistributionPoints
@@ -260,7 +259,6 @@ output/X509.html: signatureAlgorithm
 output/X509.html: stapling’
 output/X509.html: stores’
 output/X509.html: subjectAltName
-output/X509.html: subjectAlternateName
 output/X509.html: subjectKeyIdentifier
 output/X509.html: subjectName
 output/X509.html: subjectPublicKeyInfo
