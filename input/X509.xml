@@ -132,9 +132,9 @@
     		FP.
       <h:br/>
       <h:br/>
-      <ctr ctr-type="Table" id="dependencies">: Dependent Components Required for Package Functionality</ctr>
-      <h:br/>
-      <h:br/>
+      <h:div>
+        <ctr ctr-type="Table" id="dependencies">: Dependent Components Required for Package Functionality</ctr>
+      </h:div>
       <componentsneeded>
         <componentneeded>
           <componentid>FCS_CKM.1</componentid>
