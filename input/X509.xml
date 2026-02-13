@@ -1,6 +1,6 @@
-<?xml version="1.0"?>
-<?xml-stylesheet type="text/xsl" href="..\transformspp2html.xsl"?>
-<?xml-model href="https://raw.githubusercontent.com/commoncriteria/transforms/master/schemas/CCProtectionProfile.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../transforms/pp2html.xsl"?>
+<?xml-model href="https://raw.githubusercontent.com/commoncriteria/transforms/master/schemas/CCPackage.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <Package name="X.509" xmlns="https://niap-ccevs.org/cc/v1" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section">
   <PPReference>
     <ReferenceTable>
@@ -132,6 +132,9 @@
     		FP.
       <h:br/>
       <h:br/>
+      <h:div class="table-caption">
+        <ctr ctr-type="Table" id="dependencies">: Dependent Components Required for Package Functionality</ctr>
+      </h:div>
       <componentsneeded>
         <componentneeded>
           <componentid>FCS_CKM.1</componentid>
@@ -302,8 +305,7 @@
                   <selectable id="fdp_cer_ext.1.1_8">IPsec and IKE peer authentication</selectable>
                   <selectable id="fdp_cer_ext.1.1_9">SMIME subject authentication</selectable>
                   <selectable id="fdp_cer_ext.1.1_11">
-                    <assignable>entity authentication for other authentication protocols</assignable>
-                  </selectable>
+                    <assignable>entity authentication for other authentication protocols</assignable></selectable>
                 </selectables>
               </selectable>
               <selectable id="fdp_cer_ext.1.1_12">
@@ -314,8 +316,7 @@
                   <selectable id="fdp_cer_ext.1.1_16">Administrator authentication</selectable>
                   <selectable id="fdp_cer_ext.1.1_17">User authentication</selectable>
                   <selectable id="fdp_cer_ext.1.1_19">
-                    <assignable>other TOE functions</assignable>
-                  </selectable>
+                    <assignable>other TOE functions</assignable></selectable>
                 </selectables>
               </selectable>
             </selectables>
@@ -339,10 +340,8 @@
                 <selectables>
                   <selectable id="fdp_cer_ext.1.2_1">a time length configured by an administrator</selectable>
                   <selectable id="fdp_cer_ext.1.2_3">
-                    <assignable>positive length of time</assignable>
-                  </selectable>
-                </selectables>
-              </h:li>
+                    <assignable>positive length of time</assignable></selectable>
+                </selectables></h:li>
               <h:li>The issuer field is populated with the name of the embedded CA issuing the certificate.</h:li>
               <h:li>The signature field and the algorithm specification in the subjectPublicKeyInfo signature field agree and  <selectables><selectable id="fdp_cer_ext.1.2_4">are in accordance with RFC 8603</selectable><selectable id="fdp_cer_ext.1.2_5">use <assignable>list of supported functions</assignable></selectable></selectables></h:li>
               <h:li>
@@ -359,11 +358,9 @@
                       <selectable id="fdp_cer_ext.1.2_28">cRLDistributionPoints indicating an access location for CRLs <selectables><selectable id="fdp_cer_ext.1.2_29">configured by an administrator</selectable><selectable id="fdp_cer_ext.1.2_30">determined by the TSF</selectable></selectables></selectable>
                       <selectable id="fdp_cer_ext.1.2_31">authorityInfoAccess indicating an access location for <selectables><selectable id="fdp_cer_ext.1.2_32">CA certificates</selectable><selectable id="fdp_cer_ext.1.2_33">OCSP responder</selectable></selectables>  <selectables><selectable id="fdp_cer_ext.1.2_34">configured by an administrator</selectable><selectable id="fdp_cer_ext.1.2_35">determined by the TSF</selectable></selectables></selectable>
                       <selectable id="fdp_cer_ext.1.2_37">
-                        <assignable>other extensions</assignable>
-                      </selectable>
+                        <assignable>other extensions</assignable></selectable>
                       <selectable id="fdp_cer_ext.1.2_38">no other extensions</selectable>
-                    </selectables>
-                  </h:li>
+                    </selectables></h:li>
                   <h:li>
                     The authorityKeyIdentifier extension in any certificate issued by the TOE must be populated with
                     <selectables>
@@ -388,8 +385,7 @@
                   <selectable id="fdp_cer_ext.1.3_8">The subject name is limited based on name constraints <selectables><selectable id="fdp_cer_ext.1.3_9">indicated in the embedded CA’s certificate</selectable><selectable id="fdp_cer_ext.1.3_10">specified in the context of the trust store element associated with the embedded CA’s public key</selectable></selectables></selectable>
                   <selectable id="fdp_cer_ext.1.3_11">The policyConstraints field is populated with <selectables><selectable id="fdp_cer_ext.1.3_12">a policy included in the embedded CA's certificate</selectable><selectable id="fdp_cer_ext.1.3_13">an expectedPolicy included in the context of the trust store element associated with the embedded CA's public key</selectable></selectables></selectable>
                   <selectable id="fdp_cer_ext.1.3_14">no other CA-specific rules</selectable>
-                </selectables>
-              </h:li>
+                </selectables></h:li>
             </h:ul>
           </title>
         </f-element>
@@ -414,23 +410,18 @@
                 <selectables>
                   <selectable id="fdp_cer_ext.1.4_19">the supported function</selectable>
                   <selectable id="fdp_cer_ext.1.4_21">
-                    <assignable>administrator action</assignable>
-                  </selectable>
+                    <assignable>administrator action</assignable></selectable>
                   <selectable id="fdp_cer_ext.1.4_23">
-                    <assignable>automated processes</assignable>
-                  </selectable>
-                </selectables>
-              </h:li>
+                    <assignable>automated processes</assignable></selectable>
+                </selectables></h:li>
               <h:li>The public key populated in the issued certificate is  <selectables linebreak="yes"><selectable id="fdp_cer_ext.1.4_24">generated by the TOE on <assignable>a specific event</assignable> and <selectables><selectable id="fdp_cer_ext.1.4_26">made available to the supported function via an inter-TOE channel</selectable><selectable id="fdp_cer_ext.1.4_27">made available to an external entity via a protected channel</selectable><selectable id="fdp_cer_ext.1.4_29"><assignable>associated with the supported function</assignable></selectable></selectables> </selectable><selectable id="fdp_cer_ext.1.4_30">provided <selectables><selectable id="fdp_cer_ext.1.4_31">in the request</selectable><selectable id="fdp_cer_ext.1.4_32">by the supported function</selectable></selectables> together with <assignable>evidence of proof of possession by the requested subject</assignable></selectable></selectables></h:li>
               <h:li>
                 <selectables linebreak="yes">
                   <selectable id="fdp_cer_ext.1.4_34">The <selectables><selectable id="fdp_cer_ext.1.4_35">notBefore</selectable><selectable id="fdp_cer_ext.1.4_36">notAfter</selectable></selectables> portion of the validity field of the issued certificate is limited by <assignable>inputs from the supported function</assignable></selectable>
                   <selectable id="fdp_cer_ext.1.4_39">
-                    <assignable>other issuance conditions</assignable>
-                  </selectable>
+                    <assignable>other issuance conditions</assignable></selectable>
                   <selectable id="fdp_cer_ext.1.4_40">No other condition</selectable>
-                </selectables>
-              </h:li>
+                </selectables></h:li>
             </h:ul>
           </title>
           <aactivity>
@@ -464,8 +455,7 @@
                   <selectable id="fdp_cer_ext.1.1_OLTleaf_8">IPsec and IKE peer authentication</selectable>
                   <selectable id="fdp_cer_ext.1.1_OLTleaf_9">SMIME subject authentication</selectable>
                   <selectable id="fdp_cer_ext.1.1_OLTleaf_11">
-                    <assignable>entity authentication for other authentication protocols</assignable>
-                  </selectable>
+                    <assignable>entity authentication for other authentication protocols</assignable></selectable>
                 </selectables>
               </selectable>
               <selectable id="fdp_cer_ext.1.1_OLTleaf_12">
@@ -476,8 +466,7 @@
                   <selectable id="fdp_cer_ext.1.1_OLTleaf_16">Administrator authentication</selectable>
                   <selectable id="fdp_cer_ext.1.1_OLTleaf_17">User authentication</selectable>
                   <selectable id="fdp_cer_ext.1.1_OLTleaf_19">
-                    <assignable>other TOE functions</assignable>
-                  </selectable>
+                    <assignable>other TOE functions</assignable></selectable>
                 </selectables>
               </selectable>
             </selectables>
@@ -499,8 +488,7 @@
 					as specified in IETF RFC 5280, “Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List 
 					(CRL) Profile” as refined below, that apply to all supported functions described in
             <no-link>FDP_CER_EXT.1.1</no-link>
-            <h:b>/OLTleaf</h:b>
-            :
+            <h:b>/OLTleaf</h:b>:
             <h:ul>
               <h:li>The version is 3 (value 02).</h:li>
               <h:li>The certificate does not contain subjectUniqueID or issuerUniqueID fields.</h:li>
@@ -512,10 +500,8 @@
                 <selectables>
                   <selectable id="fdp_cer_ext.1.2_OLTleaf_1">a time length configured by an administrator</selectable>
                   <selectable id="fdp_cer_ext.1.2_OLTleaf_3">
-                    <assignable>positive length of time</assignable>
-                  </selectable>
-                </selectables>
-              </h:li>
+                    <assignable>positive length of time</assignable></selectable>
+                </selectables></h:li>
               <h:li>The issuer field is populated with the name of the embedded CA issuing the certificate.</h:li>
               <h:li>The signature field and the algorithm specification in the subjectPublicKeyInfo signature field agree and  <selectables><selectable id="fdp_cer_ext.1.2_OLTleaf_4">are in accordance with RFC 8603</selectable><selectable id="fdp_cer_ext.1.2_OLTleaf_5">use <assignable>list of supported functions</assignable></selectable></selectables></h:li>
               <h:li>
@@ -544,11 +530,9 @@
                       <selectable id="fdp_cer_ext.1.2_OLTleaf_37">cRLDistributionPoints indicating an access location for CRLs <selectables><selectable id="fdp_cer_ext.1.2_OLTleaf_38">configured by an administrator</selectable><selectable id="fdp_cer_ext.1.2_OLTleaf_39">determined by the TSF</selectable></selectables></selectable>
                       <selectable id="fdp_cer_ext.1.2_OLTleaf_40">authorityInfoAccess indicating an access location for <selectables><selectable id="fdp_cer_ext.1.2_OLTleaf_41">CA certificates</selectable><selectable id="fdp_cer_ext.1.2_OLTleaf_42">OCSP responder</selectable></selectables>  <selectables><selectable id="fdp_cer_ext.1.2_OLTleaf_43">configured by an administrator</selectable><selectable id="fdp_cer_ext.1.2_OLTleaf_44">determined by the TSF</selectable></selectables></selectable>
                       <selectable id="fdp_cer_ext.1.2_OLTleaf_46">
-                        <assignable>other extensions</assignable>
-                      </selectable>
+                        <assignable>other extensions</assignable></selectable>
                       <selectable id="fdp_cer_ext.1.2_OLTleaf_47">no other extensions</selectable>
-                    </selectables>
-                  </h:li>
+                    </selectables></h:li>
                   <h:li>
                     The authorityKeyIdentifier extension in any certificate issued by the TOE must be populated with
                     <selectables>
@@ -595,8 +579,7 @@
                   <selectable id="fdp_cer_ext.1.3_OLTleaf_8">The subject name is limited based on name constraints <selectables><selectable id="fdp_cer_ext.1.3_OLTleaf_9">indicated in the embedded CA’s certificate</selectable><selectable id="fdp_cer_ext.1.3_OLTleaf_10">specified in the context of the trust store element associated with the embedded CA’s public key</selectable></selectables></selectable>
                   <selectable id="fdp_cer_ext.1.3_OLTleaf_11">The policyConstraints field is populated with <selectables><selectable id="fdp_cer_ext.1.3_OLTleaf_12">a policy included in the embedded CA's certificate</selectable><selectable id="fdp_cer_ext.1.3_OLTleaf_13">an expectedPolicy included in the context of the trust store element associated with the embedded CA's public key</selectable></selectables></selectable>
                   <selectable id="fdp_cer_ext.1.3_OLTleaf_14">no other CA-specific rules</selectable>
-                </selectables>
-              </h:li>
+                </selectables></h:li>
             </h:ul>
           </title>
           <note role="application">
@@ -627,23 +610,18 @@
                 <selectables>
                   <selectable id="fdp_cer_ext.1.4_OLTleaf_19">the supported function</selectable>
                   <selectable id="fdp_cer_ext.1.4_OLTleaf_21">
-                    <assignable>administrator action</assignable>
-                  </selectable>
+                    <assignable>administrator action</assignable></selectable>
                   <selectable id="fdp_cer_ext.1.4_OLTleaf_23">
-                    <assignable>automated processes</assignable>
-                  </selectable>
-                </selectables>
-              </h:li>
+                    <assignable>automated processes</assignable></selectable>
+                </selectables></h:li>
               <h:li>The public key populated in the issued certificate is  <selectables linebreak="yes"><selectable id="fdp_cer_ext.1.4_OLTleaf_24">generated by the TOE on <assignable>a specific event</assignable> and <selectables><selectable id="fdp_cer_ext.1.4_OLTleaf_26">made available to the supported function via an inter-TOE channel</selectable><selectable id="fdp_cer_ext.1.4_OLTleaf_27">made available to an external entity via a protected channel</selectable><selectable id="fdp_cer_ext.1.4_OLTleaf_29"><assignable>associated with the supported function</assignable></selectable></selectables> </selectable><selectable id="fdp_cer_ext.1.4_OLTleaf_30">provided <selectables><selectable id="fdp_cer_ext.1.4_OLTleaf_31">in the request</selectable><selectable id="fdp_cer_ext.1.4_OLTleaf_32">by the supported function</selectable></selectables> together with <assignable>evidence of proof of possession by the requested subject</assignable></selectable></selectables></h:li>
               <h:li>
                 <selectables linebreak="yes">
                   <selectable id="fdp_cer_ext.1.4_OLTleaf_34">The <selectables><selectable id="fdp_cer_ext.1.4_OLTleaf_35">notBefore</selectable><selectable id="fdp_cer_ext.1.4_OLTleaf_36">notAfter</selectable></selectables> portion of the validity field of the issued certificate is limited by <assignable>inputs from the supported function</assignable></selectable>
                   <selectable id="fdp_cer_ext.1.4_OLTleaf_39">
-                    <assignable>other issuance conditions</assignable>
-                  </selectable>
+                    <assignable>other issuance conditions</assignable></selectable>
                   <selectable id="fdp_cer_ext.1.4_OLTleaf_40">No other condition</selectable>
-                </selectables>
-              </h:li>
+                </selectables></h:li>
             </h:ul>
           </title>
           <note role="application">
@@ -694,10 +672,16 @@
         </f-element>
         <audit-event>
           <audit-event-descr>Certificate generation</audit-event-descr>
-          <audit-event-info>Success: Certificate valueCertificate object identifier</audit-event-info>
+          <audit-event-info>Success:</audit-event-info>
           <audit-event-info>
             <selectables onlyone="yes">
               <selectable>Certificate value</selectable>
+              <selectable>No additional information</selectable>
+            </selectables>
+          </audit-event-info>
+          <audit-event-info>
+            <selectables onlyone="yes">
+              <selectable>Certificate object identifier</selectable>
               <selectable>No additional information</selectable>
             </selectables>
           </audit-event-info>
@@ -857,8 +841,7 @@
                 <selectable id="fdp_crl_ext.1.1_3">The nextUpdate field is populated with a value that does not precede the time specified in the thisUpdate field.</selectable>
                 <selectable id="fdp_crl_ext.1.1_4">The version field is present with value 1.</selectable>
                 <selectable id="fdp_crl_ext.1.1_5">The issuerAltName extension is marked critical.</selectable>
-              </selectables>
-            </h:ul>.
+              </selectables></h:ul>.
           </title>
           <note role="application">
             <h:p>
@@ -1000,8 +983,7 @@
             <selectables>
               <selectable id="fdp_csi_ext.1.2_1">administrative action</selectable>
               <selectable id="fdp_csi_ext.1.2_3">
-                <assignable>input from a supported function</assignable>
-              </selectable>
+                <assignable>input from a supported function</assignable></selectable>
             </selectables>.
           </title>
           <note role="application">The ST author indicates the methods to notify the embedded CA of certificate status change. If inputs from a TOE 
@@ -1106,8 +1088,7 @@
                   <selectable id="fdp_ocsp_ext.1.1_1">sha384WithRSAEncryption with key size of 3072 bits or greater</selectable>
                   <selectable id="fdp_ocsp_ext.1.1_2">ecdsa-with-SHA384 using <selectables><selectable id="fdp_ocsp_ext.1.1_3">secp384r1</selectable><selectable id="fdp_ocsp_ext.1.1_4">secp521r1</selectable></selectables></selectable>
                   <selectable id="fdp_ocsp_ext.1.1_5">ecdsa-with-SHA512 using <selectables><selectable id="fdp_ocsp_ext.1.1_6">secp384r1</selectable><selectable id="fdp_ocsp_ext.1.1_7">secp521r1</selectable></selectables></selectable>
-                </selectables>
-              </h:li>
+                </selectables></h:li>
               <h:li>The thisUpdate field shall indicate the time at which the status being indicated is known to be correct.</h:li>
               <h:li>The producedAt field shall indicate the time at which the OCSP responder signed the response.</h:li>
               <h:li>If the nextUpdate field is populated, the time specified shall not precede the time specified in the 
@@ -1317,8 +1298,7 @@
             <selectables>
               <selectable id="fia_cmcs_ext.1.1_3">RFC 8756</selectable>
               <selectable id="fia_cmcs_ext.1.1_5">
-                <assignable>CMC profile supported</assignable>
-              </selectable>
+                <assignable>CMC profile supported</assignable></selectable>
             </selectables>
             in accordance with RFC 5272, RFC 5273, and RFC 5274, as updated by RFC 6402.
           </title>
@@ -1357,8 +1337,7 @@
             </selectables>
             <selectables>
               <selectable id="fia_cmcs_ext.1.3_4">
-                <assignable>transfer of CMC files to entities as authorized by the supported functions</assignable>
-              </selectable>
+                <assignable>transfer of CMC files to entities as authorized by the supported functions</assignable></selectable>
               <selectable id="fia_cmcs_ext.1.3_5">CMC transport over HTTPS for CMC messages from <assignable>external entities as authorized by the supported function</assignable></selectable>
             </selectables>
             in accordance with RFC 5273 as updated by RFC 6402.  
@@ -1402,8 +1381,7 @@
             <selectables>
               <selectable id="fia_cmcs_ext.1.5_1">an RA entity associated with the supported function</selectable>
               <selectable id="fia_cmcs_ext.1.5_3">
-                <assignable>an interface to the supported function</assignable>
-              </selectable>
+                <assignable>an interface to the supported function</assignable></selectable>
               <selectable id="fia_cmcs_ext.1.5_4">under the control of an administrator <assignable>limited to support of the associated TOE function</assignable></selectable>
             </selectables>
             and shall reject unauthorized requests.
@@ -1437,7 +1415,8 @@
 						Registration Authority functions, when no other certificates are available.</h:p>
             </Guidance>
             <Tests>
-              For each supported TOE function using CMC for managing certificates from the embedded CA, the evaluator shall perform the following tests.
+              For each supported TOE function using CMC for managing certificates from the embedded CA, the evaluator shall 
+						perform the following tests.
               <testlist>
                 <test>
                   <h:p>[conditional]: If the supported function uses an administratively installed RA entity to approve certificates 
@@ -1613,8 +1592,7 @@
             to receive, process, and respond to CMP requests received from authorized clients and
             <selectables>
               <selectable id="fia_cmps_ext.1.1_4">
-                <assignable>entities authorized as registration authorities</assignable>
-              </selectable>
+                <assignable>entities authorized as registration authorities</assignable></selectable>
               <selectable id="fia_cmps_ext.1.1_5">no other entity</selectable>
             </selectables>.
           </title>
@@ -1659,8 +1637,7 @@
             <selectables>
               <selectable id="fia_cmps_ext.1.3_3">RA attestation</selectable>
               <selectable id="fia_cmps_ext.1.3_5">
-                <assignable>out of band shared secret</assignable>
-              </selectable>
+                <assignable>out of band shared secret</assignable></selectable>
             </selectables>
             as configured by an administrator,
             <assignable>other method of establishing initial authentication material</assignable>.
@@ -1918,8 +1895,7 @@
 					8996, to receive, process, and respond to certificate simple enrollment requests from authorized clients and
             <selectables>
               <selectable id="fia_ests_ext.1.1_2">
-                <assignable>entities authorized as registration authorities</assignable>
-              </selectable>
+                <assignable>entities authorized as registration authorities</assignable></selectable>
               <selectable id="fia_ests_ext.1.1_3">no other entity</selectable>
             </selectables>.
           </title>
@@ -2206,8 +2182,7 @@
                 Certificates are signed using cryptographic signatures and hashes in accordance with RFC 8603, and
                 <selectables linebreak="yes">
                   <selectable id="fia_x509_ext.1.1_7">
-                    <assignable>list of supported cryptographic algorithms</assignable>
-                  </selectable>
+                    <assignable>list of supported cryptographic algorithms</assignable></selectable>
                   <selectable id="fia_x509_ext.1.1_8">no other algorithms</selectable>
                 </selectables>
                 and certificates signed using other cryptographic algorithms are considered invalid.
@@ -2217,8 +2192,7 @@
                   <selectable id="fia_x509_ext.1.1_9">CRLs are signed using cryptographic signatures and hashes in accordance with RFC 8603 and <selectables linebreak="yes"><selectable id="fia_x509_ext.1.1_11"><assignable>list of supported cryptographic algorithms</assignable></selectable><selectable id="fia_x509_ext.1.1_12">no other algorithms</selectable></selectables> and CRLs signed using other cryptographic algorithms are considered invalid;</selectable>
                   <selectable id="fia_x509_ext.1.1_13">OCSP responses are signed using <selectables linebreak="yes"><selectable id="fia_x509_ext.1.1_14">sha384WithRSAEncryption with key size of 3072 bits or greater,</selectable><selectable id="fia_x509_ext.1.1_15">ecdsa-with-SHA384 using <selectables><selectable id="fia_x509_ext.1.1_16">secp384r1</selectable><selectable id="fia_x509_ext.1.1_17">secp521r1</selectable></selectables>,</selectable><selectable id="fia_x509_ext.1.1_18">ecdsa-with-SHA512 using <selectables><selectable id="fia_x509_ext.1.1_19">secp384r1</selectable><selectable id="fia_x509_ext.1.1_20">secp521r1</selectable></selectables>,</selectable></selectables> and <selectables linebreak="yes"><selectable id="fia_x509_ext.1.1_22"><assignable>list of other supported algorithms</assignable></selectable><selectable id="fia_x509_ext.1.1_23">no other algorithms</selectable></selectables> requested using the preferredSignatureAlgorithm extension and OCSP responses are considered invalid if using other algorithms;</selectable>
                   <selectable id="fia_x509_ext.1.1_24">no other algorithm constraints</selectable>
-                </selectables>
-              </h:li>
+                </selectables></h:li>
             </h:ul>
           </title>
           <note role="application">
@@ -2265,8 +2239,7 @@
                 <selectable id="fia_x509_ext.1.2_16">extendedKeyUsage</selectable>
                 <selectable id="fia_x509_ext.1.2_17">nameConstraints</selectable>
                 <selectable id="fia_x509_ext.1.2_19">
-                  <assignable>other extensions</assignable>
-                </selectable>
+                  <assignable>other extensions</assignable></selectable>
                 <selectable id="fia_x509_ext.1.2_20">no other extensions</selectable>
               </selectables>.
             </h:ul>
@@ -2414,7 +2387,8 @@
 						evaluator shall verify that the operational guidance includes instructions for configuring the processing of 
 						that extension.</Guidance>
             <Tests>
-              The evaluator shall perform the following tests. The tests for the extendedKeyUsage rules, name constraints and policy constraints, if supported, are performed in conjunction with the uses that require those rules.
+              The evaluator shall perform the following tests. The tests for the extendedKeyUsage rules, name constraints 
+						and policy constraints, if supported, are performed in conjunction with the uses that require those rules.
               <testlist>
                 <test id="invalid-cert-test">The evaluator shall demonstrate that validating a certificate without a valid certification path results in the function failing by performing the following: <h:ul><h:li>[conditional] If the TSF imposes limits on certification path lengths, the evaluator shall demonstrate that the TSF rejects valid certificates whose certification path exceeds the supported length.</h:li> <h:li>[conditional] If the TSF supports a path length greater than one when the trust store element is a root CA certificate, or greater than two when the trust store element is a raw public key, then the evaluator shall  perform the following:
 							<h:ul><h:li>
@@ -2568,8 +2542,7 @@
                   <selectable id="fia_x509_ext.2.1_8">SMIME</selectable>
                   <selectable id="fia_x509_ext.2.1_9">SSH</selectable>
                   <selectable id="fia_x509_ext.2.1_11">
-                    <assignable>other authenticated communications protocol</assignable>
-                  </selectable>
+                    <assignable>other authenticated communications protocol</assignable></selectable>
                 </selectables>
               </selectable>
               <selectable id="fia_x509_ext.2.1_12">
@@ -2580,8 +2553,7 @@
                   <selectable id="x509-admin-auth">administrator authentication</selectable>
                   <selectable id="x509-user-auth">user authentication</selectable>
                   <selectable id="fia_x509_ext.2.1_14">
-                    <assignable>other uses</assignable>
-                  </selectable>
+                    <assignable>other uses</assignable></selectable>
                 </selectables>
               </selectable>
             </selectables>
@@ -2693,11 +2665,9 @@
             and
             <selectables linebreak="yes">
               <selectable id="fia_x509_ext.3.1_21">
-                <assignable>list of other certificate field and extension values</assignable>
-              </selectable>
+                <assignable>list of other certificate field and extension values</assignable></selectable>
               <selectable id="fia_x509_ext.3.1_23">
-                <assignable>list of identifying information</assignable>
-              </selectable>
+                <assignable>list of identifying information</assignable></selectable>
               <selectable id="fia_x509_ext.3.1_24">no other information.</selectable>
             </selectables>
           </title>
@@ -2818,8 +2788,7 @@
                   <selectable id="sel-fia-xcu-2e1-smime">SMIME</selectable>
                   <selectable id="sel-fia-xcu-2e1-ssh">SSH</selectable>
                   <selectable id="fia_xcu_ext.2.1_3">
-                    <assignable>other authenticated communications protocol</assignable>
-                  </selectable>
+                    <assignable>other authenticated communications protocol</assignable></selectable>
                 </selectables>
               </selectable>
               <selectable id="fia_xcu_ext.2.1_4">
@@ -2830,8 +2799,7 @@
                   <selectable id="sel-fia-xcu-2e1-adminauth">administrator authentication</selectable>
                   <selectable id="sel-fia-xcu-2e1-userauth">user authentication</selectable>
                   <selectable id="fia_xcu_ext.2.1_8">
-                    <assignable>other uses</assignable>
-                  </selectable>
+                    <assignable>other uses</assignable></selectable>
                 </selectables>
               </selectable>
             </selectables>.
