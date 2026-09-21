@@ -16,6 +16,7 @@ output/X509-release-linkable.html: RAs
 output/X509-release-linkable.html: RDN
 output/X509-release-linkable.html: RFI
 output/X509-release-linkable.html: SMR
+output/X509-release-linkable.html: SPD
 output/X509-release-linkable.html: STIP
 output/X509-release-linkable.html: STM
 output/X509-release-linkable.html: anyPurpose
@@ -90,6 +91,7 @@ output/X509-release.html: RAs
 output/X509-release.html: RDN
 output/X509-release.html: RFI
 output/X509-release.html: SMR
+output/X509-release.html: SPD
 output/X509-release.html: STIP
 output/X509-release.html: STM
 output/X509-release.html: accepted’
@@ -189,6 +191,7 @@ output/X509.html: RAs
 output/X509.html: RDN
 output/X509.html: RFI
 output/X509.html: SMR
+output/X509.html: SPD
 output/X509.html: STIP
 output/X509.html: STM
 output/X509.html: accepted’
