@@ -1174,14 +1174,14 @@ The following sections list Common Criteria and technology terms used in this do
 							embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> and its certificate profiles to meet the requirements.</p>
 					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 						The evaluator shall perform the following test.
-						<span class="testlist-"><ul><li class="test-"><a id="_t_1" class="defined" href="#_t_1">Test FDP_CER_EXT.1/OLTleaf:1</a>
+						<span class="testlist-"><ul><li class="test-"><a id="_t_1" class="defined" href="#_t_1">Test FDP_CER_EXT.1/OLTleaf:1</a>:<br/>
 								<p>For each supported function claimed in <a href="#FDP_CER_EXT.1.1/OLTleaf">FDP_CER_EXT.1.1/OLTleaf</a>, and for each certificate profile associated to the function, the evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to issue a certificate and observe that the 
 								certificate meets the appropriate profile, including constraints determined by the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> 
 								configuration and inputs provided by the function. If 
 								multiple name types are supported, the evaluator shall repeat this test as necessary to include all supported name types.</p>
-							</li><li class="test-"><a id="_t_2" class="defined" href="#_t_2">Test FDP_CER_EXT.1/OLTleaf:2</a>
+							</li><li class="test-"><a id="_t_2" class="defined" href="#_t_2">Test FDP_CER_EXT.1/OLTleaf:2</a>:<br/>
                             	[conditional] If “subjectName” is claimed and standard certificate requests are supported that allow a general <abbr class="dyn-abbr"><a href="#abbr_DN">DN</a></abbr> to be input, the  evaluator shall send the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> a certificate request that includes a <abbr class="dyn-abbr"><a href="#abbr_DN">DN</a></abbr> with an RDN component containing multiple elements and verify that <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> rejects the request.
-                            </li><li class="test-"><a id="_t_3" class="defined" href="#_t_3">Test FDP_CER_EXT.1/OLTleaf:3</a>
+                            </li><li class="test-"><a id="_t_3" class="defined" href="#_t_3">Test FDP_CER_EXT.1/OLTleaf:3</a>:<br/>
 								[conditional] If “subjectAltName” is claimed, and standard certificate requests are supported that allow multiple <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> entries, then for each name type supported, the evaluator shall send the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> a certificate request with multiple <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> entries of the indicated name type, where the first entry is valid and the second entry is invalid. The evaluator shall confirm that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> issues a certificate containing only the first entry.
 								Note: the method to create an invalid entry depends on the validation methods claimed.
 							</li></ul></span>
@@ -1227,7 +1227,7 @@ The following sections list Common Criteria and technology terms used in this do
 						the binding of issued certificates to the request meets the requirements.</p>
 					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 						The evaluator shall perform the following test.
-						<span class="testlist-"><ul><li class="test-"><a id="_t_4" class="defined" href="#_t_4">Test FDP_CER_EXT.2:1</a>
+						<span class="testlist-"><ul><li class="test-"><a id="_t_4" class="defined" href="#_t_4">Test FDP_CER_EXT.2:1</a>:<br/>
 							<p>[conditional] If the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> provides certificates to external entities in support of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> functions, and 
 							if the binding is searchable, the evaluator shall cause a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function to initiate a certificate request for 
 							the external entity and observe that a binding associates the certificate with the function’s request.</p>
@@ -1288,7 +1288,7 @@ The following sections list Common Criteria and technology terms used in this do
 						<a href="#FDP_CRL_EXT.1.1">FDP_CRL_EXT.1.1</a>.</p>
 					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 						The evaluator shall perform the following test.
-						<span class="testlist-"><ul><li class="test-"><a id="_t_5" class="defined" href="#_t_5">Test FDP_CRL_EXT.1:1</a>
+						<span class="testlist-"><ul><li class="test-"><a id="_t_5" class="defined" href="#_t_5">Test FDP_CRL_EXT.1:1</a>:<br/>
 							In conjunction with <a href="#revoked-cert-test" class="dynref">Test FDP_CSI_EXT.1:1</a>, the evaluator shall observe that the <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> issued by 
 							the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> meets the criteria of this requirement.
 							</li></ul></span>
@@ -1413,11 +1413,11 @@ The following sections list Common Criteria and technology terms used in this do
 							described.</p>
 					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 						The evaluator shall perform the following test.
-						<span class="testlist-"><ul><li class="test-"><a id="revoked-cert-test" class="defined" href="#revoked-cert-test">Test FDP_CSI_EXT.1:1</a>
+						<span class="testlist-"><ul><li class="test-"><a id="revoked-cert-test" class="defined" href="#revoked-cert-test">Test FDP_CSI_EXT.1:1</a>:<br/>
 								For each revocation method claimed, the evaluator shall attempt to cause the supported function to revoke an 
 								issued certificate. The evaluator shall demonstrate that the function no longer accepts the revoked 
 								certificate.
-							</li><li class="test-"><a id="reinstate-suspend-test" class="defined" href="#reinstate-suspend-test">Test FDP_CSI_EXT.1:2</a>
+							</li><li class="test-"><a id="reinstate-suspend-test" class="defined" href="#reinstate-suspend-test">Test FDP_CSI_EXT.1:2</a>:<br/>
 								[conditional:] If status changes allow reinstatement of suspended certificates, then for each method supporting
 								reinstatement, the evaluator shall suspend a certificate, demonstrate that it is not trusted, then reinstate
 								the certificate and demonstrate that <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> allows subsequent use of the certificate. If the certificate is used
@@ -1471,7 +1471,7 @@ The following sections list Common Criteria and technology terms used in this do
 						including specifying the location of the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responder, if claimed, are described.</p>
 					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 						The evaluator shall perform the following test.
-						<span class="testlist-"><ul><li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FDP_OCSP_EXT.1:1</a>
+						<span class="testlist-"><ul><li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FDP_OCSP_EXT.1:1</a>:<br/>
 								<p>In conjunction with <a href="#revoked-cert-test" class="dynref">Test FDP_CSI_EXT.1:1</a>, the evaluator shall observe that the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> response 
 								issued by the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> is available at the configured locations and meet the criteria of this requirement.</p>
 							<p>Note: <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> stapling includes the response signed by the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responder in the <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> handshake data – this 
@@ -1523,10 +1523,10 @@ The following sections list Common Criteria and technology terms used in this do
 						<p>The evaluator shall examine AGD guidance to ensure instructions are provided to configure <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> client functionality 
 						as necessary to meet requirements, or when multiple options are supported.</p>
 					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-						<span class="testlist-"><ul><li class="test-"><a id="valid-cmcc-test" class="defined" href="#valid-cmcc-test">Test FIA_CMCC_EXT.1:1</a>
+						<span class="testlist-"><ul><li class="test-"><a id="valid-cmcc-test" class="defined" href="#valid-cmcc-test">Test FIA_CMCC_EXT.1:1</a>:<br/>
 								<p>In conjunction with <a href="#cert-request-test" class="dynref">Test FIA_X509_EXT.3:1</a>, the evaluator shall observe that each <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> message
 									sent by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> is compliant with the requirements.</p>
-							</li><li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FIA_CMCC_EXT.1:2</a>
+							</li><li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FIA_CMCC_EXT.1:2</a>:<br/>
 								<p>[conditional]: If <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> transport of <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> is supported, the evaluator will observe that <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> messages are 
 								transported over a compliant <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> session with the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. If renewal or re-key is supported, the evaluator shall attempt 
 								to renew or re-key a certificate obtained in <a href="#valid-cmcc-test" class="dynref">Test FIA_CMCC_EXT.1:1</a>, and verify that compliant mutually authenticated <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> is 
@@ -1645,20 +1645,20 @@ The following sections list Common Criteria and technology terms used in this do
 					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 						For each supported <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function using <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> for managing certificates from the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>, the evaluator shall 
 						perform the following tests.
-						<span class="testlist-"><ul><li class="test-"><a id="_t_11" class="defined" href="#_t_11">Test FIA_CMCS_EXT.1:1</a>
+						<span class="testlist-"><ul><li class="test-"><a id="_t_11" class="defined" href="#_t_11">Test FIA_CMCS_EXT.1:1</a>:<br/>
 							<p>[conditional]: If the supported function uses an administratively installed <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> entity to approve certificates 
 							in <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> requests, the evaluator shall follow AGD guidance as necessary to initialize and install an <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> 
 							certificate associated with the supported function. The evaluator shall observe that the initial <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> 
 							certificate request is authenticated using <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> proof-of-possession, matches the relevant <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> certificate 
 							profile, and is authorized using a method described in <a href="#FIA_CMCS_EXT.1.5">FIA_CMCS_EXT.1.5</a>.</p> 
-							</li><li class="test-"><a id="_t_12" class="defined" href="#_t_12">Test FIA_CMCS_EXT.1:2</a>
+							</li><li class="test-"><a id="_t_12" class="defined" href="#_t_12">Test FIA_CMCS_EXT.1:2</a>:<br/>
 							<p>For each authorization method applicable to initial certificate requests used by the supported function, the 
 							evaluator shall cause an initial certificate request to be presented to the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> that is approved using the 
 							method. The evaluator shall confirm that the authorization method is used.</p>
-						</li><li class="test-"><a id="_t_13" class="defined" href="#_t_13">Test FIA_CMCS_EXT.1:3</a>
+						</li><li class="test-"><a id="_t_13" class="defined" href="#_t_13">Test FIA_CMCS_EXT.1:3</a>:<br/>
 							<p>The evaluator shall cause a valid initial certificate request for an authorized external entity to be sent 
 							over <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> and observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> sends the response over the established channel.</p> 
-						</li><li class="test-"><a id="_t_14" class="defined" href="#_t_14">Test FIA_CMCS_EXT.1:4</a>
+						</li><li class="test-"><a id="_t_14" class="defined" href="#_t_14">Test FIA_CMCS_EXT.1:4</a>:<br/>
 							<p>[conditional]: If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports certificate renewal or update of external entities via <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr>, the evaluator 
 							shall cause the certificate in the response to test 3 to authenticate the <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> session for a <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> requests 
 							for a certificate renewal using a <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> request and observe that the response includes the requested 
@@ -1721,10 +1721,10 @@ The following sections list Common Criteria and technology terms used in this do
 						<p>The evaluator shall examine AGD guidance to ensure instructions are provided to configure CMP client functionality 
 						as necessary to meet requirements, or when multiple options are supported.</p>
 					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-						<span class="testlist-"><ul><li class="test-"><a id="valid-cmpc-test" class="defined" href="#valid-cmpc-test">Test FIA_CMPC_EXT.1:1</a>
+						<span class="testlist-"><ul><li class="test-"><a id="valid-cmpc-test" class="defined" href="#valid-cmpc-test">Test FIA_CMPC_EXT.1:1</a>:<br/>
 								<p>In conjunction with <a href="#cert-request-test" class="dynref">Test FIA_X509_EXT.3:1</a>, the evaluator shall observe that the CMP messages are 
 									compliant with the requirements.</p>
-							</li><li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test FIA_CMPC_EXT.1:2</a>
+							</li><li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test FIA_CMPC_EXT.1:2</a>:<br/>
 								<p>[conditional]: if <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> transport of CMP is supported, the evaluator shall observe that CMP messages are 
 								transported over a compliant <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> session with the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. If renewal or re-key is supported, the evaluator shall attempt 
 								to renew or re-key a certificate obtained in <a href="#valid-cmpc-test" class="dynref">Test FIA_CMPC_EXT.1:1</a>, and verify that compliant mutually authenticated <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> is 
@@ -1805,25 +1805,25 @@ The following sections list Common Criteria and technology terms used in this do
 						functionality required to meet the requirements are included.</p>
 					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 						The evaluator shall perform the following tests.
-						<span class="testlist-"><ul><li class="test-"><a id="_t_17" class="defined" href="#_t_17">Test FIA_CMPS_EXT.1:1</a>
+						<span class="testlist-"><ul><li class="test-"><a id="_t_17" class="defined" href="#_t_17">Test FIA_CMPS_EXT.1:1</a>:<br/>
 							<p>For each initial authentication method supported, the evaluator shall demonstrate that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> is able 
 							to authenticate clients using the indicated authentication material. The evaluator shall then attempt to 
 							provide invalid authentication material for the method and demonstrate that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> does not generate the 
 							requested certificate.</p>
-							</li><li class="test-"><a id="_t_18" class="defined" href="#_t_18">Test FIA_CMPS_EXT.1:2</a>
+							</li><li class="test-"><a id="_t_18" class="defined" href="#_t_18">Test FIA_CMPS_EXT.1:2</a>:<br/>
 							<p>For each supported authentication method using certificate-based authentication, the evaluator shall 
 							demonstrate that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> is able to process a request using the method. The evaluator shall then use 
 							certificates not trusted by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> for CMP message authentication, and observe the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> does not generate 
 							the requested certificate.</p>
-							</li><li class="test-"><a id="_t_19" class="defined" href="#_t_19">Test FIA_CMPS_EXT.1:3</a>
+							</li><li class="test-"><a id="_t_19" class="defined" href="#_t_19">Test FIA_CMPS_EXT.1:3</a>:<br/>
 							<p>For each supported proof-of-possession method supported, the evaluator shall demonstrate that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> 
 							is able to process the certificate requests for certificates using the method. The evaluator shall then 
 							present invalid proof-of-possession evidence for the certificate request and observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> does not 
 							generate the requested certificate.</p>
-							</li><li class="test-"><a id="_t_20" class="defined" href="#_t_20">Test FIA_CMPS_EXT.1:4</a>
+							</li><li class="test-"><a id="_t_20" class="defined" href="#_t_20">Test FIA_CMPS_EXT.1:4</a>:<br/>
 								<p>For each transport method supported, the evaluator shall demonstrate that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is able to receive 
 								and send CMP messages protected by the method.</p>
-							</li><li class="test-"><a id="_t_21" class="defined" href="#_t_21">Test FIA_CMPS_EXT.1:5</a>
+							</li><li class="test-"><a id="_t_21" class="defined" href="#_t_21">Test FIA_CMPS_EXT.1:5</a>:<br/>
 								<p>[conditional]: If version 3 CMP messages are supported, the evaluator shall demonstrate that all 
 								supported hashAlg values are accepted by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</p>
 							</li></ul></span>
@@ -1887,10 +1887,10 @@ The following sections list Common Criteria and technology terms used in this do
 						<p>The evaluator shall examine the AGD guidance and verify that instructions for configuring <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> 
 							functionality are described, including initializing the implicit TA database if claimed.</p>
 					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-						<span class="testlist-"><ul><li class="test-"><a id="_t_22" class="defined" href="#_t_22">Test FIA_ESTC_EXT.1:1</a>
+						<span class="testlist-"><ul><li class="test-"><a id="_t_22" class="defined" href="#_t_22">Test FIA_ESTC_EXT.1:1</a>:<br/>
 								<p>The evaluator shall demonstrate the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> ability to configure and update trust stores 
 								associated with <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> servers.</p>
-							</li><li class="test-"><a id="_t_23" class="defined" href="#_t_23">Test FIA_ESTC_EXT.1:2</a>
+							</li><li class="test-"><a id="_t_23" class="defined" href="#_t_23">Test FIA_ESTC_EXT.1:2</a>:<br/>
 								<p>In conjunction with <a href="#cert-request-test" class="dynref">Test FIA_X509_EXT.3:1</a>, the evaluator shall observe that 
 									requests using <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> are compliant with the requirements.</p>
 							</li></ul></span>
@@ -1969,14 +1969,14 @@ The following sections list Common Criteria and technology terms used in this do
 						so that <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> conforms to the description in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>.</p>
 					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 						The evaluator shall perform the following tests.
-						<span class="testlist-"><ul><li class="test-"><a id="_t_24" class="defined" href="#_t_24">Test FIA_ESTS_EXT.1:1</a>
+						<span class="testlist-"><ul><li class="test-"><a id="_t_24" class="defined" href="#_t_24">Test FIA_ESTS_EXT.1:1</a>:<br/>
 							<p>The evaluator shall use an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> client to request certificate enrollment of an authorized subject to obtain a 
 							new certificate from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> using the simple enrollment method described in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.2, 
 							authenticating the request using an existing certificate and corresponding private key as described by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 
 							7030 Section 3.3.2.</p>
 							
 							<p>The evaluator shall confirm that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> issues a certificate and returns it to the client.</p>
-							</li><li class="test-"><a id="_t_25" class="defined" href="#_t_25">Test FIA_ESTS_EXT.1:2</a>
+							</li><li class="test-"><a id="_t_25" class="defined" href="#_t_25">Test FIA_ESTS_EXT.1:2</a>:<br/>
 							<p>[conditional]:If <abbr class="dyn-abbr"><a href="#abbr_HTTP">HTTP</a></abbr> basic authentication or if <abbr class="dyn-abbr"><a href="#abbr_HTTP">HTTP</a></abbr> digest authentication is selected in <a href="#FIA_ESTS_EXT.1.3">FIA_ESTS_EXT.1.3</a>, 
 							the evaluator shall use an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> client to request an initial certificate for an authorized entity from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> 
 							using the simple enrollment method described in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.2, authenticating the request using a 
@@ -1984,7 +1984,7 @@ The following sections list Common Criteria and technology terms used in this do
 							Section 3.2.3.</p>
 							
 							<p>The evaluator shall confirm that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> issues a certificate and returns it to the client.</p>
-							</li><li class="test-"><a id="_t_26" class="defined" href="#_t_26">Test FIA_ESTS_EXT.1:3</a>
+							</li><li class="test-"><a id="_t_26" class="defined" href="#_t_26">Test FIA_ESTS_EXT.1:3</a>:<br/>
 							<p>[conditional]: If “the authenticated client certificate is issued by the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> and asserts id-kp-cmcRA in 
 							its extended key usage extension…” is selected in <a href="#FIA_ESTS_EXT.1.4">FIA_ESTS_EXT.1.4</a>, the evaluator shall use an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> client to 
 							request certificate enrollment of a subject not known to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to be authorized, to request an initial 
@@ -1992,7 +1992,7 @@ The following sections list Common Criteria and technology terms used in this do
 							the request using an <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr>’s certificate issued by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>, that asserts id-kp-cmcRA in its 
 							extended key usage extension. The evaluator shall confirm that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> issues a certificate and returns it 
 							to the client.</p>
-							</li><li class="test-"><a id="_t_27" class="defined" href="#_t_27">Test FIA_ESTS_EXT.1:4</a>
+							</li><li class="test-"><a id="_t_27" class="defined" href="#_t_27">Test FIA_ESTS_EXT.1:4</a>:<br/>
 							<p>[conditional]: If “the authenticated client certificate is issued by the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> and asserts id-kp-cmcRA in its 
 							extended key usage extension…” is selected in <a href="#FIA_ESTS_EXT.1.4">FIA_ESTS_EXT.1.4</a>, the evaluator shall use an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> client to 
 							request certificate enrollment of a subject not known to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to be authorized, to request an initial 
@@ -2000,7 +2000,7 @@ The following sections list Common Criteria and technology terms used in this do
 							the request using a certificate issued by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s Certification Authority functionality that does not 
 							assert id-kp-cmcRA in its extended key usage extension and which is not associated with <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> privileges. 
 							The evaluator shall confirm that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not issue a certificate.</p>
-						</li><li class="test-"><a id="_t_28" class="defined" href="#_t_28">Test FIA_ESTS_EXT.1:5</a>
+						</li><li class="test-"><a id="_t_28" class="defined" href="#_t_28">Test FIA_ESTS_EXT.1:5</a>:<br/>
 							<p>The evaluator shall modify the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> client or set up a man-in-the-middle tool between the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> client and <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> 
 							to perform the following modification to a valid certificate request. 
 							<ul>
@@ -2115,7 +2115,7 @@ The following sections list Common Criteria and technology terms used in this do
 						</p>
 					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 						The evaluator shall perform one or more of the following tests:
-						<span class="testlist-"><ul><li class="test-"><a id="_t_29" class="defined" href="#_t_29">Test FIA_TSM_EXT.1:1</a>
+						<span class="testlist-"><ul><li class="test-"><a id="_t_29" class="defined" href="#_t_29">Test FIA_TSM_EXT.1:1</a>:<br/>
 							<p>
 								For each supported method for managing a trust store element, the evaluator shall exercise the method 
 								to invalidate a trust store element and demonstrate that a certification path terminating in the 
@@ -2125,7 +2125,7 @@ The following sections list Common Criteria and technology terms used in this do
 								Note: This repeats part of <a href="#invalid-cert-test" class="dynref">Test FIA_X509_EXT.1:1</a>. It is not necessary to repeat the method used to 
 								invalidate the trust anchor element that was previously tested.
 							</p>
-							</li><li class="test-"><a id="_t_30" class="defined" href="#_t_30">Test FIA_TSM_EXT.1:2</a>
+							</li><li class="test-"><a id="_t_30" class="defined" href="#_t_30">Test FIA_TSM_EXT.1:2</a>:<br/>
 							<p>
 								[conditional]: If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports installation of certificates that are neither self-signed root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> 
 								certificates nor <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> certificates without revocation status, the evaluator shall demonstrate that the 
@@ -2138,7 +2138,7 @@ The following sections list Common Criteria and technology terms used in this do
 								required connection is not available during loading, or if other exemptions for revocation checking apply;
 								such certificates are checked on use.
 							</p>								
-							</li><li class="test-"><a id="_t_31" class="defined" href="#_t_31">Test FIA_TSM_EXT.1:3</a>
+							</li><li class="test-"><a id="_t_31" class="defined" href="#_t_31">Test FIA_TSM_EXT.1:3</a>:<br/>
 								[conditional]: If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports the inclusion of certificates that are neither self-signed root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates nor <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> certificates without revocation status and claims revocation status checks other than “when installed…” the evaluator shall demonstrate for each such certificate type, and for each event that checks revocation status, that a certificate of the indicated type that is revoked prior to the indicated event is not considered valid.
 							</li></ul></span>
 					</div></div></div></div></div><div class="comp" id="FIA_X509_EXT.1"><h4>FIA_X509_EXT.1 X.509 Certificate Validation</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in:</i></b><ul><li><b><i><a href="#FIA_XCU_EXT.1.1">FIA_XCU_EXT.1.1</a></i></b></li></ul></div>
@@ -2372,7 +2372,7 @@ The following sections list Common Criteria and technology terms used in this do
 					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 						The evaluator shall perform the following tests. The tests for the extendedKeyUsage rules, name constraints 
 						and policy constraints, if supported, are performed in conjunction with the uses that require those rules.
-						<span class="testlist-"><ul><li class="test-"><a id="invalid-cert-test" class="defined" href="#invalid-cert-test">Test FIA_X509_EXT.1:1</a>					
+						<span class="testlist-"><ul><li class="test-"><a id="invalid-cert-test" class="defined" href="#invalid-cert-test">Test FIA_X509_EXT.1:1</a>:<br/>					
 							The evaluator shall demonstrate that validating a certificate without a valid certification path results
 							in the function failing by performing the following:
 							<ul>
@@ -2404,11 +2404,11 @@ The following sections list Common Criteria and technology terms used in this do
 							intermediate certificate in the certificate path that is not a trust store element and show that the function 
 							fails.
 						</p>
-							</li><li class="test-"><a id="_t_33" class="defined" href="#_t_33">Test FIA_X509_EXT.1:2</a>
+							</li><li class="test-"><a id="_t_33" class="defined" href="#_t_33">Test FIA_X509_EXT.1:2</a>:<br/>
 								<p>[conditional]: If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> does not support unlimited path length, the evaluator shall demonstrate that 
 								validating a valid certificate path of greater length than the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports results in the function 
 								failing.</p>
-							</li><li class="test-"><a id="_t_34" class="defined" href="#_t_34">Test FIA_X509_EXT.1:3</a>							
+							</li><li class="test-"><a id="_t_34" class="defined" href="#_t_34">Test FIA_X509_EXT.1:3</a>:<br/>							
 								<p>The evaluator shall demonstrate that a valid certificate path using cryptographic algorithms not allowed 
 								for certification path signature functions results in the function failing.</p>
 								<p>
@@ -2418,41 +2418,41 @@ The following sections list Common Criteria and technology terms used in this do
 									such signature or hash functions, the evaluator uses an unsupported signature or hash function (e.g., 
 									DSA and MD-5 are not supported).
 								</p>
-							</li><li class="test-"><a id="_t_35" class="defined" href="#_t_35">Test FIA_X509_EXT.1:4</a>								
+							</li><li class="test-"><a id="_t_35" class="defined" href="#_t_35">Test FIA_X509_EXT.1:4</a>:<br/>								
 								<p>The evaluator shall demonstrate that validating a certificate after its validity period's "notAfter" time
 								results in the function failing. The evaluator shall demonstrate that validating a certificate prior to its
 								validity period's "notBefore" time results in the function failing.</p>								
-							</li><li class="test-"><a id="_t_36" class="defined" href="#_t_36">Test FIA_X509_EXT.1:5</a>								
+							</li><li class="test-"><a id="_t_36" class="defined" href="#_t_36">Test FIA_X509_EXT.1:5</a>:<br/>								
 								<p>[conditional]: If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports certificate policies, the evaluator configures the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to 
 								require a specific policy <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr>, and demonstrates that a valid certificate path asserting the policy 
 								<abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> results in the function succeeding, and a valid certification path not asserting that policy (or 
 								a policy that maps to it) results in the function failing.</p>
 								<p><b>Note:</b> The policy <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> used in the test need not be associated with specific practices of any <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> - only the processing and matching of the OIDs is required.</p>
-							</li><li class="test-"><a id="_t_37" class="defined" href="#_t_37">Test FIA_X509_EXT.1:6</a>
+							</li><li class="test-"><a id="_t_37" class="defined" href="#_t_37">Test FIA_X509_EXT.1:6</a>:<br/>
 								<p>[conditional]: If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports certificate policies and policy mapping, the evaluator configures 
 								the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to require a specific policy <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> that is mapped to an expected policy. The evaluator 
 								demonstrates that a valid certification path that asserts the policy <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> and includes the mapping to 
 								the expected policy results in the function succeeding, and that a certification path that asserts 
 								the policy <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr>, but not the proper mapping results in the function failing.</p>
 								<p><b>Note:</b> The policy <abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr> used in the test need not be associated with specific practices of any <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> - only the processing and matching of the OIDs is required.</p>
-							</li><li class="test-"><a id="_t_38" class="defined" href="#_t_38">Test FIA_X509_EXT.1:7</a>
+							</li><li class="test-"><a id="_t_38" class="defined" href="#_t_38">Test FIA_X509_EXT.1:7</a>:<br/>
 								<p>[conditional]: If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports other extensions, for each supported extension, the evaluator 
 								establishes a certification path which asserts the extension and value expected by the function, and 
 								demonstrates that the function succeeds. The evaluator then establishes, in turn as applicable, a 
 								certification path without the extension, and a certification path with the extension but with an 
 								invalid value, and demonstrates that the function requiring such extension and values fails.</p>
-							</li><li class="test-"><a id="_t_39" class="defined" href="#_t_39">Test FIA_X509_EXT.1:8</a>								
+							</li><li class="test-"><a id="_t_39" class="defined" href="#_t_39">Test FIA_X509_EXT.1:8</a>:<br/>								
 								<p>The evaluator demonstrates that a certification path with a critical extension that is not supported 
 								by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> results in the function failing.</p>	
 								<p>Note: The extension used in this test need not be registered in IANA <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> Security extensions (Transport
 									Layer Security (<abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>) Extensions (iana.org))</p>
-							</li><li class="test-"><a id="_t_40" class="defined" href="#_t_40">Test FIA_X509_EXT.1:9</a>
+							</li><li class="test-"><a id="_t_40" class="defined" href="#_t_40">Test FIA_X509_EXT.1:9</a>:<br/>
 								<p>The evaluator shall test that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can properly handle supported methods for revoked certificates. 
 								The evaluator demonstrates that when all supported methods indicate that each certificate in the 
 								certification path is valid, the function succeeds. Then, for each supported method, the evaluator 
 								demonstrates that when the method indicates a certificate in the certification path is revoked, the 
 								function fails. The evaluator shall repeat this test on intermediate, non-trust store elements.</p>								
-							</li><li class="test-"><a id="_t_41" class="defined" href="#_t_41">Test FIA_X509_EXT.1:10</a>								
+							</li><li class="test-"><a id="_t_41" class="defined" href="#_t_41">Test FIA_X509_EXT.1:10</a>:<br/>								
 								<p>[conditional]: If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>, the evaluator shall demonstrate that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> does not 
 								consider invalid revocation information in determining the status of a certification path. The 
 								evaluator shall test for invalid signature, and unauthorized signer of the status information for 
@@ -2464,19 +2464,19 @@ The following sections list Common Criteria and technology terms used in this do
 								<p>Note: an invalid signature can be obtained by modifying a byte of a valid signature; unauthorized 
 								signers use valid signatures by an entity not authorized (not delegated by the issuing <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>, and if 
 								local <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responders are supported, not locally trusted) to sign revocation status information.</p>
-							</li><li class="test-"><a id="_t_42" class="defined" href="#_t_42">Test FIA_X509_EXT.1:11</a>
+							</li><li class="test-"><a id="_t_42" class="defined" href="#_t_42">Test FIA_X509_EXT.1:11</a>:<br/>
 								<p>[conditional]: If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports validity status determination based on expiration within a short 
 								time and at least one other method, the evaluator will demonstrate that expiration time is not 
 								considered when another method is available and provides valid status information – the evaluator 
 								demonstrates that certification path including a soon-to-expire certificate that has been revoked 
 								results in the function failing.</p>
-							</li><li class="test-"><a id="_t_43" class="defined" href="#_t_43">Test FIA_X509_EXT.1:12</a>								
+							</li><li class="test-"><a id="_t_43" class="defined" href="#_t_43">Test FIA_X509_EXT.1:12</a>:<br/>								
 								<p>[conditional]: If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports multiple revocation status information sources, then for each 
 								supported source of revocation status information, the evaluator demonstrates certificate status 
 								information resilience by making all but the one source of supported revocation status information 
 								unavailable to the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. The evaluator demonstrates that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> is able to use the available status 
 								information.</p>								
-							</li><li class="test-"><a id="_t_44" class="defined" href="#_t_44">Test FIA_X509_EXT.1:13</a>
+							</li><li class="test-"><a id="_t_44" class="defined" href="#_t_44">Test FIA_X509_EXT.1:13</a>:<br/>
 								<p>[conditional: If a function in 
 									<a href="#FIA_X509_EXT.2">FIA_X509_EXT.2</a> requires <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> processing of context information for path validation] For each supported 
 									function requiring <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> processing context information, and for each supported certificate context and 
@@ -2485,9 +2485,9 @@ The following sections list Common Criteria and technology terms used in this do
 													
 									<p>Note: This test is not performed if ‘pass context information to the supported function’ is the only 
 									method of certification path context processing claimed.</p>											
-							</li><li class="test-"><a id="_t_45" class="defined" href="#_t_45">Test FIA_X509_EXT.1:14</a>
+							</li><li class="test-"><a id="_t_45" class="defined" href="#_t_45">Test FIA_X509_EXT.1:14</a>:<br/>
 								The evaluator shall establish a certificate with an empty subject field and not containing a subjectAltName extension, but which is otherwise valid and trusted by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. The evaluator shall demonstrate that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> rejects the certificate.
-							</li><li class="test-"><a id="_t_46" class="defined" href="#_t_46">Test FIA_X509_EXT.1:15</a>
+							</li><li class="test-"><a id="_t_46" class="defined" href="#_t_46">Test FIA_X509_EXT.1:15</a>:<br/>
 								[conditional]: If certificates with non-empty subject fields are validated and if either name constraints processing is supported or one or more reference ID checking rules are included in trust store context rules, then for each RDN supported, the evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to enforce a rule on the RDN value, establish a value for the RDN that matches the rule, and perform the following steps: <ul>
 									<li>The evaluator shall present a valid certificate containing a valid <abbr class="dyn-abbr"><a href="#abbr_DN">DN</a></abbr> with the matching RDN value to the supported function and verify that the certificate is accepted.</li>
 									<li>The evaluator shall then present a second certificate where the RDN component does not match the rule, but which is otherwise valid and matches the first certificate. The evaluator shall observe that the certificate is rejected.</li>
@@ -2496,7 +2496,7 @@ The following sections list Common Criteria and technology terms used in this do
 									<li>The evaluator shall present a fifth certificate where the <abbr class="dyn-abbr"><a href="#abbr_DN">DN</a></abbr> includes the RDN with a value containing the matching value as a substring of a longer, non-matching value, but which is otherwise valid and demonstrate that the modified certificate is rejected.</li>
 									<li>The evaluator shall present a sixth certificate where the <abbr class="dyn-abbr"><a href="#abbr_DN">DN</a></abbr> includes the RDN as a multi-element RDN, where both elements contain matching values, but which is otherwise valid and observe that the certificate is rejected.</li>
 								</ul> 
-							</li><li class="test-"><a id="_t_47" class="defined" href="#_t_47">Test FIA_X509_EXT.1:16</a>
+							</li><li class="test-"><a id="_t_47" class="defined" href="#_t_47">Test FIA_X509_EXT.1:16</a>:<br/>
 								[conditional]: If the subject_Alt_Name extension is supported and if the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> either supports name constraints or reference ID matching as part of trust store context rules, then for each name type supported, the evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to enforce a rule to constrain the values of the name type, and generate a matching value that meets the constraints, as well as a non-matching value that does not meet the constraints. The evaluator shall then perform the following: <ul>
 									<li>The evaluator shall establish a valid certificate that includes the <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> name of the given type and matching value. The evaluator shall present the certificate to a supported function and demonstrate that the certificate is accepted.</li>
 									<li>The evaluator shall establish a second certificate that includes the <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> name of the given type and non-matching value. The evaluator shall present the certificate to a supported function and demonstrate that the certificate is rejected.</li>
@@ -2570,7 +2570,7 @@ The following sections list Common Criteria and technology terms used in this do
 					[conditional]: If “administrator is allowed to configure certificate acceptance” is claimed, the evaluator shall inspect the guidance documentation to ensure instructions for configuring 
 							application-specific behavior for certificate validation is included.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-					<span class="testlist-"><ul><li class="test-"><a id="_t_48" class="defined" href="#_t_48">Test FIA_X509_EXT.2:1</a>
+					<span class="testlist-"><ul><li class="test-"><a id="_t_48" class="defined" href="#_t_48">Test FIA_X509_EXT.2:1</a>:<br/>
 							<p>
 								[conditional]: If application-specific default responses for inaccessible certificate status information 
 								are supported, then for each function supporting such defaults, the evaluator shall configure a default 
@@ -2654,7 +2654,7 @@ The following sections list Common Criteria and technology terms used in this do
 							behavior for certificate validation is included.
 					</p>
 					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-						<span class="testlist-"><ul><li class="test-"><a id="cert-request-test" class="defined" href="#cert-request-test">Test FIA_X509_EXT.3:1</a>
+						<span class="testlist-"><ul><li class="test-"><a id="cert-request-test" class="defined" href="#cert-request-test">Test FIA_X509_EXT.3:1</a>:<br/>
 									For each certificate required to represent a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function, for each name type supported, and for each 
 									request option supported for that function, the evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function name of 
 									the selected type and any extensions required by the function and request a certificate using the 
